@@ -80,35 +80,3 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
     #     else:
     #         return "has "
 
-
-associations = [
-    {
-        'class1': 'Machine',
-        'class2': 'Piece',
-        'cardinality_class1': '1',
-        'cardinality_class2': '*',
-        'name': '',
-        'role_class1': 'isProducedBy',
-        'role_class2': 'produces'
-    },
-    {
-        'class1': 'Machine',
-        'class2': 'Worker',
-        'cardinality_class1': '*',
-        'cardinality_class2': '1..*',
-        'name': '',
-        'role_class1': 'operates',
-        'role_class2': 'isOperatedBy'
-    },
-    {
-        'class1': 'Factory',
-        'class2': 'Worker',
-        'cardinality_class1': '1',
-        'cardinality_class2': '1..*',
-        'name': '',
-        'role_class1': 'workplace',
-        'role_class2': 'workers'
-    }
-]
-
-sp = SentenceFromAssociations(associations)
