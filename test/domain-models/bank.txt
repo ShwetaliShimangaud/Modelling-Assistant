@@ -1,0 +1,15 @@
+
+class_attributes = {
+    "Customer": [],
+    "Account": ['balance']
+}
+
+associations = [{
+    'class1': 'Account',
+    'class2': 'Customer',
+    'cardinality_class1': '0..*',
+    'cardinality_class2': '1',
+    'name': '',
+    'role_class1': 'accounts',
+    'role_class2': 'owner'
+}]
