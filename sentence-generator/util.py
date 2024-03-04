@@ -1,5 +1,6 @@
 import constants
 import re
+import spacy
 
 
 def get_cardinality(cardinality):
@@ -7,6 +8,10 @@ def get_cardinality(cardinality):
         return constants.singular_cardinality_to_article_map[cardinality]
     else:
         return constants.multiple_cardinality_to_article_map[cardinality]
+
+
+def is_singular(cardinality):
+    return ".." not in cardinality
 
 
 def contains_verb(tag):
@@ -18,6 +23,18 @@ def get_appropriate_article(attribute):
         return 'an'
     else:
         return 'a'
+
+
+def get_pos_tag(words):
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(words)
+    pos_tags = []
+
+    for token in doc:
+        pair = (token.text, token.tag_)
+        pos_tags.append(pair)
+
+    return pos_tags
 
 
 # Function to split compound words written in camel case

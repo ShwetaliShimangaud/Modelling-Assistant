@@ -1,9 +1,6 @@
 import nltk
 import stanfordnlp
 
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-
 # MODELS_DIR = '.'
 # stanfordnlp.download('en', MODELS_DIR)  # Download the English models
 # nlp = stanfordnlp.Pipeline(processors='tokenize,pos,depparse', models_dir=MODELS_DIR, treebank='en_ewt', use_gpu=True,

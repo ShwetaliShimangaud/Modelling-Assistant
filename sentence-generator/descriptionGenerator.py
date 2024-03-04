@@ -59,7 +59,7 @@ class DescriptionGenerator:
         print(final_sentence)
 
 
-# dec = DescriptionGenerator("D:\\Thesis\\modelling-assistant\\test\\domain-models\\bank.txt")
-dec = DescriptionGenerator("/test/domain-models/factory")
+# dec = DescriptionGenerator("D:\\Thesis\\modelling-assistant\\test\\domain-models\\bank")
+dec = DescriptionGenerator("D:\\Thesis\\modelling-assistant\\test\\domain-models\\factory")
 dec.generate_description()
-print(dec.get_description())
+
