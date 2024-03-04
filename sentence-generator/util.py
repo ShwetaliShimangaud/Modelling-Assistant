@@ -19,7 +19,9 @@ def contains_verb(tag):
 
 
 def get_appropriate_article(attribute):
-    if attribute[0].lower() in ['a', 'e', 'i', 'o', 'u']:
+    if attribute[-1] == 's':
+        return ''
+    elif attribute[0].lower() in ['a', 'e', 'i', 'o', 'u']:
         return 'an'
     else:
         return 'a'
