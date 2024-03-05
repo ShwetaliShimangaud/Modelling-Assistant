@@ -1,0 +1,12 @@
+prompts = [
+"Do these statements contradict each other?",
+"Are these statements mutually exclusive?",
+"Do these statements clash or conflict with each other?",
+"Are these statements at odds with each other?",
+"Do these statements negate each other?",
+"Are these statements inconsistent?",
+"Do these statements oppose each other?",
+"Are these statements in disagreement?",
+"Are these statements incompatible?",
+"Do these statements present conflicting viewpoints?"
+]

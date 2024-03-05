@@ -3,22 +3,26 @@ from sentenceFromAssociations import SentenceFromAssociations
 from sentenceFromCompositions import SentenceFromCompositions
 from postProcessor import PostProcessor
 
+# model_path = "D:\\Thesis\\modelling-assistant\\test\\domain-models\\bank"
+# model_path = "D:\\Thesis\\modelling-assistant\\test\\domain-models\\factory"
+model_path = "D:\\Thesis\\modelling-assistant\\test\\domain-models\\sustainable-transportation"
+
 
 class DescriptionGenerator:
-    def __init__(self, model_path):
-        self.model_path = model_path
+    def __init__(self):
         attributes, associations, compositions = self.read_model()
         self.generator_from_attributes = SentenceFromAttributes(attributes)
         self.generator_from_associations = SentenceFromAssociations(associations)
         self.generator_from_compositions = SentenceFromCompositions(compositions)
         self.post_processor = PostProcessor()
+        self.generate_description()
         self.description = ''
 
     def get_description(self):
         return self.description
 
     def read_model(self):
-        with open(self.model_path, 'r') as file:
+        with open(model_path, 'r') as file:
             content = file.read()
 
         local_vars = {}
@@ -59,8 +63,5 @@ class DescriptionGenerator:
         print(final_sentence)
 
 
-# dec = DescriptionGenerator("D:\\Thesis\\modelling-assistant\\test\\domain-models\\bank")
-# dec = DescriptionGenerator("D:\\Thesis\\modelling-assistant\\test\\domain-models\\factory")
-dec = DescriptionGenerator("D:\\Thesis\\modelling-assistant\\test\\domain-models\\sustainable-transportation")
+dec = DescriptionGenerator()
 dec.generate_description()
-
