@@ -272,7 +272,17 @@ factory_system = ("A factory is composed of a number of machines that produce pi
                   "width, height and depth. There are workers working at the factory. Each machine is operated by one "
                   "or more workers and, for each worker, we need to store their id, name and salary.")
 
-doc = nlp(factory_system)
+transportation_system = (
+    "Cities put in place bike rental systems to encourage their citizens to be more sustainable. For each city, "
+    "we need to store its name and country. Cities have bike stations located at different addresses. Apart from the "
+    "address, for each bike station we need to store its name and the number of spots that it has to park bikes. When "
+    "bikes are not in use, they are parked in bike stations. For each bike, we store its code as an integer and the "
+    "price per hour. Note that different bikes might have different prices per hour."
+    "Bikes are rented by users. For each user we need to keep their id, name and credit card information. For each "
+    "rental, we need to keep track of the start and end date, the pickup station, the dropoff "
+    "station, the user who has rented the bike and the bike that has been rented.")
+
+doc = nlp(transportation_system)
 
 necessary_sentences = []
 unnecessary_sentences = []

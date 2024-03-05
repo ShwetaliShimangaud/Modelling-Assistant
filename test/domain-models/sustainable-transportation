@@ -1,0 +1,64 @@
+class_attributes = {
+    "SustainableCity": ['name','country'],
+    "BikeStation": ['name','address','spots'],
+    "User" :['id','name','creditcard'],
+    "Rental":['startDate','endDate'],
+    "Bike":['code','priceHour']
+}
+
+associations = [
+{
+    'class1': 'SustainableCity',
+    'class2': 'BikeStation',
+    'cardinality_class1': '1',
+    'cardinality_class2': '1..*',
+    'name': '',
+    'role_class1': 'is',
+    'role_class2': 'has'
+},
+{
+    'class1': 'BikeStation',
+    'class2': 'Bike',
+    'cardinality_class1': '0..1',
+    'cardinality_class2': '0..*',
+    'name': '',
+    'role_class1': 'parkedIn',
+    'role_class2': 'bikesParked'
+},
+{
+    'class1': 'BikeStation',
+    'class2': 'Rental',
+    'cardinality_class1': '1',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': 'dropOffStation',
+    'role_class2': 'rentals'
+},
+{
+    'class1': 'BikeStation',
+    'class2': 'Rental',
+    'cardinality_class1': '1',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': 'pickUpStation',
+    'role_class2': 'rentals'
+},
+{
+    'class1': 'Bike',
+    'class2': 'Rental',
+    'cardinality_class1': '1',
+    'cardinality_class2': '0..*',
+    'name': '',
+    'role_class1': 'rents',
+    'role_class2': 'rentals'
+},
+{
+    'class1': 'User',
+    'class2': 'Rental',
+    'cardinality_class1': '1',
+    'cardinality_class2': '0..*',
+    'name': '',
+    'role_class1': 'user',
+    'role_class2': 'rentals'
+}
+]

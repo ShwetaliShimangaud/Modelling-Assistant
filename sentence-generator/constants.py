@@ -14,6 +14,7 @@ multiple_cardinality_to_article_map = {
     '0..*': 'zero or multiple+pl',
     '1..*': 'at least one or more',
     '2,3,...,n': 'Two,three,....,many+pl',
+    '0..1': 'zero or one+pl'
 }
 
 noun_tags = ['NN', 'NNS', 'NNP', 'NNPS']

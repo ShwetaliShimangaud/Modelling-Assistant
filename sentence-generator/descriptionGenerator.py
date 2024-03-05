@@ -60,6 +60,7 @@ class DescriptionGenerator:
 
 
 # dec = DescriptionGenerator("D:\\Thesis\\modelling-assistant\\test\\domain-models\\bank")
-dec = DescriptionGenerator("D:\\Thesis\\modelling-assistant\\test\\domain-models\\factory")
+# dec = DescriptionGenerator("D:\\Thesis\\modelling-assistant\\test\\domain-models\\factory")
+dec = DescriptionGenerator("D:\\Thesis\\modelling-assistant\\test\\domain-models\\sustainable-transportation")
 dec.generate_description()
 
