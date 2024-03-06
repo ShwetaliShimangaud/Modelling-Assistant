@@ -15,8 +15,8 @@ class DescriptionGenerator:
         self.generator_from_associations = SentenceFromAssociations(associations)
         self.generator_from_compositions = SentenceFromCompositions(compositions)
         self.post_processor = PostProcessor()
-        self.generate_description()
         self.description = ''
+        self.generate_description()
 
     def get_description(self):
         return self.description

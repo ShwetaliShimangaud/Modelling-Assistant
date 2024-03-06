@@ -18,7 +18,8 @@ class Assistant:
 
     def run(self):
         actual_description = self.description_reader.get_actual_description()
-        # TODO : Create a map where you will store generated description of each class against it's attributes and relationships.
+        # TODO : Create a map where you will store generated description of each class against it's attributes and
+        #  relationships.
         domain_state = self.description_generator.get_description()
         workflow = WorkflowStart(actual_description, domain_state)
         self.warnings, self.errors = workflow.run()

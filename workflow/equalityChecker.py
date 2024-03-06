@@ -1,6 +1,9 @@
 import apiCaller
+import os
+from src import util
 
-file_path = "D:\\Thesis\\modelling-assistant\\src\\resources\\prompts\\equality"
+dirname = util.get_project_directory()
+file_path = os.path.join(dirname, 'src/resources/prompts/equality')
 
 
 class EqualityChecker:
