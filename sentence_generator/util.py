@@ -28,7 +28,7 @@ def get_appropriate_article(attribute):
 
 
 def get_pos_tag(words):
-    nlp = spacy.load("en_core_web_sm")
+    nlp = spacy.load("en_core_web_trf")
     doc = nlp(words)
     pos_tags = []
 
