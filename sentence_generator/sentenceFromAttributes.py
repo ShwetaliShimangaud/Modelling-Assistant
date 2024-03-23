@@ -99,18 +99,18 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
 
             if len(attributes) > 0:
                 # With aggregation
-                sentence = class_name + " " + self.verb_phrase + " "
+                sentence = util.format_concept(class_name) + " " + self.verb_phrase + " "
                 if len(attributes) == 1:
-                    sentence = sentence + util.get_appropriate_article(attributes[0]) + " " + attributes[0]
+                    sentence = sentence + util.format_concept(attributes[0])
 
                 else:
                     for i, attribute in enumerate(attributes):
                         if i < len(attributes) - 2:
-                            sentence = sentence + util.get_appropriate_article(attribute) + " " + attribute + ", "
+                            sentence = sentence + util.format_concept(attribute) + ", "
                         elif i == len(attributes) - 2:
-                            sentence = sentence + util.get_appropriate_article(attribute) + " " + attribute + " "
+                            sentence = sentence + util.format_concept(attribute) + " "
                         elif i == len(attributes) - 1:
-                            sentence = sentence + "and " + util.get_appropriate_article(attribute) + " " + attribute
+                            sentence = sentence + "and " + util.format_concept(attribute)
 
                 self.sentences.append(sentence)
                 # Without aggregation
@@ -122,3 +122,34 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
             # sentence = sentence[:-2] + "."
 
             print(self.sentences)
+
+
+# factory_attributes = {
+#     'Factory': ["city"],
+#     "Machine": ['speed', 'capacity'],
+#     "Piece": ['width', "height", "depth"],
+#     "Worker": ['id', 'name', 'salary']
+# }
+#
+# city_attributes = {
+#     'Campaign': ["estimatedCost", "overallCost", "completed"],
+#     "City": ['name'],
+#     "Neighbourhood": ['name', "aqi"],
+#     "AirQualitySensor": ['CO', 'O3', 'SO2', 'NO2', 'others'],
+#     "Display": ['size', 'resolution']
+# }
+#
+# bank_attributes = {
+#     "Customer": [],
+#     "Account": ['balance']
+# }
+#
+# transportation_attributes = {
+#     "SustainableCity": ['name', 'country'],
+#     "BikeStation": ['name', 'address', 'spots'],
+#     "User": ['id', 'name', 'creditcard'],
+#     "Rental": ['startDate', 'endDate'],
+#     "Bike": ['code', 'priceHour']
+# }
+#
+# sfa = SentenceFromAttributes(transportation_attributes)
