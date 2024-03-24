@@ -16,7 +16,7 @@ import spacy
 # 1. Auxillary verb + main verb :  isOperatedBy : no changes needed
 # 2. Verb as adjective.modifier : bikesParked
 # 3. Main verb with morph analysis Present/past/future tense : parkedIn : Decide on is/are/was/were
-# TODO : Check if multiple tense conditions needs to be checked or will 'has' in every case
+# TODO : Check if multiple tense conditions needs to be checked or will 'has' work in every case
 # 4. Main verb infinitive form : drop : Go with 'has'
 
 
@@ -33,7 +33,7 @@ def get_main_and_auxillary_verb(result):
 
 
 def ends_with_preposition(result):
-    last_token = result[len(result)-1]
+    last_token = result[len(result) - 1]
     return last_token.pos_ == "ADP"
 
 
@@ -73,7 +73,7 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
                 verb_form = main_verb.morph.get('VerbForm', [])
                 if any(elem in verb_forms_with_auxillary_verb for elem in verb_form):
                     auxillary_verb_needed = True
-                else :
+                else:
                     auxillary_verb_needed = False
             else:
                 auxillary_verb_needed = True
@@ -82,35 +82,39 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
 
         # Case 1: Main verb + auxiliary verb
         if not auxillary_verb_needed:
-            return " ".join(words) + " " + util.get_cardinality(cardinality) + " " + associated_class
+            return util.format_role_name(role) + " " + util.get_cardinality(cardinality) + " " + util.format_class_name(
+                associated_class)
 
         # Case 2: auxillary verb needed, but role contains class name
         elif associated_class.lower() in role.lower():
-            return "has " + util.get_cardinality(cardinality) + " " + role
+            return "has " + util.get_cardinality(cardinality) + " " + util.format_role_name(role)
 
         # Case 3: auxillary verb needed along with role and class name, but role name ends with preposition
         elif ends_with_preposition(result) and main_verb is not None:
-            return "is " + role + " " + util.get_cardinality(cardinality) + associated_class
+            return "is " + util.format_role_name(role) + " " + util.get_cardinality(
+                cardinality) + " " + util.format_class_name(associated_class)
         else:
             # TODO check if you can use who,which etc instead of which always
-            phrase = "has " + util.get_cardinality(cardinality) + " " + role + " which "
+            phrase = "has " + util.get_cardinality(cardinality) + " " + util.format_role_name(role) + " which "
             if util.is_singular(cardinality):
                 phrase += "is "
             else:
                 phrase += "are "
-            phrase += associated_class
+            phrase += util.format_class_name(associated_class)
             return phrase
 
     def generate_sentences(self):
         # With role name
         for association in self.associations:
             part_of_sentence = ''
-            part_of_sentence += "Each " + association['class1'] + " " + self.get_role_and_cardinality(
+            part_of_sentence += "Each " + util.format_class_name(
+                association['class1']) + " " + self.get_role_and_cardinality(
                 association['role_class2'],
                 association[
                     'cardinality_class2'], association['class2']) + " "
 
-            part_of_sentence += "while " + "each " + association['class2'] + " " + self.get_role_and_cardinality(
+            part_of_sentence += "while " + "each " + util.format_class_name(
+                association['class2']) + " " + self.get_role_and_cardinality(
                 association['role_class1'], association['cardinality_class1'], association['class1'])
 
             self.sentences.append(part_of_sentence)
@@ -253,7 +257,7 @@ transportation_associations = [
     }
 ]
 
-sfa = SentenceFromAssociations(factory_associations)
+sfa = SentenceFromAssociations(transportation_associations)
 print(sfa.get_sentences())
 # without role name
 # for association in associations:

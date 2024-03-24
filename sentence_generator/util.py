@@ -60,3 +60,13 @@ def format_concept(concept):
 
     splitted_concept = split_camel_case(concept)
     return article + " " + " ".join([item.lower() for item in splitted_concept])
+
+
+def format_role_name(role):
+    splitted_concept = split_camel_case(role)
+    return " ".join([item.lower() for item in splitted_concept])
+
+
+def format_class_name(class_name):
+    splitted_concept = split_camel_case(class_name)
+    return " ".join([item.lower() for item in splitted_concept])
