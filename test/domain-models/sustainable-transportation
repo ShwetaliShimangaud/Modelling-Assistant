@@ -13,7 +13,7 @@ associations = [
     'cardinality_class1': '1',
     'cardinality_class2': '1..*',
     'name': '',
-    'role_class1': 'is',
+    'role_class1': 'in',
     'role_class2': 'has'
 },
 {

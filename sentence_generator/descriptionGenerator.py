@@ -37,7 +37,7 @@ class DescriptionGenerator:
 
         # From Attributes
         for sentence in self.generator_from_attributes.get_sentences():
-            sentence = self.post_processor.morphological_process(sentence)
+            # sentence = self.post_processor.morphological_process(sentence)
             sentence = sentence.replace("+sg", '')
             sentence = sentence.replace("+pl", '')
             processed_sentences.append(sentence)

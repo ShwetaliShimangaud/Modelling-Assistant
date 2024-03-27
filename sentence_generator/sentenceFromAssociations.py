@@ -90,7 +90,7 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
             return "has " + util.get_cardinality(cardinality) + " " + util.format_role_name(role)
 
         # Case 3: auxillary verb needed along with role and class name, but role name ends with preposition
-        elif ends_with_preposition(result) and main_verb is not None:
+        elif ends_with_preposition(result):
             return "is " + util.format_role_name(role) + " " + util.get_cardinality(
                 cardinality) + " " + util.format_class_name(associated_class)
         else:
@@ -216,7 +216,7 @@ transportation_associations = [
         'cardinality_class1': '1',
         'cardinality_class2': '1..*',
         'name': '',
-        'role_class1': 'is',
+        'role_class1': 'in',
         'role_class2': 'has'
     },
     {
