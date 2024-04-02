@@ -100,6 +100,8 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
                 phrase += "is "
             else:
                 phrase += "are "
+
+            # TODO use plural form of class name when using 'are'
             phrase += util.format_class_name(associated_class)
             return phrase
 
