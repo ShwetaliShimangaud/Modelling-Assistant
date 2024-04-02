@@ -4,10 +4,11 @@ from sentenceFromCompositions import SentenceFromCompositions
 from postProcessor import PostProcessor
 
 # model_path = "D:\\Thesis\\modelling-assistant\\test\\domain-models\\bank"
-# model_path = "D:\\Thesis\\modelling-assistant\\test\\domain-models\\factory"
+model_path = "D:\\Thesis\\modelling-assistant\\test\\domain-models\\factory"
 # model_path = "D:\\Thesis\\modelling-assistant\\test\\domain-models\\sustainable-transportation"
 # model_path = "D:\\Thesis\\modelling-assistant\\test\\domain-models\\smart-city"
-model_path = "D:\\Thesis\\modelling-assistant\\test\\domain-models\\production-cell"
+# model_path = "D:\\Thesis\\modelling-assistant\\test\\domain-models\\production-cell"
+
 
 class DescriptionGenerator:
     def __init__(self):

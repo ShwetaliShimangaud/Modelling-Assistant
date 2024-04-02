@@ -96,30 +96,63 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
         else:
             # TODO check if you can use who,which etc instead of which always
             phrase = "has " + util.get_cardinality(cardinality) + " " + util.format_role_name(role) + " which "
+            supporting_verb = ''
             if util.is_singular(cardinality):
                 phrase += "is "
+                supporting_verb = 'is'
             else:
                 phrase += "are "
+                supporting_verb = 'are'
 
-            # TODO use plural form of class name when using 'are'
-            phrase += util.format_class_name(associated_class)
+            formatted_class_name = util.format_class_name(associated_class)
+            formatted_class_name_list = formatted_class_name.split(" ")
+            res = self.nlp(formatted_class_name)
+            for i, token in enumerate(res):
+                # To find main noun aka class name and not the adjective/adverb with it
+                if token.dep_ == 'ROOT':
+                    if token.morph.get("Number") == ['Sing'] and supporting_verb == 'are':
+                        plural_form = util.get_plural(token.text)
+                        formatted_class_name_list[i] = plural_form
+                    elif token.morph.get("Number") == ['Plur'] and supporting_verb == 'is':
+                        singular_form = util.get_singular(token.text)
+                        formatted_class_name_list[i] = singular_form
+            phrase += " ".join(formatted_class_name_list)
             return phrase
 
     def generate_sentences(self):
         # With role name
         for association in self.associations:
+            # TODO below code generates two sentences for each association, describing each end of association in one
+            #  sentence >>>>
             part_of_sentence = ''
             part_of_sentence += "Each " + util.format_class_name(
                 association['class1']) + " " + self.get_role_and_cardinality(
                 association['role_class2'],
                 association[
-                    'cardinality_class2'], association['class2']) + " "
+                    'cardinality_class2'], association['class2'])
 
-            part_of_sentence += "while " + "each " + util.format_class_name(
+            self.sentences.append(part_of_sentence)
+
+            part_of_sentence = ''
+            part_of_sentence = "Each " + util.format_class_name(
                 association['class2']) + " " + self.get_role_and_cardinality(
                 association['role_class1'], association['cardinality_class1'], association['class1'])
 
             self.sentences.append(part_of_sentence)
+            # <<<<<
+
+            # TODO below code generates only one sentence for each association:
+            # part_of_sentence = ''
+            # part_of_sentence += "Each " + util.format_class_name(
+            #     association['class1']) + " " + self.get_role_and_cardinality(
+            #     association['role_class2'],
+            #     association[
+            #         'cardinality_class2'], association['class2']) + " "
+            #
+            # part_of_sentence += "while " + "each " + util.format_class_name(
+            #     association['class2']) + " " + self.get_role_and_cardinality(
+            #     association['role_class1'], association['cardinality_class1'], association['class1'])
+            # self.sentences.append(part_of_sentence)
 
         print(self.sentences)
 
@@ -259,7 +292,7 @@ transportation_associations = [
     }
 ]
 
-sfa = SentenceFromAssociations(transportation_associations)
+sfa = SentenceFromAssociations(associations)
 print(sfa.get_sentences())
 # without role name
 # for association in associations:

@@ -1,6 +1,7 @@
 import constants
 import re
 import spacy
+import inflect
 
 
 def get_cardinality(cardinality):
@@ -70,3 +71,16 @@ def format_role_name(role):
 def format_class_name(class_name):
     splitted_concept = split_camel_case(class_name)
     return " ".join([item.lower() for item in splitted_concept])
+
+
+def get_plural(word):
+    """Get the plural form of a word using the inflect library."""
+    p = inflect.engine()
+    plural_form = p.plural(word)
+    return plural_form
+
+
+def get_singular(word):
+    p = inflect.engine()
+    singular_form = p.singular_noun(word)
+    return singular_form

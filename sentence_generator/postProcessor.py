@@ -3,23 +3,13 @@ from nltk.corpus import wordnet
 import re
 import constants
 import spacy
-
+import util
 import stanza
 
-import inflect
 
 
-def get_plural(word):
-    """Get the plural form of a word using the inflect library."""
-    p = inflect.engine()
-    plural_form = p.plural(word)
-    return plural_form
 
 
-def get_singular(word):
-    p = inflect.engine()
-    singular_form = p.singular_noun(word)
-    return singular_form
 
 
 class PostProcessor:
@@ -58,7 +48,7 @@ class PostProcessor:
                             if "Number" in feature:
                                 number = feature.split("=")
                                 if "Plur" not in number[1]:
-                                    plural = get_plural(noun.text)
+                                    plural = util.get_plural(noun.text)
                                     words[noun.id - 1] = plural
                                 break
 
@@ -70,7 +60,7 @@ class PostProcessor:
                             if "Number" in feature:
                                 number = feature.split("=")
                                 if "Plur" not in number[1]:
-                                    plural = get_plural(noun.text)
+                                    plural = util.get_plural(noun.text)
                                     words[noun.id - 1] = plural
                                 break
 
@@ -82,7 +72,7 @@ class PostProcessor:
                         if "Number" in feature:
                             number = feature.split("=")
                             if "Sing" not in number[1]:
-                                plural = get_singular(noun.text)
+                                plural = util.get_singular(noun.text)
                                 words[noun.id - 1] = plural
                             break
 
