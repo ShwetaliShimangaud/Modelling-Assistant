@@ -5,10 +5,7 @@ from extractor.RelationshipExtractor import RelationshipsExtractor
 from extractor.conceptsExtractor import ConceptsExtractor
 from sentence_generator.descriptionGenerator import DescriptionGenerator
 from workflow.workflowStart import WorkflowStart
-import coreferenceResolution as coref
-import relationship_extractor as re
 import spacy
-import nltk
 
 
 def create_attributes_map(attributes_description, concepts, actual_description):
