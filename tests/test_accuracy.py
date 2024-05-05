@@ -1,5 +1,5 @@
 
-
+import pandas as pd
 from workflow.workflowStart import WorkflowStart
 
 
@@ -15,8 +15,7 @@ def determine_answer(row):
 
 
 def test_accuracy():
-    domain_name = "factory"
-    import pandas as pd
+    domain_name = "bank"
 
     attributes_true_result = pd.read_csv(f"{domain_name}//Attributes map.csv")
     relationship_true_result = pd.read_csv(f"{domain_name}//Relationships map.csv")
