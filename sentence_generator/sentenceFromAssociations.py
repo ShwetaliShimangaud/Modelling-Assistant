@@ -1,9 +1,10 @@
 from typing import List
 
 import nltk
-from abstractSentenceGenerator import AbstractSentenceGenerator
-import util
+from sentence_generator.abstractSentenceGenerator import AbstractSentenceGenerator
+import sentence_generator.util as util
 import spacy
+import pandas as pd
 
 
 # Associations
@@ -42,11 +43,17 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
         self.associations = associations
         # self.association_phrase = "is connected to"
         self.nlp = spacy.load("en_core_web_trf")
+
+        # TODO : Keep only one format either sentences list or 'relationships'  dataframe
         self.sentences = []
+        self.relationships = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
         self.generate_sentences()
 
     def get_sentences(self) -> List[str]:
         return self.sentences
+
+    def get_relationships(self):
+        return self.relationships
 
     # def get_association_phrase(self,cardinality):
     #     if cardinality == '0..*':
@@ -104,11 +111,12 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
                 phrase += "are "
                 supporting_verb = 'are'
 
+            # Following code takes care of using singular/plural form of main Noun in role based on 'is/are'
             formatted_class_name = util.format_class_name(associated_class)
             formatted_class_name_list = formatted_class_name.split(" ")
             res = self.nlp(formatted_class_name)
             for i, token in enumerate(res):
-                # To find main noun aka class name and not the adjective/adverb with it
+                # To find main noun aka class name and not the adjective/adverb associated with it
                 if token.dep_ == 'ROOT':
                     if token.morph.get("Number") == ['Sing'] and supporting_verb == 'are':
                         plural_form = util.get_plural(token.text)
@@ -124,6 +132,9 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
         for association in self.associations:
             # TODO below code generates two sentences for each association, describing each end of association in one
             #  sentence >>>>
+            formatted_class1 = util.format_class_name(association['class1'])
+            formatted_class2 = util.format_class_name(association['class2'])
+
             part_of_sentence = ''
             part_of_sentence += "Each " + util.format_class_name(
                 association['class1']) + " " + self.get_role_and_cardinality(
@@ -132,13 +143,20 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
                     'cardinality_class2'], association['class2'])
 
             self.sentences.append(part_of_sentence)
+            self.relationships.loc[len(self.relationships)] = [formatted_class1, formatted_class2,
+                                                                                 association['role_class2'], part_of_sentence]
 
             part_of_sentence = ''
             part_of_sentence = "Each " + util.format_class_name(
                 association['class2']) + " " + self.get_role_and_cardinality(
                 association['role_class1'], association['cardinality_class1'], association['class1'])
 
+
             self.sentences.append(part_of_sentence)
+            self.relationships.loc[len(self.relationships)] = [formatted_class2, formatted_class1,
+                                                               association['role_class1'],
+                                                               part_of_sentence]
+
             # <<<<<
 
             # TODO below code generates only one sentence for each association:
@@ -292,8 +310,11 @@ transportation_associations = [
     }
 ]
 
-sfa = SentenceFromAssociations(associations)
-print(sfa.get_sentences())
+# sfa = SentenceFromAssociations(transportation_associations)
+# print(sfa.get_relationships())
+
+
+
 # without role name
 # for association in associations:
 #     part_of_sentence = ''

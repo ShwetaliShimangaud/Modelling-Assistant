@@ -1,12 +1,14 @@
-description_file_path = "D:\\Thesis\\modelling-assistant\\test\\actual-description\\factory"
+
+description_file_path = "D:\\Thesis\\modelling-assistant\\tests\\actual-description\\"
 
 
 class DescriptionReader:
-    def __init__(self):
+    def __init__(self, domain_name):
         self.actual_description = ""
+        self.domain_name = domain_name
 
     def get_actual_description(self):
-        with open(description_file_path, 'r') as file:
+        with open(description_file_path+self.domain_name, 'r') as file:
             content = file.read()
 
         local_vars = {}
@@ -15,4 +17,3 @@ class DescriptionReader:
 
         self.actual_description = local_vars.get('description', "")
         return self.actual_description
-

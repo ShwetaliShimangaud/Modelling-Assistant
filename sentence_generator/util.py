@@ -1,4 +1,4 @@
-import constants
+import sentence_generator.constants as constants
 import re
 import spacy
 import inflect
@@ -47,6 +47,20 @@ def split_camel_case(word):
     # Use regular expression to split camelCase
     parts = re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)(?![a-z0-9])(?![A-Z0-9])', word)
     return parts
+
+
+# Similar to format_concept but doesn't add an article
+def split_concept(concept):
+    digit_pattern = re.compile(r'\d')
+
+    if bool(digit_pattern.search(concept)):
+        return concept
+
+    if bool(re.match(r'^[A-Z]+$', concept)):
+        return concept
+
+    splitted_concept = split_camel_case(concept)
+    return " ".join([item.lower() for item in splitted_concept])
 
 
 def format_concept(concept):

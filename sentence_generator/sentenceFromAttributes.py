@@ -1,19 +1,26 @@
 from typing import List
 
 import nltk
-import util
-from abstractSentenceGenerator import AbstractSentenceGenerator
+import sentence_generator.util as util
+import pandas as pd
+from sentence_generator.abstractSentenceGenerator import AbstractSentenceGenerator
 
 
 class SentenceFromAttributes(AbstractSentenceGenerator):
     def __init__(self, attributes):
         self.attributes = attributes
         self.verb_phrase = 'has'  # can be changed later, it seems to work fine as of now
+
+        # TODO : Keep only one format either sentences list or 'attributes'  dataframe
         self.sentences = []
+        self.attributes_description = pd.DataFrame(columns=['class', 'attribute', 'sentence'])
         self.generate_sentences()
 
     def get_sentences(self) -> List[str]:
         return self.sentences
+
+    def get_attributes(self):
+        return self.attributes_description
 
     # Function to combine POS tags for a compound word
     def combine_pos_tags(self, words, splitted_words, pos_tags):
@@ -97,39 +104,44 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
                         attr_name = word_parts[0] + " " + word_parts[1]
                         attributes.append(attr_name)
 
-            if len(attributes) > 0:
-                # With aggregation
-                sentence = util.format_concept(class_name) + " " + self.verb_phrase + " "
-                if len(attributes) == 1:
-                    sentence = sentence + util.format_concept(attributes[0])
+            # if len(attributes) > 0:
+            #     # With aggregation
+            #     sentence = util.format_concept(class_name) + " " + self.verb_phrase + " "
+            #     if len(attributes) == 1:
+            #         sentence = sentence + util.format_concept(attributes[0])
+            #
+            #     else:
+            #         for i, attribute in enumerate(attributes):
+            #             if i < len(attributes) - 2:
+            #                 sentence = sentence + util.format_concept(attribute) + ", "
+            #             elif i == len(attributes) - 2:
+            #                 sentence = sentence + util.format_concept(attribute) + " "
+            #             elif i == len(attributes) - 1:
+            #                 sentence = sentence + "and " + util.format_concept(attribute)
+            #
+            #     self.attributes_description.loc[len(self.attributes_description)] = [class_name, attributes, sentence]
+            #     self.sentences.append(sentence)
 
-                else:
-                    for i, attribute in enumerate(attributes):
-                        if i < len(attributes) - 2:
-                            sentence = sentence + util.format_concept(attribute) + ", "
-                        elif i == len(attributes) - 2:
-                            sentence = sentence + util.format_concept(attribute) + " "
-                        elif i == len(attributes) - 1:
-                            sentence = sentence + "and " + util.format_concept(attribute)
-
-                self.sentences.append(sentence)
                 # Without aggregation
-                # for attribute in attributes:
-                #     sentence = class_name + " " + keyword + " " + get_appropriate_article(attribute) + " " + attribute
-                #     sentences.append(sentence)
+            for attribute in attributes:
+                formatted_class_name = util.split_concept(class_name)
+                formatted_attribute = util.split_concept(attribute)
+                sentence = util.format_concept(class_name) + " " + self.verb_phrase + " " + util.format_concept(attribute)
+                self.attributes_description.loc[len(self.attributes_description)] = [formatted_class_name, formatted_attribute, sentence]
+                self.sentences.append(sentence)
 
             # With aggregation
             # sentence = sentence[:-2] + "."
-
             print(self.sentences)
 
 
-# factory_attributes = {
-#     'Factory': ["city"],
-#     "Machine": ['speed', 'capacity'],
-#     "Piece": ['width', "height", "depth"],
-#     "Worker": ['id', 'name', 'salary']
-# }
+factory_attributes = {
+    'Factory': ["city"],
+    "Machine": ['speed', 'capacity'],
+    "Piece": ['width', "height", "depth"],
+    "Worker": ['id', 'name', 'salary']
+}
+
 #
 # city_attributes = {
 #     'Campaign': ["estimatedCost", "overallCost", "completed"],
@@ -139,17 +151,18 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
 #     "Display": ['size', 'resolution']
 # }
 #
-# bank_attributes = {
-#     "Customer": [],
-#     "Account": ['balance']
-# }
+bank_attributes = {
+    "Customer": [],
+    "Account": ['balance']
+}
 #
-# transportation_attributes = {
-#     "SustainableCity": ['name', 'country'],
-#     "BikeStation": ['name', 'address', 'spots'],
-#     "User": ['id', 'name', 'creditcard'],
-#     "Rental": ['startDate', 'endDate'],
-#     "Bike": ['code', 'priceHour']
-# }
-#
-# sfa = SentenceFromAttributes(transportation_attributes)
+transportation_attributes = {
+    "SustainableCity": ['name', 'country'],
+    "BikeStation": ['name', 'address', 'spots'],
+    "User": ['id', 'name', 'creditcard'],
+    "Rental": ['startDate', 'endDate'],
+    "Bike": ['code', 'priceHour']
+}
+
+# sfa = SentenceFromAttributes(factory_attributes)
+# print(sfa.attributes_description)

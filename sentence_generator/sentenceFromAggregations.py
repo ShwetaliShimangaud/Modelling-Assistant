@@ -1,6 +1,6 @@
 from typing import List
 
-from abstractSentenceGenerator import AbstractSentenceGenerator
+from sentence_generator.abstractSentenceGenerator import AbstractSentenceGenerator
 
 class SentenceFromAggregation(AbstractSentenceGenerator):
     def __init__(self, aggregations):

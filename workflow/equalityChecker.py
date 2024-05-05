@@ -1,4 +1,4 @@
-import apiCaller
+import workflow.apiCaller as apiCaller
 import os
 from src import util
 
@@ -17,7 +17,17 @@ class EqualityChecker:
         self.prompts = local_vars['prompts']
 
     def run(self, actual_sentence, generated_sentence):
+        true_count = 0
         results = []
         for prompt in self.prompts:
             result = apiCaller.call_api(actual_sentence, generated_sentence, prompt)
             results.append(result)
+            print("Prompt:", prompt)
+            print("Actual sentence:", actual_sentence)
+            print("Generated sentence:", generated_sentence)
+            print("Result:", result)
+            print()
+            if result.startswith("Yes") or result.startswith("yes"):
+                true_count = true_count + 1
+
+        return results, true_count >= len(self.prompts) / 2

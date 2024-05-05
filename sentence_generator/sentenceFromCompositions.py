@@ -1,7 +1,7 @@
 from typing import List
-import util
+import sentence_generator.util as util
 
-from abstractSentenceGenerator import AbstractSentenceGenerator
+from sentence_generator.abstractSentenceGenerator import AbstractSentenceGenerator
 
 
 class SentenceFromCompositions(AbstractSentenceGenerator):

@@ -1,5 +1,5 @@
 import nltk
-import stanfordnlp
+# import stanfordnlp
 
 # MODELS_DIR = '.'
 # stanfordnlp.download('en', MODELS_DIR)  # Download the English models
@@ -26,11 +26,13 @@ nlp = stanza.Pipeline('en', processors='tokenize,pos,ner,lemma,depparse')
 # Find subject and object dependencies and prepositional phrases
 def preprocess(sentence):
     verb_lemma = None
+    verbs = []
     for token in sentence.tokens:
         if 'VB' in token.words[0].xpos:
             verb_lemma = token.words[0].lemma
+            verbs.append(token.words[0].lemma)
             # print(verb_lemma)
-            break
+            # break
 
     subject = None
     object_ = None
@@ -39,7 +41,7 @@ def preprocess(sentence):
     relative_clauses = []
 
     for dep_edge in sentence.dependencies:
-        if verb_lemma and dep_edge[0].lemma == verb_lemma:
+        if verb_lemma and dep_edge[0].lemma in verbs:
             if dep_edge[2].deprel == 'nsubj':
                 subject = dep_edge[2].text
                 # print("subject" , subject)
@@ -282,7 +284,7 @@ transportation_system = (
     "rental, we need to keep track of the start and end date, the pickup station, the dropoff "
     "station, the user who has rented the bike and the bike that has been rented.")
 
-doc = nlp(transportation_system)
+doc = nlp(smart_city)
 
 necessary_sentences = []
 unnecessary_sentences = []

@@ -1,36 +1,35 @@
 class_attributes = {
-    'Campaign': ["estimatedCost", "overallCost", "completed"],
     "City": ['name'],
-    "Neighbourhood": ['name', "aqi"],
+    "Neighborhood": ['name', "aqi"],
     "AirQualitySensor": ['CO', 'O3', 'SO2', 'NO2', 'others'],
     "Display": ['size', 'resolution']
 }
 
 associations = [{
     'class1': 'City',
-    'class2': 'Neighbourhood',
+    'class2': 'Neighborhood',
     'cardinality_class1': '1',
     'cardinality_class2': '1..*',
     'name': '',
     'role_class1': 'city',
-    'role_class2': 'neighbourhoods'
+    'role_class2': 'neighborhoods'
 },
     {
-        'class1': 'Neighbourhood',
+        'class1': 'Neighborhood',
         'class2': 'AirQualitySensor',
         'cardinality_class1': '1',
         'cardinality_class2': '0..*',
         'name': '',
-        'role_class1': 'neighbourhood',
+        'role_class1': 'neighborhood',
         'role_class2': 'sensors'
     },
     {
-        'class1': 'Neighbourhood',
+        'class1': 'Neighborhood',
         'class2': 'Display',
         'cardinality_class1': '1',
         'cardinality_class2': '1',
         'name': '',
-        'role_class1': 'neighbourhood',
+        'role_class1': 'neighborhood',
         'role_class2': 'display'
     }
 ]

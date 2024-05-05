@@ -11,7 +11,7 @@ def call_api(sentence1, sentence2, prompt):
     client = OpenAI()
 
     completion = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4",
         messages=[
             {"role": "system",
              "content": "You are a helpful, respectful and honest assistant."},
@@ -21,3 +21,4 @@ def call_api(sentence1, sentence2, prompt):
 
     # print(completion.choices[0].message)
     return completion.choices[0].message.content
+    # return "Yes"

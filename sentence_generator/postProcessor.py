@@ -1,9 +1,9 @@
 import nltk
 from nltk.corpus import wordnet
 import re
-import constants
+import sentence_generator.constants as constants
 import spacy
-import util
+import sentence_generator.util as util
 import stanza
 
 

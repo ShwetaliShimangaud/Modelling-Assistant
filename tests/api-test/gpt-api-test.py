@@ -74,7 +74,7 @@ def call_api(prompt):
     # return 'abc'
 
 
-file_path = "D://Thesis//modelling-assistant//few-shot-examples.csv"
+file_path = "/examples.csv"
 
 # Read the CSV file
 df = pd.read_csv(file_path)
@@ -87,20 +87,20 @@ for index, row in df.iterrows():
     statement1 = row["Statement 1 : Actual description"]
     statement2 = row["Statement2 : Generated description"]
 
-    combined_text = combine_prompt(few_shots, statement1, statement2)
-    response = call_api(combined_text)
+    # combined_text = combine_prompt(few_shots, statement1, statement2)
+    # response = call_api(combined_text)
+    #
+    # new_row = [statement1, statement2, response]
+    #
+    # answer.append(new_row)
 
-    new_row = [statement1, statement2, response]
 
-    answer.append(new_row)
-
-
-    # for i in range(2, len(df.columns)):
-    #     prompt = df.columns[i]
-    #     combined_text = combine_prompt(prompt, statement1, statement2)
-    #     # print(combined_text)
-    #     response = call_api(combined_text)
-    #     df[prompt][index] = response
+    for i in range(2, len(df.columns)):
+        prompt = df.columns[i]
+        combined_text = combine_prompt(prompt, statement1, statement2)
+        # print(combined_text)
+        response = call_api(combined_text)
+        df[prompt][index] = response
 
 answer_path = "D:\\Thesis\\modelling-assistant\\few-shot-answers-gpt4.csv"
 column_names = ['Statement1', 'Statement2', prompt]
