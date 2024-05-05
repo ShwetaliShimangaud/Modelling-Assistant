@@ -34,6 +34,6 @@ class ContradictionChecker:
             if result.startswith("No") or result.startswith("no"):
                 negative_count = negative_count + 1
 
-            return results, positive_count >= negative_count
+        return results, positive_count >= negative_count
 
 
