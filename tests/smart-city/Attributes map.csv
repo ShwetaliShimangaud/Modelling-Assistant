@@ -1,0 +1,11 @@
+class_name,attributes,generated_description,actual_description,equal,contradiction,inclusion,Final answer
+city,name,a city has a name,Both cities and neighborhoods have unique names,FALSE,FALSE,TRUE,inclusion
+neighborhood,name,a neighborhood has a name,Both cities and neighborhoods have unique names,FALSE,FALSE,TRUE,inclusion
+neighborhood,aqi,a neighborhood has an aqi,The measurements of those sensors are aggregated and the Air Quality Index (AQI) is calculated,FALSE,FALSE,FALSE,exact difference
+air quality sensor,CO,an air quality sensor has a CO,"In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,TRUE,inclusion
+air quality sensor,O3,an air quality sensor has an O3,"In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,TRUE,inclusion
+air quality sensor,SO2,an air quality sensor has a SO2,"In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,TRUE,inclusion
+air quality sensor,NO2,an air quality sensor has a NO2,"In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,TRUE,inclusion
+air quality sensor,others,an air quality sensor has  others,"In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,TRUE,inclusion
+display,size,a display has a size,"For each display, its size and resolution are known",FALSE,FALSE,TRUE,inclusion
+display,resolution,a display has a resolution,"For each display, its size and resolution are known",FALSE,FALSE,TRUE,inclusion

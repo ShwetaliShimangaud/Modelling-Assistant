@@ -1,0 +1,7 @@
+source,target,role,generated_description,actual_description,equal,contradiction,inclusion,Final answer
+City,Neighborhood,neighborhoods,Each city has at least one or more neighborhoods,A smart city is able to report the quality of the air in each of its neighborhoods.  ,FALSE,FALSE,TRUE,inclusion
+Neighborhood,City,city,Each neighborhood has exactly one city,A smart city is able to report the quality of the air in each of its neighborhoods.,FALSE,FALSE,FALSE,exact difference
+Neighborhood,Air Quality Sensor,sensors,Each neighborhood has zero or multiple sensors which are air quality sensors," In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,TRUE,inclusion
+Air Quality Sensor,Neighborhood,neighborhood,Each air quality sensor has exactly one neighborhood," In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,FALSE,exact difference
+Neighborhood,Display,display,Each neighborhood has exactly one display, This resulting index is displayed in a display located in the center of the neighborhood,FALSE,FALSE,TRUE,inclusion
+Display,Neighborhood,neighborhood,Each display has exactly one neighborhood, This resulting index is displayed in a display located in the center of the neighborhood,FALSE,FALSE,TRUE,inclusion

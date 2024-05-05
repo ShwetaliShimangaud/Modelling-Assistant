@@ -1,0 +1,10 @@
+class_name,attributes,generated_description,actual_description,equal,contradiction,inclusion
+factory,city,a factory has a city,Each factory is located in a city,TRUE,FALSE,TRUE
+machine,speed,a machine has a speed,"For each machine, we know its speed and capacity",FALSE,FALSE,TRUE
+machine,capacity,a machine has a capacity,"For each machine, we know its speed and capacity",FALSE,FALSE,TRUE
+piece,width,a piece has a width,"For each piece, we need to store its width, height and depth",FALSE,FALSE,TRUE
+piece,height,a piece has a height,"For each piece, we need to store its width, height and depth",FALSE,FALSE,TRUE
+piece,depth,a piece has a depth,"For each piece, we need to store its width, height and depth",FALSE,FALSE,TRUE
+worker,id,a worker has an id,"Each machine is operated by one or more workers and, for each worker, we need to store their id, name and salary",FALSE,FALSE,TRUE
+worker,name,a worker has a name,"Each machine is operated by one or more workers and, for each worker, we need to store their id, name and salary",FALSE,FALSE,TRUE
+worker,salary,a worker has a salary,"Each machine is operated by one or more workers and, for each worker, we need to store their id, name and salary",FALSE,FALSE,TRUE
