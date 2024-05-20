@@ -1,3 +1,7 @@
 /backup/
 /en_ewt_models/
 /neuralcoref/
+/tests/**/*.csv
+/*.csv
+/*.xlsx
+/tests/**/*.xlsx
