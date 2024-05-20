@@ -6,6 +6,6 @@ air quality sensor,CO,an air quality sensor has a CO,"In each neighborhood, ther
 air quality sensor,O3,an air quality sensor has an O3,"In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,TRUE,inclusion
 air quality sensor,SO2,an air quality sensor has a SO2,"In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,TRUE,inclusion
 air quality sensor,NO2,an air quality sensor has a NO2,"In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,TRUE,inclusion
-air quality sensor,others,an air quality sensor has  others,"In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,TRUE,inclusion
+air quality sensor,others,an air quality sensor has  others,"In each neighborhood, there are several sensors to measure different pollutants which are CO, O3, SO2, NO2 and others",FALSE,FALSE,FALSE,inclusion
 display,size,a display has a size,"For each display, its size and resolution are known",FALSE,FALSE,TRUE,inclusion
 display,resolution,a display has a resolution,"For each display, its size and resolution are known",FALSE,FALSE,TRUE,inclusion
