@@ -5,14 +5,14 @@ import inflect
 
 
 def get_cardinality(cardinality):
-    if ".." not in cardinality:
+    if is_singular(cardinality):
         return constants.singular_cardinality_to_article_map[cardinality]
     else:
         return constants.multiple_cardinality_to_article_map[cardinality]
 
 
 def is_singular(cardinality):
-    return ".." not in cardinality
+    return ".." not in cardinality and "*" not in cardinality
 
 
 def contains_verb(tag):

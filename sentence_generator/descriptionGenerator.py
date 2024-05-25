@@ -65,8 +65,9 @@ class DescriptionGenerator:
 
         # From Associations
         for index, row in self.generator_from_associations.get_relationships().iterrows():
-            sentence = self.post_processor.morphological_process(row['sentence'])
-            sentence = sentence.replace("+sg", '')
+            # Since we are handling singular/plural thing while generating the sentences, this is not required here.
+            # sentence = self.post_processor.morphological_process(row['sentence'])
+            sentence = row['sentence'].replace("+sg", '')
             sentence = sentence.replace("+pl", '')
             self.relationships.loc[len(self.relationships)] = [row['source'], row['target'], row['role'],
                                                                sentence]
@@ -85,6 +86,6 @@ class DescriptionGenerator:
         self.description = final_sentence
         print(final_sentence)
 
-# dec = DescriptionGenerator()
+# dec = DescriptionGenerator('sustainable-transportation')
 # print(dec.get_attributes())
 # print(dec.get_relationships())

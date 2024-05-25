@@ -89,23 +89,60 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
 
         # Case 1: Main verb + auxiliary verb
         if not auxillary_verb_needed:
-            return util.format_role_name(role) + " " + util.get_cardinality(cardinality) + " " + util.format_class_name(
-                associated_class)
+            phrase = util.format_role_name(role) + " "
+            if util.is_singular(cardinality):
+                phrase += util.get_appropriate_article(associated_class) + " " + util.format_class_name(
+                    associated_class)
+            else:
+                ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
+                result = self.nlp(ass_class)
+                for doc in result:
+                    if doc.dep_ == 'ROOT':
+                        phrase += util.get_plural(doc.text) + " "
+                    else:
+                        phrase += doc.text + " "
+
+            return phrase
 
         # Case 2: auxillary verb needed, but role contains class name
         elif associated_class.lower() in role.lower():
-            return "has " + util.get_cardinality(cardinality) + " " + util.format_role_name(role)
+            phrase = "has "
+            if util.is_singular(cardinality):
+                phrase += util.get_appropriate_article(role) + " " + util.format_role_name(role)
+            else:
+                # TODO : Handle the case where cardinality is 'many' and role name has associated class but it is not plural
+                # temp = ""
+                # ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
+                # result = self.nlp(ass_class)
+                # for doc in result:
+                #     if doc.dep_ == 'ROOT':
+                #         temp += util.get_plural(doc.text) + " "
+                #     else:
+                #         temp += doc.text + " "
+                phrase += util.format_role_name(role)
+            return phrase
 
-        # Case 3: auxillary verb needed along with role and class name, but role name ends with preposition
+            # Case 3: auxillary verb needed along with role and class name, but role name ends with preposition
         elif ends_with_preposition(result):
-            return "is " + util.format_role_name(role) + " " + util.get_cardinality(
-                cardinality) + " " + util.format_class_name(associated_class)
+            phrase = "is " + util.format_role_name(role) + " "
+            if util.is_singular(cardinality):
+                phrase += util.get_appropriate_article(associated_class) + " " + util.format_class_name(associated_class)
+            else:
+                ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
+                result = self.nlp(ass_class)
+                for doc in result:
+                    if doc.dep_ == 'ROOT':
+                        phrase += util.get_plural(doc.text) + " "
+                    else:
+                        phrase += doc.text + " "
+            return phrase
         else:
             # TODO check if you can use who,which etc instead of which always
-            phrase = "has " + util.get_cardinality(cardinality) + " " + util.format_role_name(role) + " which "
+            phrase = "has " + util.get_appropriate_article(role) + " " + util.format_role_name(role) + " which "
             supporting_verb = ''
             if util.is_singular(cardinality):
-                phrase += "is "
+                # Only need an article for singular class name.
+                phrase += "is " + util.get_appropriate_article(associated_class) + " "
                 supporting_verb = 'is'
             else:
                 phrase += "are "
@@ -150,7 +187,6 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
             part_of_sentence = "Each " + util.format_class_name(
                 association['class2']) + " " + self.get_role_and_cardinality(
                 association['role_class1'], association['cardinality_class1'], association['class1'])
-
 
             self.sentences.append(part_of_sentence)
             self.relationships.loc[len(self.relationships)] = [formatted_class2, formatted_class1,
@@ -310,10 +346,8 @@ transportation_associations = [
     }
 ]
 
-# sfa = SentenceFromAssociations(transportation_associations)
+# sfa = SentenceFromAssociations(factory_associations)
 # print(sfa.get_relationships())
-
-
 
 # without role name
 # for association in associations:
