@@ -3,6 +3,8 @@ prompts = [
 "Do the following two statements convey the exact same information?",
 "Are these two statements conveying the same meaning?",
 "Are these statements synonymous?",
-"Do statement 1 and statement 2 have identical implications?",
+"Do statement 1 and statement 2 have identical implications?"]
+
+excluded_prompts =[
 "Are these two statements congruent in the information shared?",
 "Is the information within these two statements analogous?"]

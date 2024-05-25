@@ -36,6 +36,5 @@ inheritance = [
     'parent_class': 'Garage',
     'child_classes': ['OfficialGarage']
 }
-
 ]
 

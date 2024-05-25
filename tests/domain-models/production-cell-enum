@@ -1,0 +1,58 @@
+class_attributes = {
+    'ProductionCell': [],
+    "Product": [],
+    "Unit": [],
+    "ProcessingUnit": ['kind'],
+    "TransportUnit": ['kind'],
+}
+
+associations = [
+    {
+        'class1': 'ProductionCell',
+        'class2': 'Product',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'products'
+    },
+    {
+        'class1': 'ProductionCell',
+        'class2': 'Unit',
+        'cardinality_class1': '1',
+        'cardinality_class2': '1..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'units'
+    },
+    {
+        'class1': 'ProcessingUnit',
+        'class2': 'TransportUnit',
+        'cardinality_class1': '1',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': 'to',
+        'role_class2': ''
+    },
+    {
+        'class1': 'ProcessingUnit',
+        'class2': 'TransportUnit',
+        'cardinality_class1': '1',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': 'from',
+        'role_class2': ''
+    }
+]
+
+enums = {
+'ProcessingUnitKind' : ["Press","Laser"],
+'TransportUnitKind' : ['ConveyorBelt' , 'RobotArm']
+}
+
+inheritance = [
+{
+    'parent_class': 'Unit',
+    'child_classes': ['ProcessingUnit', 'TransportUnit']
+}
+]
