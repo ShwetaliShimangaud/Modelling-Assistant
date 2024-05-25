@@ -63,6 +63,23 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
 
     def get_role_and_cardinality(self, role, cardinality, associated_class):
         verb_forms_with_auxillary_verb = ['Inf', 'Part']
+
+        # TODO : Discuss how to handle such cases where role is not provided
+        if len(role) == 0:
+            if util.is_singular(cardinality):
+                return util.format_class_name(associated_class)
+            else:
+                phrase = "has "
+                ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
+                result = self.nlp(ass_class)
+                for doc in result:
+                    if doc.dep_ == 'ROOT':
+                        phrase += util.get_plural(doc.text) + " "
+                    else:
+                        phrase += doc.text + " "
+
+                return phrase
+
         words = util.split_camel_case(role)
         pos_tag = nltk.pos_tag(words)
         result = self.nlp(" ".join(words))
@@ -346,8 +363,20 @@ transportation_associations = [
     }
 ]
 
-# sfa = SentenceFromAssociations(factory_associations)
-# print(sfa.get_relationships())
+car_maintenance_associations = [
+    {
+        'class1': 'Service',
+        'class2': 'Garage',
+        'cardinality_class1': '*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'place'
+    }
+]
+
+sfa = SentenceFromAssociations(car_maintenance_associations)
+print(sfa.get_relationships())
 
 # without role name
 # for association in associations:
