@@ -1,0 +1,41 @@
+class_attributes = {
+    'Car': ["registrationDate", "plate"],
+    "Service": ['date', 'type'],
+    "Garage": ['address'],
+    "OfficialGarage": ['warranty']
+}
+
+enums = {
+'ServiceType' : ["MAINTENANCE","REPAIR"]
+
+}
+
+associations = [
+    {
+        'class1': 'Service',
+        'class2': 'Garage',
+        'cardinality_class1': '*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'place'
+    }
+]
+
+compositions = [
+    {
+        'parent_class': 'Car',
+        'child_class': 'Service',
+        'cardinality': '*',
+        'role' : 'services'
+    }
+]
+
+inheritance = [
+{
+    'parent_class': 'Garage',
+    'child_classes': ['OfficialGarage']
+}
+
+]
+
