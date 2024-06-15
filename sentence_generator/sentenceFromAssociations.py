@@ -67,7 +67,7 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
         # TODO : Discuss how to handle such cases where role is not provided
         if len(role) == 0:
             if util.is_singular(cardinality):
-                return util.format_class_name(associated_class)
+                return "has " + util.format_class_name(associated_class)
             else:
                 phrase = "has "
                 ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
@@ -375,8 +375,8 @@ car_maintenance_associations = [
     }
 ]
 
-sfa = SentenceFromAssociations(car_maintenance_associations)
-print(sfa.get_relationships())
+# sfa = SentenceFromAssociations(car_maintenance_associations)
+# print(sfa.get_relationships())
 
 # without role name
 # for association in associations:

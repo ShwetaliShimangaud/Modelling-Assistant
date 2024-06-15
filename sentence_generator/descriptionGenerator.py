@@ -86,6 +86,7 @@ class DescriptionGenerator:
         self.description = final_sentence
         print(final_sentence)
 
-# dec = DescriptionGenerator('sustainable-transportation')
-# print(dec.get_attributes())
-# print(dec.get_relationships())
+
+dec = DescriptionGenerator('production-cell-inheritance')
+print(dec.get_attributes())
+print(dec.get_relationships())

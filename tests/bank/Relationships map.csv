@@ -1,3 +1,0 @@
-source,target,role,generated_description,actual_description,equal,contradiction,inclusion
-Account,Customer,owner,Each account has exactly one owner which is customer," Customers can open accounts with the bank, and subsequently deposit money into their accounts",FALSE,FALSE,FALSE
-Customer,Account,accounts,Each customer has zero or multiple accounts," Customers can open accounts with the bank, and subsequently deposit money into their accounts",FALSE,FALSE,TRUE

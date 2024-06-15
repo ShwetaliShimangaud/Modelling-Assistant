@@ -1,7 +1,0 @@
-,source,target,role,generated_description,actual_description,equal,contradiction,inclusion
-0,Machine,Piece,produces,Each machine produces many pieces,A factory is composed of a number of machines that produce pieces,FALSE,FALSE,TRUE
-1,Piece,Machine,isProducedBy,Each piece is produced by exactly one machine,A factory is composed of a number of machines that produce pieces,FALSE,FALSE,FALSE
-2,Machine,Worker,isOperatedBy,Each machine is operated by at least one or more workers," Each machine is operated by one or more workers and, for each worker, we need to store their id, name and salary",FALSE,FALSE,TRUE
-3,Worker,Machine,operates,Each worker operates many machines," Each machine is operated by one or more workers and, for each worker, we need to store their id, name and salary",FALSE,FALSE,FALSE
-4,Factory,Worker,employees,Each factory has at least one or more employees which are workers, There are workers working at the factory,FALSE,FALSE,FALSE
-5,Worker,Factory,workplace,Each worker has exactly one workplace which is factory, There are workers working at the factory,FALSE,FALSE,FALSE

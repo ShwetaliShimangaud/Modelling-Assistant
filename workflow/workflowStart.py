@@ -22,96 +22,75 @@ def get_prompts(file_name):
     return local_vars['prompts']
 
 
+parent_folder = "../random permutation results"
+
+
 class WorkflowStart:
-    def __init__(self, attributes_map, relationships_map):
-        self.attributes_map = attributes_map
-        self.relationships_map = relationships_map
+    def __init__(self, individual_maps, domain):
+        self.individual_maps = individual_maps
         self.equality_checker = EqualityChecker()
         self.contradiction_checker = ContradictionChecker()
         self.containment_checker = ContainmentChecker()
         # self.difference_finder = DifferenceFinder()
+        self.domain = domain
+
+    def get_checker(self, check):
+        if check == 'equality':
+            return self.equality_checker
+        elif check == 'contradiction':
+            return self.contradiction_checker
+        else:
+            return self.containment_checker
 
     def run(self):
         # Take actual and generated sentence Run all the checkers one by one. if result of any checker is true then
         # accordingly add it in warnings or errors array, Run next checker only if result of previous checker is false
-        warnings = []
-        errors = []
 
-        equality_prompts = ['actual_description', 'generated_description']
-        contradiction_prompts = ['actual_description', 'generated_description']
-        inclusion_prompts = ['actual_description', 'generated_description']
+        checks = ['equality', 'contradiction', 'inclusion']
 
-        equality_prompts.extend(get_prompts('equality'))
-        contradiction_prompts.extend(get_prompts('contradiction'))
-        inclusion_prompts.extend(get_prompts("containment"))
+        for check in checks:
+            prompts = ['actual_description', 'generated_description']
+            prompts.extend(get_prompts(check))
+            check_results = pd.DataFrame(columns=prompts)
+            checker = self.get_checker(check)
 
-        equality_check = pd.DataFrame(columns=equality_prompts)
-        contradiction_check = pd.DataFrame(columns=contradiction_prompts)
-        inclusion_check = pd.DataFrame(columns=inclusion_prompts)
+            for pred_map in self.individual_maps:
+                for i, row in pred_map.iterrows():
+                    actual_description = row['actual_description']
+                    generated_description = row['generated_description']
+                    results, res = checker.run(actual_description, generated_description)
+                    pred_map.at[i, check] = res
+                    result = [actual_description, generated_description]
+                    result.extend(results)
+                    check_results.loc[len(check_results)] = result
 
-        for i, row in self.attributes_map.iterrows():
-            actual_description = row['actual_description']
-            generated_description = row['generated_description']
-            results, res = self.equality_checker.run(actual_description, generated_description)
-            self.attributes_map.at[i, 'equal'] = res
-            result = [actual_description, generated_description]
-            result.extend(results)
-            equality_check.loc[len(equality_check)] = result
 
-        for i, row in self.relationships_map.iterrows():
-            actual_description = row['actual_description']
-            generated_description = row['generated_description']
-            results, res = self.equality_checker.run(actual_description, generated_description)
-            self.relationships_map.at[i, 'equal'] = res
-            result = [actual_description, generated_description]
-            result.extend(results)
-            equality_check.loc[len(equality_check)] = result
 
-        for i, row in self.attributes_map.iterrows():
-            actual_description = row['actual_description']
-            generated_description = row['generated_description']
-            results, res = self.contradiction_checker.run(actual_description, generated_description)
-            self.attributes_map.at[i, 'contradiction'] = res
-            result = [actual_description, generated_description]
-            result.extend(results)
-            contradiction_check.loc[len(contradiction_check)] = result
+            # for i, row in self.associations_map.iterrows():
+            #     actual_description = row['actual_description']
+            #     generated_description = row['generated_description']
+            #     results, res = checker.run(actual_description, generated_description)
+            #     self.associations_map.at[i, check] = res
+            #     result = [actual_description, generated_description]
+            #     result.extend(results)
+            #     check_results.loc[len(check_results)] = result
+            #
+            # for i, row in self.inheritance_map.iterrows():
+            #     actual_description = row['actual_description']
+            #     generated_description = row['generated_description']
+            #     results, res = checker.run(actual_description, generated_description)
+            #     self.attributes_map.at[i, check] = res
+            #     result = [actual_description, generated_description]
+            #     result.extend(results)
+            #     check_results.loc[len(check_results)] = result
 
-        for i, row in self.relationships_map.iterrows():
-            actual_description = row['actual_description']
-            generated_description = row['generated_description']
-            results, res = self.contradiction_checker.run(actual_description, generated_description)
-            self.relationships_map.at[i, 'contradiction'] = res
-            result = [actual_description, generated_description]
-            result.extend(results)
-            contradiction_check.loc[len(contradiction_check)] = result
+            if not os.path.exists(rf"{parent_folder}"):
+                os.makedirs(f"{parent_folder}")
 
-        for i, row in self.attributes_map.iterrows():
-            actual_description = row['actual_description']
-            generated_description = row['generated_description']
-            results, res = self.containment_checker.run(actual_description, generated_description)
-            self.attributes_map.at[i, 'inclusion'] = res
-            result = [actual_description, generated_description]
-            result.extend(results)
-            inclusion_check.loc[len(inclusion_check)] = result
+            if not os.path.exists(rf"{parent_folder}//{self.domain}"):
+                os.makedirs(f"{parent_folder}//{self.domain}")
 
-        for i, row in self.relationships_map.iterrows():
-            actual_description = row['actual_description']
-            generated_description = row['generated_description']
-            results, res = self.containment_checker.run(actual_description, generated_description)
-            self.relationships_map.at[i, 'inclusion'] = res
-            result = [actual_description, generated_description]
-            result.extend(results)
-            inclusion_check.loc[len(inclusion_check)] = result
-
-        if not os.path.exists("logs"):
-            os.makedirs("logs")
-
-        equality_check.to_csv("logs//equality_check.csv")
-        contradiction_check.to_csv("logs//contradiction_check.csv")
-        inclusion_check.to_csv("logs//inclusion_check.csv")
-
-        self.attributes_map.to_csv("logs//predicted_attributes_map.csv")
-        self.relationships_map.to_csv("logs//predicted_relationship_map.csv")
+            check_results.to_excel(f"{parent_folder}/{self.domain}/{check}_check.xlsx", index=False)
 
         # for i in enumerate(self.actual_description):
         #     # TODO Check whether this can be list or dict

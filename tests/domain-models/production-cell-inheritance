@@ -17,17 +17,8 @@ associations = [
         'cardinality_class1': '1',
         'cardinality_class2': '0..*',
         'name': '',
-        'role_class1': '',
+        'role_class1': 'has',
         'role_class2': 'products'
-    },
-    {
-        'class1': 'ProductionCell',
-        'class2': 'Unit',
-        'cardinality_class1': '1',
-        'cardinality_class2': '1..*',
-        'name': '',
-        'role_class1': '',
-        'role_class2': 'units'
     },
     {
         'class1': 'ProcessingUnit',
@@ -62,4 +53,14 @@ inheritance = [
     'parent_class': 'TransportUnit',
     'child_classes': ['ConveyorBelt', 'RobotArm']
 }
+]
+
+compositions = [
+{
+        'parent_class': 'ProductionCell',
+        'child_class': 'Unit',
+        'cardinality': '0..*',
+        'role': 'units',
+    }
+
 ]

@@ -1,6 +1,7 @@
 import pandas as pd
 
-domains = ['bank', 'factory', 'smart-city']
+# domains = ['bank', 'factory', 'smart-city', 'sustainable-transportation']
+domains = ['car-maintenance', 'production-cell-inheritance']
 checks = ['equality', 'contradiction', 'inclusion']
 
 
@@ -19,17 +20,16 @@ def get_column(check):
     return check
 
 
-model = 'llama'
-parent_folder = "./without-sentence-generator-results/gpt4"
+parent_folder = "../25th may inheritance results/gpt4"
 
 for check in checks:
     # Just to get the prompts for each check
-    df_check = pd.read_csv(f"5th may//bank-logs-gpt4//{check}_check.csv")
+    df_check = pd.read_csv(f"{parent_folder}//{domains[0]}//{check}_check.csv")
     df_results = pre_fill_values(df_check)
 
     for domain in domains:
-        predicted_attribute_map = pd.read_csv(f"{parent_folder}//{domain}-logs-{model}//predicted_attributes_map.csv")
-        df_check = pd.read_csv(f"{parent_folder}//{domain}-logs-{model}//{check}_check.csv")
+        predicted_attribute_map = pd.read_csv(f"{parent_folder}//{domain}//predicted inheritance map.csv")
+        df_check = pd.read_csv(f"{parent_folder}//{domain}//{check}_check.csv")
 
         for index, result in enumerate(predicted_attribute_map[get_column(check)]):
             for i, prompt in enumerate(df_check.columns[2:]):
@@ -41,7 +41,7 @@ for check in checks:
                 else:
                     answer = "not clear"
 
-                if isinstance(answer, bool):  # Check if answer is a boolean
+                if isinstance(answer, bool) and isinstance(result, bool):  # Check if answer is a boolean
                     if result == answer:
                         df_results.at[i, 'correct'] = 1 + df_results.iloc[i]['correct']
                     else:
@@ -49,6 +49,6 @@ for check in checks:
                 else:
                     df_results.at[i, 'not clear'] = 1 + df_results.iloc[i]['not clear']
 
-    df_results.to_csv(f"{parent_folder}//{check}-results-{model}.csv")
+    df_results.to_csv(f"{parent_folder}//{check}-results.csv")
 
 print("Done")

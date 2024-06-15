@@ -1,2 +1,0 @@
-class_name,attribute,generated_description,actual_description,equal,contradiction,inclusion
-Account,balance,an account has a balance,"At any time, the owner of a bank account can check the current balance",FALSE,FALSE,TRUE

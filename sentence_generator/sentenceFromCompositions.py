@@ -38,7 +38,7 @@ class SentenceFromCompositions(AbstractSentenceGenerator):
                                                                            part_of_sentence]
 
 
-compositions = [
+car_compositions = [
     {
         'parent_class': 'Car',
         'child_class': 'Service',
@@ -47,5 +47,24 @@ compositions = [
     }
 ]
 
-sfc = SentenceFromCompositions(compositions)
+factory_compositions = [
+    {
+        'parent_class': 'Factory',
+        'child_class': 'Machine',
+        'cardinality': '1..*',
+        'role': ''
+    }
+]
+
+production_compositions = [
+    {
+        'parent_class': 'ProductionCell',
+        'child_class': 'Unit',
+        'cardinality': '0..*',
+        'role': 'units',
+    }
+
+]
+
+sfc = SentenceFromCompositions(production_compositions)
 sfc.get_sentences()
