@@ -4,7 +4,7 @@ from workflow import apiCaller
 
 domains = ['bank', 'factory', 'smart-city', 'sustainable-transportation']
 
-parent_folder = "./29th may inclusion prompt results"
+parent_folder = "./29th-may-inclusion-prompt-results"
 
 prompts = [
     "Can Statement 2 be inferred from Statement 1?",

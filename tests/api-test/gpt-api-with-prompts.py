@@ -129,45 +129,65 @@ inclusion_check_prompts = [
     "Does Statement 1 contain all the particulars brought up in Statement 2?"
 ]
 
-# Read the CSV file
-df = pd.read_csv(file_path, encoding='unicode_escape')
+prompts = [
+    "Determine whether all facts from Statement 2 are included in Statement 1, either implicitly or explicitly.",
+    "Does Statement 1 encompass all the information provided in Statement 2, whether directly stated or implied?",
+    "Is all the information in Statement 2, whether expressly mentioned or hinted at, contained within Statement 1?",
+    "Are all the facts provided in Statement 2, whether stated outright or indirectly implied, embraced by Statement 1?",
+    "Does Statement 1 incorporate every aspect presented in Statement 2, whether directly articulated or suggested?",
+    "Evaluate if every piece of information in Statement 2 is either directly stated or implied in Statement 1."
+]
 
-prompt = "Determine whether all facts from Statement 2 are included in Statement 1, either implicitly or explicitly."
+# Read the CSV file
+# df = pd.read_csv(file_path, encoding='unicode_escape')
+#
+# prompt = "Determine whether all facts from Statement 2 are included in Statement 1, either implicitly or explicitly."
+
+actual_description = "For each city, we need to store its name and country"
+
+gen1 = "a city has a country"
+gen2 = "a city has a name"
+gen1_responses = []
+
+for prompt in prompts:
+    combined_text = combine_prompt(prompt, actual_description, gen2)
+    response = call_api(combined_text)
+    gen1_responses.append(response)
 
 answer = []
-# Iterate over each row in the DataFrame
-for index, row in df.iterrows():
-    statement1 = row["Statement 1 : Actual description"]
-    statement2 = row["Statement2 : Generated description"]
-    system_prompt = row["system_description"]
-
-    # combined_text = combine_prompt_few_shot(statement1, statement2)
-    # response = call_api(combined_text)
-    #
-    # new_row = [statement1, statement2, response]
-    #
-    # answer.append(new_row)
-
-    # combined_text = combine_prompt(prompt, statement1, statement2)
-    # response = call_api_with_system_prompt(combined_text, system_prompt)
-    # new_row = [statement1, statement2, response]
-    # answer.append(new_row)
-
-    for prompt in inclusion_check_prompts:
-        combined_text = combine_prompt(prompt, statement1, statement2)
-        response = call_api_with_system_prompt(combined_text, system_prompt)
-        df.at[index, prompt] = response
-
-    print("Done")
-    print(statement1)
-    print()
-
-# answer_path = "D:\\Thesis\\modelling-assistant\\inclusion-check-all-examples-with-system-prompt-3.5.csv"
-# column_names = ['Statement1', 'Statement2', prompt]
+# # Iterate over each row in the DataFrame
+# for index, row in df.iterrows():
+#     statement1 = row["Statement 1 : Actual description"]
+#     statement2 = row["Statement2 : Generated description"]
+#     system_prompt = row["system_description"]
 #
-# with open(answer_path, 'w', newline='') as csvfile:
-#     writer = csv.writer(csvfile)
-#     writer.writerow(column_names)
-#     writer.writerows(answer)
-
-df.to_csv("D:\\Thesis\\modelling-assistant\\inclusion-check-all-examples-with-system-prompt-3.5.csv")
+#     # combined_text = combine_prompt_few_shot(statement1, statement2)
+#     # response = call_api(combined_text)
+#     #
+#     # new_row = [statement1, statement2, response]
+#     #
+#     # answer.append(new_row)
+#
+#     # combined_text = combine_prompt(prompt, statement1, statement2)
+#     # response = call_api_with_system_prompt(combined_text, system_prompt)
+#     # new_row = [statement1, statement2, response]
+#     # answer.append(new_row)
+#
+#     for prompt in inclusion_check_prompts:
+#         combined_text = combine_prompt(prompt, statement1, statement2)
+#         response = call_api_with_system_prompt(combined_text, system_prompt)
+#         df.at[index, prompt] = response
+#
+#     print("Done")
+#     print(statement1)
+#     print()
+#
+# # answer_path = "D:\\Thesis\\modelling-assistant\\inclusion-check-all-examples-with-system-prompt-3.5.csv"
+# # column_names = ['Statement1', 'Statement2', prompt]
+# #
+# # with open(answer_path, 'w', newline='') as csvfile:
+# #     writer = csv.writer(csvfile)
+# #     writer.writerow(column_names)
+# #     writer.writerows(answer)
+#
+# df.to_csv("D:\\Thesis\\modelling-assistant\\inclusion-check-all-examples-with-system-prompt-3.5.csv")

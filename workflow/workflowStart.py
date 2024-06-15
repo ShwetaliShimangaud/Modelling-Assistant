@@ -22,7 +22,7 @@ def get_prompts(file_name):
     return local_vars['prompts']
 
 
-parent_folder = "../random permutation results"
+parent_folder = "../random-permutation-results"
 
 
 class WorkflowStart:

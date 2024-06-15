@@ -42,7 +42,7 @@ results = pd.DataFrame(columns=["domain name",
 def test_accuracy():
     domains = ['bank', 'factory', 'smart-city', 'sustainable-transportation']
     model = "gpt4"
-    parent_folder = "./20th may relationship results/gpt3.5"
+    parent_folder = "./20th-may-relationship-results/gpt3.5"
 
     for domain_name in domains:
         # attributes_true_result = pd.read_csv(f"{domain_name}//Attributes map.csv")

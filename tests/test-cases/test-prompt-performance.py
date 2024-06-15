@@ -20,7 +20,7 @@ def get_column(check):
     return check
 
 
-parent_folder = "../25th may inheritance results/gpt4"
+parent_folder = "../25th-may-inheritance-results/gpt4"
 
 for check in checks:
     # Just to get the prompts for each check

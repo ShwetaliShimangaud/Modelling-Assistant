@@ -64,7 +64,7 @@ def test_workflow():
     domains = ['bank', 'car-maintenance', 'factory', 'production-cell-inheritance', 'smart-city', 'sustainable'
                                                                                                   '-transportation']
 
-    parent_folder = "../random permutation results"
+    parent_folder = "../random-permutation-results"
     checks = ['equality', 'contradiction', 'inclusion']
 
     parts_of_domain = ['Attributes', 'Associations', 'Inheritance', 'Compositions']
