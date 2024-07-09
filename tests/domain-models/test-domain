@@ -1,0 +1,39 @@
+class_attributes = {
+    "Piece": ['width', "height", "depth"]
+}
+
+associations = [
+    {
+        'class1': 'Machine',
+        'class2': 'Piece',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'isProducedBy',
+        'role_class2': 'produces'
+    }
+]
+
+compositions = [
+    {
+        'parent_class': 'Factory',
+        'child_class': 'Machine',
+        'cardinality': '1..*',
+    }
+]
+
+inheritance = [
+{
+    'parent_class': 'InsuranceContract',
+    'child_classes': ['LifeInsuranceContract','CarInsuranceContract']
+}
+]
+
+aggregations = [
+    {
+        'parent_class': 'MemberCategory',
+        'child_class': 'Member',
+        'cardinality': '0..*',
+        'role' : 'members'
+    }
+]

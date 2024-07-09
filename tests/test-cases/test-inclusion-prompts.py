@@ -7,8 +7,8 @@ domains = ['bank', 'factory', 'smart-city', 'sustainable-transportation']
 parent_folder = "./29th-may-inclusion-prompt-results"
 
 prompts = [
-    "Can Statement 2 be inferred from Statement 1?",
-    "Can Statement 2 be implied from Statement 1?",
+    "Can Statement 2 be inferred from the context given in Statement 1?",
+    "Can Statement 2 be implied the context given in from Statement 1?",
     "Can Statement 2 be determined from Statement 1?",
     "Can Statement 2 be derived from Statement 1?",
     "Can Statement 2 logically follow from Statement 1?",
@@ -21,12 +21,32 @@ relationship_map = pd.DataFrame(
              'predicted_answer'])
 
 generated_descriptions = [
-    "an account has a balance"
+    "A member category can have users.",
+
+    "A member category can have members.",
+
+    "A book can have book copies.",
+
+    "A book category can have books.",
+
+    "A book category can have books."
 ]
 
 actual_descriptions = [
-    "At any time, the owner of a bank account can check its current balance"
+    "All information about what category of member a user belongs to (see borrowing rules below), his/her email "
+    "address, etc. is available from the central university server.",
 
+    "All information about what category of member a user belongs to (see borrowing rules below), his/her email "
+    "address, etc. is available from the central university server.",
+
+    "The system does not require users to identify themselves to search for books according to certain criteria and "
+    "to check the availability of a particular book.",
+
+    "Different categories of books have different loan periods (e.g., Lecturers may borrow a standard book for 3 "
+    "months, but can only loan a periodical for 1 month).",
+
+    "Often, a certain category of book has a different loan period for each category of member, e.g. Professors are "
+    "allowed to borrow a standard book for 6 months, whereas Graduate Students are allowed only 3 months."
 ]
 
 columns = ['generated_description', 'actual_description']

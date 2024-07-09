@@ -1,0 +1,81 @@
+class_attributes = {
+    'Person': ["dateOfBirth"],
+    "Claim": ['compensation'],
+    "Car": ['builtIn', "price"],
+    "InsuranceContract": ['payment', 'signedOn'],
+    "LifeInsuranceContract" : [],
+    "CarInsuranceContract" : []
+}
+
+associations = [
+    {
+        'class1': 'Person',
+        'class2': 'Claim',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'claimAgent',
+        'role_class2': 'handledClaims'
+    },
+    {
+        'class1': 'Person',
+        'class2': 'Car',
+        'cardinality_class1': '0..5',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': 'secondaryDrivers',
+        'role_class2': 'myCar'
+    },
+    {
+        'class1': 'Person',
+        'class2': 'InsuranceContract',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'salesMan',
+        'role_class2': 'overseenContracts'
+    },
+    {
+        'class1': 'Person',
+        'class2': 'InsuranceContract',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'signingCustomer',
+        'role_class2': 'signedContracts'
+    },
+    {
+        'class1': 'Person',
+        'class2': 'LifeInsuranceContract',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'beneficiaries',
+        'role_class2': 'benefitsFrom'
+    },
+    {
+        'class1': 'Claim',
+        'class2': 'InsuranceContract',
+        'cardinality_class1': '0..*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': 'claimHistory',
+        'role_class2': 'appliedTo'
+    },
+    {
+        'class1': 'Car',
+        'class2': 'CarInsuranceContract',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..1',
+        'name': '',
+        'role_class1': 'covers',
+        'role_class2': 'coveredBy'
+    }
+]
+
+inheritance = [
+{
+    'parent_class': 'InsuranceContract',
+    'child_classes': ['LifeInsuranceContract','CarInsuranceContract']
+}
+]

@@ -1,0 +1,8 @@
+description = "An insurance company wants to automate its functions. The company sells several kinds of insurance policies, including life insurance and car insurance, and has plans to expand its services. Customers can purchase insurance policies, pay insurance fees accordingly, and receive compensation. Each insurance purchase activity is overseen by a sales man and results in a contract, in which the form of payment (e.g. yearly, monthly, ...) is specified. Claim agents are in charge of handling claims. They study the claims received against the insurance plans and decide on how much compensation the client is entitled to. All claims, even those that are not compensated, have to be archived in case of future reclamations.
+
+Life insurance policies
+When purchasing a life insurance, the customer has to nominate at least one beneficiary (who will receive the compensation in case of death of the customer). For life insurance policies, the yearly fee is based on the person’s age and the date the contract was signed.
+
+Car insurance policies
+The fee for a car insurance is based on the price of the car and the year in which the car was built. The base car insurance covers accidents for the primary driver only (i.e. the customer himself/herself). It is however possible to add a maximum of 5 secondary drivers to the contract. Each secondary driver costs $10 extra per year. This total (base fee + secondary drivers) is then further adjusted based on the claim history. For each accident that has been compensated in the past, the fee is increased by 20%.
+"

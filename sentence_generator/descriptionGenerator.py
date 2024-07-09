@@ -3,6 +3,8 @@ import pandas as pd
 from sentence_generator.sentenceFromAttributes import SentenceFromAttributes
 from sentence_generator.sentenceFromAssociations import SentenceFromAssociations
 from sentence_generator.sentenceFromCompositions import SentenceFromCompositions
+from sentence_generator.sentenceFromAggregations import SentenceFromAggregation
+from sentence_generator.sentenceFromInheritance import SentenceFromInheritance
 from sentence_generator.postProcessor import PostProcessor
 
 # model_path = "D:\\Thesis\\modelling-assistant\\tests\\domain-models\\bank"
@@ -19,10 +21,12 @@ model_path = "D:\\Thesis\\modelling-assistant\\tests\\\domain-models\\"
 class DescriptionGenerator:
     def __init__(self, domain_name):
         self.domain_name = domain_name
-        attributes, associations, compositions = self.read_model()
+        attributes, associations, compositions, aggregations, inheritance = self.read_model()
         self.generator_from_attributes = SentenceFromAttributes(attributes)
         self.generator_from_associations = SentenceFromAssociations(associations)
         self.generator_from_compositions = SentenceFromCompositions(compositions)
+        self.generator_from_aggregations = SentenceFromAggregation(aggregations)
+        self.generator_from_inheritance = SentenceFromInheritance(inheritance)
         self.post_processor = PostProcessor()
 
         # TODO : Keep only one format either description string or 'attributes' and 'relationships' dataframes
@@ -48,8 +52,9 @@ class DescriptionGenerator:
 
         exec(content, local_vars)
 
-        return local_vars.get('class_attributes', {}), local_vars.get('associations', []), local_vars.get(
-            'compositions', [])
+        return (local_vars.get('class_attributes', {}), local_vars.get('associations', []),
+                local_vars.get('compositions', []), local_vars.get('aggregations', []),
+                local_vars.get('inheritance', []))
 
     def generate_description(self):
         processed_sentences = []
@@ -74,8 +79,21 @@ class DescriptionGenerator:
             processed_sentences.append(sentence)
 
         # From Compositions
-        for sentence in self.generator_from_compositions.get_sentences():
-            sentence = self.post_processor.morphological_process(sentence)
+        for index, row in self.generator_from_compositions.get_sentences().iterrows():
+            sentence = self.post_processor.morphological_process(row['sentence'])
+            sentence = sentence.replace("+sg", '')
+            sentence = sentence.replace("+pl", '')
+            processed_sentences.append(sentence)
+
+        # From Aggregations
+        for index, row in self.generator_from_aggregations.get_sentences().iterrows():
+            sentence = self.post_processor.morphological_process(row['sentence'])
+            sentence = sentence.replace("+sg", '')
+            sentence = sentence.replace("+pl", '')
+            processed_sentences.append(sentence)
+
+        for index, row in self.generator_from_inheritance.get_sentences().iterrows():
+            sentence = self.post_processor.morphological_process(row['sentence'])
             sentence = sentence.replace("+sg", '')
             sentence = sentence.replace("+pl", '')
             processed_sentences.append(sentence)
@@ -87,6 +105,6 @@ class DescriptionGenerator:
         print(final_sentence)
 
 
-dec = DescriptionGenerator('production-cell-inheritance')
+dec = DescriptionGenerator('Insurance')
 print(dec.get_attributes())
 print(dec.get_relationships())

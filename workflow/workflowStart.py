@@ -22,7 +22,7 @@ def get_prompts(file_name):
     return local_vars['prompts']
 
 
-parent_folder = "../random-permutation-results"
+parent_folder = "..//aggregation_results"
 
 
 class WorkflowStart:
@@ -64,26 +64,6 @@ class WorkflowStart:
                     result.extend(results)
                     check_results.loc[len(check_results)] = result
 
-
-
-            # for i, row in self.associations_map.iterrows():
-            #     actual_description = row['actual_description']
-            #     generated_description = row['generated_description']
-            #     results, res = checker.run(actual_description, generated_description)
-            #     self.associations_map.at[i, check] = res
-            #     result = [actual_description, generated_description]
-            #     result.extend(results)
-            #     check_results.loc[len(check_results)] = result
-            #
-            # for i, row in self.inheritance_map.iterrows():
-            #     actual_description = row['actual_description']
-            #     generated_description = row['generated_description']
-            #     results, res = checker.run(actual_description, generated_description)
-            #     self.attributes_map.at[i, check] = res
-            #     result = [actual_description, generated_description]
-            #     result.extend(results)
-            #     check_results.loc[len(check_results)] = result
-
             if not os.path.exists(rf"{parent_folder}"):
                 os.makedirs(f"{parent_folder}")
 
@@ -92,26 +72,3 @@ class WorkflowStart:
 
             check_results.to_excel(f"{parent_folder}/{self.domain}/{check}_check.xlsx", index=False)
 
-        # for i in enumerate(self.actual_description):
-        #     # TODO Check whether this can be list or dict
-        #     sentence1 = self.actual_description[i]
-        #     sentence2 = self.generated_description[i]
-        #
-        #     if self.equality_checker.run(sentence1, sentence2):
-        #         print("Semantically equal")
-        #
-        #     elif self.contradiction_checker.run(sentence1, sentence2):
-        #         print("Contradictory")
-        #         # TODO Add exact class/attribute/relationship error
-        #         errors.append("Error")
-        #
-        #     elif self.containment_checker.run(sentence1, sentence2):
-        #         print("Containment")
-        #         errors.append("Actual description is more generic than modelled system")
-        #         warnings.append("warning")
-        #
-        #     else:
-        #         difference = self.difference_finder.run(sentence1, sentence2)
-        #         errors.append(difference)
-        #
-        # return warnings, errors

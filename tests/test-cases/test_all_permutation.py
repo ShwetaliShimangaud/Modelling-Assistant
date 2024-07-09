@@ -1,7 +1,8 @@
-import unittest
+import itertools
 
 import pandas as pd
 
+from src.descriptionReader import DescriptionReader
 from workflow.workflowStart import WorkflowStart
 
 
@@ -61,29 +62,35 @@ results = pd.DataFrame(columns=["domain name",
 
 
 def test_workflow():
-    domains = ['bank', 'car-maintenance', 'factory', 'production-cell-inheritance',
-               'smart-city', 'sustainable-transportation']
-
-    domains = ['Insurance']
-
-    parent_folder = "../workflow-results"
+    domains = ['bank', 'car-maintenance', 'factory', 'production-cell-inheritance', 'smart-city', 'sustainable'
+                                                                                                  '-transportation']
+    domains = ['smart-city']
+    parent_folder = "../permutation-expt-results"
     checks = ['equality', 'contradiction', 'inclusion']
 
     parts_of_domain = ['Attributes', 'Associations', 'Inheritance', 'Compositions']
 
+    # try:
     for domain_name in domains:
         predicted_individual_maps = []
         actual_individual_maps = []
+        description_reader = DescriptionReader(domain_name)
+        actual_description = description_reader.get_actual_description()
+        sentences = [sent.strip() for sent in actual_description.split(".") if len(sent.strip()) > 0]
+
         for part in parts_of_domain:
             true_result = pd.DataFrame()
             predicted_map = pd.DataFrame()
             try:
                 true_result = pd.read_csv(f"../ground-truth/{domain_name}/{part} map.csv")
-                true_result['Final answer'] = true_result.apply(determine_answer, axis=1)
+                generated_descriptions = list(true_result['generated_description'])
+                permutations = list(itertools.product(sentences, generated_descriptions))
+                true_result = pd.DataFrame(permutations, columns=['actual_description', 'generated_description'])
+
                 actual_individual_maps.append(true_result)
 
-                predicted_map = pd.read_csv(f"../ground-truth/{domain_name}/{part} map.csv")
-                # predicted_map['Final answer'] = predicted_map.apply(determine_answer, axis=1)
+                predicted_map = true_result.copy()
+
                 predicted_individual_maps.append(predicted_map)
             except:
                 print("Domain ", domain_name)
@@ -100,41 +107,41 @@ def test_workflow():
             if len(pred_map) != 0:
                 pred_map['Final answer'] = pred_map.apply(determine_answer, axis=1)
 
-            pred_map.to_excel(f"{parent_folder}//{domain_name}//predicted {parts_of_domain[i]} map.xlsx", index=False)
+            pred_map.to_excel(f"{parent_folder}/{domain_name}/predicted {parts_of_domain[i]} map.xlsx", index=False)
 
         res_instance = [domain_name]
 
-        for check in checks:
-            for actual_res, pred_res in zip(actual_individual_maps, predicted_individual_maps):
-                count = 0
-                if len(pred_res) != 0:
-                    for true_label, pred_label in zip(actual_res[check],
-                                                      pred_res[check]):
-                        if true_label == pred_label or (true_label and pred_label == 'True') or (
-                                true_label == False and pred_label == 'False'):
-                            count = count + 1
-
-                    check_accuracy = count / len(actual_res[check])
-                    unclear_count = sum(label == 'not clear' for label in pred_res[check])
-
-                    res_instance.append(check_accuracy)
-                    res_instance.append(unclear_count)
-                else:
-                    res_instance.append(1)
-                    res_instance.append(1)
-
-        for actual_res, pred_res in zip(actual_individual_maps, predicted_individual_maps):
-            if len(pred_res) != 0:
-                final_accuracy = sum(true_label == pred_label for true_label, pred_label in
-                                     zip(actual_res['Final answer'],
-                                         pred_res['Final answer'])) / len(
-                    actual_res['Final answer'])
-
-                res_instance.append(final_accuracy)
-
-            else:
-                res_instance.append(1)
-
-        results.loc[len(results)] = res_instance
-
-    results.to_excel(f"{parent_folder}/library_results.xlsx", index=False)
+    #     for check in checks:
+    #         for actual_res, pred_res in zip(actual_individual_maps, predicted_individual_maps):
+    #             count = 0
+    #             if len(pred_res) != 0:
+    #                 for true_label, pred_label in zip(actual_res[check],
+    #                                                   pred_res[check]):
+    #                     if true_label == pred_label or (true_label and pred_label == 'True') or (
+    #                             true_label == False and pred_label == 'False'):
+    #                         count = count + 1
+    #
+    #                 check_accuracy = count / len(actual_res[check])
+    #                 unclear_count = sum(label == 'not clear' for label in pred_res[check])
+    #
+    #                 res_instance.append(check_accuracy)
+    #                 res_instance.append(unclear_count)
+    #             else:
+    #                 res_instance.append(1)
+    #                 res_instance.append(1)
+    #
+    #     for actual_res, pred_res in zip(actual_individual_maps, predicted_individual_maps):
+    #         if len(pred_res) != 0:
+    #             final_accuracy = sum(true_label == pred_label for true_label, pred_label in
+    #                                  zip(actual_res['Final answer'],
+    #                                      pred_res['Final answer'])) / len(
+    #                 actual_res['Final answer'])
+    #
+    #             res_instance.append(final_accuracy)
+    #
+    #         else:
+    #             res_instance.append(1)
+    #
+    #     results.loc[len(results)] = res_instance
+    #
+    # results.to_excel(f"{parent_folder}/results.xlsx", index=False)

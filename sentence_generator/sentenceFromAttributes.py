@@ -66,11 +66,14 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
         return compound_pos_tags
 
     def generate_sentences(self):
+        # TODO : For boolean attributes, replace 'has' with 'can have'/can be.
+        # Add support to store and handle type of the attribute.
         for class_name, attributes_list in self.attributes.items():
             # From attributes:
             pos_tags = self.perform_pos_tagging(attributes_list)
 
-            # Formation of ‘‘has’’ sentences (object name has attribute)
+            # Case 1: Formation of ‘‘has’’ sentences (object name has attribute)
+            # examples : balance in account, name address in Bike station
             # Filter words and their POS tags based on desired POS tags
             filtered_dict = {word: pos_tag for word, pos_tag in pos_tags.items() if not util.contains_verb(pos_tag)}
 
@@ -78,13 +81,14 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
             for word, pos_tag in filtered_dict.items():
                 attributes.append(word)
 
-            #  Formation with verbs
+            # Case 2: Formation with verbs
             filtered_dict = {word: pos_tag for word, pos_tag in pos_tags.items() if util.contains_verb(pos_tag)}
 
             for word, pos_tag in filtered_dict.items():
                 parts = pos_tag.split("+")
 
-                # Case 1 : only verb, add class name as suffix
+                # Case 2.1 : only verb, add class name as suffix
+                # examples : completed in Campaign class
                 if len(parts) == 1:
                     # lemmatize the verb remove 'ed'
                     attr_name = word + " " + class_name
@@ -92,16 +96,20 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
 
                 else:
                     word_parts = util.split_camel_case(word)
-                    # Case 2 : if verb has noun phrase on left, verb is on right
+                    # Case 2.2 : if verb has noun phrase on left, verb is on right
                     if util.contains_verb(parts[1]):
                         # lemmatize the verb remove 'ed'
                         attr_name = word_parts[1] + " " + word_parts[0]
                         attributes.append(attr_name)
 
-                    # Case 3 : if verb has noun phrase on right, verb is on left
+                    # Case 2.3 : if verb has noun phrase on right, verb is on left
+                    # examples : estimatedCost in Campaign class,
                     elif util.contains_verb(parts[0]):
                         # lemmatize the verb remove 'ed'
-                        attr_name = word_parts[0] + " " + word_parts[1]
+                        attr_name = ""
+                        for w in word_parts:
+                            attr_name += " " + w
+                        # attr_name = word_parts[0] + " " + word_parts[1]
                         attributes.append(attr_name)
 
             # if len(attributes) > 0:
@@ -142,20 +150,20 @@ factory_attributes = {
     "Worker": ['id', 'name', 'salary']
 }
 
-#
-# city_attributes = {
-#     'Campaign': ["estimatedCost", "overallCost", "completed"],
-#     "City": ['name'],
-#     "Neighbourhood": ['name', "aqi"],
-#     "AirQualitySensor": ['CO', 'O3', 'SO2', 'NO2', 'others'],
-#     "Display": ['size', 'resolution']
-# }
-#
+
+city_attributes = {
+    'Campaign': ["estimatedCost", "overallCost", "completed"],
+    # "City": ['name'],
+    # "Neighbourhood": ['name', "aqi"],
+    # "AirQualitySensor": ['CO', 'O3', 'SO2', 'NO2', 'others'],
+    # "Display": ['size', 'resolution']
+}
+
 bank_attributes = {
     "Customer": [],
     "Account": ['balance']
 }
-#
+
 transportation_attributes = {
     "SustainableCity": ['name', 'country'],
     "BikeStation": ['name', 'address', 'spots'],
@@ -164,5 +172,5 @@ transportation_attributes = {
     "Bike": ['code', 'priceHour']
 }
 
-# sfa = SentenceFromAttributes(factory_attributes)
+# sfa = SentenceFromAttributes(city_attributes)
 # print(sfa.attributes_description)

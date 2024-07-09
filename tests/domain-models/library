@@ -1,0 +1,79 @@
+class_attributes = {
+    'BookCopy': ["barcode", "onReserve"],
+    "Loan": ['startDate', 'endDate'],
+    "Member": ['name', "email"],
+    "Book": ['title'],
+    "BookCategory" : ["name"],
+    "LoanPeriod" : ["duration"],
+    "MemberCategory" : ["name", "maxNumberBooks"]
+}
+
+
+associations = [
+    {
+        'class1': 'BookCopy',
+        'class2': 'Loan',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..1',
+        'name': '',
+        'role_class1': 'borrowedBook',
+        'role_class2': 'loan'
+    },
+    {
+        'class1': 'Loan',
+        'class2': 'Member',
+        'cardinality_class1': '0..*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': 'loans',
+        'role_class2': 'currentHolder'
+    },
+    {
+        'class1': 'Member',
+        'class2': 'Book',
+        'cardinality_class1': '0..*',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'requesters',
+        'role_class2': 'booksOnHold'
+    },
+    {
+        'class1': 'MemberCategory',
+        'class2': 'LoanPeriod',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'memberCategory',
+        'role_class2': 'loanPeriods'
+    },
+    {
+        'class1': 'LoanPeriod',
+        'class2': 'BookCategory',
+        'cardinality_class1': '0..*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': 'loanPeriods',
+        'role_class2': 'bookCategory'
+    }
+]
+
+aggregations = [
+    {
+        'parent_class': 'MemberCategory',
+        'child_class': 'Member',
+        'cardinality': '0..*',
+        'role' : 'members'
+    },
+    {
+        'parent_class': 'Book',
+        'child_class': 'BookCopy',
+        'cardinality': '0..*',
+        'role' : 'copies'
+    },
+    {
+        'parent_class': 'BookCategory',
+        'child_class': 'Book',
+        'cardinality': '0..*',
+        'role' : 'books'
+    }
+]

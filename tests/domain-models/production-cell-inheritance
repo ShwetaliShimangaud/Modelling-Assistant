@@ -26,7 +26,7 @@ associations = [
         'cardinality_class1': '1',
         'cardinality_class2': '',
         'name': '',
-        'role_class1': 'to',
+        'role_class1': 'transportsTo',
         'role_class2': ''
     },
     {
@@ -35,7 +35,7 @@ associations = [
         'cardinality_class1': '1',
         'cardinality_class2': '',
         'name': '',
-        'role_class1': 'from',
+        'role_class1': 'transportsFrom',
         'role_class2': ''
     }
 ]

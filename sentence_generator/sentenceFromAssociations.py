@@ -6,7 +6,6 @@ import sentence_generator.util as util
 import spacy
 import pandas as pd
 
-
 # Associations
 # Template : o1 cardinality -> o1 name -> association name -> o2 cardinality -> o2 name
 # Template: o1 cardinality -> o1 name/role -> "can have"/"can be associated to" -> o2 cardinality -> o2 name/roles
@@ -19,6 +18,8 @@ import pandas as pd
 # 3. Main verb with morph analysis Present/past/future tense : parkedIn : Decide on is/are/was/were
 # TODO : Check if multiple tense conditions needs to be checked or will 'has' work in every case
 # 4. Main verb infinitive form : drop : Go with 'has'
+
+nlp = spacy.load("en_core_web_trf")
 
 
 def get_main_and_auxillary_verb(result):
@@ -38,11 +39,138 @@ def ends_with_preposition(result):
     return last_token.pos_ == "ADP"
 
 
+def get_role_and_cardinality(role, cardinality, associated_class):
+    verb_forms_with_auxillary_verb = ['Inf', 'Part']
+
+    # TODO : Discuss how to handle such cases where role is not provided
+    if len(role) == 0:
+        if util.is_singular(cardinality):
+            return "has " + util.format_class_name(associated_class)
+        else:
+            phrase = "can have "
+            ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
+            result = nlp(ass_class)
+            for doc in result:
+                if doc.dep_ == 'ROOT':
+                    phrase += util.get_plural(doc.text) + " "
+                else:
+                    phrase += doc.text + " "
+
+            return phrase
+
+    words = util.split_camel_case(role)
+    pos_tag = nltk.pos_tag(words)
+    result = nlp(" ".join(words))
+
+    auxillary_verb_needed = True
+    main_verb, auxillary_verb = get_main_and_auxillary_verb(result)
+
+    # TODO First condition is redundant when second condition is there, can be removed at the end
+    if main_verb is not None and auxillary_verb is not None:
+        auxillary_verb_needed = False
+    elif auxillary_verb is not None:
+        auxillary_verb_needed = False
+    elif main_verb is not None:
+        if main_verb.has_morph():
+            verb_form = main_verb.morph.get('VerbForm', [])
+            if any(elem in verb_forms_with_auxillary_verb for elem in verb_form):
+                auxillary_verb_needed = True
+            else:
+                auxillary_verb_needed = False
+        else:
+            auxillary_verb_needed = True
+    else:
+        auxillary_verb_needed = True
+
+    # Case 1: Main verb + auxiliary verb
+    if not auxillary_verb_needed:
+        phrase = util.format_role_name(role) + " "
+        if util.is_singular(cardinality):
+            phrase += util.get_appropriate_article(associated_class) + " " + util.format_class_name(
+                associated_class)
+        else:
+            ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
+            result = nlp(ass_class)
+            for doc in result:
+                if doc.dep_ == 'ROOT':
+                    phrase += util.get_plural(doc.text) + " "
+                else:
+                    phrase += doc.text + " "
+
+        return phrase
+
+    # Case 2: auxillary verb needed, but role contains class name
+    elif associated_class.lower() in role.lower():
+
+        if util.is_singular(cardinality):
+            phrase = "has "
+            phrase += util.get_appropriate_article(role) + " " + util.format_role_name(role)
+        else:
+            # TODO : Handle the case where cardinality is 'many' and role name has associated class but it is not plural
+            # temp = ""
+            # ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
+            # result = nlp(ass_class)
+            # for doc in result:
+            #     if doc.dep_ == 'ROOT':
+            #         temp += util.get_plural(doc.text) + " "
+            #     else:
+            #         temp += doc.text + " "
+            phrase = "can have "
+            phrase += util.format_role_name(role)
+        return phrase
+
+        # Case 3: auxillary verb needed along with role and class name, but role name ends with preposition
+    elif ends_with_preposition(result):
+        phrase = "is " + util.format_role_name(role) + " "
+        if util.is_singular(cardinality):
+            phrase += util.get_appropriate_article(associated_class) + " " + util.format_class_name(
+                associated_class)
+        else:
+            ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
+            result = nlp(ass_class)
+            for doc in result:
+                if doc.dep_ == 'ROOT':
+                    phrase += util.get_plural(doc.text) + " "
+                else:
+                    phrase += doc.text + " "
+        return phrase
+    else:
+        # TODO check if you can use who,which etc instead of which always
+        if util.is_singular(cardinality):
+            phrase = "has"
+        else:
+            phrase = "can have"
+        phrase += util.get_appropriate_article(role) + " " + util.format_role_name(role) + " which "
+        supporting_verb = ''
+        if util.is_singular(cardinality):
+            # Only need an article for singular class name.
+            phrase += "is " + util.get_appropriate_article(associated_class) + " "
+            supporting_verb = 'is'
+        else:
+            phrase += "are "
+            supporting_verb = 'are'
+
+        # Following code takes care of using singular/plural form of main Noun in role based on 'is/are'
+        formatted_class_name = util.format_class_name(associated_class)
+        formatted_class_name_list = formatted_class_name.split(" ")
+        res = nlp(formatted_class_name)
+        for i, token in enumerate(res):
+            # To find main noun aka class name and not the adjective/adverb associated with it
+            if token.dep_ == 'ROOT':
+                if token.morph.get("Number") == ['Sing'] and supporting_verb == 'are':
+                    plural_form = util.get_plural(token.text)
+                    formatted_class_name_list[i] = plural_form
+                elif token.morph.get("Number") == ['Plur'] and supporting_verb == 'is':
+                    singular_form = util.get_singular(token.text)
+                    formatted_class_name_list[i] = singular_form
+        phrase += " ".join(formatted_class_name_list)
+        return phrase
+
+
 class SentenceFromAssociations(AbstractSentenceGenerator):
     def __init__(self, associations):
         self.associations = associations
         # self.association_phrase = "is connected to"
-        self.nlp = spacy.load("en_core_web_trf")
 
         # TODO : Keep only one format either sentences list or 'relationships'  dataframe
         self.sentences = []
@@ -55,132 +183,6 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
     def get_relationships(self):
         return self.relationships
 
-    # def get_association_phrase(self,cardinality):
-    #     if cardinality == '0..*':
-    #         return 'may be connected to'
-    #     else:
-    #         return self.association_phrase
-
-    def get_role_and_cardinality(self, role, cardinality, associated_class):
-        verb_forms_with_auxillary_verb = ['Inf', 'Part']
-
-        # TODO : Discuss how to handle such cases where role is not provided
-        if len(role) == 0:
-            if util.is_singular(cardinality):
-                return "has " + util.format_class_name(associated_class)
-            else:
-                phrase = "has "
-                ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
-                result = self.nlp(ass_class)
-                for doc in result:
-                    if doc.dep_ == 'ROOT':
-                        phrase += util.get_plural(doc.text) + " "
-                    else:
-                        phrase += doc.text + " "
-
-                return phrase
-
-        words = util.split_camel_case(role)
-        pos_tag = nltk.pos_tag(words)
-        result = self.nlp(" ".join(words))
-
-        auxillary_verb_needed = True
-        main_verb, auxillary_verb = get_main_and_auxillary_verb(result)
-
-        # TODO First condition is redundant when second condition is there, can be removed at the end
-        if main_verb is not None and auxillary_verb is not None:
-            auxillary_verb_needed = False
-        elif auxillary_verb is not None:
-            auxillary_verb_needed = False
-        elif main_verb is not None:
-            if main_verb.has_morph():
-                verb_form = main_verb.morph.get('VerbForm', [])
-                if any(elem in verb_forms_with_auxillary_verb for elem in verb_form):
-                    auxillary_verb_needed = True
-                else:
-                    auxillary_verb_needed = False
-            else:
-                auxillary_verb_needed = True
-        else:
-            auxillary_verb_needed = True
-
-        # Case 1: Main verb + auxiliary verb
-        if not auxillary_verb_needed:
-            phrase = util.format_role_name(role) + " "
-            if util.is_singular(cardinality):
-                phrase += util.get_appropriate_article(associated_class) + " " + util.format_class_name(
-                    associated_class)
-            else:
-                ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
-                result = self.nlp(ass_class)
-                for doc in result:
-                    if doc.dep_ == 'ROOT':
-                        phrase += util.get_plural(doc.text) + " "
-                    else:
-                        phrase += doc.text + " "
-
-            return phrase
-
-        # Case 2: auxillary verb needed, but role contains class name
-        elif associated_class.lower() in role.lower():
-            phrase = "has "
-            if util.is_singular(cardinality):
-                phrase += util.get_appropriate_article(role) + " " + util.format_role_name(role)
-            else:
-                # TODO : Handle the case where cardinality is 'many' and role name has associated class but it is not plural
-                # temp = ""
-                # ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
-                # result = self.nlp(ass_class)
-                # for doc in result:
-                #     if doc.dep_ == 'ROOT':
-                #         temp += util.get_plural(doc.text) + " "
-                #     else:
-                #         temp += doc.text + " "
-                phrase += util.format_role_name(role)
-            return phrase
-
-            # Case 3: auxillary verb needed along with role and class name, but role name ends with preposition
-        elif ends_with_preposition(result):
-            phrase = "is " + util.format_role_name(role) + " "
-            if util.is_singular(cardinality):
-                phrase += util.get_appropriate_article(associated_class) + " " + util.format_class_name(associated_class)
-            else:
-                ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
-                result = self.nlp(ass_class)
-                for doc in result:
-                    if doc.dep_ == 'ROOT':
-                        phrase += util.get_plural(doc.text) + " "
-                    else:
-                        phrase += doc.text + " "
-            return phrase
-        else:
-            # TODO check if you can use who,which etc instead of which always
-            phrase = "has " + util.get_appropriate_article(role) + " " + util.format_role_name(role) + " which "
-            supporting_verb = ''
-            if util.is_singular(cardinality):
-                # Only need an article for singular class name.
-                phrase += "is " + util.get_appropriate_article(associated_class) + " "
-                supporting_verb = 'is'
-            else:
-                phrase += "are "
-                supporting_verb = 'are'
-
-            # Following code takes care of using singular/plural form of main Noun in role based on 'is/are'
-            formatted_class_name = util.format_class_name(associated_class)
-            formatted_class_name_list = formatted_class_name.split(" ")
-            res = self.nlp(formatted_class_name)
-            for i, token in enumerate(res):
-                # To find main noun aka class name and not the adjective/adverb associated with it
-                if token.dep_ == 'ROOT':
-                    if token.morph.get("Number") == ['Sing'] and supporting_verb == 'are':
-                        plural_form = util.get_plural(token.text)
-                        formatted_class_name_list[i] = plural_form
-                    elif token.morph.get("Number") == ['Plur'] and supporting_verb == 'is':
-                        singular_form = util.get_singular(token.text)
-                        formatted_class_name_list[i] = singular_form
-            phrase += " ".join(formatted_class_name_list)
-            return phrase
-
     def generate_sentences(self):
         # With role name
         for association in self.associations:
@@ -189,20 +191,34 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
             formatted_class1 = util.format_class_name(association['class1'])
             formatted_class2 = util.format_class_name(association['class2'])
 
+            # Removes "Each" from start of the sentence when cardinality is too many or not there.
             part_of_sentence = ''
-            part_of_sentence += "Each " + util.format_class_name(
-                association['class1']) + " " + self.get_role_and_cardinality(
+            if association['cardinality_class2'] == '':
+                part_of_sentence += "A "
+            elif util.is_singular(association['cardinality_class2']):
+                part_of_sentence += "Each "
+            else:
+                part_of_sentence += "A "
+
+            part_of_sentence += util.format_class_name(
+                association['class1']) + " " + get_role_and_cardinality(
                 association['role_class2'],
                 association[
                     'cardinality_class2'], association['class2'])
 
             self.sentences.append(part_of_sentence)
             self.relationships.loc[len(self.relationships)] = [formatted_class1, formatted_class2,
-                                                                                 association['role_class2'], part_of_sentence]
+                                                               association['role_class2'], part_of_sentence]
 
             part_of_sentence = ''
-            part_of_sentence = "Each " + util.format_class_name(
-                association['class2']) + " " + self.get_role_and_cardinality(
+            if association['cardinality_class1'] == '':
+                part_of_sentence += "A "
+            elif util.is_singular(association['cardinality_class1']):
+                part_of_sentence += "Each "
+            else:
+                part_of_sentence += "A "
+            part_of_sentence += util.format_class_name(
+                association['class2']) + " " + get_role_and_cardinality(
                 association['role_class1'], association['cardinality_class1'], association['class1'])
 
             self.sentences.append(part_of_sentence)
@@ -375,7 +391,19 @@ car_maintenance_associations = [
     }
 ]
 
-# sfa = SentenceFromAssociations(car_maintenance_associations)
+ass = [
+    {
+        'class1': 'BookCategory',
+        'class2': 'Book',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'books'
+    },
+]
+
+# sfa = SentenceFromAssociations(ass)
 # print(sfa.get_relationships())
 
 # without role name
