@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ASCII"?>
+<classdiagram:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:classdiagram="http://cs.mcgill.ca/sel/cdm/1.0" xmi:id="_ftaCgJatEe68rcy8su4JCA" name="ClassVariant">
+  <classes xsi:type="classdiagram:Class" xmi:id="_gCLYoJatEe68rcy8su4JCA" name="ProductionCell">
+    <associationEnds xmi:id="_jwcaIJatEe68rcy8su4JCA" name="products" assoc="_jwdBMZatEe68rcy8su4JCA" upperBound="-1"/>
+    <associationEnds xmi:id="_mKJccJatEe68rcy8su4JCA" name="units" assoc="_mKL4sJatEe68rcy8su4JCA" upperBound="-1" referenceType="Composition"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_gvLBgJatEe68rcy8su4JCA" name="Unit">
+    <associationEnds xmi:id="_mKLRoJatEe68rcy8su4JCA" name="myProductionCell" navigable="false" assoc="_mKL4sJatEe68rcy8su4JCA" lowerBound="1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_hTi54JatEe68rcy8su4JCA" name="ProcessingUnit" superTypes="_gvLBgJatEe68rcy8su4JCA">
+    <associationEnds xmi:id="_qwsw0JatEe68rcy8su4JCA" name="myTransportUnit" navigable="false" assoc="_qwsw0ZatEe68rcy8su4JCA" lowerBound="1"/>
+    <associationEnds xmi:id="_uLuGMJatEe68rcy8su4JCA" name="myTransportUnit1" navigable="false" assoc="_uLutQJatEe68rcy8su4JCA" lowerBound="1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_iDrWUJatEe68rcy8su4JCA" name="TransportUnit" superTypes="_gvLBgJatEe68rcy8su4JCA">
+    <associationEnds xmi:id="_qwq7oJatEe68rcy8su4JCA" name="to" assoc="_qwsw0ZatEe68rcy8su4JCA" lowerBound="1"/>
+    <associationEnds xmi:id="_uLsRAJatEe68rcy8su4JCA" name="from" assoc="_uLutQJatEe68rcy8su4JCA" lowerBound="1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_i9vx4JatEe68rcy8su4JCA" name="Product">
+    <associationEnds xmi:id="_jwdBMJatEe68rcy8su4JCA" name="myProductionCell" navigable="false" assoc="_jwdBMZatEe68rcy8su4JCA" lowerBound="1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_xAabYJatEe68rcy8su4JCA" name="Press" superTypes="_hTi54JatEe68rcy8su4JCA"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_xn5SIJatEe68rcy8su4JCA" name="Laser" superTypes="_hTi54JatEe68rcy8su4JCA"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_zRDoUJatEe68rcy8su4JCA" name="ConveyorBelt" superTypes="_iDrWUJatEe68rcy8su4JCA"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_0iZUYJatEe68rcy8su4JCA" name="RobotArm" superTypes="_iDrWUJatEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDVoid" xmi:id="_ftapkJatEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDAny" xmi:id="_ftapkZatEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDBoolean" xmi:id="_ftapkpatEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDDouble" xmi:id="_ftapk5atEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDInt" xmi:id="_ftaplJatEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDLong" xmi:id="_ftaplZatEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDString" xmi:id="_ftaplpatEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDByte" xmi:id="_ftapl5atEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDFloat" xmi:id="_ftapmJatEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDChar" xmi:id="_ftapmZatEe68rcy8su4JCA"/>
+  <associations xmi:id="_jwdBMZatEe68rcy8su4JCA" name="ProductionCell_Product" ends="_jwcaIJatEe68rcy8su4JCA _jwdBMJatEe68rcy8su4JCA"/>
+  <associations xmi:id="_mKL4sJatEe68rcy8su4JCA" name="ProductionCell_Unit" ends="_mKJccJatEe68rcy8su4JCA _mKLRoJatEe68rcy8su4JCA"/>
+  <associations xmi:id="_qwsw0ZatEe68rcy8su4JCA" name="TransportUnit_ProcessingUnit" ends="_qwq7oJatEe68rcy8su4JCA _qwsw0JatEe68rcy8su4JCA"/>
+  <associations xmi:id="_uLutQJatEe68rcy8su4JCA" name="TransportUnit_ProcessingUnit" ends="_uLsRAJatEe68rcy8su4JCA _uLuGMJatEe68rcy8su4JCA"/>
+  <layout xmi:id="_ftapmpatEe68rcy8su4JCA">
+    <containers xmi:id="_ftapm5atEe68rcy8su4JCA" key="_ftaCgJatEe68rcy8su4JCA">
+      <value xmi:id="_gCTUcJatEe68rcy8su4JCA" key="_gCLYoJatEe68rcy8su4JCA">
+        <value xmi:id="_gCTUcZatEe68rcy8su4JCA" x="443.0" y="180.0"/>
+      </value>
+      <value xmi:id="_gvM2sJatEe68rcy8su4JCA" key="_gvLBgJatEe68rcy8su4JCA">
+        <value xmi:id="_gvM2sZatEe68rcy8su4JCA" x="889.99994" y="180.0"/>
+      </value>
+      <value xmi:id="_hTnyYJatEe68rcy8su4JCA" key="_hTi54JatEe68rcy8su4JCA">
+        <value xmi:id="_hTnyYZatEe68rcy8su4JCA" x="701.37067" y="316.996"/>
+      </value>
+      <value xmi:id="_iDtykJatEe68rcy8su4JCA" key="_iDrWUJatEe68rcy8su4JCA">
+        <value xmi:id="_iDuZoJatEe68rcy8su4JCA" x="1065.4673" y="316.99997"/>
+      </value>
+      <value xmi:id="_i9yOIJatEe68rcy8su4JCA" key="_i9vx4JatEe68rcy8su4JCA">
+        <value xmi:id="_i9yOIZatEe68rcy8su4JCA" x="443.0" y="316.99997"/>
+      </value>
+      <value xmi:id="_xAgiAJatEe68rcy8su4JCA" key="_xAabYJatEe68rcy8su4JCA">
+        <value xmi:id="_xAgiAZatEe68rcy8su4JCA" x="612.6799" y="422.14212"/>
+      </value>
+      <value xmi:id="_xn-KoJatEe68rcy8su4JCA" key="_xn5SIJatEe68rcy8su4JCA">
+        <value xmi:id="_xn-KoZatEe68rcy8su4JCA" x="798.3453" y="422.14212"/>
+      </value>
+      <value xmi:id="_zRGEkJatEe68rcy8su4JCA" key="_zRDoUJatEe68rcy8su4JCA">
+        <value xmi:id="_zRGEkZatEe68rcy8su4JCA" x="984.0408" y="422.14212"/>
+      </value>
+      <value xmi:id="_0ieM4JatEe68rcy8su4JCA" key="_0iZUYJatEe68rcy8su4JCA">
+        <value xmi:id="_0ieM4ZatEe68rcy8su4JCA" x="1151.3699" y="422.14212"/>
+      </value>
+    </containers>
+  </layout>
+</classdiagram:ClassDiagram>

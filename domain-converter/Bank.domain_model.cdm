@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<classdiagram:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:classdiagram="http://cs.mcgill.ca/sel/cdm/1.0" xmi:id="_A1rvIJanEe6M2_a0UReWuA" name="Bank">
+  <classes xsi:type="classdiagram:Class" xmi:id="_BOEZ8JanEe6M2_a0UReWuA" name="Account">
+    <associationEnds xmi:id="_E5xPoJanEe6M2_a0UReWuA" name="owner" assoc="_E5xPoZanEe6M2_a0UReWuA" lowerBound="1"/>
+    <attributes xmi:id="_D53R0JanEe6M2_a0UReWuA" name="balance" type="_A1s9Q5anEe6M2_a0UReWuA"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_CfeXcJanEe6M2_a0UReWuA" name="Customer">
+    <associationEnds xmi:id="_E5wokJanEe6M2_a0UReWuA" name="accounts" assoc="_E5xPoZanEe6M2_a0UReWuA" upperBound="-1"/>
+  </classes>
+  <types xsi:type="classdiagram:CDVoid" xmi:id="_A1sWMJanEe6M2_a0UReWuA"/>
+  <types xsi:type="classdiagram:CDAny" xmi:id="_A1s9QJanEe6M2_a0UReWuA"/>
+  <types xsi:type="classdiagram:CDBoolean" xmi:id="_A1s9QZanEe6M2_a0UReWuA"/>
+  <types xsi:type="classdiagram:CDDouble" xmi:id="_A1s9QpanEe6M2_a0UReWuA"/>
+  <types xsi:type="classdiagram:CDInt" xmi:id="_A1s9Q5anEe6M2_a0UReWuA"/>
+  <types xsi:type="classdiagram:CDLong" xmi:id="_A1s9RJanEe6M2_a0UReWuA"/>
+  <types xsi:type="classdiagram:CDString" xmi:id="_A1s9RZanEe6M2_a0UReWuA"/>
+  <types xsi:type="classdiagram:CDByte" xmi:id="_A1s9RpanEe6M2_a0UReWuA"/>
+  <types xsi:type="classdiagram:CDFloat" xmi:id="_A1s9R5anEe6M2_a0UReWuA"/>
+  <types xsi:type="classdiagram:CDChar" xmi:id="_A1s9SJanEe6M2_a0UReWuA"/>
+  <associations xmi:id="_E5xPoZanEe6M2_a0UReWuA" name="Customer_Account" ends="_E5wokJanEe6M2_a0UReWuA _E5xPoJanEe6M2_a0UReWuA"/>
+  <layout xmi:id="_A1tkUJanEe6M2_a0UReWuA">
+    <containers xmi:id="_A1tkUZanEe6M2_a0UReWuA" key="_A1rvIJanEe6M2_a0UReWuA">
+      <value xmi:id="_BOyysJanEe6M2_a0UReWuA" key="_BOEZ8JanEe6M2_a0UReWuA">
+        <value xmi:id="_BOzZwJanEe6M2_a0UReWuA" x="366.00027" y="296.00003"/>
+      </value>
+      <value xmi:id="_CfnhYJanEe6M2_a0UReWuA" key="_CfeXcJanEe6M2_a0UReWuA">
+        <value xmi:id="_CfnhYZanEe6M2_a0UReWuA" x="760.99994" y="296.00003"/>
+      </value>
+    </containers>
+  </layout>
+</classdiagram:ClassDiagram>

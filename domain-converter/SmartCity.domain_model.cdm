@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<classdiagram:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:classdiagram="http://cs.mcgill.ca/sel/cdm/1.0" xmi:id="_ZxjdMJavEe68rcy8su4JCA" name="SmartCity">
+  <classes xsi:type="classdiagram:Class" xmi:id="_aN1JgJavEe68rcy8su4JCA" name="City">
+    <associationEnds xmi:id="_edx7wJavEe68rcy8su4JCA" name="neighborhoods" assoc="_edx7wpavEe68rcy8su4JCA" lowerBound="1" upperBound="-1"/>
+    <attributes xmi:id="_bipnYJavEe68rcy8su4JCA" name="name" type="_ZxjdN5avEe68rcy8su4JCA"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_cFeAkJavEe68rcy8su4JCA" name="Neighborhood">
+    <associationEnds xmi:id="_edx7wZavEe68rcy8su4JCA" name="myCity" navigable="false" assoc="_edx7wpavEe68rcy8su4JCA" lowerBound="1"/>
+    <associationEnds xmi:id="_iom9cJavEe68rcy8su4JCA" name="sensors" assoc="_iom9cpavEe68rcy8su4JCA" upperBound="-1"/>
+    <associationEnds xmi:id="_saEQcJavEe68rcy8su4JCA" name="display" assoc="_saEQcpavEe68rcy8su4JCA" lowerBound="1"/>
+    <attributes xmi:id="_d4CKYJavEe68rcy8su4JCA" name="name" type="_ZxjdN5avEe68rcy8su4JCA"/>
+    <attributes xmi:id="_4La-oJavEe68rcy8su4JCA" name="aqi" type="_ZxjdNZavEe68rcy8su4JCA"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_hE02gJavEe68rcy8su4JCA" name="AirQualitySensor">
+    <associationEnds xmi:id="_iom9cZavEe68rcy8su4JCA" name="neighborhood" assoc="_iom9cpavEe68rcy8su4JCA" lowerBound="1"/>
+    <attributes xmi:id="_nustgJavEe68rcy8su4JCA" name="CO" type="_ZxjdNJavEe68rcy8su4JCA"/>
+    <attributes xmi:id="_oeaTMJavEe68rcy8su4JCA" name="O3" type="_ZxjdNJavEe68rcy8su4JCA"/>
+    <attributes xmi:id="_pY4XYJavEe68rcy8su4JCA" name="SO2" type="_ZxjdNJavEe68rcy8su4JCA"/>
+    <attributes xmi:id="_qJ1TMJavEe68rcy8su4JCA" name="NO2" type="_ZxjdNJavEe68rcy8su4JCA"/>
+    <attributes xmi:id="_q6bCoJavEe68rcy8su4JCA" name="others" type="_ZxjdNJavEe68rcy8su4JCA"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_rlRWcJavEe68rcy8su4JCA" name="Display">
+    <associationEnds xmi:id="_saEQcZavEe68rcy8su4JCA" name="neighborhood" assoc="_saEQcpavEe68rcy8su4JCA" lowerBound="1"/>
+    <attributes xmi:id="_yS9WcJavEe68rcy8su4JCA" name="size" type="_ZxjdNZavEe68rcy8su4JCA"/>
+    <attributes xmi:id="_zBt54JavEe68rcy8su4JCA" name="resolution" type="_ZxjdNZavEe68rcy8su4JCA"/>
+  </classes>
+  <types xsi:type="classdiagram:CDVoid" xmi:id="_ZxjdMZavEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDAny" xmi:id="_ZxjdMpavEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDBoolean" xmi:id="_ZxjdM5avEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDDouble" xmi:id="_ZxjdNJavEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDInt" xmi:id="_ZxjdNZavEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDLong" xmi:id="_ZxjdNpavEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDString" xmi:id="_ZxjdN5avEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDByte" xmi:id="_ZxjdOJavEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDFloat" xmi:id="_ZxjdOZavEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDChar" xmi:id="_ZxjdOpavEe68rcy8su4JCA"/>
+  <associations xmi:id="_edx7wpavEe68rcy8su4JCA" name="City_Neighborhood" ends="_edx7wJavEe68rcy8su4JCA _edx7wZavEe68rcy8su4JCA"/>
+  <associations xmi:id="_iom9cpavEe68rcy8su4JCA" name="Neighborhood_AirQualitySensor" ends="_iom9cJavEe68rcy8su4JCA _iom9cZavEe68rcy8su4JCA"/>
+  <associations xmi:id="_saEQcpavEe68rcy8su4JCA" name="Neighborhood_Display" ends="_saEQcJavEe68rcy8su4JCA _saEQcZavEe68rcy8su4JCA"/>
+  <layout xmi:id="_ZxjdO5avEe68rcy8su4JCA">
+    <containers xmi:id="_ZxjdPJavEe68rcy8su4JCA" key="_ZxjdMJavEe68rcy8su4JCA">
+      <value xmi:id="_aN4M0JavEe68rcy8su4JCA" key="_aN1JgJavEe68rcy8su4JCA">
+        <value xmi:id="_aN4M0ZavEe68rcy8su4JCA" x="366.0" y="285.0"/>
+      </value>
+      <value xmi:id="_cFfOsJavEe68rcy8su4JCA" key="_cFeAkJavEe68rcy8su4JCA">
+        <value xmi:id="_cFfOsZavEe68rcy8su4JCA" x="366.0" y="535.0"/>
+      </value>
+      <value xmi:id="_hE2rsJavEe68rcy8su4JCA" key="_hE02gJavEe68rcy8su4JCA">
+        <value xmi:id="_hE2rsZavEe68rcy8su4JCA" x="854.11676" y="550.0"/>
+      </value>
+      <value xmi:id="_rlSkkJavEe68rcy8su4JCA" key="_rlRWcJavEe68rcy8su4JCA">
+        <value xmi:id="_rlSkkZavEe68rcy8su4JCA" x="366.0" y="764.1348"/>
+      </value>
+    </containers>
+  </layout>
+</classdiagram:ClassDiagram>
