@@ -11,20 +11,22 @@ import spacy
 def create_attributes_map(attributes_description, concepts, actual_description):
     data = pd.DataFrame(columns=['class_name', 'attributes', 'generated_description', 'actual_description'])
     for index, row in attributes_description.iterrows():
-        class_name = row['class']
-        attribute_name = row['attribute']
+        class_name = row['class'].lower()
+        attribute_name = row['attribute'].lower()
         generated_sentence = row['sentence']
         actual_sentence_ids = set()
 
         attribute_presence_set = set()
         class_name_presence_set = set()
+
         for i, token in concepts.iterrows():
-            if token['token'].lower_ in attribute_name.lower() or token[
-                'lemmatized_text'].lower() in attribute_name.lower():
+            token_str = token['token'].lower_
+            lemma_str = token['lemmatized_text'].lower()
+
+            if token_str in attribute_name or lemma_str in attribute_name.lower():
                 attribute_presence_set.add(token['s_id'])
 
-            elif token['token'].lower_ in class_name.lower() or token[
-                'lemmatized_text'].lower() in class_name.lower():
+            elif token_str in class_name.lower() or lemma_str in class_name.lower():
                 class_name_presence_set.add(token['s_id'])
 
         answer_set = attribute_presence_set & class_name_presence_set
@@ -32,21 +34,6 @@ def create_attributes_map(attributes_description, concepts, actual_description):
             answer_set = attribute_presence_set
 
         actual_sentence_ids.update(answer_set)
-        # for attribute in attribute_name: attribute_presence_set = set() class_name_presence_set = set() for i,
-        # token in concepts.iterrows(): if token['token'].lower_ in attribute.lower() or token[
-        # 'lemmatized_text'].lower() in attribute.lower(): attribute_presence_set.add(token['s_id'])
-        #
-        #         elif token['token'].lower_ in class_name.lower() or token[
-        #             'lemmatized_text'].lower() in class_name.lower():
-        #             class_name_presence_set.add(token['s_id'])
-        #
-        #     answer_set = attribute_presence_set & class_name_presence_set
-        #     if len(answer_set) == 0:
-        #         answer_set = attribute_presence_set
-        #
-        #     actual_sentence_ids.update(answer_set)
-
-
         actual_sentences = [actual_description[int(idx.replace("S", ""))] for idx in actual_sentence_ids]
         for sentence in actual_sentences:
             data.loc[len(data)] = [class_name, attribute_name, generated_sentence, sentence]
@@ -54,6 +41,7 @@ def create_attributes_map(attributes_description, concepts, actual_description):
         if len(actual_sentences) == 0:
             data.loc[len(data)] = [class_name, attribute_name, generated_sentence, ""]
 
+    # print("Time for create attribute map ", (end-start)/60)
     return data
 
 
@@ -68,47 +56,49 @@ def flatten_list(nested_list):
 
 
 def create_relationships_map(attributes_description, relationship_description, relationships, actual_description,
-                             concepts):
+                             concepts, language_model):
     data = pd.DataFrame(columns=['source', 'target', 'role', 'generated_description', 'actual_description'])
     sentences = actual_description.split(".")
     for index, row in relationship_description.iterrows():
-        source = row['source']
-        target = row['target']
+        source = row['source'].lower()
+        target = row['target'].lower()
         role = row['role']
         actual_sentence_ids = set()
         for i, relationship in relationships.iterrows():
             # TODO add check for role
-            if (relationship['source'].lower() in source.lower() and relationship[
-                'target'].lower() in target.lower()) or (
-                    relationship['source'].lower() in target.lower() and relationship[
-                'target'].lower() in source.lower()):
+            rel_source = relationship['source'].lower()
+            rel_target = relationship['target'].lower()
+
+            if ((rel_source in source and rel_target in target)
+                    or (rel_target in source and rel_source in target)):
                 # sdx = relationship['sdx'].replace("S", '')
                 actual_sentence_ids.add(relationship['sdx'])
 
         if len(actual_sentence_ids) == 0:
-            res = assistant.language_model(source)
+            res = language_model(source)
             for token in res:
                 if token.head == token:
-                    source_head = token.text
+                    source_head = token.text.lower()
                     break
 
-            res = assistant.language_model(target)
+            res = language_model(target)
             for token in res:
                 if token.head == token:
-                    target_head = token.text
+                    target_head = token.text.lower()
                     break
 
             source_presence_set = set()
             target_presence_set = set()
             for i, token in concepts.iterrows():
-                if token['token'].lower_ == source.lower() or token[
-                    'lemmatized_text'].lower() == source.lower() or token['token'].lower_ == source_head.lower() or token[
-                        'lemmatized_text'].lower() == source_head.lower():
+                token_str = token['token'].lower_
+                lemma_str = token['lemmatized_text'].lower()
+
+                if (token_str == source or lemma_str == source or
+                        token_str == source_head or lemma_str == source_head):
                     source_presence_set.add(token['s_id'])
 
-                elif token['token'].lower_ in target.lower() or token[
-                    'lemmatized_text'].lower() in target.lower() or token['token'].lower_ in target_head.lower() or token[
-                    'lemmatized_text'].lower() in target_head.lower():
+                elif (token_str in target or lemma_str in target
+                      or token_str in target_head or lemma_str in target_head):
                     target_presence_set.add(token['s_id'])
 
             answer_set = source_presence_set & target_presence_set
@@ -141,6 +131,14 @@ class Assistant:
         self.relationships_extractor = RelationshipsExtractor()
         self.language_model = spacy.load("en_core_web_lg")
 
+        # TODO Reduntant part
+        self.domain_name = domain_name
+
+        # Tokenizer treats 'id' as I'd and that's why it gets split as 'I' and 'd'.
+        # but here I want it to be a single word, hence removing that rule.
+        self.language_model.tokenizer.rules = {key: value for key, value in self.language_model.tokenizer.rules.items()
+                                               if key != "id"}
+
     def get_errors(self):
         return self.errors
 
@@ -167,25 +165,25 @@ class Assistant:
                 sdx,
             )
 
-        domain_state = self.description_generator.get_description()
+        # Get difference between previous version and current version to check the changes.
+        # Generate sentences only for changed elements.
+
+        # self.description_generator.generate_description(changes)
 
         self.attributes_map = create_attributes_map(self.description_generator.get_attributes(),
                                                     self.concepts_extractor.df_concepts, sentences)
         self.relationships_map = create_relationships_map(self.description_generator.get_attributes(),
                                                           self.description_generator.get_relationships(),
                                                           self.relationships_extractor.df_class_associations,
-                                                          actual_description, self.concepts_extractor.df_concepts)
-
+                                                          actual_description, self.concepts_extractor.df_concepts,
+                                                          self.language_model)
 
         # print(self.attributes_map)
         #
         print(self.relationships_map)
-        workflow = WorkflowStart(self.attributes_map, self.relationships_map)
-        workflow.run()
+        workflow = WorkflowStart([self.attributes_map, self.relationships_map], self.domain_name)
+        errors = workflow.run()
 
+        print(errors)
         print("Done")
 
-
-# domain_name = "sustainable-transportation"
-# assistant = Assistant(domain_name)
-# assistant.run()

@@ -1,6 +1,7 @@
 from typing import List
 
 import pandas as pd
+from pandas import DataFrame
 
 from sentence_generator import util
 from sentence_generator.abstractSentenceGenerator import AbstractSentenceGenerator
@@ -17,7 +18,7 @@ class SentenceFromAggregation(AbstractSentenceGenerator):
         self.aggregation_phrase = "has"
         self.generate_sentences()
 
-    def get_sentences(self)-> DataFrame:
+    def get_sentences(self) -> DataFrame:
         return self.aggregation_result
 
     # TODO This is same as associations,  keep only one method at common place
@@ -89,5 +90,5 @@ aggregations = [
     }
 ]
 
-sfa = SentenceFromAggregation(aggregations)
-print(sfa.get_sentences())
+# sfa = SentenceFromAggregation(aggregations)
+# print(sfa.get_sentences())

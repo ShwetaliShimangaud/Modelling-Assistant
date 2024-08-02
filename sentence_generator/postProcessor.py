@@ -7,11 +7,6 @@ import sentence_generator.util as util
 import stanza
 
 
-
-
-
-
-
 class PostProcessor:
     def __init__(self):
         custom_tokenizer_patterns = [
@@ -75,7 +70,6 @@ class PostProcessor:
                                 plural = util.get_singular(noun.text)
                                 words[noun.id - 1] = plural
                             break
-
 
         # ToDo Revisit
         # elif tag[0][1] in verb_tags:

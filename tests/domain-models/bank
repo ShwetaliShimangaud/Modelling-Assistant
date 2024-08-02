@@ -1,7 +1,7 @@
 
 class_attributes = {
     "Customer": [],
-    "Account": ['balance']
+    "Account": ['balance:int']
 }
 
 associations = [{

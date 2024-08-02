@@ -42,6 +42,8 @@ def ends_with_preposition(result):
 def get_role_and_cardinality(role, cardinality, associated_class):
     verb_forms_with_auxillary_verb = ['Inf', 'Part']
 
+    # Case 1: Role name is not provided
+    # e.g. City and Neighborhood in smart city
     # TODO : Discuss how to handle such cases where role is not provided
     if len(role) == 0:
         if util.is_singular(cardinality):
@@ -65,6 +67,7 @@ def get_role_and_cardinality(role, cardinality, associated_class):
     auxillary_verb_needed = True
     main_verb, auxillary_verb = get_main_and_auxillary_verb(result)
 
+    # Case 2: role name is provided
     # TODO First condition is redundant when second condition is there, can be removed at the end
     if main_verb is not None and auxillary_verb is not None:
         auxillary_verb_needed = False
@@ -82,7 +85,7 @@ def get_role_and_cardinality(role, cardinality, associated_class):
     else:
         auxillary_verb_needed = True
 
-    # Case 1: Main verb + auxiliary verb
+    # Case 2.1: Main verb + auxiliary verb
     if not auxillary_verb_needed:
         phrase = util.format_role_name(role) + " "
         if util.is_singular(cardinality):
@@ -137,9 +140,9 @@ def get_role_and_cardinality(role, cardinality, associated_class):
     else:
         # TODO check if you can use who,which etc instead of which always
         if util.is_singular(cardinality):
-            phrase = "has"
+            phrase = "has "
         else:
-            phrase = "can have"
+            phrase = "can have "
         phrase += util.get_appropriate_article(role) + " " + util.format_role_name(role) + " which "
         supporting_verb = ''
         if util.is_singular(cardinality):
@@ -244,7 +247,7 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
         print(self.sentences)
 
 
-associations = [
+library_associations = [
     {
         'class1': 'BookCopy',
         'class2': 'Loan',
@@ -391,19 +394,68 @@ car_maintenance_associations = [
     }
 ]
 
-ass = [
+insurance_associations = [
     {
-        'class1': 'BookCategory',
-        'class2': 'Book',
+        'class1': 'Person',
+        'class2': 'LifeInsuranceContract',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'beneficiaries',
+        'role_class2': 'benefitsFrom'
+    },
+    {
+        'class1': 'Car',
+        'class2': 'CarInsuranceContract',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..1',
+        'name': '',
+        'role_class1': 'covers',
+        'role_class2': 'coveredBy'
+    }
+]
+
+production_cell_associations = [
+    {
+        'class1': 'ProductionCell',
+        'class2': 'Product',
         'cardinality_class1': '1',
         'cardinality_class2': '0..*',
         'name': '',
         'role_class1': '',
-        'role_class2': 'books'
+        'role_class2': 'products'
     },
+    {
+        'class1': 'ProductionCell',
+        'class2': 'Unit',
+        'cardinality_class1': '1',
+        'cardinality_class2': '1..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'units'
+    },
+    {
+        'class1': 'ProcessingUnit',
+        'class2': 'TransportUnit',
+        'cardinality_class1': '1',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': 'transportsTo',
+        'role_class2': ''
+    },
+    {
+        'class1': 'ProcessingUnit',
+        'class2': 'TransportUnit',
+        'cardinality_class1': '1',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': 'transportsFrom',
+        'role_class2': ''
+    }
 ]
 
-# sfa = SentenceFromAssociations(ass)
+
+# sfa = SentenceFromAssociations(production_cell_associations)
 # print(sfa.get_relationships())
 
 # without role name

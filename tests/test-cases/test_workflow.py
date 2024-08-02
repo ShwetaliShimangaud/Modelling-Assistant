@@ -1,4 +1,3 @@
-import unittest
 
 import pandas as pd
 
@@ -82,8 +81,8 @@ def test_workflow():
                 true_result['Final answer'] = true_result.apply(determine_answer, axis=1)
                 actual_individual_maps.append(true_result)
 
-                predicted_map = pd.read_csv(f"../ground-truth/{domain_name}/{part} map.csv")
-                # predicted_map['Final answer'] = predicted_map.apply(determine_answer, axis=1)
+                predicted_map = pd.read_excel(f"{parent_folder}//{domain_name}//predicted {part} map.xlsx")
+                predicted_map['Final answer'] = predicted_map.apply(determine_answer, axis=1)
                 predicted_individual_maps.append(predicted_map)
             except:
                 print("Domain ", domain_name)
@@ -93,15 +92,15 @@ def test_workflow():
 
         print("GPT results -----")
         # We already have actual and generated description mapped in csv files, so we will only run prompts
-        workflow = WorkflowStart(predicted_individual_maps, domain_name)
-        workflow.run()
+        # workflow = WorkflowStart(predicted_individual_maps, domain_name)
+        # workflow.run()
 
-        for i, pred_map in enumerate(predicted_individual_maps):
-            if len(pred_map) != 0:
-                pred_map['Final answer'] = pred_map.apply(determine_answer, axis=1)
-
-            pred_map.to_excel(f"{parent_folder}//{domain_name}//predicted {parts_of_domain[i]} map.xlsx", index=False)
-
+        # for i, pred_map in enumerate(predicted_individual_maps):
+        #     if len(pred_map) != 0:
+        #         pred_map['Final answer'] = pred_map.apply(determine_answer, axis=1)
+        #
+        #     pred_map.to_excel(f"{parent_folder}//{domain_name}//predicted {parts_of_domain[i]} map.xlsx", index=False)
+        #
         res_instance = [domain_name]
 
         for check in checks:
@@ -137,4 +136,4 @@ def test_workflow():
 
         results.loc[len(results)] = res_instance
 
-    results.to_excel(f"{parent_folder}/library_results.xlsx", index=False)
+    results.to_excel(f"{parent_folder}/insurance_results.xlsx", index=False)

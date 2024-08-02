@@ -130,12 +130,14 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
             #     self.attributes_description.loc[len(self.attributes_description)] = [class_name, attributes, sentence]
             #     self.sentences.append(sentence)
 
-                # Without aggregation
+            # Without aggregation
             for attribute in attributes:
                 formatted_class_name = util.split_concept(class_name)
                 formatted_attribute = util.split_concept(attribute)
-                sentence = util.format_concept(class_name) + " " + self.verb_phrase + " " + util.format_concept(attribute)
-                self.attributes_description.loc[len(self.attributes_description)] = [formatted_class_name, formatted_attribute, sentence]
+                sentence = util.format_concept(class_name) + " " + self.verb_phrase + " " + util.format_concept(
+                    attribute)
+                self.attributes_description.loc[len(self.attributes_description)] = [formatted_class_name,
+                                                                                     formatted_attribute, sentence]
                 self.sentences.append(sentence)
 
             # With aggregation
@@ -149,7 +151,6 @@ factory_attributes = {
     "Piece": ['width', "height", "depth"],
     "Worker": ['id', 'name', 'salary']
 }
-
 
 city_attributes = {
     'Campaign': ["estimatedCost", "overallCost", "completed"],
@@ -172,5 +173,15 @@ transportation_attributes = {
     "Bike": ['code', 'priceHour']
 }
 
-# sfa = SentenceFromAttributes(city_attributes)
+library_attributes = {
+    'BookCopy': ["barcode", "onReserve"],
+    "Loan": ['startDate', 'endDate'],
+    "Member": ['name', "email"],
+    "Book": ['title'],
+    "BookCategory": ["name"],
+    "LoanPeriod": ["duration"],
+    "MemberCategory": ["name", "maxNumberBooks"]
+}
+
+# sfa = SentenceFromAttributes(library_attributes)
 # print(sfa.attributes_description)

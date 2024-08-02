@@ -22,7 +22,7 @@ def get_prompts(file_name):
     return local_vars['prompts']
 
 
-parent_folder = "..//aggregation_results"
+parent_folder = "../entire-system-test"
 
 
 class WorkflowStart:
@@ -33,6 +33,18 @@ class WorkflowStart:
         self.containment_checker = ContainmentChecker()
         # self.difference_finder = DifferenceFinder()
         self.domain = domain
+        self.checks = ['equality', 'contradiction', 'inclusion']
+        self.check_prompts = {}
+        self.checkers = {}
+        self.check_results = {}
+
+        for check in self.checks:
+            prompts = ['actual_description', 'generated_description']
+            prompts.extend(get_prompts(check))
+
+            self.check_prompts[check] = prompts
+            self.check_results[check] = pd.DataFrame(columns=prompts)
+            self.checkers[check] = self.get_checker(check)
 
     def get_checker(self, check):
         if check == 'equality':
@@ -46,29 +58,39 @@ class WorkflowStart:
         # Take actual and generated sentence Run all the checkers one by one. if result of any checker is true then
         # accordingly add it in warnings or errors array, Run next checker only if result of previous checker is false
 
-        checks = ['equality', 'contradiction', 'inclusion']
+        errors = []
+        for pred_map in self.individual_maps:
+            for i, row in pred_map.iterrows():
+                actual_description = row['actual_description']
+                generated_description = row['generated_description']
 
-        for check in checks:
-            prompts = ['actual_description', 'generated_description']
-            prompts.extend(get_prompts(check))
-            check_results = pd.DataFrame(columns=prompts)
-            checker = self.get_checker(check)
+                for check in self.checks:
+                    checker = self.checkers[check]
+                    check_res = self.check_results[check]
 
-            for pred_map in self.individual_maps:
-                for i, row in pred_map.iterrows():
-                    actual_description = row['actual_description']
-                    generated_description = row['generated_description']
                     results, res = checker.run(actual_description, generated_description)
                     pred_map.at[i, check] = res
                     result = [actual_description, generated_description]
                     result.extend(results)
-                    check_results.loc[len(check_results)] = result
+                    check_res.loc[len(check_res)] = result
 
-            if not os.path.exists(rf"{parent_folder}"):
-                os.makedirs(f"{parent_folder}")
+                    if isinstance(res, bool):
+                        if res:
+                            if check == 'contradiction':
+                                errors.append({
+                                    'actual_description': actual_description,
+                                    'generated_description': generated_description
+                                })
+                            break
 
-            if not os.path.exists(rf"{parent_folder}//{self.domain}"):
-                os.makedirs(f"{parent_folder}//{self.domain}")
+        if not os.path.exists(rf"{parent_folder}"):
+            os.makedirs(f"{parent_folder}")
 
-            check_results.to_excel(f"{parent_folder}/{self.domain}/{check}_check.xlsx", index=False)
+        if not os.path.exists(rf"{parent_folder}//{self.domain}"):
+            os.makedirs(f"{parent_folder}//{self.domain}")
 
+        for check in self.checks:
+            check_res = self.check_results[check]
+            check_res.to_excel(f"{parent_folder}/{self.domain}/{check}_check.xlsx", index=False)
+
+        return errors

@@ -66,5 +66,5 @@ production_compositions = [
 
 ]
 
-sfc = SentenceFromCompositions(production_compositions)
-sfc.get_sentences()
+# sfc = SentenceFromCompositions(production_compositions)
+# sfc.get_sentences()

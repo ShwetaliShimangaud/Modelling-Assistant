@@ -6,22 +6,15 @@ from sentence_generator.sentenceFromCompositions import SentenceFromCompositions
 from sentence_generator.sentenceFromAggregations import SentenceFromAggregation
 from sentence_generator.sentenceFromInheritance import SentenceFromInheritance
 from sentence_generator.postProcessor import PostProcessor
+from domain_converter.xmlReader import parse_domain_model
 
-# model_path = "D:\\Thesis\\modelling-assistant\\tests\\domain-models\\bank"
-# model_path = "D:\\Thesis\\modelling-assistant\\tests\\domain-models\\factory"
-# model_path = "D:\\Thesis\\modelling-assistant\\tests\\domain-models\\sustainable-transportation"
-
-
-model_path = "D:\\Thesis\\modelling-assistant\\tests\\\domain-models\\"
-
-
-# model_path = "D:\\Thesis\\modelling-assistant\\tests\\domain-models\\production-cell"
+model_path = "D:\\Thesis\\modelling-assistant\\tests\\\domain-models\\cdm-models\\"
 
 
 class DescriptionGenerator:
     def __init__(self, domain_name):
         self.domain_name = domain_name
-        attributes, associations, compositions, aggregations, inheritance = self.read_model()
+        attributes, associations, compositions, aggregations, inheritance, enums = self.read_model()
         self.generator_from_attributes = SentenceFromAttributes(attributes)
         self.generator_from_associations = SentenceFromAssociations(associations)
         self.generator_from_compositions = SentenceFromCompositions(compositions)
@@ -45,16 +38,22 @@ class DescriptionGenerator:
         return self.relationships
 
     def read_model(self):
-        with open(model_path + self.domain_name, 'r') as file:
-            content = file.read()
 
-        local_vars = {}
+        # Code to read domain diagram in .cdm format
+        class_attributes, associations, compositions, aggregations, inheritance, enums = parse_domain_model(model_path + self.domain_name + ".cdm")
 
-        exec(content, local_vars)
-
-        return (local_vars.get('class_attributes', {}), local_vars.get('associations', []),
-                local_vars.get('compositions', []), local_vars.get('aggregations', []),
-                local_vars.get('inheritance', []))
+        return class_attributes, associations, compositions, aggregations, inheritance, enums
+        # TODO below code was used to read domain diagram from txt file
+        # with open(model_path + self.domain_name, 'r') as file:
+        #     content = file.read()
+        #
+        # local_vars = {}
+        #
+        # exec(content, local_vars)
+        #
+        # return (local_vars.get('class_attributes', {}), local_vars.get('associations', []),
+        #         local_vars.get('compositions', []), local_vars.get('aggregations', []),
+        #         local_vars.get('inheritance', []))
 
     def generate_description(self):
         processed_sentences = []
@@ -104,7 +103,6 @@ class DescriptionGenerator:
         self.description = final_sentence
         print(final_sentence)
 
-
-dec = DescriptionGenerator('Insurance')
-print(dec.get_attributes())
-print(dec.get_relationships())
+# dec = DescriptionGenerator('Insurance')
+# print(dec.get_attributes())
+# print(dec.get_relationships())
