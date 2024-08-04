@@ -24,12 +24,14 @@ def parse_domain_model(xml_file_path):
     xmi_id = '{http://www.omg.org/XMI}id'
 
     class_attributes = {}
-    relationships_map = {}
     associations = []
     inheritance = []
     compositions = []
     aggregations = []
+
     composition_ids_map = {}
+    relationships_map = {}
+    aggregation_ids_map = {}
     inheritance_map = {}
     attribute_types_map = {}
     class_id_map = {}
@@ -100,6 +102,8 @@ def parse_domain_model(xml_file_path):
 
                 if referenceType == 'Composition':
                     composition_ids_map[assoc] = class_name
+                elif referenceType == 'Aggregation':
+                    aggregation_ids_map[assoc] = class_name
 
             # print(f"  Association: {assoc_name}, Association ID: {assoc_id}")
 
@@ -158,6 +162,22 @@ def parse_domain_model(xml_file_path):
                 }
             compositions.append(composition)
 
+        elif assoc_xml_id in aggregation_ids_map:
+            parent_class = aggregation_ids_map[assoc_xml_id]
+            cardinality1 = relationships_map[assoc_ends[1]]['cardinality']
+            cardinality2 = relationships_map[assoc_ends[0]]['cardinality']
+
+            role1 = relationships_map[assoc_ends[1]]['assoc_name']
+            role2 = relationships_map[assoc_ends[0]]['assoc_name']
+
+            aggregation = {
+                'parent_class': parent_class,
+                'child_class': class_names[0] if class_names[1] == parent_class else class_names[1],
+                'cardinality': cardinality1 if cardinality1 is not None else cardinality2,
+                'role': role1 if role1 is not None else role2
+            }
+            aggregations.append(aggregation)
+
         else:
             association = {
                 'class1': class_names[0],
@@ -174,6 +194,6 @@ def parse_domain_model(xml_file_path):
     return class_attributes, associations, compositions, aggregations, inheritance, enums
 
 
-# xml_file_path = '../tests/domain-models/cdm-models/production-cell-enum.cdm'
-#
-# parse_domain_model(xml_file_path)
+xml_file_path = '../tests/domain-models/cdm-models/production-cell-enum.cdm'
+
+parse_domain_model(xml_file_path)
