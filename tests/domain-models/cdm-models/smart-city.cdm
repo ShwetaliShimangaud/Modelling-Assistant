@@ -13,11 +13,7 @@
   </classes>
   <classes xsi:type="classdiagram:Class" xmi:id="_hE02gJavEe68rcy8su4JCA" name="AirQualitySensor">
     <associationEnds xmi:id="_iom9cZavEe68rcy8su4JCA" name="neighborhood" assoc="_iom9cpavEe68rcy8su4JCA" lowerBound="1"/>
-    <attributes xmi:id="_nustgJavEe68rcy8su4JCA" name="CO" type="_ZxjdNJavEe68rcy8su4JCA"/>
-    <attributes xmi:id="_oeaTMJavEe68rcy8su4JCA" name="O3" type="_ZxjdNJavEe68rcy8su4JCA"/>
-    <attributes xmi:id="_pY4XYJavEe68rcy8su4JCA" name="SO2" type="_ZxjdNJavEe68rcy8su4JCA"/>
-    <attributes xmi:id="_qJ1TMJavEe68rcy8su4JCA" name="NO2" type="_ZxjdNJavEe68rcy8su4JCA"/>
-    <attributes xmi:id="_q6bCoJavEe68rcy8su4JCA" name="others" type="_ZxjdNJavEe68rcy8su4JCA"/>
+    <attributes xmi:id="_q6bCoJavEe68rcy8su4JCA" name="kind" type="_SEQJkDMLEe-5jr67sRf4ow"/>
   </classes>
   <classes xsi:type="classdiagram:Class" xmi:id="_rlRWcJavEe68rcy8su4JCA" name="Display">
     <associationEnds xmi:id="_saEQcZavEe68rcy8su4JCA" name="neighborhood" assoc="_saEQcpavEe68rcy8su4JCA" lowerBound="1"/>
@@ -34,6 +30,12 @@
   <types xsi:type="classdiagram:CDByte" xmi:id="_ZxjdOJavEe68rcy8su4JCA"/>
   <types xsi:type="classdiagram:CDFloat" xmi:id="_ZxjdOZavEe68rcy8su4JCA"/>
   <types xsi:type="classdiagram:CDChar" xmi:id="_ZxjdOpavEe68rcy8su4JCA"/>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_SEQJkDMLEe-5jr67sRf4ow" name="SensorKind">
+    <literals xmi:id="_TGIdUDMLEe-5jr67sRf4ow" name="CO"/>
+    <literals xmi:id="_TaxQkDMLEe-5jr67sRf4ow" name="O3"/>
+    <literals xmi:id="_T5RxgDMLEe-5jr67sRf4ow" name="SO2"/>
+    <literals xmi:id="_UW2eUDMLEe-5jr67sRf4ow" name="NO2"/>
+  </types>
   <associations xmi:id="_edx7wpavEe68rcy8su4JCA" name="City_Neighborhood" ends="_edx7wJavEe68rcy8su4JCA _edx7wZavEe68rcy8su4JCA"/>
   <associations xmi:id="_iom9cpavEe68rcy8su4JCA" name="Neighborhood_AirQualitySensor" ends="_iom9cJavEe68rcy8su4JCA _iom9cZavEe68rcy8su4JCA"/>
   <associations xmi:id="_saEQcpavEe68rcy8su4JCA" name="Neighborhood_Display" ends="_saEQcJavEe68rcy8su4JCA _saEQcZavEe68rcy8su4JCA"/>
@@ -49,7 +51,10 @@
         <value xmi:id="_hE2rsZavEe68rcy8su4JCA" x="854.11676" y="550.0"/>
       </value>
       <value xmi:id="_rlSkkJavEe68rcy8su4JCA" key="_rlRWcJavEe68rcy8su4JCA">
-        <value xmi:id="_rlSkkZavEe68rcy8su4JCA" x="366.0" y="764.1348"/>
+        <value xmi:id="_rlSkkZavEe68rcy8su4JCA" x="366.0" y="814.1347"/>
+      </value>
+      <value xmi:id="_SEXeUDMLEe-5jr67sRf4ow" key="_SEQJkDMLEe-5jr67sRf4ow">
+        <value xmi:id="_SEYFYDMLEe-5jr67sRf4ow" x="864.61676" y="731.6348"/>
       </value>
     </containers>
   </layout>

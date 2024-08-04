@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ASCII"?>
+<classdiagram:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:classdiagram="http://cs.mcgill.ca/sel/cdm/1.0" xmi:id="_pxj8MNzDEe682rYCXhYqnw" name="Library">
+  <classes xsi:type="classdiagram:Class" xmi:id="_ryc14NzDEe682rYCXhYqnw" name="BookCopy">
+    <associationEnds xmi:id="_vaf6oNzDEe682rYCXhYqnw" name="myBook" navigable="false" assoc="_vaf6odzDEe682rYCXhYqnw" lowerBound="1"/>
+    <associationEnds xmi:id="_zK_wwNzDEe682rYCXhYqnw" name="loan" assoc="_zLA-4dzDEe682rYCXhYqnw"/>
+    <attributes xmi:id="_QK7DwNzEEe682rYCXhYqnw" name="barcode" type="_pxkjRNzDEe682rYCXhYqnw"/>
+    <attributes xmi:id="_Q0rLYNzEEe682rYCXhYqnw" name="onReserve" type="_pxkjQtzDEe682rYCXhYqnw"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_se7hYNzDEe682rYCXhYqnw" name="Member">
+    <associationEnds xmi:id="_1s_MYdzDEe682rYCXhYqnw" name="loans" assoc="_1s_MYtzDEe682rYCXhYqnw" upperBound="-1"/>
+    <associationEnds xmi:id="_9IBakNzDEe682rYCXhYqnw" name="booksOnHold" assoc="_9IBaktzDEe682rYCXhYqnw" upperBound="-1"/>
+    <associationEnds xmi:id="_CoTMQdzEEe682rYCXhYqnw" name="myMemberCategory" navigable="false" assoc="_CoTMQtzEEe682rYCXhYqnw" lowerBound="1"/>
+    <attributes xmi:id="_R6XBENzEEe682rYCXhYqnw" name="name" type="_pxkjRtzDEe682rYCXhYqnw"/>
+    <attributes xmi:id="_SmNacNzEEe682rYCXhYqnw" name="email" type="_pxkjRtzDEe682rYCXhYqnw"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_tocuMNzDEe682rYCXhYqnw" name="Loan">
+    <associationEnds xmi:id="_zLA-4NzDEe682rYCXhYqnw" name="borrowedBook" assoc="_zLA-4dzDEe682rYCXhYqnw" lowerBound="1"/>
+    <associationEnds xmi:id="_1s_MYNzDEe682rYCXhYqnw" name="currentHolder" assoc="_1s_MYtzDEe682rYCXhYqnw" lowerBound="1"/>
+    <attributes xmi:id="_ORh5MNzEEe682rYCXhYqnw" name="startDate" type="_Ma3SgNzEEe682rYCXhYqnw"/>
+    <attributes xmi:id="_O2Gl4NzEEe682rYCXhYqnw" name="endDate" type="_Ma3SgNzEEe682rYCXhYqnw"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_uhAG0NzDEe682rYCXhYqnw" name="Book">
+    <associationEnds xmi:id="_vaeFcNzDEe682rYCXhYqnw" name="copies" assoc="_vaf6odzDEe682rYCXhYqnw" upperBound="-1" referenceType="Aggregation"/>
+    <associationEnds xmi:id="_9IBakdzDEe682rYCXhYqnw" name="requesters" assoc="_9IBaktzDEe682rYCXhYqnw" upperBound="-1"/>
+    <associationEnds xmi:id="_HAEdwNzEEe682rYCXhYqnw" name="myBookCategory" navigable="false" assoc="_HAEdwdzEEe682rYCXhYqnw" lowerBound="1"/>
+    <attributes xmi:id="_UC1JcNzEEe682rYCXhYqnw" name="title" type="_pxkjRtzDEe682rYCXhYqnw"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_A5NNMNzEEe682rYCXhYqnw" name="MemberCategory">
+    <associationEnds xmi:id="_CoTMQNzEEe682rYCXhYqnw" name="members" assoc="_CoTMQtzEEe682rYCXhYqnw" upperBound="-1" referenceType="Aggregation"/>
+    <associationEnds xmi:id="_jiA0QdzEEe682rYCXhYqnw" name="loanPeriods" assoc="_jiA0QtzEEe682rYCXhYqnw" upperBound="-1"/>
+    <attributes xmi:id="_Y0qgwNzEEe682rYCXhYqnw" name="name" type="_pxkjRtzDEe682rYCXhYqnw"/>
+    <attributes xmi:id="_arlmINzEEe682rYCXhYqnw" name="maxNumberBooks" type="_pxkjRNzDEe682rYCXhYqnw"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_FkU4gNzEEe682rYCXhYqnw" name="BookCategory">
+    <associationEnds xmi:id="_HADPoNzEEe682rYCXhYqnw" name="books" assoc="_HAEdwdzEEe682rYCXhYqnw" upperBound="-1" referenceType="Aggregation"/>
+    <associationEnds xmi:id="_fyToUdzEEe682rYCXhYqnw" name="loanPeriods" assoc="_fyToUtzEEe682rYCXhYqnw" upperBound="-1"/>
+    <attributes xmi:id="_XLx3YNzEEe682rYCXhYqnw" name="name" type="_pxkjRtzDEe682rYCXhYqnw"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_Ma3SgNzEEe682rYCXhYqnw" name="Date" dataType="true"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_cOsXoNzEEe682rYCXhYqnw" name="LoanPeriod">
+    <associationEnds xmi:id="_fyToUNzEEe682rYCXhYqnw" name="bookCategory" assoc="_fyToUtzEEe682rYCXhYqnw" lowerBound="1"/>
+    <associationEnds xmi:id="_jiA0QNzEEe682rYCXhYqnw" name="memberCategory" assoc="_jiA0QtzEEe682rYCXhYqnw" lowerBound="1"/>
+    <attributes xmi:id="_eW4MINzEEe682rYCXhYqnw" name="duration" type="_pxkjRNzDEe682rYCXhYqnw"/>
+  </classes>
+  <types xsi:type="classdiagram:CDVoid" xmi:id="_pxkjQNzDEe682rYCXhYqnw"/>
+  <types xsi:type="classdiagram:CDAny" xmi:id="_pxkjQdzDEe682rYCXhYqnw"/>
+  <types xsi:type="classdiagram:CDBoolean" xmi:id="_pxkjQtzDEe682rYCXhYqnw"/>
+  <types xsi:type="classdiagram:CDDouble" xmi:id="_pxkjQ9zDEe682rYCXhYqnw"/>
+  <types xsi:type="classdiagram:CDInt" xmi:id="_pxkjRNzDEe682rYCXhYqnw"/>
+  <types xsi:type="classdiagram:CDLong" xmi:id="_pxkjRdzDEe682rYCXhYqnw"/>
+  <types xsi:type="classdiagram:CDString" xmi:id="_pxkjRtzDEe682rYCXhYqnw"/>
+  <types xsi:type="classdiagram:CDByte" xmi:id="_pxkjR9zDEe682rYCXhYqnw"/>
+  <types xsi:type="classdiagram:CDFloat" xmi:id="_pxkjSNzDEe682rYCXhYqnw"/>
+  <types xsi:type="classdiagram:CDChar" xmi:id="_pxkjSdzDEe682rYCXhYqnw"/>
+  <associations xmi:id="_vaf6odzDEe682rYCXhYqnw" name="Book_BookCopy" ends="_vaeFcNzDEe682rYCXhYqnw _vaf6oNzDEe682rYCXhYqnw"/>
+  <associations xmi:id="_zLA-4dzDEe682rYCXhYqnw" name="BookCopy_Loan" ends="_zK_wwNzDEe682rYCXhYqnw _zLA-4NzDEe682rYCXhYqnw"/>
+  <associations xmi:id="_1s_MYtzDEe682rYCXhYqnw" name="Loan_Member" ends="_1s_MYNzDEe682rYCXhYqnw _1s_MYdzDEe682rYCXhYqnw"/>
+  <associations xmi:id="_9IBaktzDEe682rYCXhYqnw" name="Member_Book" ends="_9IBakNzDEe682rYCXhYqnw _9IBakdzDEe682rYCXhYqnw"/>
+  <associations xmi:id="_CoTMQtzEEe682rYCXhYqnw" name="MemberCategory_Member" ends="_CoTMQNzEEe682rYCXhYqnw _CoTMQdzEEe682rYCXhYqnw"/>
+  <associations xmi:id="_HAEdwdzEEe682rYCXhYqnw" name="BookCategory_Book" ends="_HADPoNzEEe682rYCXhYqnw _HAEdwNzEEe682rYCXhYqnw"/>
+  <associations xmi:id="_fyToUtzEEe682rYCXhYqnw" name="LoanPeriod_BookCategory" ends="_fyToUNzEEe682rYCXhYqnw _fyToUdzEEe682rYCXhYqnw"/>
+  <associations xmi:id="_jiA0QtzEEe682rYCXhYqnw" name="LoanPeriod_MemberCategory" ends="_jiA0QNzEEe682rYCXhYqnw _jiA0QdzEEe682rYCXhYqnw"/>
+  <layout xmi:id="_pxlKUNzDEe682rYCXhYqnw">
+    <containers xmi:id="_pxlKUdzDEe682rYCXhYqnw" key="_pxj8MNzDEe682rYCXhYqnw">
+      <value xmi:id="_r15ygNzDEe682rYCXhYqnw" key="_ryc14NzDEe682rYCXhYqnw">
+        <value xmi:id="_r16ZkNzDEe682rYCXhYqnw" x="277.99994" y="139.06836"/>
+      </value>
+      <value xmi:id="_sfIVsNzDEe682rYCXhYqnw" key="_se7hYNzDEe682rYCXhYqnw">
+        <value xmi:id="_sfI8wNzDEe682rYCXhYqnw" x="1142.649" y="139.09866"/>
+      </value>
+      <value xmi:id="_toi00NzDEe682rYCXhYqnw" key="_tocuMNzDEe682rYCXhYqnw">
+        <value xmi:id="_toi00dzDEe682rYCXhYqnw" x="698.4235" y="139.0609"/>
+      </value>
+      <value xmi:id="_uhE_UNzDEe682rYCXhYqnw" key="_uhAG0NzDEe682rYCXhYqnw">
+        <value xmi:id="_uhE_UdzDEe682rYCXhYqnw" x="277.99994" y="393.85956"/>
+      </value>
+      <value xmi:id="_A5T64NzEEe682rYCXhYqnw" key="_A5NNMNzEEe682rYCXhYqnw">
+        <value xmi:id="_A5T64dzEEe682rYCXhYqnw" x="1126.1564" y="576.28845"/>
+      </value>
+      <value xmi:id="_FkX70NzEEe682rYCXhYqnw" key="_FkU4gNzEEe682rYCXhYqnw">
+        <value xmi:id="_FkX70dzEEe682rYCXhYqnw" x="286.49982" y="589.28845"/>
+      </value>
+      <value xmi:id="_Ma684NzEEe682rYCXhYqnw" key="_Ma3SgNzEEe682rYCXhYqnw">
+        <value xmi:id="_Ma684dzEEe682rYCXhYqnw" x="98.038086" y="286.69583"/>
+      </value>
+      <value xmi:id="_cOuz4NzEEe682rYCXhYqnw" key="_cOsXoNzEEe682rYCXhYqnw">
+        <value xmi:id="_cOuz4dzEEe682rYCXhYqnw" x="698.4234" y="589.28845"/>
+      </value>
+    </containers>
+  </layout>
+</classdiagram:ClassDiagram>

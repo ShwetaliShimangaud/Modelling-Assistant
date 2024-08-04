@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ASCII"?>
+<classdiagram:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:classdiagram="http://cs.mcgill.ca/sel/cdm/1.0" xmi:id="_FNo4UBYTEe-OjYlB2QRbew" name="Factory">
+  <classes xsi:type="classdiagram:Class" xmi:id="_IeC5IBYTEe-OjYlB2QRbew" name="Factory">
+    <associationEnds xmi:id="_WrnLEBYTEe-OjYlB2QRbew" name="myMachine" assoc="_WroZMBYTEe-OjYlB2QRbew" lowerBound="1" referenceType="Composition"/>
+    <associationEnds xmi:id="_XJ5pkBYTEe-OjYlB2QRbew" name="employees" assoc="_XJ5pkhYTEe-OjYlB2QRbew" lowerBound="1" upperBound="-1"/>
+    <attributes xmi:id="_QieCkBYTEe-OjYlB2QRbew" name="city" type="_FNpfZhYTEe-OjYlB2QRbew"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_JI7CIBYTEe-OjYlB2QRbew" name="Worker">
+    <associationEnds xmi:id="_XJ5pkRYTEe-OjYlB2QRbew" name="workplace" assoc="_XJ5pkhYTEe-OjYlB2QRbew" lowerBound="1"/>
+    <associationEnds xmi:id="_XrodoBYTEe-OjYlB2QRbew" name="operates" assoc="_XrodohYTEe-OjYlB2QRbew" upperBound="-1"/>
+    <attributes xmi:id="_NnmM4BYTEe-OjYlB2QRbew" name="id" type="_FNpfZBYTEe-OjYlB2QRbew"/>
+    <attributes xmi:id="_OpcEYBYTEe-OjYlB2QRbew" name="name" type="_FNpfZhYTEe-OjYlB2QRbew"/>
+    <attributes xmi:id="_PebLoBYTEe-OjYlB2QRbew" name="salary" type="_FNpfYxYTEe-OjYlB2QRbew"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_J4I4kBYTEe-OjYlB2QRbew" name="Machine">
+    <associationEnds xmi:id="_WSmOIBYTEe-OjYlB2QRbew" name="produces" assoc="_WSm1MBYTEe-OjYlB2QRbew" upperBound="-1"/>
+    <associationEnds xmi:id="_WrnyIBYTEe-OjYlB2QRbew" name="myFactory" assoc="_WroZMBYTEe-OjYlB2QRbew" lowerBound="1"/>
+    <associationEnds xmi:id="_XrodoRYTEe-OjYlB2QRbew" name="isOperatedBy" assoc="_XrodohYTEe-OjYlB2QRbew" lowerBound="1" upperBound="-1"/>
+    <attributes xmi:id="_SNWQABYTEe-OjYlB2QRbew" name="speed" type="_FNpfYxYTEe-OjYlB2QRbew"/>
+    <attributes xmi:id="_SvqS4BYTEe-OjYlB2QRbew" name="capacity" type="_FNpfZBYTEe-OjYlB2QRbew"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_Kea1cBYTEe-OjYlB2QRbew" name="Piece">
+    <associationEnds xmi:id="_WSmOIRYTEe-OjYlB2QRbew" name="isProducedBy" assoc="_WSm1MBYTEe-OjYlB2QRbew" lowerBound="1"/>
+    <attributes xmi:id="_UlGxkBYTEe-OjYlB2QRbew" name="width" type="_FNpfZBYTEe-OjYlB2QRbew"/>
+    <attributes xmi:id="_VGK3QBYTEe-OjYlB2QRbew" name="height" type="_FNpfZBYTEe-OjYlB2QRbew"/>
+    <attributes xmi:id="_ViRkcBYTEe-OjYlB2QRbew" name="depth" type="_FNpfZBYTEe-OjYlB2QRbew"/>
+  </classes>
+  <types xsi:type="classdiagram:CDVoid" xmi:id="_FNpfYBYTEe-OjYlB2QRbew"/>
+  <types xsi:type="classdiagram:CDAny" xmi:id="_FNpfYRYTEe-OjYlB2QRbew"/>
+  <types xsi:type="classdiagram:CDBoolean" xmi:id="_FNpfYhYTEe-OjYlB2QRbew"/>
+  <types xsi:type="classdiagram:CDDouble" xmi:id="_FNpfYxYTEe-OjYlB2QRbew"/>
+  <types xsi:type="classdiagram:CDInt" xmi:id="_FNpfZBYTEe-OjYlB2QRbew"/>
+  <types xsi:type="classdiagram:CDLong" xmi:id="_FNpfZRYTEe-OjYlB2QRbew"/>
+  <types xsi:type="classdiagram:CDString" xmi:id="_FNpfZhYTEe-OjYlB2QRbew"/>
+  <types xsi:type="classdiagram:CDByte" xmi:id="_FNpfZxYTEe-OjYlB2QRbew"/>
+  <types xsi:type="classdiagram:CDFloat" xmi:id="_FNpfaBYTEe-OjYlB2QRbew"/>
+  <types xsi:type="classdiagram:CDChar" xmi:id="_FNpfaRYTEe-OjYlB2QRbew"/>
+  <associations xmi:id="_WSm1MBYTEe-OjYlB2QRbew" name="Machine_Piece" ends="_WSmOIBYTEe-OjYlB2QRbew _WSmOIRYTEe-OjYlB2QRbew"/>
+  <associations xmi:id="_WroZMBYTEe-OjYlB2QRbew" name="Factory_Machine" ends="_WrnLEBYTEe-OjYlB2QRbew _WrnyIBYTEe-OjYlB2QRbew"/>
+  <associations xmi:id="_XJ5pkhYTEe-OjYlB2QRbew" name="Factory_Worker" ends="_XJ5pkBYTEe-OjYlB2QRbew _XJ5pkRYTEe-OjYlB2QRbew"/>
+  <associations xmi:id="_XrodohYTEe-OjYlB2QRbew" name="Worker_Machine" ends="_XrodoBYTEe-OjYlB2QRbew _XrodoRYTEe-OjYlB2QRbew"/>
+  <layout xmi:id="_FNqGcBYTEe-OjYlB2QRbew">
+    <containers xmi:id="_FNqGcRYTEe-OjYlB2QRbew" key="_FNo4UBYTEe-OjYlB2QRbew">
+      <value xmi:id="_Iex48BYTEe-OjYlB2QRbew" key="_IeC5IBYTEe-OjYlB2QRbew">
+        <value xmi:id="_Iex48RYTEe-OjYlB2QRbew" x="156.00003" y="176.00006"/>
+      </value>
+      <value xmi:id="_JI-sgBYTEe-OjYlB2QRbew" key="_JI7CIBYTEe-OjYlB2QRbew">
+        <value xmi:id="_JI_TkBYTEe-OjYlB2QRbew" x="521.0" y="487.69476"/>
+      </value>
+      <value xmi:id="_J4NxEBYTEe-OjYlB2QRbew" key="_J4I4kBYTEe-OjYlB2QRbew">
+        <value xmi:id="_J4OYIBYTEe-OjYlB2QRbew" x="521.0" y="176.00006"/>
+      </value>
+      <value xmi:id="_KedRsBYTEe-OjYlB2QRbew" key="_Kea1cBYTEe-OjYlB2QRbew">
+        <value xmi:id="_KedRsRYTEe-OjYlB2QRbew" x="904.0002" y="175.98444"/>
+      </value>
+    </containers>
+  </layout>
+</classdiagram:ClassDiagram>
