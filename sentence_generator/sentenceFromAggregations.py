@@ -47,7 +47,8 @@ class SentenceFromAggregation(AbstractSentenceGenerator):
                                  get_role_and_cardinality(role, cardinality, child_class))
 
             self.sentences.append(part_of_sentence)
-            self.aggregation_result.loc[len(self.aggregation_result)] = [parent_class, child_class,
+            self.aggregation_result.loc[len(self.aggregation_result)] = [util.split_concept(parent_class),
+                                                                         util.split_concept(child_class),
                                                                          role, part_of_sentence]
 
         # TODO see if we really need a sentence to describe other end of this aggregation i.e.

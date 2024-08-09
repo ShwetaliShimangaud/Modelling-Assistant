@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ASCII"?>
+<classdiagram:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:classdiagram="http://cs.mcgill.ca/sel/cdm/1.0" xmi:id="_Zq8R4FWsEe-E1tP0oGhB7Q" name="FlightReservation">
+  <classes xsi:type="classdiagram:Class" xmi:id="_aVjVIFWsEe-E1tP0oGhB7Q" name="City">
+    <associationEnds xmi:id="_cD5GQVWsEe-E1tP0oGhB7Q" name="incoming" assoc="_cD5GQlWsEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <associationEnds xmi:id="_ciyBsVWsEe-E1tP0oGhB7Q" name="outgoing" assoc="_ciyowFWsEe-E1tP0oGhB7Q" upperBound="-1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_bK1XUFWsEe-E1tP0oGhB7Q" name="Flight">
+    <associationEnds xmi:id="_cD5GQFWsEe-E1tP0oGhB7Q" name="to" assoc="_cD5GQlWsEe-E1tP0oGhB7Q" lowerBound="1"/>
+    <associationEnds xmi:id="_ciyBsFWsEe-E1tP0oGhB7Q" name="from" assoc="_ciyowFWsEe-E1tP0oGhB7Q" lowerBound="1"/>
+    <associationEnds xmi:id="_-E0_kFWtEe-E1tP0oGhB7Q" name="occurrences" assoc="_-E0_kVWtEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <attributes xmi:id="_Hvef8FWuEe-E1tP0oGhB7Q" name="number" type="_Zq8R51WsEe-E1tP0oGhB7Q"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_j_9k8FWsEe-E1tP0oGhB7Q" name="FlightOccurrence">
+    <associationEnds xmi:id="_neLYQFWsEe-E1tP0oGhB7Q" name="partOf" assoc="_neL_UFWsEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <associationEnds xmi:id="_x9tSMVWsEe-E1tP0oGhB7Q" name="transpoirting" assoc="_x9tSMlWsEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <associationEnds xmi:id="_AoCYoFWtEe-E1tP0oGhB7Q" name="flownBy" assoc="_AoCYolWtEe-E1tP0oGhB7Q" lowerBound="1"/>
+    <associationEnds xmi:id="_N_38cVWtEe-E1tP0oGhB7Q" name="bookings" assoc="_N_38clWtEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <associationEnds xmi:id="_-E0YgFWtEe-E1tP0oGhB7Q" name="flight" assoc="_-E0_kVWtEe-E1tP0oGhB7Q" lowerBound="1"/>
+    <attributes xmi:id="_DAH_cFWvEe-E1tP0oGhB7Q" name="departureDay" type="_9uqF0FWuEe-E1tP0oGhB7Q"/>
+    <attributes xmi:id="_EzQxAFWvEe-E1tP0oGhB7Q" name="departureTime" type="_AiwlIFWvEe-E1tP0oGhB7Q"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_msDXwFWsEe-E1tP0oGhB7Q" name="Trip">
+    <associationEnds xmi:id="_neJjEFWsEe-E1tP0oGhB7Q" name="flights" assoc="_neL_UFWsEe-E1tP0oGhB7Q" lowerBound="1" upperBound="-1" ordered="true"/>
+    <associationEnds xmi:id="_3NeisFWsEe-E1tP0oGhB7Q" name="checkedLuggage" assoc="_3Nfw0FWsEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <associationEnds xmi:id="_UDK7oVWtEe-E1tP0oGhB7Q" name="passenger" assoc="_UDK7olWtEe-E1tP0oGhB7Q" lowerBound="1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_wBsRcFWsEe-E1tP0oGhB7Q" name="Luggage">
+    <associationEnds xmi:id="_x9tSMFWsEe-E1tP0oGhB7Q" name="onFlight" assoc="_x9tSMlWsEe-E1tP0oGhB7Q"/>
+    <associationEnds xmi:id="_3NdUkFWsEe-E1tP0oGhB7Q" name="trip" assoc="_3Nfw0FWsEe-E1tP0oGhB7Q" lowerBound="1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="__azJcFWsEe-E1tP0oGhB7Q" name="Plane">
+    <associationEnds xmi:id="_AoCYoVWtEe-E1tP0oGhB7Q" name="flies" assoc="_AoCYolWtEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <associationEnds xmi:id="_E2vNsFWtEe-E1tP0oGhB7Q" name="seats" assoc="_E2vNsVWtEe-E1tP0oGhB7Q" upperBound="-1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_DtftsFWtEe-E1tP0oGhB7Q" name="Seat">
+    <associationEnds xmi:id="_E2umoFWtEe-E1tP0oGhB7Q" name="installedIn" assoc="_E2vNsVWtEe-E1tP0oGhB7Q" lowerBound="1"/>
+    <associationEnds xmi:id="_fDHbAVWtEe-E1tP0oGhB7Q" name="bookedFlights" assoc="_fDHbAlWtEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <attributes xmi:id="_HoAJgFWvEe-E1tP0oGhB7Q" name="row" type="_Zq8R5VWsEe-E1tP0oGhB7Q"/>
+    <attributes xmi:id="_JsgX4FWvEe-E1tP0oGhB7Q" name="letter" type="_0rKsEFWuEe-E1tP0oGhB7Q"/>
+    <attributes xmi:id="_PPVuUFWvEe-E1tP0oGhB7Q" name="class" type="_KmsIMFWvEe-E1tP0oGhB7Q"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_MskhgFWtEe-E1tP0oGhB7Q" name="BookedFlight">
+    <associationEnds xmi:id="_N_38cFWtEe-E1tP0oGhB7Q" name="flight" assoc="_N_38clWtEe-E1tP0oGhB7Q" lowerBound="1"/>
+    <associationEnds xmi:id="_Ykl4YVWtEe-E1tP0oGhB7Q" name="passenger" assoc="_Ykl4YlWtEe-E1tP0oGhB7Q" lowerBound="1"/>
+    <associationEnds xmi:id="_fDHbAFWtEe-E1tP0oGhB7Q" name="seat" assoc="_fDHbAlWtEe-E1tP0oGhB7Q" lowerBound="1"/>
+    <attributes xmi:id="_Q97-IFWvEe-E1tP0oGhB7Q" name="class" type="_KmsIMFWvEe-E1tP0oGhB7Q"/>
+    <attributes xmi:id="_Z5EtIFWvEe-E1tP0oGhB7Q" name="status" type="_Sj4oQFWvEe-E1tP0oGhB7Q"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_RNtKYFWtEe-E1tP0oGhB7Q" name="Person">
+    <associationEnds xmi:id="_UDK7oFWtEe-E1tP0oGhB7Q" name="bookedTrips" assoc="_UDK7olWtEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <associationEnds xmi:id="_Ykl4YFWtEe-E1tP0oGhB7Q" name="bookedFlights" assoc="_Ykl4YlWtEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <attributes xmi:id="_cB-TUFWvEe-E1tP0oGhB7Q" name="firstName" type="_Zq8R51WsEe-E1tP0oGhB7Q"/>
+    <attributes xmi:id="_ctR6IFWvEe-E1tP0oGhB7Q" name="middleName" type="_Zq8R51WsEe-E1tP0oGhB7Q"/>
+    <attributes xmi:id="_dhGjwFWvEe-E1tP0oGhB7Q" name="lastName" type="_Zq8R51WsEe-E1tP0oGhB7Q"/>
+    <attributes xmi:id="_h4RYUFWvEe-E1tP0oGhB7Q" name="citizenship" type="_KMUV0FWuEe-E1tP0oGhB7Q"/>
+    <attributes xmi:id="_jN4gYFWvEe-E1tP0oGhB7Q" name="passportNumber" type="_Zq8R51WsEe-E1tP0oGhB7Q"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_9uqF0FWuEe-E1tP0oGhB7Q" name="Date" dataType="true"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_AiwlIFWvEe-E1tP0oGhB7Q" name="Time" dataType="true"/>
+  <types xsi:type="classdiagram:CDVoid" xmi:id="_Zq8R4VWsEe-E1tP0oGhB7Q"/>
+  <types xsi:type="classdiagram:CDAny" xmi:id="_Zq8R4lWsEe-E1tP0oGhB7Q"/>
+  <types xsi:type="classdiagram:CDBoolean" xmi:id="_Zq8R41WsEe-E1tP0oGhB7Q"/>
+  <types xsi:type="classdiagram:CDDouble" xmi:id="_Zq8R5FWsEe-E1tP0oGhB7Q"/>
+  <types xsi:type="classdiagram:CDInt" xmi:id="_Zq8R5VWsEe-E1tP0oGhB7Q"/>
+  <types xsi:type="classdiagram:CDLong" xmi:id="_Zq8R5lWsEe-E1tP0oGhB7Q"/>
+  <types xsi:type="classdiagram:CDString" xmi:id="_Zq8R51WsEe-E1tP0oGhB7Q"/>
+  <types xsi:type="classdiagram:CDByte" xmi:id="_Zq8R6FWsEe-E1tP0oGhB7Q"/>
+  <types xsi:type="classdiagram:CDFloat" xmi:id="_Zq8R6VWsEe-E1tP0oGhB7Q"/>
+  <types xsi:type="classdiagram:CDChar" xmi:id="_Zq848FWsEe-E1tP0oGhB7Q"/>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_KMUV0FWuEe-E1tP0oGhB7Q" name="Country"/>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_0rKsEFWuEe-E1tP0oGhB7Q" name="DECAlphabet">
+    <literals xmi:id="_20_fUFWuEe-E1tP0oGhB7Q" name="A"/>
+    <literals xmi:id="_3OZd0FWuEe-E1tP0oGhB7Q" name="B"/>
+    <literals xmi:id="_3jDfMFWuEe-E1tP0oGhB7Q" name="C"/>
+    <literals xmi:id="_36lOYFWuEe-E1tP0oGhB7Q" name="D"/>
+    <literals xmi:id="_4QMSAFWuEe-E1tP0oGhB7Q" name="E"/>
+    <literals xmi:id="_4i818FWuEe-E1tP0oGhB7Q" name="F"/>
+    <literals xmi:id="_5NOiAFWuEe-E1tP0oGhB7Q" name="H"/>
+    <literals xmi:id="_5lt6gFWuEe-E1tP0oGhB7Q" name="J"/>
+    <literals xmi:id="_56uhMFWuEe-E1tP0oGhB7Q" name="K"/>
+  </types>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_KmsIMFWvEe-E1tP0oGhB7Q" name="FlightClass">
+    <literals xmi:id="_MaRlsFWvEe-E1tP0oGhB7Q" name="FirstClass"/>
+    <literals xmi:id="_NE2zwFWvEe-E1tP0oGhB7Q" name="BusinessClass"/>
+    <literals xmi:id="_Nrn40FWvEe-E1tP0oGhB7Q" name="EconomyClass"/>
+  </types>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_Sj4oQFWvEe-E1tP0oGhB7Q" name="BookedFlightStatus">
+    <literals xmi:id="_XPO9EFWvEe-E1tP0oGhB7Q" name="Booked"/>
+    <literals xmi:id="_X12RIFWvEe-E1tP0oGhB7Q" name="CheckedIn"/>
+    <literals xmi:id="_YUD3IFWvEe-E1tP0oGhB7Q" name="Boarded"/>
+  </types>
+  <associations xmi:id="_cD5GQlWsEe-E1tP0oGhB7Q" name="Flight_City" ends="_cD5GQFWsEe-E1tP0oGhB7Q _cD5GQVWsEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_ciyowFWsEe-E1tP0oGhB7Q" name="Flight_City" ends="_ciyBsFWsEe-E1tP0oGhB7Q _ciyBsVWsEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_neL_UFWsEe-E1tP0oGhB7Q" name="Trip_FlightOccurrence" ends="_neJjEFWsEe-E1tP0oGhB7Q _neLYQFWsEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_x9tSMlWsEe-E1tP0oGhB7Q" name="Luggage_FlightOccurrence" ends="_x9tSMFWsEe-E1tP0oGhB7Q _x9tSMVWsEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_3Nfw0FWsEe-E1tP0oGhB7Q" name="Luggage_Trip" ends="_3NdUkFWsEe-E1tP0oGhB7Q _3NeisFWsEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_AoCYolWtEe-E1tP0oGhB7Q" name="FlightOccurrence_Plane" ends="_AoCYoFWtEe-E1tP0oGhB7Q _AoCYoVWtEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_E2vNsVWtEe-E1tP0oGhB7Q" name="Seat_Plane" ends="_E2umoFWtEe-E1tP0oGhB7Q _E2vNsFWtEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_N_38clWtEe-E1tP0oGhB7Q" name="BookedFlight_FlightOccurrence" ends="_N_38cFWtEe-E1tP0oGhB7Q _N_38cVWtEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_UDK7olWtEe-E1tP0oGhB7Q" name="Person_Trip" ends="_UDK7oFWtEe-E1tP0oGhB7Q _UDK7oVWtEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_Ykl4YlWtEe-E1tP0oGhB7Q" name="Person_BookedFlight" ends="_Ykl4YFWtEe-E1tP0oGhB7Q _Ykl4YVWtEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_fDHbAlWtEe-E1tP0oGhB7Q" name="BookedFlight_Seat" ends="_fDHbAFWtEe-E1tP0oGhB7Q _fDHbAVWtEe-E1tP0oGhB7Q"/>
+  <associations xmi:id="_-E0_kVWtEe-E1tP0oGhB7Q" name="FlightOccurrence_Flight" ends="_-E0YgFWtEe-E1tP0oGhB7Q _-E0_kFWtEe-E1tP0oGhB7Q"/>
+  <layout xmi:id="_Zq848VWsEe-E1tP0oGhB7Q">
+    <containers xmi:id="_Zq848lWsEe-E1tP0oGhB7Q" key="_Zq8R4FWsEe-E1tP0oGhB7Q">
+      <value xmi:id="_aVo0sFWsEe-E1tP0oGhB7Q" key="_aVjVIFWsEe-E1tP0oGhB7Q">
+        <value xmi:id="_aVo0sVWsEe-E1tP0oGhB7Q" x="538.0" y="121.0"/>
+      </value>
+      <value xmi:id="_bK4aoFWsEe-E1tP0oGhB7Q" key="_bK1XUFWsEe-E1tP0oGhB7Q">
+        <value xmi:id="_bK4aoVWsEe-E1tP0oGhB7Q" x="538.0166" y="315.00027"/>
+      </value>
+      <value xmi:id="_kADrkFWsEe-E1tP0oGhB7Q" key="_j_9k8FWsEe-E1tP0oGhB7Q">
+        <value xmi:id="_kADrkVWsEe-E1tP0oGhB7Q" x="526.0095" y="506.6786"/>
+      </value>
+      <value xmi:id="_msIQQFWsEe-E1tP0oGhB7Q" key="_msDXwFWsEe-E1tP0oGhB7Q">
+        <value xmi:id="_msIQQVWsEe-E1tP0oGhB7Q" x="135.91432" y="506.6786"/>
+      </value>
+      <value xmi:id="_wButsFWsEe-E1tP0oGhB7Q" key="_wBsRcFWsEe-E1tP0oGhB7Q">
+        <value xmi:id="_wButsVWsEe-E1tP0oGhB7Q" x="436.91153" y="784.5418"/>
+      </value>
+      <value xmi:id="__azwgFWsEe-E1tP0oGhB7Q" key="__azJcFWsEe-E1tP0oGhB7Q">
+        <value xmi:id="__azwgVWsEe-E1tP0oGhB7Q" x="920.6484" y="508.47626"/>
+      </value>
+      <value xmi:id="_Dthi4FWtEe-E1tP0oGhB7Q" key="_DtftsFWtEe-E1tP0oGhB7Q">
+        <value xmi:id="_Dthi4VWtEe-E1tP0oGhB7Q" x="920.6681" y="850.69946"/>
+      </value>
+      <value xmi:id="_MslvoFWtEe-E1tP0oGhB7Q" key="_MskhgFWtEe-E1tP0oGhB7Q">
+        <value xmi:id="_MslvoVWtEe-E1tP0oGhB7Q" x="538.03033" y="850.69946"/>
+      </value>
+      <value xmi:id="_RNvmoFWtEe-E1tP0oGhB7Q" key="_RNtKYFWtEe-E1tP0oGhB7Q">
+        <value xmi:id="_RNvmoVWtEe-E1tP0oGhB7Q" x="135.93582" y="850.7275"/>
+      </value>
+      <value xmi:id="_KMYnQFWuEe-E1tP0oGhB7Q" key="_KMUV0FWuEe-E1tP0oGhB7Q">
+        <value xmi:id="_KMYnQVWuEe-E1tP0oGhB7Q" x="-132.6231" y="191.7306"/>
+      </value>
+      <value xmi:id="_0rSA0FWuEe-E1tP0oGhB7Q" key="_0rKsEFWuEe-E1tP0oGhB7Q">
+        <value xmi:id="_0rSA0VWuEe-E1tP0oGhB7Q" x="-132.6231" y="381.1786"/>
+      </value>
+      <value xmi:id="_9urT8FWuEe-E1tP0oGhB7Q" key="_9uqF0FWuEe-E1tP0oGhB7Q">
+        <value xmi:id="_9urT8VWuEe-E1tP0oGhB7Q" x="135.91077" y="109.5"/>
+      </value>
+      <value xmi:id="_AiyaUFWvEe-E1tP0oGhB7Q" key="_AiwlIFWvEe-E1tP0oGhB7Q">
+        <value xmi:id="_AiyaUVWvEe-E1tP0oGhB7Q" x="135.88715" y="199.7306"/>
+      </value>
+      <value xmi:id="_KmwZoFWvEe-E1tP0oGhB7Q" key="_KmsIMFWvEe-E1tP0oGhB7Q">
+        <value xmi:id="_KmxAsFWvEe-E1tP0oGhB7Q" x="135.88715" y="310.49832"/>
+      </value>
+      <value xmi:id="_Sj52YFWvEe-E1tP0oGhB7Q" key="_Sj4oQFWvEe-E1tP0oGhB7Q">
+        <value xmi:id="_Sj52YVWvEe-E1tP0oGhB7Q" x="-144.6231" y="713.12634"/>
+      </value>
+    </containers>
+  </layout>
+</classdiagram:ClassDiagram>

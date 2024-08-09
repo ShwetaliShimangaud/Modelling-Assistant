@@ -8,8 +8,6 @@ from workflow.contradictionChecker import ContradictionChecker
 from workflow.containmentChecker import ContainmentChecker
 
 
-# from workflow.differenceFinder import DifferenceFinder
-
 def get_prompts(file_name):
     dirname = util.get_project_directory()
     file_path = os.path.join(dirname, f'src/resources/prompts/{file_name}')
@@ -59,7 +57,16 @@ class WorkflowStart:
         # accordingly add it in warnings or errors array, Run next checker only if result of previous checker is false
 
         errors = []
-        for pred_map in self.individual_maps:
+        elements = ['attributes', 'associations', 'aggregations', 'compositions', 'inheritance']
+
+        if not os.path.exists(rf"{parent_folder}"):
+            os.makedirs(f"{parent_folder}")
+
+        if not os.path.exists(rf"{parent_folder}//{self.domain}"):
+            os.makedirs(f"{parent_folder}//{self.domain}")
+
+        for index in range(len(self.individual_maps)):
+            pred_map = self.individual_maps[index]
             for i, row in pred_map.iterrows():
                 actual_description = row['actual_description']
                 generated_description = row['generated_description']
@@ -83,11 +90,7 @@ class WorkflowStart:
                                 })
                             break
 
-        if not os.path.exists(rf"{parent_folder}"):
-            os.makedirs(f"{parent_folder}")
-
-        if not os.path.exists(rf"{parent_folder}//{self.domain}"):
-            os.makedirs(f"{parent_folder}//{self.domain}")
+            pred_map.to_csv(f"{parent_folder}/{self.domain}/{elements[index]}_pred_map.csv", index=False)
 
         for check in self.checks:
             check_res = self.check_results[check]

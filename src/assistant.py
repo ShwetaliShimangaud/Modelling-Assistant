@@ -10,6 +10,10 @@ import spacy
 
 def create_attributes_map(attributes_description, concepts, actual_description):
     data = pd.DataFrame(columns=['class_name', 'attributes', 'generated_description', 'actual_description'])
+    all_sentence_ids = set()
+    for sdx in range(len(actual_description)):
+        all_sentence_ids.add("S" + str(sdx))
+
     for index, row in attributes_description.iterrows():
         class_name = row['class'].lower()
         attribute_name = row['attribute'].lower()
@@ -31,7 +35,12 @@ def create_attributes_map(attributes_description, concepts, actual_description):
 
         answer_set = attribute_presence_set & class_name_presence_set
         if len(answer_set) == 0:
-            answer_set = attribute_presence_set
+            if len(attribute_presence_set) != 0:
+                answer_set = attribute_presence_set
+            elif len(class_name_presence_set) != 0:
+                answer_set = class_name_presence_set
+            else:
+                answer_set = all_sentence_ids
 
         actual_sentence_ids.update(answer_set)
         actual_sentences = [actual_description[int(idx.replace("S", ""))] for idx in actual_sentence_ids]
@@ -102,6 +111,8 @@ def create_relationships_map(attributes_description, relationship_description, r
                     target_presence_set.add(token['s_id'])
 
             answer_set = source_presence_set & target_presence_set
+            if len(answer_set) == 0:
+                answer_set = source_presence_set | target_presence_set
             actual_sentence_ids.update(answer_set)
 
         # if len(actual_sentence_ids) == 0:
@@ -123,6 +134,11 @@ def create_relationships_map(attributes_description, relationship_description, r
 
 class Assistant:
     def __init__(self, domain_name):
+        self.compositions_map = None
+        self.aggregations_map = None
+        self.associations_map = None
+        self.attributes_map = None
+        self.inheritance_map = None
         self.errors = []
         self.warnings = []
         self.description_reader = DescriptionReader(domain_name)
@@ -131,7 +147,7 @@ class Assistant:
         self.relationships_extractor = RelationshipsExtractor()
         self.language_model = spacy.load("en_core_web_lg")
 
-        # TODO Reduntant part
+        # TODO Redundant part
         self.domain_name = domain_name
 
         # Tokenizer treats 'id' as I'd and that's why it gets split as 'I' and 'd'.
@@ -172,18 +188,35 @@ class Assistant:
 
         self.attributes_map = create_attributes_map(self.description_generator.get_attributes(),
                                                     self.concepts_extractor.df_concepts, sentences)
-        self.relationships_map = create_relationships_map(self.description_generator.get_attributes(),
-                                                          self.description_generator.get_relationships(),
-                                                          self.relationships_extractor.df_class_associations,
-                                                          actual_description, self.concepts_extractor.df_concepts,
-                                                          self.language_model)
 
-        # print(self.attributes_map)
-        #
-        print(self.relationships_map)
-        workflow = WorkflowStart([self.attributes_map, self.relationships_map], self.domain_name)
+        self.associations_map = create_relationships_map(self.description_generator.get_attributes(),
+                                                         self.description_generator.get_associations(),
+                                                         self.relationships_extractor.df_class_associations,
+                                                         actual_description, self.concepts_extractor.df_concepts,
+                                                         self.language_model)
+
+        self.aggregations_map = create_relationships_map(self.description_generator.get_attributes(),
+                                                         self.description_generator.get_aggregations(),
+                                                         self.relationships_extractor.df_class_associations,
+                                                         actual_description, self.concepts_extractor.df_concepts,
+                                                         self.language_model)
+
+        self.compositions_map = create_relationships_map(self.description_generator.get_attributes(),
+                                                         self.description_generator.get_compositions(),
+                                                         self.relationships_extractor.df_class_associations,
+                                                         actual_description, self.concepts_extractor.df_concepts,
+                                                         self.language_model)
+
+        self.inheritance_map = create_relationships_map(self.description_generator.get_attributes(),
+                                                        self.description_generator.get_inheritance(),
+                                                        self.relationships_extractor.df_class_associations,
+                                                        actual_description, self.concepts_extractor.df_concepts,
+                                                        self.language_model)
+
+        workflow = WorkflowStart(
+            [self.attributes_map, self.associations_map, self.aggregations_map, self.compositions_map,
+             self.inheritance_map], self.domain_name)
         errors = workflow.run()
 
         print(errors)
         print("Done")
-

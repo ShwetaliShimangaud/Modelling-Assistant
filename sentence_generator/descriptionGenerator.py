@@ -25,7 +25,10 @@ class DescriptionGenerator:
         # TODO : Keep only one format either description string or 'attributes' and 'relationships' dataframes
         self.description = ''
         self.attributes_description = pd.DataFrame(columns=['class', 'attribute', 'sentence'])
-        self.relationships = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
+        self.associations = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
+        self.compositions = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
+        self.aggregations = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
+        self.inheritance = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
         self.generate_description()
 
     def get_description(self):
@@ -34,13 +37,23 @@ class DescriptionGenerator:
     def get_attributes(self):
         return self.attributes_description
 
-    def get_relationships(self):
-        return self.relationships
+    def get_associations(self):
+        return self.associations
+
+    def get_compositions(self):
+        return self.compositions
+
+    def get_aggregations(self):
+        return self.aggregations
+
+    def get_inheritance(self):
+        return self.inheritance
 
     def read_model(self):
 
         # Code to read domain diagram in .cdm format
-        class_attributes, associations, compositions, aggregations, inheritance, enums = parse_domain_model(model_path + self.domain_name + ".cdm")
+        class_attributes, associations, compositions, aggregations, inheritance, enums = parse_domain_model(
+            model_path + self.domain_name + ".cdm")
 
         return class_attributes, associations, compositions, aggregations, inheritance, enums
         # TODO below code was used to read domain diagram from txt file
@@ -73,8 +86,8 @@ class DescriptionGenerator:
             # sentence = self.post_processor.morphological_process(row['sentence'])
             sentence = row['sentence'].replace("+sg", '')
             sentence = sentence.replace("+pl", '')
-            self.relationships.loc[len(self.relationships)] = [row['source'], row['target'], row['role'],
-                                                               sentence]
+            self.associations.loc[len(self.associations)] = [row['source'], row['target'], row['role'],
+                                                             sentence]
             processed_sentences.append(sentence)
 
         # From Compositions
@@ -82,6 +95,8 @@ class DescriptionGenerator:
             sentence = self.post_processor.morphological_process(row['sentence'])
             sentence = sentence.replace("+sg", '')
             sentence = sentence.replace("+pl", '')
+            self.compositions.loc[len(self.compositions)] = [row['parent_class'], row['child_class'], row['role'],
+                                                             sentence]
             processed_sentences.append(sentence)
 
         # From Aggregations
@@ -89,12 +104,17 @@ class DescriptionGenerator:
             sentence = self.post_processor.morphological_process(row['sentence'])
             sentence = sentence.replace("+sg", '')
             sentence = sentence.replace("+pl", '')
+            self.aggregations.loc[len(self.aggregations)] = [row['parent_class'], row['child_class'], row['role'],
+                                                             sentence]
             processed_sentences.append(sentence)
 
+        # From Inheritance
         for index, row in self.generator_from_inheritance.get_sentences().iterrows():
             sentence = self.post_processor.morphological_process(row['sentence'])
             sentence = sentence.replace("+sg", '')
             sentence = sentence.replace("+pl", '')
+            self.inheritance.loc[len(self.inheritance)] = [row['parent_class'], row['child_class'], '',
+                                                           sentence]
             processed_sentences.append(sentence)
 
         sentences = processed_sentences

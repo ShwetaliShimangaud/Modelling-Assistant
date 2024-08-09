@@ -30,7 +30,7 @@ def test_relationship_extractor():
 
     domains = ['sustainable-transportation']
 
-    parent_folder = "../extractor-results/relationships"
+    parent_folder = "../extractor-results/relationships_results"
 
     # Tokenizer treats 'id' as I'd and that's why it gets split as 'I' and 'd'.
     # but here I want it to be a single word, hence removing that rule.

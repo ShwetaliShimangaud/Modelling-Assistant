@@ -153,11 +153,11 @@ factory_attributes = {
 }
 
 city_attributes = {
-    'Campaign': ["estimatedCost", "overallCost", "completed"],
-    # "City": ['name'],
-    # "Neighbourhood": ['name', "aqi"],
-    # "AirQualitySensor": ['CO', 'O3', 'SO2', 'NO2', 'others'],
-    # "Display": ['size', 'resolution']
+    # 'Campaign': ["estimatedCost", "overallCost", "completed"],
+    "City": ['name'],
+    "Neighbourhood": ['name', "aqi"],
+    "AirQualitySensor": ['CO', 'O3', 'SO2', 'NO2', 'others'],
+    "Display": ['size', 'resolution']
 }
 
 bank_attributes = {
@@ -183,5 +183,5 @@ library_attributes = {
     "MemberCategory": ["name", "maxNumberBooks"]
 }
 
-# sfa = SentenceFromAttributes(library_attributes)
+# sfa = SentenceFromAttributes(city_attributes)
 # print(sfa.attributes_description)

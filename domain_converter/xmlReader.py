@@ -194,6 +194,6 @@ def parse_domain_model(xml_file_path):
     return class_attributes, associations, compositions, aggregations, inheritance, enums
 
 
-xml_file_path = '../tests/domain-models/cdm-models/production-cell-enum.cdm'
-
-parse_domain_model(xml_file_path)
+# xml_file_path = '../tests/domain-models/cdm-models/production-cell-enum.cdm'
+#
+# parse_domain_model(xml_file_path)

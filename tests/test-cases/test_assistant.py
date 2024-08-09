@@ -3,10 +3,15 @@ import time
 
 
 def test_assistant():
-    start = time.time()
-    domain_name = "production-cell-inheritance"
-    assistant = Assistant(domain_name)
-    assistant.run()
+    domains = ['bank', 'car-maintenance', 'factory', 'library', 'production-cell-inheritance',
+               'production-cell-enum', 'smart-city', 'sustainable-transportation']
 
-    end = time.time()
-    print((end - start))
+    domains = ['flight-reservation']
+
+    for domain_name in domains:
+        start = time.time()
+        assistant = Assistant(domain_name)
+        assistant.run()
+
+        end = time.time()
+        print((end - start))

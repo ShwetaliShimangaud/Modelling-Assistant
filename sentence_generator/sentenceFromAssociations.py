@@ -195,13 +195,15 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
             formatted_class2 = util.format_class_name(association['class2'])
 
             # Removes "Each" from start of the sentence when cardinality is too many or not there.
-            part_of_sentence = ''
-            if association['cardinality_class2'] == '':
-                part_of_sentence += "A "
-            elif util.is_singular(association['cardinality_class2']):
-                part_of_sentence += "Each "
-            else:
-                part_of_sentence += "A "
+            # part_of_sentence = ''
+            # if association['cardinality_class2'] == '':
+            #     part_of_sentence += "A "
+            # elif util.is_singular(association['cardinality_class2']):
+            #     part_of_sentence += "Each "
+            # else:
+            #     part_of_sentence += "A "
+
+            part_of_sentence = "A "
 
             part_of_sentence += util.format_class_name(
                 association['class1']) + " " + get_role_and_cardinality(
