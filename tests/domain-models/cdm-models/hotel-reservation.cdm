@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ASCII"?>
+<classdiagram:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:classdiagram="http://cs.mcgill.ca/sel/cdm/1.0" xmi:id="_YqLdwAhjEe-4PY4TxVN2eg" name="HotelReservation">
+  <classes xsi:type="classdiagram:Class" xmi:id="_ZG4A0AhjEe-4PY4TxVN2eg" name="Room">
+    <associationEnds xmi:id="_igSAMAhjEe-4PY4TxVN2eg" name="myRoom" navigable="false" assoc="_igSAMghjEe-4PY4TxVN2eg" lowerBound="1"/>
+    <associationEnds xmi:id="_igSAMQhjEe-4PY4TxVN2eg" name="adjoinedRooms" assoc="_igSAMghjEe-4PY4TxVN2eg" upperBound="-1"/>
+    <associationEnds xmi:id="_Bs83kAhkEe-4PY4TxVN2eg" name="bookings" assoc="_Bs83kghkEe-4PY4TxVN2eg" upperBound="-1"/>
+    <associationEnds xmi:id="_TPjLoQhkEe-4PY4TxVN2eg" name="type" assoc="_TPjLoghkEe-4PY4TxVN2eg" lowerBound="1"/>
+    <associationEnds xmi:id="_ewYKgAhkEe-4PY4TxVN2eg" name="currentStay" assoc="_ewYKgghkEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_aNr34AhjEe-4PY4TxVN2eg" name="roomNumber" type="_YqLdxQhjEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_dFBRYAhjEe-4PY4TxVN2eg" name="status" type="_drDWoAhjEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_tgmWsAmaEe-Lq-kZD2ckmQ" name="numberOfBeds" type="_YqLdxQhjEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_vI-pwAmaEe-Lq-kZD2ckmQ" name="bedType" type="_4s82sAhjEe-4PY4TxVN2eg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_lqDNgAhjEe-4PY4TxVN2eg" name="Person">
+    <associationEnds xmi:id="_GCIvIAhkEe-4PY4TxVN2eg" name="myBookings" assoc="_GCIvIghkEe-4PY4TxVN2eg" upperBound="-1"/>
+    <associationEnds xmi:id="_bIh6EQhkEe-4PY4TxVN2eg" name="currentStay" assoc="_bIh6EghkEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_mhEVEAhjEe-4PY4TxVN2eg" name="name" type="_YqLdxwhjEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_nXlGUAhjEe-4PY4TxVN2eg" name="address" type="_YqLdxwhjEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_oUWQkAhjEe-4PY4TxVN2eg" name="phoneNumber" type="_YqLdxQhjEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_p-Jf8AhjEe-4PY4TxVN2eg" name="creditcard" type="_YqLdxQhjEe-4PY4TxVN2eg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_q9YIUAhjEe-4PY4TxVN2eg" name="Booking">
+    <associationEnds xmi:id="_Bs83kQhkEe-4PY4TxVN2eg" name="bookedRooms" assoc="_Bs83kghkEe-4PY4TxVN2eg" lowerBound="1" upperBound="-1"/>
+    <associationEnds xmi:id="_GCIvIQhkEe-4PY4TxVN2eg" name="bookedBy" assoc="_GCIvIghkEe-4PY4TxVN2eg" lowerBound="1"/>
+    <attributes xmi:id="_tCKDgAhjEe-4PY4TxVN2eg" name="plannedNumberOfNights" type="_YqLdxQhjEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_uZj7UAhjEe-4PY4TxVN2eg" name="startDate" type="_wgSXQAhjEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_vjpI0AhjEe-4PY4TxVN2eg" name="bookedDailyRate" type="_YqLdxQhjEe-4PY4TxVN2eg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_wgSXQAhjEe-4PY4TxVN2eg" name="Date" dataType="true"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_LBKN4AhkEe-4PY4TxVN2eg" name="Quality">
+    <associationEnds xmi:id="_TPjLoAhkEe-4PY4TxVN2eg" name="rooms" assoc="_TPjLoghkEe-4PY4TxVN2eg" upperBound="-1"/>
+    <attributes xmi:id="_MPFZkAhkEe-4PY4TxVN2eg" name="qualityLevel" type="_OhsVYAhkEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_NKVg4AhkEe-4PY4TxVN2eg" name="maxDailyRate" type="_YqLdxQhjEe-4PY4TxVN2eg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_XRXbQAhkEe-4PY4TxVN2eg" name="Stay">
+    <associationEnds xmi:id="_bIh6EAhkEe-4PY4TxVN2eg" name="guest" assoc="_bIh6EghkEe-4PY4TxVN2eg" lowerBound="1"/>
+    <associationEnds xmi:id="_ewYKgQhkEe-4PY4TxVN2eg" name="rooms" assoc="_ewYKgghkEe-4PY4TxVN2eg" lowerBound="1" upperBound="-1"/>
+    <attributes xmi:id="_Yyf20AhkEe-4PY4TxVN2eg" name="checkinDate" type="_wgSXQAhjEe-4PY4TxVN2eg"/>
+    <attributes xmi:id="_ZhHQUAhkEe-4PY4TxVN2eg" name="numberOfNights" type="_YqLdxQhjEe-4PY4TxVN2eg"/>
+  </classes>
+  <types xsi:type="classdiagram:CDVoid" xmi:id="_YqLdwQhjEe-4PY4TxVN2eg"/>
+  <types xsi:type="classdiagram:CDAny" xmi:id="_YqLdwghjEe-4PY4TxVN2eg"/>
+  <types xsi:type="classdiagram:CDBoolean" xmi:id="_YqLdwwhjEe-4PY4TxVN2eg"/>
+  <types xsi:type="classdiagram:CDDouble" xmi:id="_YqLdxAhjEe-4PY4TxVN2eg"/>
+  <types xsi:type="classdiagram:CDInt" xmi:id="_YqLdxQhjEe-4PY4TxVN2eg"/>
+  <types xsi:type="classdiagram:CDLong" xmi:id="_YqLdxghjEe-4PY4TxVN2eg"/>
+  <types xsi:type="classdiagram:CDString" xmi:id="_YqLdxwhjEe-4PY4TxVN2eg"/>
+  <types xsi:type="classdiagram:CDByte" xmi:id="_YqLdyAhjEe-4PY4TxVN2eg"/>
+  <types xsi:type="classdiagram:CDFloat" xmi:id="_YqLdyQhjEe-4PY4TxVN2eg"/>
+  <types xsi:type="classdiagram:CDChar" xmi:id="_YqLdyghjEe-4PY4TxVN2eg"/>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_drDWoAhjEe-4PY4TxVN2eg" name="SmokingStatus">
+    <literals xmi:id="_fDIj4AhjEe-4PY4TxVN2eg" name="NonSmoking"/>
+    <literals xmi:id="_fmZB8AhjEe-4PY4TxVN2eg" name="Smoking"/>
+  </types>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_4s82sAhjEe-4PY4TxVN2eg" name="BedType">
+    <literals xmi:id="_5v46YAhjEe-4PY4TxVN2eg" name="Single"/>
+    <literals xmi:id="_6M0uAAhjEe-4PY4TxVN2eg" name="Double"/>
+    <literals xmi:id="_6mnHAAhjEe-4PY4TxVN2eg" name="Queen"/>
+    <literals xmi:id="_667xMAhjEe-4PY4TxVN2eg" name="King"/>
+  </types>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_OhsVYAhkEe-4PY4TxVN2eg" name="Quality">
+    <literals xmi:id="_P-89kAhkEe-4PY4TxVN2eg" name="Standard"/>
+    <literals xmi:id="_QoRnYAhkEe-4PY4TxVN2eg" name="StandardWithView"/>
+    <literals xmi:id="_RM-28AhkEe-4PY4TxVN2eg" name="Superior"/>
+    <literals xmi:id="_R7uMQAhkEe-4PY4TxVN2eg" name="SuperiorWithView"/>
+  </types>
+  <associations xmi:id="_igSAMghjEe-4PY4TxVN2eg" name="Room_Room" ends="_igSAMAhjEe-4PY4TxVN2eg _igSAMQhjEe-4PY4TxVN2eg"/>
+  <associations xmi:id="_Bs83kghkEe-4PY4TxVN2eg" name="Room_Booking" ends="_Bs83kAhkEe-4PY4TxVN2eg _Bs83kQhkEe-4PY4TxVN2eg"/>
+  <associations xmi:id="_GCIvIghkEe-4PY4TxVN2eg" name="Person_Booking" ends="_GCIvIAhkEe-4PY4TxVN2eg _GCIvIQhkEe-4PY4TxVN2eg"/>
+  <associations xmi:id="_TPjLoghkEe-4PY4TxVN2eg" name="RoomType_Room" ends="_TPjLoAhkEe-4PY4TxVN2eg _TPjLoQhkEe-4PY4TxVN2eg"/>
+  <associations xmi:id="_bIh6EghkEe-4PY4TxVN2eg" name="Stay_Person" ends="_bIh6EAhkEe-4PY4TxVN2eg _bIh6EQhkEe-4PY4TxVN2eg"/>
+  <associations xmi:id="_ewYKgghkEe-4PY4TxVN2eg" name="Room_Stay" ends="_ewYKgAhkEe-4PY4TxVN2eg _ewYKgQhkEe-4PY4TxVN2eg"/>
+  <layout xmi:id="_YqME0AhjEe-4PY4TxVN2eg">
+    <containers xmi:id="_YqME0QhjEe-4PY4TxVN2eg" key="_YqLdwAhjEe-4PY4TxVN2eg">
+      <value xmi:id="_ZHgS8AhjEe-4PY4TxVN2eg" key="_ZG4A0AhjEe-4PY4TxVN2eg">
+        <value xmi:id="_ZHgS8QhjEe-4PY4TxVN2eg" x="560.99414" y="308.00186"/>
+      </value>
+      <value xmi:id="_drGZ8AhjEe-4PY4TxVN2eg" key="_drDWoAhjEe-4PY4TxVN2eg">
+        <value xmi:id="_drGZ8QhjEe-4PY4TxVN2eg" x="575.5" y="819.0"/>
+      </value>
+      <value xmi:id="_lqJUIAhjEe-4PY4TxVN2eg" key="_lqDNgAhjEe-4PY4TxVN2eg">
+        <value xmi:id="_lqJUIQhjEe-4PY4TxVN2eg" x="1075.5018" y="282.00186"/>
+      </value>
+      <value xmi:id="_q9akkAhjEe-4PY4TxVN2eg" key="_q9YIUAhjEe-4PY4TxVN2eg">
+        <value xmi:id="_q9akkQhjEe-4PY4TxVN2eg" x="1033.9999" y="595.0001"/>
+      </value>
+      <value xmi:id="_wgVakAhjEe-4PY4TxVN2eg" key="_wgSXQAhjEe-4PY4TxVN2eg">
+        <value xmi:id="_wgVakQhjEe-4PY4TxVN2eg" x="1075.5018" y="834.0"/>
+      </value>
+      <value xmi:id="_4tBvMAhjEe-4PY4TxVN2eg" key="_4s82sAhjEe-4PY4TxVN2eg">
+        <value xmi:id="_4tBvMQhjEe-4PY4TxVN2eg" x="838.99994" y="793.0"/>
+      </value>
+      <value xmi:id="_LBMqIAhkEe-4PY4TxVN2eg" key="_LBKN4AhkEe-4PY4TxVN2eg">
+        <value xmi:id="_LBMqIQhkEe-4PY4TxVN2eg" x="154.34987" y="308.00186"/>
+      </value>
+      <value xmi:id="_OhtjgAhkEe-4PY4TxVN2eg" key="_OhsVYAhkEe-4PY4TxVN2eg">
+        <value xmi:id="_OhtjgQhkEe-4PY4TxVN2eg" x="155.84996" y="793.0"/>
+      </value>
+      <value xmi:id="_XRYpYAhkEe-4PY4TxVN2eg" key="_XRXbQAhkEe-4PY4TxVN2eg">
+        <value xmi:id="_XRYpYQhkEe-4PY4TxVN2eg" x="1067.5018" y="-10.189934"/>
+      </value>
+    </containers>
+  </layout>
+</classdiagram:ClassDiagram>

@@ -61,6 +61,11 @@ def get_role_and_cardinality(role, cardinality, associated_class):
             return phrase
 
     words = util.split_camel_case(role)
+
+    # Sometimes Role has 'my' word in it, it is not a usual practice. Remove 'my' if its there.
+    if "my" in words:
+        words.remove("my")
+
     pos_tag = nltk.pos_tag(words)
     result = nlp(" ".join(words))
 
