@@ -1,0 +1,1759 @@
+attribute,className,dataType
+Gender,Person,enum
+Marital Status,Person,enum
+Fuel Type,Vehicle,enum
+Transmission,Vehicle,enum
+Product Category,Product,enum
+Brand,Product,enum
+Country,Location,enum
+City,Location,enum
+Device Type,Device,enum
+Operating System,Device,enum
+Color,Fruit,enum
+Taste,Fruit,enum
+Season,Weather,enum
+Weather Type,Weather,enum
+Degree Level,Education,enum
+Field Of Study,Education,enum
+Species,Animal,enum
+Diet Type,Animal,enum
+Cuisine Type,Cuisine,enum
+Spice Level,Cuisine,enum
+Genre,Entertainment,enum
+Format,Entertainment,enum
+Transport Mode,Transport,enum
+Passenger Capacity,Transport,enum
+Brand,Gadget,enum
+Screen Size,Gadget,enum
+Software Type,Software,enum
+License Model,Software,enum
+Material,Furniture,enum
+Furniture Type,Furniture,enum
+Currency,Finance,enum
+Account Type,Finance,enum
+Blood Type,Health,enum
+Allergy Type,Health,enum
+Job Function,Job,enum
+Employment Type,Job,enum
+Religion,Religious,enum
+Denomination,Religious,enum
+Event Type,Event,enum
+Venue Type,Event,enum
+Pet Type,Pets,enum
+Breed,Pets,enum
+Landform Type,Landform,enum
+Terrain,Landform,enum
+Art Form,Art,enum
+Medium,Art,enum
+Language,Communication,enum
+Signal Type,Communication,enum
+Service Type,Service,enum
+Subscription Type,Service,enum
+Climate Type,Season,enum
+Season Type,Season,enum
+Hobby Type,Hobby,enum
+Skill Level,Hobby,enum
+Fashion Type,Fashion,enum
+Size,Fashion,enum
+Game Genre,Game,enum
+Platform,Game,enum
+Energy Type,Transport,enum
+Humidity Level,Weather,enum
+Institution Type,Education,enum
+Habitat,Animal,enum
+Cooking Method,Cuisine,enum
+Audience Type,Entertainment,enum
+Style,Furniture,enum
+Transaction Type,Finance,enum
+Illness Type,Health,enum
+Industry,Job,enum
+Ritual Type,Religious,enum
+Audience Size,Event,enum
+Pet Size,Pets,enum
+Ecosystem,Landform,enum
+Historical Period,Art,enum
+Media Type,Communication,enum
+Priority Level,Service,enum
+Weather Pattern,Season,enum
+Equipment,Hobby,enum
+Material,Fashion,enum
+Difficulty,Game,enum
+Connection Type,Communication,enum
+Access Level,Service,enum
+Daylight Hours,Season,enum
+Club Type,Hobby,enum
+Era,Fashion,enum
+Player Mode,Game,enum
+Network Type,Communication,enum
+Support Type,Service,enum
+Flora Type,Season,enum
+Skill Type,Hobby,enum
+Color Pattern,Fashion,enum
+Game Type,Game,enum
+Scholarship Type,Education,enum
+customer _ since,Customer,date
+hire _ date,Employee,date
+release _ date,Product,date
+order _ date,Order,date
+invoice _ date,Invoice,date
+start _ date,Subscription,date
+renewal _ date,Subscription,date
+end _ date,Subscription,date
+event _ date,Event,date
+reservation _ date,Reservation,date
+birth _ date,User,date
+registration _ date,User,date
+effective _ date,Contract,date
+expiration _ date,Contract,date
+creation _ date,Document,date
+last _ modified _ date,Document,date
+appointment _ date,Appointment,date
+follow _ up _ date,Appointment,date
+issuance _ date,Policy,date
+departure _ date,Transport,date
+arrival _ date,Transport,date
+manufacture _ date,Vehicle,date
+purchase _ date,Vehicle,date
+warranty _ start _ date,Warranty,date
+warranty _ end _ date,Warranty,date
+disbursement _ date,Loan,date
+maturity _ date,Loan,date
+lease _ start _ date,Lease,date
+lease _ end _ date,Lease,date
+project _ start _ date,Project,date
+project _ end _ date,Project,date
+task _ due _ date,Task,date
+issue _ date,Certification,date
+expiry _ date,Certification,date
+license _ issue _ date,License,date
+license _ expiry _ date,License,date
+membership _ start _ date,Membership,date
+membership _ end _ date,Membership,date
+maintenance _ date,Maintenance,date
+repair _ date,Repair,date
+holiday _ start _ date,Holiday,date
+holiday _ end _ date,Holiday,date
+promotion _ start _ date,Promotion,date
+promotion _ end _ date,Promotion,date
+billing _ date,Billing,date
+payment _ date,Payment,date
+shipping _ date,Shipping,date
+delivery _ date,Delivery,date
+offer _ start _ date,Offer,date
+offer _ end _ date,Offer,date
+rental _ start _ date,Rental,date
+rental _ end _ date,Rental,date
+training _ start _ date,Training,date
+training _ end _ date,Training,date
+evaluation _ date,Evaluation,date
+record _ date,Records,date
+audit _ date,Audit,date
+dispatch _ date,Dispatch,date
+review _ date,Review,date
+cloning _ date,Cloning,date
+semester _ start _ date,Semester,date
+semester _ end _ date,Semester,date
+expiration _ date,Expiration,date
+graduation _ date,Graduation,date
+closure _ date,Closure,date
+reassessment _ date,Reassessment,date
+ranking _ date,Ranking,date
+inauguration _ date,Inauguration,date
+commencement _ date,Commencement,date
+settlement _ date,Settlement,date
+allocation _ date,Allocation,date
+program _ start _ date,Program,date
+program _ end _ date,Program,date
+currency _ release _ date,Currency,date
+certification _ start _ date,Certification,date
+certification _ expiration _ date,Certification,date
+donation _ date,Donation,date
+discovery _ date,Discovery,date
+reservation _ completion _ date,Reservation,date
+verification _ date,Verification,date
+approval _ date,Approval,date
+realization _ date,Realization,date
+completion _ date,Completion,date
+deployment _ date,Deployment,date
+statistics _ date,Statistics,date
+notification _ date,Notification,date
+incident _ date,Incident,date
+treatment _ start _ date,Treatment,date
+treatment _ end _ date,Treatment,date
+archive _ date,Archive,date
+funding _ date,Fund,date
+acquisition _ date,Acquisition,date
+decommission _ date,Decommission,date
+operation _ start _ date,Operation,date
+operation _ end _ date,Operation,date
+check _ date,Check,date
+activation _ date,Activation,date
+transition _ date,Transition,date
+affiliation _ date,Affiliation,date
+certification _ issue _ date,Certification,date
+certification _ valid _ until,Certification,date
+trial _ start _ date,Trial,date
+trial _ end _ date,Trial,date
+recruitment _ date,Recruitment,date
+security _ review _ date,Security,date
+internal _ audit _ date,Audit,date
+inspection _ date,Inspection,date
+engagement _ date,Engagement,date
+recognition _ date,Recognition,date
+purchase _ order _ date,Purchase,date
+solicitation _ date,Solicitation,date
+compliance _ review _ date,Compliance,date
+departure _ time,Flight Schedule,time
+arrival _ time,Flight Schedule,time
+event _ start _ time,Concert Event,time
+door _ open _ time,Concert Event,time
+appointment _ time,Hospital Appointment,time
+surgery _ time,Hospital Appointment,time
+reservation _ time,Restaurant Reservation,time
+kitchen _ closing _ time,Restaurant Reservation,time
+air _ time,T V Show Schedule,time
+rerun _ time,T V Show Schedule,time
+meeting _ start _ time,Office Meeting,time
+meeting _ end _ time,Office Meeting,time
+stream _ start _ time,Live Stream Event,time
+stream _ end _ time,Live Stream Event,time
+check _ in _ time,Hotel Booking,time
+check _ out _ time,Hotel Booking,time
+opening _ time,Retail Store,time
+closing _ time,Retail Store,time
+class _ start _ time,School Timetable,time
+class _ end _ time,School Timetable,time
+workout _ start _ time,Gym Class,time
+cool _ down _ time,Gym Class,time
+webinar _ start _ time,Webinar Event,time
+question _ period _ time,Webinar Event,time
+first _ bus _ time,Public Transport,time
+last _ train _ time,Public Transport,time
+opening _ hour,Library Schedule,time
+closing _ hour,Library Schedule,time
+keynote _ start _ time,Conference,time
+networking _ event _ time,Conference,time
+ride _ opening _ time,Amusement Park,time
+fireworks _ start _ time,Amusement Park,time
+live _ lecture _ time,Online Course,time
+exam _ submission _ time,Online Course,time
+opening _ gate _ time,Zoo Visit,time
+feeding _ show _ time,Zoo Visit,time
+screening _ start _ time,Movie Screening,time
+intermission _ time,Movie Screening,time
+pickup _ time,Car Rental,time
+return _ time,Car Rental,time
+operation _ start _ time,Fitness Club,time
+operation _ end _ time,Fitness Club,time
+performance _ start _ time,Festival,time
+closing _ ceremony _ time,Festival,time
+launch _ time,Space Mission,time
+docking _ time,Space Mission,time
+broadcast _ start _ time,Radio Show,time
+news _ break _ time,Radio Show,time
+animal _ show _ start _ time,Zoo Event,time
+closing _ time,Zoo Event,time
+opening _ time,Mall,time
+closing _ time,Mall,time
+opening _ time,Spa,time
+closing _ time,Spa,time
+main _ stage _ time,Music Festival,time
+food _ stall _ closing _ time,Music Festival,time
+dinner _ buffet _ time,Beach Resort,time
+diving _ excursion _ time,Beach Resort,time
+call _ start _ time,Conference Call,time
+call _ end _ time,Conference Call,time
+departure _ time,Train Schedule,time
+arrival _ time,Train Schedule,time
+class _ start _ time,Gym Schedule,time
+class _ end _ time,Gym Schedule,time
+warmup _ start _ time,Sports Event,time
+game _ start _ time,Sports Event,time
+departure _ time,Cruise,time
+return _ time,Cruise,time
+opening _ time,Bakery,time
+closing _ time,Bakery,time
+parade _ start _ time,Theme Park,time
+park _ closing _ time,Theme Park,time
+open _ time,Hotel Gym,time
+close _ time,Hotel Gym,time
+opening _ hour,Farmer Market,time
+closing _ hour,Farmer Market,time
+event _ start _ hour,Community Center,time
+event _ end _ hour,Community Center,time
+act _ one _ start _ time,Theater Play,time
+curtain _ close _ time,Theater Play,time
+start _ climb _ time,Mountain Climb,time
+summit _ time,Mountain Climb,time
+first _ session _ time,Yoga Retreat,time
+meditation _ time,Yoga Retreat,time
+first _ train _ time,Train Station,time
+last _ train _ time,Train Station,time
+first _ race _ time,Race Track,time
+last _ race _ time,Race Track,time
+departure _ time,Fishing Trip,time
+return _ time,Fishing Trip,time
+tour _ start _ time,City Tour,time
+tour _ end _ time,City Tour,time
+qualifying _ time,Motorsport Event,time
+main _ race _ time,Motorsport Event,time
+lesson _ start _ time,Cooking Class,time
+tasting _ time,Cooking Class,time
+start _ time,Board Game Night,time
+end _ time,Board Game Night,time
+race _ start _ time,Sailing Regatta,time
+awards _ time,Sailing Regatta,time
+volunteer _ session _ start _ time,Community Service,time
+volunteer _ session _ end _ time,Community Service,time
+temperature,Weather Data,float
+humidity,Weather Data,float
+pressure,Weather Data,float
+transaction Amount,Finance Transaction,float
+exchange Rate,Finance Transaction,float
+interest Rate,Finance Transaction,float
+co 2 Level,Environmental Study,float
+soil Ph,Environmental Study,float
+uv Index,Environmental Study,float
+body Mass Index,Healthcare Record,float
+blood Pressure Systolic,Healthcare Record,float
+cholesterol Level,Healthcare Record,float
+light Year Distance,Astronomical Observation,float
+luminosity,Astronomical Observation,float
+redshift,Astronomical Observation,float
+product Price,Sales Data,float
+discount Rate,Sales Data,float
+gst Rate,Sales Data,float
+magnitude,Seismic Activity,float
+depth,Seismic Activity,float
+seismic Wave Speed,Seismic Activity,float
+crop Yield Rate,Agriculture Yield,float
+rainfall Amount,Agriculture Yield,float
+fertilizer Use Ratio,Agriculture Yield,float
+fps Rate,Gaming Performance,float
+ping,Gaming Performance,float
+gpu Temperature,Gaming Performance,float
+water Salinity,Marine Observation,float
+current Speed,Marine Observation,float
+wave Height,Marine Observation,float
+material Density,Construction Project,float
+load Capacity,Construction Project,float
+work Hours,Construction Project,float
+ph Level,Biological Research,float
+cell Growth Rate,Biological Research,float
+enzyme Activity,Biological Research,float
+battery Health,Electric Vehicle,float
+charging Duration,Electric Vehicle,float
+energy Consumption Rate,Electric Vehicle,float
+frequency,Music Production,float
+decibels,Music Production,float
+tempo,Music Production,float
+monetary Value,Art Valuation,float
+canvas Size,Art Valuation,float
+age Of Artwork,Art Valuation,float
+sugar Content,Culinary Experiment,float
+spice Level,Culinary Experiment,float
+cooking Temperature,Culinary Experiment,float
+fuel Efficiency,Transportation Analysis,float
+traffic Density,Transportation Analysis,float
+avg Speed,Transportation Analysis,float
+frame Rate,Video Analysis,float
+bit Rate,Video Analysis,float
+pixel Density,Video Analysis,float
+reaction Heat,Chemical Experiment,float
+molecular Weight,Chemical Experiment,float
+viscosity,Chemical Experiment,float
+electric Power,Energy Consumption,float
+gas Usage,Energy Consumption,float
+water Output,Energy Consumption,float
+orbital Speed,Space Mission,float
+thrust Power,Space Mission,float
+fuel Consumption Rate,Space Mission,float
+fabric Stretch,Fashion Design,float
+color Saturation,Fashion Design,float
+pattern Repeat,Fashion Design,float
+caloric Content,Nutritional Value Analysis,float
+carbohydrate Amount,Nutritional Value Analysis,float
+protein Content,Nutritional Value Analysis,float
+wind Speed,Meteorological Modeling,float
+cloud Cover Percentage,Meteorological Modeling,float
+precipitation Volume,Meteorological Modeling,float
+response Time,Psychological Test,float
+accuracy Score,Psychological Test,float
+stress Level,Psychological Test,float
+bitterness,Food And Beverage Testing,float
+sweetness,Food And Beverage Testing,float
+savory Score,Food And Beverage Testing,float
+horse Power,Automobile Engine,float
+torque,Automobile Engine,float
+engine Efficiency,Automobile Engine,float
+session Duration,User Engagement,float
+bounce Rate,User Engagement,float
+conversion Rate,User Engagement,float
+thermal Conductivity,Material Science,float
+yield Strength,Material Science,float
+density,Material Science,float
+joint Angle,Robotics Testing,float
+battery Life,Robotics Testing,float
+movement Precision,Robotics Testing,float
+oil Viscosity,Petrochemical Analysis,float
+octane Number,Petrochemical Analysis,float
+sulfur Content,Petrochemical Analysis,float
+age,Person,integer
+height _ cm,Person,integer
+weight _ kg,Person,integer
+employee _ id,Employee,integer
+years _ of _ experience,Employee,integer
+salary _ dollars,Employee,integer
+product _ id,Product,integer
+quantity _ in _ stock,Product,integer
+price _ cents,Product,integer
+order _ id,Order,integer
+customer _ id,Order,integer
+order _ amount _ cents,Order,integer
+student _ id,Student,integer
+grade,Student,integer
+credits _ earned,Student,integer
+vehicle _ id,Vehicle,integer
+number _ of _ wheels,Vehicle,integer
+engine _ capacity _ cc,Vehicle,integer
+building _ id,Building,integer
+number _ of _ floors,Building,integer
+year _ built,Building,integer
+store _ id,Store,integer
+total _ items,Store,integer
+revenue _ dollars,Store,integer
+game _ id,Game,integer
+number _ of _ players,Game,integer
+score,Game,integer
+flight _ number,Flight,integer
+departure _ time _ unix,Flight,integer
+arrival _ time _ unix,Flight,integer
+account _ number,Bank Account,integer
+balance _ cents,Bank Account,integer
+transaction _ id,Bank Account,integer
+hospital _ id,Hospital,integer
+number _ of _ beds,Hospital,integer
+patients _ per _ day,Hospital,integer
+restaurant _ id,Restaurant,integer
+seating _ capacity,Restaurant,integer
+daily _ customers,Restaurant,integer
+isbn _ number,Book,integer
+number _ of _ pages,Book,integer
+published _ year,Book,integer
+postal _ code,City,integer
+population,City,integer
+year _ established,City,integer
+department _ id,Department,integer
+number _ of _ employees,Department,integer
+founded _ year,Department,integer
+university _ id,University,integer
+total _ students,University,integer
+number _ of _ faculties,University,integer
+train _ number,Railway,integer
+track _ length _ km,Railway,integer
+number _ of _ stations,Railway,integer
+imei _ number,Phone,integer
+battery _ capacity _ mah,Phone,integer
+number _ of _ sim _ slots,Phone,integer
+team _ id,Team,integer
+number _ of _ members,Team,integer
+formed _ year,Team,integer
+course _ code,Course,integer
+credit _ hours,Course,integer
+number _ of _ modules,Course,integer
+meeting _ id,Meeting,integer
+number _ of _ participants,Meeting,integer
+duration _ minutes,Meeting,integer
+competition _ id,Competition,integer
+number _ of _ rounds,Competition,integer
+winner _ team _ id,Competition,integer
+conference _ id,Conference,integer
+total _ attendees,Conference,integer
+number _ of _ sessions,Conference,integer
+registry _ number,Registry,integer
+total _ entries,Registry,integer
+last _ updated _ epoch,Registry,integer
+monument _ id,Monument,integer
+height _ m,Monument,integer
+visitors _ per _ year,Monument,integer
+country _ code,Country,integer
+gdp _ million _ dollars,Country,integer
+number _ of _ states,Country,integer
+school _ id,School,integer
+number _ of _ classrooms,School,integer
+students _ enrolled,School,integer
+festival _ id,Festival,integer
+number _ of _ events,Festival,integer
+estimated _ visitors,Festival,integer
+network _ id,Network,integer
+total _ nodes,Network,integer
+max _ bandwidth _ mbps,Network,integer
+laptop _ id,Laptop,integer
+ram _ gb,Laptop,integer
+hard _ disk _ gb,Laptop,integer
+clinic _ id,Clinic,integer
+patients _ daily,Clinic,integer
+number _ of _ doctors,Clinic,integer
+first Name,Person,string
+last Name,Person,string
+middle Name,Person,string
+street Name,Address,string
+city,Address,string
+state,Address,string
+country,Address,string
+postal Code,Address,string
+company Name,Company,string
+industry,Company,string
+sector,Company,string
+product Name,Product,string
+product Category,Product,string
+product Description,Product,string
+order Status,Order,string
+shipping Method,Order,string
+payment Method,Order,string
+event Name,Event,string
+location,Event,string
+host Name,Event,string
+title,Book,string
+author,Book,string
+genre,Book,string
+model,Vehicle,string
+manufacturer,Vehicle,string
+registration Plate,Vehicle,string
+course Name,Course,string
+instructor,Course,string
+department,Course,string
+restaurant Name,Restaurant,string
+cuisine Type,Restaurant,string
+menu Description,Restaurant,string
+album Name,Music,string
+artist,Music,string
+genre,Music,string
+movie Title,Film,string
+director,Film,string
+production Company,Film,string
+username,User,string
+email,User,string
+role,User,string
+furniture Type,Furniture,string
+material,Furniture,string
+color,Furniture,string
+animal Name,Zoo,string
+species,Zoo,string
+habitat Type,Zoo,string
+game Title,Game,string
+genre,Game,string
+platform,Game,string
+plant Name,Plant,string
+species,Plant,string
+cultivation Method,Plant,string
+store Name,Store,string
+store Type,Store,string
+location Description,Store,string
+software Name,Software,string
+version,Software,string
+developer,Software,string
+airline Name,Flight,string
+flight Number,Flight,string
+departure City,Flight,string
+recipe Name,Recipe,string
+cuisine Style,Recipe,string
+chef Name,Recipe,string
+library Name,Library,string
+librarian Name,Library,string
+section Name,Library,string
+festival Name,Festival,string
+type,Festival,string
+location Description,Festival,string
+weather Condition,Weather,string
+temperature Description,Weather,string
+wind Direction,Weather,string
+disease Name,Medical,string
+treatment Method,Medical,string
+medication Name,Medical,string
+headline,News,string
+journalist Name,News,string
+editor Name,News,string
+designer Name,Fashion,string
+collection Name,Fashion,string
+style Type,Fashion,string
+historical Event Name,History,string
+era,History,string
+historical Figure Name,History,string
+innovation Name,Technology,string
+company Name,Technology,string
+product Name,Technology,string
+university Name,Education,string
+course Title,Education,string
+professor Name,Education,string
+exercise Name,Fitness,string
+trainer Name,Fitness,string
+program Title,Fitness,string
+account Type,Finance,string
+transaction Description,Finance,string
+financial Institution Name,Finance,string
+fuel _ type,Space Mission,enum
+mission _ stage,Space Mission,enum
+vessel _ status,Space Mission,enum
+writing _ system,Ancient Civilization,enum
+political _ structure,Ancient Civilization,enum
+religious _ belief,Ancient Civilization,enum
+cuisine _ type,Gourmet Cooking,enum
+cooking _ method,Gourmet Cooking,enum
+dish _ spiciness,Gourmet Cooking,enum
+water _ zone,Marine Biology,enum
+species _ type,Marine Biology,enum
+shell _ type,Marine Biology,enum
+star _ class,Astrophysics,enum
+galactic _ quadrant,Astrophysics,enum
+luminosity _ type,Astrophysics,enum
+payment _ method,E Commerce,enum
+shipping _ carrier,E Commerce,enum
+customer _ segment,E Commerce,enum
+animal _ status,Wildlife Conservation,enum
+habitat _ type,Wildlife Conservation,enum
+protection _ category,Wildlife Conservation,enum
+zoning _ type,Urban Planning,enum
+infrastructure _ type,Urban Planning,enum
+building _ material,Urban Planning,enum
+encryption _ standard,Digital Security,enum
+auth _ protocol,Digital Security,enum
+firewall _ type,Digital Security,enum
+crop _ type,Agriculture,enum
+irrigation _ method,Agriculture,enum
+soil _ texture,Agriculture,enum
+artifact _ type,Archaeology,enum
+excavation _ technique,Archaeology,enum
+era,Archaeology,enum
+servo _ type,Robotics,enum
+control _ algorithm,Robotics,enum
+battery _ type,Robotics,enum
+myth _ type,Mythology,enum
+divine _ entity,Mythology,enum
+sacred _ item,Mythology,enum
+dinosaur _ family,Paleontology,enum
+fossil _ type,Paleontology,enum
+era _ found,Paleontology,enum
+particle _ type,Quantum Physics,enum
+quantum _ state,Quantum Physics,enum
+research _ field,Quantum Physics,enum
+fabric _ type,Textile Industry,enum
+weave _ pattern,Textile Industry,enum
+dye _ type,Textile Industry,enum
+cloud _ formation,Meteorology,enum
+storm _ type,Meteorology,enum
+front _ type,Meteorology,enum
+hull _ type,Marine Engineering,enum
+propulsion _ system,Marine Engineering,enum
+navigation _ type,Marine Engineering,enum
+insect _ type,Entomology,enum
+wing _ structure,Entomology,enum
+feeding _ habit,Entomology,enum
+coin _ material,Numismatics,enum
+minting _ era,Numismatics,enum
+currency _ type,Numismatics,enum
+evidence _ type,Forensic Science,enum
+analysis _ method,Forensic Science,enum
+case _ type,Forensic Science,enum
+engine _ type,Aerospace Engineering,enum
+wing _ design,Aerospace Engineering,enum
+fuel _ type,Aerospace Engineering,enum
+scale _ type,Ichthyology,enum
+fin _ structure,Ichthyology,enum
+habitat _ type,Ichthyology,enum
+cipher _ type,Cryptography,enum
+hash _ function,Cryptography,enum
+key _ exchange _ method,Cryptography,enum
+reaction _ type,Nuclear Physics,enum
+radiation _ type,Nuclear Physics,enum
+fuel _ type,Nuclear Physics,enum
+rock _ type,Geology,enum
+mineral _ composition,Geology,enum
+formation _ process,Geology,enum
+theory _ type,Theoretical Physics,enum
+dimension,Theoretical Physics,enum
+energy _ state,Theoretical Physics,enum
+scale _ type,Ethnomusicology,enum
+instrument _ category,Ethnomusicology,enum
+folk _ tradition,Ethnomusicology,enum
+risk _ type,Actuarial Science,enum
+policy _ type,Actuarial Science,enum
+calculation _ method,Actuarial Science,enum
+plant _ type,Landscape Architecture,enum
+design _ style,Landscape Architecture,enum
+maintenance _ level,Landscape Architecture,enum
+grape _ variety,Viticulture,enum
+wine _ type,Viticulture,enum
+aging _ process,Viticulture,enum
+philosophical _ tradition,Philosophical Schools,enum
+argument _ style,Philosophical Schools,enum
+ontology _ type,Philosophical Schools,enum
+meme _ format,Meme Culture,enum
+meme _ origin,Meme Culture,enum
+meme _ theme,Meme Culture,enum
+supernova Discovery Date,Astrophysics Observations,date
+ingredient Expiration Date,Culinary Recipes,date
+artifact Restoration Date,Historical Artifacts,date
+coral Spawning Start Date,Marine Biology Studies,date
+plant Bloom Start Date,Botanical Records,date
+expedition End Date,Archaeological Expeditions,date
+match Completed Date,Sports Analyses,date
+parade Date,Festival Schedules,date
+rock Formation Sampling Date,Geological Surveys,date
+particle Synthesis Date,Nanotechnology Research,date
+intervention Completion Date,Psychological Case Studies,date
+manuscript Recovery Date,Cultural Heritage Preservation,date
+storm Formation Date,Meteorological Forecasts,date
+engine Test Date,Aerospace Tests,date
+trial End Date,Medical Trials,date
+shipment Arrival Date,Supply Chain Management,date
+submarine Launch Date,Oceanic Explorations,date
+gallery Opening Date,Fine Arts Exhibitions,date
+approval Date,Pharmaceutical Approvals,date
+experiment Execution Date,Quantum Computing Experiments,date
+software Release Date,Virtual Reality Developments,date
+conference Date,Astronomy Conferences,date
+drilling Commencement Date,Petroleum Extraction,date
+animal Tracking Start Date,Zoological Observations,date
+virus Discovery Date,Virology Reports,date
+competition Date,Robotics Contests,date
+ore Extraction Start Date,Mining Operations,date
+harvest Completion Date,Agricultural Cycles,date
+compound Creation Date,Chemistry Syntheses,date
+ecosystem Assessment Date,Ecology Surveys,date
+conference Presentation Date,Economics Analyses,date
+fieldwork Completion Date,Sociological Research,date
+painting Restoration Date,Art Restorations,date
+protein Synthesis Date,Biochemical Studies,date
+foundation Laying Date,Architectural Projects,date
+book Publication Date,Literary Criticism,date
+species Discovery Date,Entomological Research,date
+play Premiere Date,Theatrical Releases,date
+comet Observation Date,Cometary Studies,date
+migration Start Date,Avian Migration Tracking,date
+gemstone Certification Date,Gemology Analyses,date
+data Collection Date,Linguistic Fieldwork,date
+fungus Discovery Date,Mycology Examinations,date
+fossil Excavation Date,Paleontology Digs,date
+cultural Assessment Date,Ethnographic Surveys,date
+alloy Creation Date,Metallurgy Investigations,date
+coin Examination Date,Numismatic Studies,date
+gene Modification Date,Biotechnological Advancements,date
+algorithm Deployment Date,Cryptographic Entries,date
+treaty Signing Date,Geopolitical Summits,date
+shipwreck Discovery Date,Underwater Archaeology,date
+photo Capture Date,Photographic Exhibitions,date
+material Completion Date,Polymers Research,date
+manuscript Submission Date,Astronomical Journal Submissions,date
+disease Detection Date,Plant Pathology Studies,date
+earthquake Occurrence Date,Seismology Events,date
+version Release Date,Language Translation Releases,date
+installation Date,Renewable Energy Projects,date
+interview Date,Anthropology Field Notes,date
+public Unveiling Date,Sculpture Installations,date
+calibration Completion Date,Instrumentation Calibrations,date
+appraisal Date,Gemstone Evaluations,date
+rescue Completion Date,Marine Rescue Operations,date
+performance Test Date,Hybrid Vehicle Tests,date
+artifact Cataloging Date,Industrial History Collections,date
+mission Launch Date,Space Mission Logs,date
+zoning Approval Date,Urban Planning Developments,date
+defense Date,Thesis Defenses,date
+batch Release Date,Vaccine Distribution Reports,date
+plot Setup Date,Agricultural Research Trials,date
+base Establishment Date,Antarctic Research Expeditions,date
+runway Event Date,Fashion Show Schedules,date
+debut Performance Date,Music Composition Debuts,date
+assessment Report Date,Renewable Resource Findings,date
+curriculum Approval Date,Educational Framework Amendments,date
+study Completion Date,Immune System Research,date
+network Activation Date,Blockchain Implementations,date
+schedule Change Date,Transportation System Updates,date
+recipe Launch Date,Culinary Innovation Exchanges,date
+mural Completion Date,Urban Art Installations,date
+strain Identification Date,Bacterial Strain Catalogs,date
+inspection Completion Date,Maritime Safety Checks,date
+turbine Installation Date,Wind Farm Expansions,date
+breach Discovery Date,Digital Security Events,date
+acquisition Date,Contemporary Art Acquisitions,date
+experiment Observation Date,Insect Behavior Studies,date
+habitat Activation Date,Space Habitat Developments,date
+trial Start Date,Drone Delivery Trials,date
+experiment Start Date,Nuclear Physics Experiments,date
+review Completion Date,Trade Agreement Reviews,date
+event Date,Ceremonial Gatherings,date
+floral Display Date,Horticultural Exhibitions,date
+prototype Evaluation Date,Robotics Innovations,date
+release Date,Scientific Software Updates,date
+intervention Start Date,Social Work Interventions,date
+tagging Date,Marine Mammal Research,date
+new Acquisition Date,Library Archive Updates,date
+protocol Implementation Date,Cybersecurity Measures,date
+session Date,Therapeutic Session Notes,date
+departure Time,Flight Schedule,time
+cooking Duration,Recipe,time
+concert Start Time,Music Concert,time
+runner Start Time,Marathon Event,time
+pharmacist Shift Start,Pharmacy Shift,time
+eclipse Peak Time,Astronomical Event,time
+shift Change Time,Factory Schedule,time
+segment End Time,T V Broadcast,time
+tide Change Time,Fishing Trip,time
+watering Time,Gardening Schedule,time
+procedure Start Time,Hospital Procedure,time
+red Carpet Time,Movie Premiere,time
+baking Time,Culinary Show,time
+execution Time,Data Backup Plan,time
+exhibit Entry Time,Gallery Opening,time
+halftime Duration,Sports Match,time
+event Reenactment Time,Historical Reenactment,time
+animal Feeding Time,Zoo Feeding Schedule,time
+moonrise Time,Lunar Research,time
+drill Shift Changeover,Oil Rig Operation,time
+tour Start Time,Museum Tour,time
+tasting Session Start,Wine Tasting,time
+draw Bridge Lift Time,Bridge Opening,time
+story Session Time,Library Event,time
+speed Dating Round Time,Match Making Event,time
+meditation Session Time,Spiritual Retreat,time
+port Arrival Time,Cruise Itinerary,time
+keynote Start Time,Research Conference,time
+lecture End Time,Astrophysics Lecture,time
+live Discussion Start,Television Interview,time
+float Departure Time,Carnival Parade,time
+machinery Demo Time,Agricultural Exhibit,time
+session Startup Time,Virtual Reality Experience,time
+therapy Start Time,Animal Therapy Session,time
+storm Peak Time,Weather Station Recording,time
+harbor Departure Time,Cargo Ship Schedule,time
+match Kickoff Time,Gaming Tournament,time
+restock Time,Supermarket Inventory,time
+entry Submission Time,Baking Competition,time
+reaction Observation Time,Science Lab Experiment,time
+earthquake Start Time,Seismology Study,time
+shift Rotation Time,Diamond Mining Shift,time
+dye Bath Time,Textile Dyeing Process,time
+meteor Shower Time,Astronomy Observation,time
+coral Spawn Time,Marine Biology Survey,time
+task Completion Time,Cloud Computing Task,time
+kiln Firing Time,Pottery Workshop,time
+camel Departure Time,Desert Expedition,time
+flock Depart Time,Bird Migration Study,time
+shipment Loading Time,Logistics System,time
+presentation Start Time,Tech Startup Demo,time
+spelunking Start Time,Cave Exploration Tour,time
+blast Time,Quarry Operation,time
+launch Countdown Time,Space Mission Control,time
+artifact Uncover Time,Archaeological Dig,time
+sculpture Completion Time,Ice Sculpting Event,time
+flower Bloom Time,Botanical Survey,time
+dive Start Time,Submarine Expedition,time
+furnace Cooling Time,Iron Smelting Process,time
+problem Solving Time,A I Research Session,time
+concrete Cure Time,Construction Project,time
+varnish Drying Time,Woodworking Class,time
+sled Departure Time,Polar Exploration,time
+bidding End Time,Antique Auction,time
+tide Measurement Time,Coastal Research,time
+stall Open Time,Handicraft Fair,time
+honey Extraction Time,Beekeeping Schedule,time
+launch Sequence Time,Fireworks Show,time
+train Arrival Time,Railway Schedule,time
+tee Off Time,Golf Tournament,time
+exercise Start Time,Military Drill,time
+bacteria Growth Time,Antibiotic Research,time
+checkout Time,Hotel Checkout,time
+ritual Start Time,Traditional Festival,time
+pit Opening Time,Fossil Excavation,time
+dive Start Time,Underwater Photography,time
+viewing Start Time,Gemstone Exhibition,time
+oasis Arrival Time,Sahara Desert Tour,time
+eruption Observation Time,Volcanic Study,time
+tasting Session End,Cider Tasting,time
+mine Entrance Time,Subterranean Exploration,time
+ice Core Extraction Time,Arctic Research,time
+jousting Start Time,Medieval Fair,time
+animal Observation Time,Wildlife Photography,time
+irrigation Start Time,Farming Workshop,time
+balloon Launch Time,Balloon Festival,time
+ant Migration Time,Insect Study,time
+battle Simulation Time,Medieval Reenactment,time
+clue Discovery Time,Treasure Hunting,time
+submarine Launch Time,Deep Sea Exploration,time
+steel Forging Time,Steel Production,time
+bird Banding Time,Avian Study,time
+checkpoint Time,Adventure Race,time
+fermentation Time,Beverage Production,time
+comet Viewing Time,Cosmic Observation,time
+ore Extraction Time,Mining Project,time
+cooling Period End Time,Glass Blowing Class,time
+typhoon Peak Time,Meteorological Study,time
+curtain Rise Time,Ballet Performance,time
+trail Start Time,Horse Riding Camp,time
+water Release Time,Hydroelectric Project,time
+turbine Start Time,Wind Farm Operation,time
+thrust _ level,Aerospace Trajectory,float
+drag _ coefficient,Aerospace Trajectory,float
+burn _ rate,Aerospace Trajectory,float
+flight _ altitude,Aerospace Trajectory,float
+velocity _ vector,Aerospace Trajectory,float
+market _ volatility,Financial Analysis,float
+interest _ rate,Financial Analysis,float
+inflation _ rate,Financial Analysis,float
+exchange _ rate,Financial Analysis,float
+equity _ beta,Financial Analysis,float
+precipitation _ rate,Climate Modeling,float
+C O 2 _ levels,Climate Modeling,float
+sea _ surface _ temperature,Climate Modeling,float
+humidity _ levels,Climate Modeling,float
+wind _ speed,Climate Modeling,float
+salinity _ levels,Marine Biology,float
+chlorophyll _ concentration,Marine Biology,float
+ocean _ current _ velocity,Marine Biology,float
+nitrate _ concentration,Marine Biology,float
+phosphate _ concentration,Marine Biology,float
+quantum _ spin,Quantum Physics,float
+probability _ amplitude,Quantum Physics,float
+wave _ function _ norm,Quantum Physics,float
+energy _ level,Quantum Physics,float
+electron _ density,Quantum Physics,float
+gc _ content,Genomics,float
+mutation _ rate,Genomics,float
+read _ depth,Genomics,float
+gene _ expression,Genomics,float
+allele _ frequency,Genomics,float
+stellar _ luminosity,Astrophysics,float
+redshift _ value,Astrophysics,float
+galactic _ velocity,Astrophysics,float
+dark _ matter _ density,Astrophysics,float
+cosmic _ microwave _ background _ temperature,Astrophysics,float
+thermal _ conductivity,Material Science,float
+tensile _ strength,Material Science,float
+elastic _ modulus,Material Science,float
+fracture _ toughness,Material Science,float
+vapor _ pressure,Material Science,float
+biodiversity _ index,Ecology,float
+nutrient _ concentration,Ecology,float
+soil _ ph _ level,Ecology,float
+habitat _ fragmentation _ score,Ecology,float
+carbon _ sequestration _ rate,Ecology,float
+neural _ firing _ rate,Neuroscience,float
+axon _ conduction _ velocity,Neuroscience,float
+synaptic _ weight,Neuroscience,float
+receptor _ sensitivity,Neuroscience,float
+cerebral _ blood _ flow,Neuroscience,float
+barometric _ pressure,Meteorology,float
+dew _ point _ temperature,Meteorology,float
+uv _ index,Meteorology,float
+hail _ size,Meteorology,float
+heat _ index,Meteorology,float
+drug _ solubility,Pharmacology,float
+bioavailability _ index,Pharmacology,float
+dose _ response _ constant,Pharmacology,float
+half _ life,Pharmacology,float
+therapeutic _ index,Pharmacology,float
+torque _ output,Robotics,float
+speed _ ratio,Robotics,float
+acceleration _ curve,Robotics,float
+payload _ capacity,Robotics,float
+energy _ consumption _ rate,Robotics,float
+crop _ yield,Agriculture,float
+soil _ moisture _ content,Agriculture,float
+irrigation _ efficiency,Agriculture,float
+photosynthesis _ rate,Agriculture,float
+fertilizer _ use _ efficiency,Agriculture,float
+seismic _ wave _ velocity,Geology,float
+rock _ density,Geology,float
+mineral _ hardness,Geology,float
+erosion _ rate,Geology,float
+magnetic _ susceptibility,Geology,float
+phoneteme _ frequency,Linguistics,float
+lexical _ similarity _ score,Linguistics,float
+syntax _ complexity,Linguistics,float
+semantic _ density,Linguistics,float
+prosodic _ features,Linguistics,float
+response _ latency,Psychology,float
+emotion _ intensity,Psychology,float
+cognitive _ load _ index,Psychology,float
+decision _ confidence,Psychology,float
+attention _ fidelity,Psychology,float
+G D P _ growth _ rate,Economics,float
+unemployment _ rate _ change,Economics,float
+import _ tariff _ rate,Economics,float
+consumer _ confidence _ index,Economics,float
+inflation _ adjustment,Economics,float
+streamflow _ rate,Hydrology,float
+aquifer _ storage _ coefficient,Hydrology,float
+evapotranspiration _ rate,Hydrology,float
+water _ quality _ index,Hydrology,float
+sediment _ concentration,Hydrology,float
+solar _ radiation _ intensity,Energy Systems,float
+wind _ turbine _ efficiency,Energy Systems,float
+battery _ storage _ capacity,Energy Systems,float
+grid _ frequency _ variation,Energy Systems,float
+diesel _ generator _ output,Energy Systems,float
+protein _ binding _ affinity,Bioinformatics,float
+molecular _ weight,Bioinformatics,float
+gene _ ontology _ similarity,Bioinformatics,float
+nucleotide _ polymorphism _ rate,Bioinformatics,float
+metabolic _ pathway _ flux,Bioinformatics,float
+galaxy _ distance,Astrophysics Data,integer
+star _ count,Astrophysics Data,integer
+planet _ orbits,Astrophysics Data,integer
+fingerprint _ ridges,Biometric Data,integer
+iris _ identifiers,Biometric Data,integer
+blood _ vessel _ count,Biometric Data,integer
+trade _ volume,Cryptocurrency Trading,integer
+transaction _ count,Cryptocurrency Trading,integer
+active _ addresses,Cryptocurrency Trading,integer
+species _ population,Ecological Study,integer
+tree _ density,Ecological Study,integer
+bird _ nest _ count,Ecological Study,integer
+fiber _ samples,Forensic Analysis,integer
+dna _ matches,Forensic Analysis,integer
+trace _ particle _ count,Forensic Analysis,integer
+gene _ variants,Genetics Research,integer
+chromosome _ pairs,Genetics Research,integer
+mutation _ rate,Genetics Research,integer
+artifact _ age,Historical Archaeology,integer
+site _ layers,Historical Archaeology,integer
+inscription _ character _ count,Historical Archaeology,integer
+coral _ colony _ size,Marine Biology,integer
+fish _ population _ density,Marine Biology,integer
+plankton _ species,Marine Biology,integer
+storm _ frequency,Meteorological Data,integer
+lightning _ strikes,Meteorological Data,integer
+rainfall _ days,Meteorological Data,integer
+bacteria _ colony _ count,Microbial Study,integer
+virus _ types _ identified,Microbial Study,integer
+antibiotic _ resistance _ count,Microbial Study,integer
+nanoparticle _ size _ distribution,Nanotechnology Research,integer
+quantum _ dot _ count,Nanotechnology Research,integer
+microsensor _ reads,Nanotechnology Research,integer
+neuron _ count,Neuroscience Study,integer
+synapse _ connections,Neuroscience Study,integer
+neurotransmitter _ levels,Neuroscience Study,integer
+fossil _ record _ duration,Paleontology Research,integer
+extinct _ species _ count,Paleontology Research,integer
+sediment _ layer _ depth,Paleontology Research,integer
+compound _ molecules,Pharmaceutical Tests,integer
+bioactive _ agents,Pharmaceutical Tests,integer
+toxicity _ level,Pharmaceutical Tests,integer
+quark _ count,Quantum Physics,integer
+superposition _ states,Quantum Physics,integer
+particle _ collisions,Quantum Physics,integer
+earthquake _ events,Seismology Data,integer
+seismic _ wave _ detected,Seismology Data,integer
+aftershock _ count,Seismology Data,integer
+asteroid _ visits,Space Exploration,integer
+mission _ duration _ days,Space Exploration,integer
+probe _ landing _ attempts,Space Exploration,integer
+match _ score,Sport Analytics,integer
+player _ statistics,Sport Analytics,integer
+goal _ count,Sport Analytics,integer
+inventory _ units,Supply Chain Management,integer
+supply _ chain _ nodes,Supply Chain Management,integer
+shipment _ delays,Supply Chain Management,integer
+connection _ drops,Telecommunications Data,integer
+bandwidth _ utilization,Telecommunications Data,integer
+signal _ retransmissions,Telecommunications Data,integer
+entropy _ levels,Thermodynamics Study,integer
+thermal _ cycles,Thermodynamics Study,integer
+heat _ transfer _ rates,Thermodynamics Study,integer
+residential _ units,Urban Planning,integer
+traffic _ volume,Urban Planning,integer
+utility _ pole _ count,Urban Planning,integer
+animal _ population,Veterinary Science,integer
+health _ check _ sessions,Veterinary Science,integer
+vaccination _ count,Veterinary Science,integer
+render _ frame _ count,Virtual Reality,integer
+interaction _ points,Virtual Reality,integer
+user _ sessions,Virtual Reality,integer
+tracking _ device _ ids,Wildlife Conservation,integer
+migration _ paths,Wildlife Conservation,integer
+habitat _ sizes,Wildlife Conservation,integer
+turbine _ rotations,Wind Energy Investigation,integer
+wind _ gust _ speeds,Wind Energy Investigation,integer
+energy _ output,Wind Energy Investigation,integer
+animal _ behavior _ counts,Zoological Study,integer
+habitat _ entries,Zoological Study,integer
+feeding _ pattern _ observations,Zoological Study,integer
+rocket _ launches,Aerospace Engineering,integer
+engine _ failure _ counts,Aerospace Engineering,integer
+airfoil _ tests,Aerospace Engineering,integer
+crop _ yield,Agricultural Analysis,integer
+soil _ sample _ counts,Agricultural Analysis,integer
+irrigation _ cycles,Agricultural Analysis,integer
+ice _ core _ layers,Antarctic Research,integer
+penguin _ colonies,Antarctic Research,integer
+temperature _ anomalies,Antarctic Research,integer
+extraterrestrial _ signals,Astrobiology,integer
+biosignature _ detections,Astrobiology,integer
+atmospheric _ samples,Astrobiology,integer
+seed _ germination _ rates,Botanical Studies,integer
+photosynthesis _ measurements,Botanical Studies,integer
+plant _ pollination _ counts,Botanical Studies,integer
+circadian _ cycles,Chronobiology,integer
+sleep _ duration _ hours,Chronobiology,integer
+activity _ period _ count,Chronobiology,integer
+temperature _ extremes,Climatology,integer
+glacier _ melt _ rates,Climatology,integer
+solar _ radiation _ levels,Climatology,integer
+algae _ type,Marine Biology,string
+coral _ species,Marine Biology,string
+fish _ species,Marine Biology,string
+star _ name,Astronomy,string
+galaxy _ type,Astronomy,string
+constellation _ name,Astronomy,string
+cuisine _ type,Culinary Arts,string
+ingredient _ name,Culinary Arts,string
+cooking _ method,Culinary Arts,string
+plant _ family,Botany,string
+soil _ type,Botany,string
+leaf _ arrangement,Botany,string
+rock _ type,Geology,string
+mineral _ name,Geology,string
+fossil _ type,Geology,string
+language _ family,Linguistics,string
+phoneme,Linguistics,string
+syntax _ type,Linguistics,string
+reptile _ species,Herpetology,string
+amphibian _ family,Herpetology,string
+venom _ type,Herpetology,string
+bird _ feather _ type,Ornithology,string
+beak _ shape,Ornithology,string
+bird _ song _ type,Ornithology,string
+insect _ order,Entomology,string
+wing _ shape,Entomology,string
+antenna _ type,Entomology,string
+dinosaur _ species,Paleontology,string
+fossil _ period,Paleontology,string
+excavation _ site,Paleontology,string
+cloud _ type,Meteorology,string
+storm _ name,Meteorology,string
+weather _ phenomenon,Meteorology,string
+sound _ waveform,Acoustics,string
+frequency _ ranges,Acoustics,string
+harmonic _ order,Acoustics,string
+earthquake _ type,Seismology,string
+fault _ line _ name,Seismology,string
+seismic _ wave _ type,Seismology,string
+traditional _ use,Ethnobotany,string
+plant _ part _ used,Ethnobotany,string
+cultural _ significance,Ethnobotany,string
+fungus _ species,Mycology,string
+spore _ color,Mycology,string
+mushroom _ shape,Mycology,string
+coin _ material,Numismatics,string
+coin _ origin,Numismatics,string
+circulation _ age,Numismatics,string
+stamp _ design,Philately,string
+print _ technique,Philately,string
+issue _ period,Philately,string
+cave _ formation,Speleology,string
+cave _ mineral,Speleology,string
+stalactite _ type,Speleology,string
+artifact _ type,Archaeology,string
+era _ name,Archaeology,string
+excavation _ tool,Archaeology,string
+grape _ variety,Viticulture,string
+wine _ region,Viticulture,string
+vintage _ year,Viticulture,string
+current _ name,Oceanography,string
+tides _ type,Oceanography,string
+ocean _ zone,Oceanography,string
+crystal _ system,Mineralogy,string
+mineral _ habit,Mineralogy,string
+cleavage _ type,Mineralogy,string
+tree _ species,Dendrology,string
+bark _ texture,Dendrology,string
+leaf _ shape,Dendrology,string
+gender,Person,enum
+fuel Type,Vehicle,enum
+cloud Cover,Weather Report,enum
+genre,Book,enum
+status,Device,enum
+order Status,Order,enum
+color Mode,Image,enum
+access Level,Application,enum
+payment Method,Transaction,enum
+connection Type,Network Connection,enum
+meal Type,Meal,enum
+diet,Animal,enum
+blood Type,Patient,enum
+light Requirement,Plant,enum
+file Type,File,enum
+satisfaction Level,Survey Response,enum
+seat Class,Flight,enum
+building Type,Building,enum
+event Type,Event,enum
+size,Clothing,enum
+currency Type,Payment,enum
+material,Furniture,enum
+game Type,Sports Game,enum
+service Level,Service,enum
+plan Type,Subscription,enum
+cuisine Type,Recipe,enum
+difficulty Level,Lesson,enum
+os Type,Computer,enum
+exam Type,Exam,enum
+training Method,Training,enum
+vehicle Type,Transportation,enum
+rating,Movie,enum
+region,News Article,enum
+art Style,Art Piece,enum
+allergen Info,Food Item,enum
+license Type,Software,enum
+festival Type,Festival,enum
+privacy Level,Social Media Post,enum
+test Result,Medical Test,enum
+career Level,Career,enum
+tariff,Electricity Provider,enum
+element Type,Web Page Element,enum
+package Type,Travel Package,enum
+shipping Type,Parcel,enum
+land Type,Land,enum
+grade Level,School,enum
+phone Type,Phone,enum
+lock Type,Lock,enum
+energy Class,Appliance,enum
+account Type,Account,enum
+employment Type,Job,enum
+policy Type,Insurance,enum
+design Type,Graphic Design,enum
+language,Programming Task,enum
+event Type,Astronomy Event,enum
+beverage Type,Beverage,enum
+equipment Type,Office Equipment,enum
+instrument Type,Musical Instrument,enum
+product Category,Retail Product,enum
+property Type,Real Estate,enum
+provider Type,Healthcare Provider,enum
+subscription Type,Magazine,enum
+content Type,Digital Content,enum
+activity Type,Cultural Activity,enum
+age Group,Toy,enum
+book Condition,Library Book,enum
+tool Type,Tool,enum
+delivery Service,Delivery,enum
+restriction Type,Dietary Plan,enum
+household Type,Household,enum
+medium,Painting,enum
+store Type,Retail Store,enum
+db Type,Database,enum
+form Type,Government Form,enum
+animal Type,Pet,enum
+course Type,Culinary Event,enum
+train Type,Railway,enum
+procedure Type,Healthcare Procedure,enum
+game Genre,Video Game,enum
+material Type,Print Material,enum
+tax Rate Type,Tax Category,enum
+transaction Type,Retail Transaction,enum
+role Type,Volunteer Role,enum
+compression Format,Media File,enum
+crypto Type,Cryptocurrency,enum
+seat Type,Seating Arrangement,enum
+listing Type,Housing Listing,enum
+fixture Type,Lighting Fixture,enum
+activity Category,Festival Activity,enum
+patent Type,Intellectual Property,enum
+garden Type,Garden,enum
+service Type,Property Maintenance,enum
+case Type,Legal Case,enum
+knowledge Base Type,Expert System,enum
+commuter Type,Commuter Service,enum
+task Urgency,Operational Task,enum
+chain Type,Supply Chain,enum
+currency Region,Currency,enum
+date Of Birth,Customer,date
+order Date,Order,date
+invoice Date,Invoice,date
+start Date,Subscription,date
+hire Date,Employee,date
+deadline,Project,date
+event Date,Event,date
+expiration Date,Warranty,date
+launch Date,Product,date
+join Date,Membership,date
+payment Date,Payment,date
+visit Date,Visit,date
+reservation Date,Reservation,date
+disbursement Date,Loan,date
+policy Start Date,Policy,date
+audit Date,Audit,date
+issue Date,License,date
+certification Date,Certification,date
+analysis Date,Analysis,date
+contract Start Date,Contract,date
+appointment Date,Appointment,date
+inspection Date,Inspection,date
+completion Date,Training,date
+claim Date,Reimbursement,date
+promotion Date,Promotion,date
+trial Start Date,Trial,date
+commencement Date,Commencement,date
+expiry Date,Certification,date
+workshop Date,Workshop,date
+consultation Date,Consultation,date
+deployment Date,Deployment,date
+maintenance Date,Maintenance,date
+release Date,Release,date
+enrollment Date,Enrollment,date
+registration Date,Registration,date
+review Date,Review,date
+meeting Date,Meeting,date
+due Date,Task,date
+launch Date,Campaign,date
+milestone Date,Milestone,date
+test Date,Test,date
+diagnosis Date,Diagnosis,date
+filing Date,Claim,date
+renewal Date,Renewal,date
+backup Date,Backup,date
+publication Date,Publication,date
+evaluation Date,Evaluation,date
+auction Date,Auction,date
+agreement Date,Agreement,date
+shipment Date,Shipment,date
+survey Date,Survey,date
+notification Date,Notification,date
+billing Date,Billing,date
+surgery Date,Surgery,date
+installation Date,Installation,date
+first Payment Date,Payment Plan,date
+submission Date,Application,date
+award Date,Grant,date
+exam Date,Examination,date
+renewal Due Date,License,date
+visa Expiry Date,Visa,date
+recertification Date,Certification,date
+checkup Date,Checkup,date
+conference Date,Conference,date
+field Work Date,Field Work,date
+check In Date,Reservation,date
+rent Due Date,Rent,date
+bid Closing Date,Auction,date
+performance Review Date,Performance,date
+lease End Date,Rental Agreement,date
+study End Date,Study,date
+job Start Date,Job,date
+listing Date,Housing,date
+lease Start Date,Lease,date
+forecast Date,Forecast,date
+waitlist Date,Waitlist,date
+completion Date,Task,date
+collection Date,Collection,date
+exhibition Date,Exhibit,date
+next Inspection Date,Inspection,date
+return Date,Return,date
+due Date,Bill,date
+harvest Date,Harvest,date
+opening Date,Opening,date
+dispatch Date,Dispatch,date
+booking Date,Booking,date
+filing Date,Patent,date
+launch Date,Launch,date
+session Date,Session,date
+check Date,Check,date
+start Time,Event Schedule,time
+end Time,Event Schedule,time
+departure Time,Public Transport,time
+arrival Time,Public Transport,time
+broadcast Time,T V Program,time
+shift Start Time,Work Shift,time
+shift End Time,Work Shift,time
+appointment Time,Doctor Appointment,time
+wake Up Time,Daily Routine,time
+bed Time,Daily Routine,time
+meeting Start Time,Meeting,time
+meeting End Time,Meeting,time
+opening Time,Business Hours,time
+closing Time,Business Hours,time
+boarding Time,Flight Schedule,time
+arrival Time,Flight Schedule,time
+prep Time,Cooking Recipe,time
+cook Time,Cooking Recipe,time
+start Workout Time,Gym Session,time
+end Workout Time,Gym Session,time
+dosage Time,Medication Schedule,time
+open Time,Library Schedule,time
+close Time,Library Schedule,time
+start Stream Time,Streaming Service,time
+end Stream Time,Streaming Service,time
+performance Start Time,Concert,time
+performance End Time,Concert,time
+reminder Time,Phone Reminder,time
+green Light Duration,Traffic Light,time
+red Light Duration,Traffic Light,time
+reservation Time,Restaurant Reservation,time
+session Start Time,Meditation Session,time
+session End Time,Meditation Session,time
+departure Time,Train Schedule,time
+arrival Time,Train Schedule,time
+lunch Break Start Time,Office Hours,time
+lunch Break End Time,Office Hours,time
+class Start Time,Online Class,time
+class End Time,Online Class,time
+opening Time,Park Schedule,time
+closing Time,Park Schedule,time
+session Start Time,Yoga Class,time
+session End Time,Yoga Class,time
+take Off Time,Flight Data,time
+landing Time,Flight Data,time
+call Time,Emergency Contact,time
+feeding Time,Pet Schedule,time
+event Start Time,Sports Event,time
+event End Time,Sports Event,time
+study Start Time,Study Plan,time
+study End Time,Study Plan,time
+first Bus Time,Bus Schedule,time
+last Bus Time,Bus Schedule,time
+lunch Time,Dining Schedule,time
+dinner Time,Dining Schedule,time
+service Start Time,Cleaning Service,time
+service End Time,Cleaning Service,time
+release Time,Podcast,time
+qualifying Time,Track Meet,time
+curtain Time,Theater Play,time
+morning Open Time,Store Hours,time
+evening Close Time,Store Hours,time
+departure Time,Commute,time
+arrival Time,Commute,time
+interview Start Time,Interview Schedule,time
+interview End Time,Interview Schedule,time
+opening Time,Exhibition,time
+closing Time,Exhibition,time
+departure Time,Fishing Trip,time
+return Time,Fishing Trip,time
+sound Check Time,Concert Performance,time
+shopping Start Time,Grocery Shopping,time
+return Time,Grocery Shopping,time
+warm Up Time,Fitness Training,time
+cool Down Time,Fitness Training,time
+appointment Start Time,Hair Salon,time
+appointment End Time,Hair Salon,time
+arrival Time,Destination,time
+race Start Time,Marathon,time
+race End Time,Marathon,time
+launch Time,Satellite Launch,time
+take Off Time,Drone Flight,time
+landing Time,Drone Flight,time
+watering Time,Watering Schedule,time
+announcement Time,Public Service Announcement,time
+session Start Time,Therapeutic Session,time
+session End Time,Therapeutic Session,time
+reservation Time,Golf Tee Time,time
+meeting Start Time,Community Meeting,time
+meeting End Time,Community Meeting,time
+lights Out Time,Sleep Study,time
+wake Up Time,Sleep Study,time
+temperature,Sensor Data,float
+humidity,Sensor Data,float
+pressure,Sensor Data,float
+stock Price,Financial Data,float
+exchange Rate,Financial Data,float
+air Quality Index,Environmental Data,float
+water Level,Environmental Data,float
+latitude,Geo Data,float
+longitude,Geo Data,float
+altitude,Geo Data,float
+wind Speed,Weather Data,float
+rainfall Amount,Weather Data,float
+snowfall Amount,Weather Data,float
+body Temperature,Bio Data,float
+blood Pressure,Bio Data,float
+mass,Physical Data,float
+velocity,Physical Data,float
+acceleration,Physical Data,float
+molarity,Chemical Data,float
+p H Level,Chemical Data,float
+density,Chemical Data,float
+bandwidth,Network Data,float
+latency,Network Data,float
+packet Loss,Network Data,float
+fuel Efficiency,Automobile Data,float
+engine Power,Automobile Data,float
+torque,Automobile Data,float
+star Brightness,Astronomy Data,float
+redshift,Astronomy Data,float
+parallax,Astronomy Data,float
+heart Rate,Health Data,float
+respiration Rate,Health Data,float
+oxygen Saturation,Health Data,float
+inflation Rate,Economics Data,float
+gdp Growth,Economics Data,float
+unemployment Rate,Economics Data,float
+discount Rate,Retail Data,float
+tax Rate,Retail Data,float
+profit Margin,Retail Data,float
+yield Per Hectare,Agricultural Data,float
+soil Moisture,Agricultural Data,float
+fertilizer Usage,Agricultural Data,float
+speed,Transport Data,float
+fuel Consumption,Transport Data,float
+distance Travelled,Transport Data,float
+frame Rate,Gaming Data,float
+resolution,Gaming Data,float
+ping Time,Gaming Data,float
+thrust,Aerospace Data,float
+drag Coefficient,Aerospace Data,float
+lift,Aerospace Data,float
+calories Burned,Fitness Data,float
+workout Duration,Fitness Data,float
+step Count,Fitness Data,float
+property Value,Real Estate Data,float
+land Size,Real Estate Data,float
+floor Space,Real Estate Data,float
+gpa,Educational Data,float
+exam Score,Educational Data,float
+attendance Rate,Educational Data,float
+duration,Media Data,float
+bitrate,Media Data,float
+file Size,Media Data,float
+production Rate,Manufacturing Data,float
+defect Rate,Manufacturing Data,float
+unit Cost,Manufacturing Data,float
+premium Rate,Insurance Data,float
+claim Amount,Insurance Data,float
+risk Factor,Insurance Data,float
+call Duration,Telecom Data,float
+data Usage,Telecom Data,float
+signal Strength,Telecom Data,float
+caloric Value,Food Data,float
+protein Content,Food Data,float
+fat Content,Food Data,float
+frequency,Music Data,float
+amplitude,Music Data,float
+tempo,Music Data,float
+building Height,Construction Data,float
+material Cost,Construction Data,float
+labor Hours,Construction Data,float
+engagement Rate,Social Media Data,float
+reach,Social Media Data,float
+growth Rate,Social Media Data,float
+blood Glucose Level,Medical Data,float
+cholesterol Level,Medical Data,float
+body Mass Index,Medical Data,float
+stress,Civil Engineering Data,float
+strain,Civil Engineering Data,float
+load Capacity,Civil Engineering Data,float
+oil Viscosity,Petroleum Data,float
+recovery Factor,Petroleum Data,float
+boiling Point,Petroleum Data,float
+salinity,Marine Data,float
+wave Height,Marine Data,float
+current Speed,Marine Data,float
+seed Germination Rate,Agronomy Data,float
+age,Record,integer
+height _ cm,Record,integer
+weight _ kg,Record,integer
+score,Record,integer
+ranking,Record,integer
+population,Record,integer
+year,Record,integer
+count,Record,integer
+num _ followers,Record,integer
+num _ likes,Record,integer
+zip _ code,Record,integer
+house _ number,Record,integer
+salary,Record,integer
+job _ id,Record,integer
+product _ id,Record,integer
+isbn,Record,integer
+serial _ number,Record,integer
+transaction _ id,Record,integer
+department _ code,Record,integer
+region _ code,Record,integer
+event _ id,Record,integer
+order _ number,Record,integer
+issue _ number,Record,integer
+edition,Record,integer
+chapter _ number,Record,integer
+section _ number,Record,integer
+page _ number,Record,integer
+user _ id,Record,integer
+session _ id,Record,integer
+device _ id,Record,integer
+version _ code,Record,integer
+order _ quantity,Record,integer
+batch _ size,Record,integer
+units _ sold,Record,integer
+flight _ number,Record,integer
+passenger _ count,Record,integer
+reservation _ number,Record,integer
+ticket _ id,Record,integer
+seat _ number,Record,integer
+episode,Record,integer
+season,Record,integer
+chapter,Record,integer
+photograph _ id,Record,integer
+location _ id,Record,integer
+destination _ id,Record,integer
+source _ id,Record,integer
+project _ code,Record,integer
+feature _ id,Record,integer
+comment _ id,Record,integer
+reply _ id,Record,integer
+message _ id,Record,integer
+post _ id,Record,integer
+query _ id,Record,integer
+suggestion _ id,Record,integer
+sample _ id,Record,integer
+analysis _ id,Record,integer
+review _ id,Record,integer
+feedback _ id,Record,integer
+rating _ value,Record,integer
+level,Record,integer
+phase _ number,Record,integer
+round,Record,integer
+league _ id,Record,integer
+tournament _ id,Record,integer
+competition _ id,Record,integer
+bet _ id,Record,integer
+risk _ level,Record,integer
+category _ code,Record,integer
+zone _ id,Record,integer
+node _ id,Record,integer
+cluster _ id,Record,integer
+avatar _ id,Record,integer
+upload _ id,Record,integer
+download _ id,Record,integer
+export _ id,Record,integer
+import _ id,Record,integer
+report _ id,Record,integer
+publication _ id,Record,integer
+entry _ id,Record,integer
+transaction _ code,Record,integer
+payment _ id,Record,integer
+invoice _ number,Record,integer
+referral _ id,Record,integer
+affiliate _ id,Record,integer
+merchant _ code,Record,integer
+partner _ code,Record,integer
+sponsor _ id,Record,integer
+patreon _ id,Record,integer
+patent _ id,Record,integer
+license _ number,Record,integer
+certification _ id,Record,integer
+reference _ number,Record,integer
+quote _ id,Record,integer
+article _ id,Record,integer
+document _ id,Record,integer
+file _ id,Record,integer
+board _ id,Record,integer
+service _ id,Record,integer
+policy _ number,Record,integer
+middle Initial,Person,string
+nickname,Person,string
+gender,Person,string
+title,Person,string
+suffix,Person,string
+email Address,Contact,string
+phone Number,Contact,string
+home Address,Contact,string
+work Address,Contact,string
+fax Number,Contact,string
+twitter Handle,Contact,string
+linkedin Profile,Contact,string
+industry Type,Company,string
+corporate U R L,Company,string
+headquarter Location,Company,string
+founders,Company,string
+year Established,Company,string
+model Number,Product,string
+serial Number,Product,string
+category,Product,string
+manufacturer,Product,string
+barcode,Product,string
+order Id,Order,string
+customer Name,Order,string
+shipping Address,Order,string
+billing Address,Order,string
+vehicle Type,Vehicle,string
+license Plate,Vehicle,string
+V I N,Vehicle,string
+color,Vehicle,string
+date,Event,string
+time,Event,string
+host,Event,string
+description,Event,string
+publisher,Book,string
+I S B N,Book,string
+format,Book,string
+student Id,Student,string
+major,Student,string
+minor,Student,string
+university Name,Student,string
+graduation Year,Student,string
+advisor,Student,string
+animal Type,Pet,string
+breed,Pet,string
+name,Pet,string
+microchip Id,Pet,string
+owner Name,Pet,string
+vet Name,Pet,string
+title,Movie,string
+director,Movie,string
+producer,Movie,string
+genre,Movie,string
+release Date,Movie,string
+language,Movie,string
+address,Restaurant,string
+phone,Restaurant,string
+menu,Restaurant,string
+website,Restaurant,string
+job Title,Job,string
+company Name,Job,string
+employment Type,Job,string
+location,Job,string
+salary Range,Job,string
+qualifications,Job,string
+responsibilities,Job,string
+app Name,App,string
+developer,App,string
+category,App,string
+version,App,string
+supported Platforms,App,string
+website,App,string
+city Name,City,string
+state,City,string
+country,City,string
+population,City,string
+timezone,City,string
+area Code,City,string
+account Number,Account,string
+account Type,Account,string
+bank Name,Account,string
+branch Name,Account,string
+currency Type,Account,string
+I B A N,Account,string
+departure Airport,Flight,string
+arrival Airport,Flight,string
+airline,Flight,string
+aircraft Model,Flight,string
+seat Configuration,Flight,string
+device Name,Device,string
+manufacturer,Device,string
+serial Number,Device,string
+operating System,Device,string
+model Number,Device,string
+warranty Period,Device,string
+membership Id,Membership,string
+member Name,Membership,string
+membership Type,Membership,string
+organization,Membership,string
+expiry Date,Membership,string
+fee,Membership,string
+document Title,Document,string
+author Name,Document,string
+publication Date,Document,string
+document Format,Document,string
+source,Document,string
+keywords,Document,string
+payment Id,Payment,string
+payer Name,Payment,string
+recipient Name,Payment,string
+payment Method,Payment,string
+transaction Date,Payment,string
+currency,Payment,string
