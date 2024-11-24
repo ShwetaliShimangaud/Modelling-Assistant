@@ -208,33 +208,36 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
             # else:
             #     part_of_sentence += "A "
 
-            part_of_sentence = "A "
+            if not (len(association['role_class2']) == 0 and
+                    len(association['cardinality_class2']) == 0):
+                part_of_sentence = "A "
+                part_of_sentence += util.format_class_name(
+                    association['class1']) + " " + get_role_and_cardinality(
+                    association['role_class2'],
+                    association[
+                        'cardinality_class2'], association['class2'])
 
-            part_of_sentence += util.format_class_name(
-                association['class1']) + " " + get_role_and_cardinality(
-                association['role_class2'],
-                association[
-                    'cardinality_class2'], association['class2'])
+                self.sentences.append(part_of_sentence)
+                self.relationships.loc[len(self.relationships)] = [formatted_class1, formatted_class2,
+                                                                   association['role_class2'], part_of_sentence]
 
-            self.sentences.append(part_of_sentence)
-            self.relationships.loc[len(self.relationships)] = [formatted_class1, formatted_class2,
-                                                               association['role_class2'], part_of_sentence]
+            if not (len(association['role_class1']) == 0 and
+                    len(association['cardinality_class1']) == 0):
+                part_of_sentence = ''
+                if association['cardinality_class1'] == '':
+                    part_of_sentence += "A "
+                elif util.is_singular(association['cardinality_class1']):
+                    part_of_sentence += "Each "
+                else:
+                    part_of_sentence += "A "
+                part_of_sentence += util.format_class_name(
+                    association['class2']) + " " + get_role_and_cardinality(
+                    association['role_class1'], association['cardinality_class1'], association['class1'])
 
-            part_of_sentence = ''
-            if association['cardinality_class1'] == '':
-                part_of_sentence += "A "
-            elif util.is_singular(association['cardinality_class1']):
-                part_of_sentence += "Each "
-            else:
-                part_of_sentence += "A "
-            part_of_sentence += util.format_class_name(
-                association['class2']) + " " + get_role_and_cardinality(
-                association['role_class1'], association['cardinality_class1'], association['class1'])
-
-            self.sentences.append(part_of_sentence)
-            self.relationships.loc[len(self.relationships)] = [formatted_class2, formatted_class1,
-                                                               association['role_class1'],
-                                                               part_of_sentence]
+                self.sentences.append(part_of_sentence)
+                self.relationships.loc[len(self.relationships)] = [formatted_class2, formatted_class1,
+                                                                   association['role_class1'],
+                                                                   part_of_sentence]
 
             # <<<<<
 
@@ -423,24 +426,24 @@ insurance_associations = [
 ]
 
 production_cell_associations = [
-    {
-        'class1': 'ProductionCell',
-        'class2': 'Product',
-        'cardinality_class1': '1',
-        'cardinality_class2': '0..*',
-        'name': '',
-        'role_class1': '',
-        'role_class2': 'products'
-    },
-    {
-        'class1': 'ProductionCell',
-        'class2': 'Unit',
-        'cardinality_class1': '1',
-        'cardinality_class2': '1..*',
-        'name': '',
-        'role_class1': '',
-        'role_class2': 'units'
-    },
+    # {
+    #     'class1': 'ProductionCell',
+    #     'class2': 'Product',
+    #     'cardinality_class1': '1',
+    #     'cardinality_class2': '0..*',
+    #     'name': '',
+    #     'role_class1': '',
+    #     'role_class2': 'products'
+    # },
+    # {
+    #     'class1': 'ProductionCell',
+    #     'class2': 'Unit',
+    #     'cardinality_class1': '1',
+    #     'cardinality_class2': '1..*',
+    #     'name': '',
+    #     'role_class1': '',
+    #     'role_class2': 'units'
+    # },
     {
         'class1': 'ProcessingUnit',
         'class2': 'TransportUnit',

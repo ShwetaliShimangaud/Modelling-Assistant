@@ -1,5 +1,17 @@
+from functools import reduce
+
+import nltk
+
+# nltk.download('averaged_perceptron_tagger_eng')
+
 import pandas as pd
 
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+import coreferenceResolution as coref
 from src.descriptionReader import DescriptionReader
 from extractor.RelationshipExtractor import RelationshipsExtractor
 from extractor.conceptsExtractor import ConceptsExtractor
@@ -23,15 +35,33 @@ def create_attributes_map(attributes_description, concepts, actual_description):
         attribute_presence_set = set()
         class_name_presence_set = set()
 
+        attribute_name_separated = attribute_name.split(" ")
+        attribute_presence_map = {}
+
         for i, token in concepts.iterrows():
             token_str = token['token'].lower_
             lemma_str = token['lemmatized_text'].lower()
 
-            if token_str in attribute_name or lemma_str in attribute_name.lower():
-                attribute_presence_set.add(token['s_id'])
+            # if token_str in attribute_name or lemma_str in attribute_name.lower():
+            #     attribute_presence_set.add(token['s_id'])
 
-            elif token_str in class_name.lower() or lemma_str in class_name.lower():
+            for att in attribute_name_separated:
+                if token_str in att or lemma_str in att.lower():
+                    if att not in attribute_presence_map:
+                        attribute_presence_map[att] = []
+                    attribute_presence_map[att].append(token['s_id'])
+
+            if token_str in class_name.lower() or lemma_str in class_name.lower():
                 class_name_presence_set.add(token['s_id'])
+
+        lists = attribute_presence_map.values()
+
+        if not lists or all(len(lst) == 0 for lst in lists):
+            attribute_presence_set = set([])
+        else:
+            attribute_presence_set = set(list(reduce(set.intersection, map(set, lists))))
+            if not attribute_presence_set:
+                attribute_presence_set = set(list(set().union(*lists)))
 
         answer_set = attribute_presence_set & class_name_presence_set
         if len(answer_set) == 0:
@@ -117,8 +147,8 @@ def create_relationships_map(attributes_description, relationship_description, r
 
         # if len(actual_sentence_ids) == 0:
         #     words_to_match = [source, target, role]
-        #     # words_to_match.extend(attributes_description.loc[attributes_description['class'] == source, 'attribute'])
-        #     # words_to_match.extend(attributes_description.loc[attributes_description['class'] == target, 'attribute'])
+        #     words_to_match.extend(attributes_description.loc[attributes_description['class'] == source, 'attribute'])
+        #     words_to_match.extend(attributes_description.loc[attributes_description['class'] == target, 'attribute'])
         #     matching_sentences_index = re.get_matching_sentences(actual_description, flatten_list(words_to_match))
         #     actual_sentence_ids.update(matching_sentences_index)
 
@@ -145,7 +175,7 @@ class Assistant:
         self.description_generator = DescriptionGenerator(domain_name)
         self.concepts_extractor = ConceptsExtractor()
         self.relationships_extractor = RelationshipsExtractor()
-        self.language_model = spacy.load("en_core_web_lg")
+        self.language_model = spacy.load("en_core_web_trf")
 
         # TODO Redundant part
         self.domain_name = domain_name
@@ -163,10 +193,15 @@ class Assistant:
 
     def run(self):
         actual_description = self.description_reader.get_actual_description()
-        # preprocessed_description = coref.get_preprocessed_text(actual_description)
-        # preprocessed_description = [sent.strip() for sent in preprocessed_description.split(".")]
-
         sentences = [sent.strip() for sent in actual_description.split(".")]
+
+        actual_description = actual_description.replace("e.g.", "")
+        actual_description = actual_description.replace(" i.e.", "")
+        actual_description = actual_description.replace("etc.", "")
+
+        preprocessed_description = coref.get_preprocessed_text(actual_description)
+        sentences = [sent.strip() for sent in preprocessed_description.split(".")]
+
         for sdx, sent in enumerate(sentences):
             sdx = "S" + str(sdx)
             preprocessed_sent = sent.replace(".", "")
@@ -220,3 +255,7 @@ class Assistant:
 
         print(errors)
         print("Done")
+
+
+assistant = Assistant("factory")
+assistant.run()

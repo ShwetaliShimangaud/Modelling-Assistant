@@ -26,7 +26,11 @@ class SentenceFromCompositions(AbstractSentenceGenerator):
         for composition in self.compositions:
             parent_class_name = util.format_class_name(composition['parent_class'])
             child_class_name = util.format_class_name(composition['child_class'])
-            role = util.format_role_name(composition['role'])
+
+            if 'role' in composition:
+                role = util.format_role_name(composition['role'])
+            else:
+                role = ''
 
             part_of_sentence = ''
             part_of_sentence += "Each " + parent_class_name + " "
