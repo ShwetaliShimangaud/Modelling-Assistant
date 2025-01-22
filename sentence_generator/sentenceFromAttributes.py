@@ -28,6 +28,7 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
 
         # Split the compound word into its constituent parts based on camel case
         for word in words:
+            word = word.split(":")[0]
             compound_parts = util.split_camel_case(word)
 
             # Initialize a list to store POS tags for the compound parts
@@ -52,7 +53,8 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
 
         splitted_words = []
         for word in words:
-            compound_parts = util.split_camel_case(word)
+            # To remove datatype information and keep only attribute name
+            compound_parts = util.split_camel_case(word.split(":")[0])
             splitted_words.extend(compound_parts)
 
         # Perform POS tagging
@@ -174,7 +176,7 @@ transportation_attributes = {
 }
 
 library_attributes = {
-    'BookCopy': ["barcode", "onReserve"],
+    'BookCopy': ["barcode:string", "onReserve"],
     "Loan": ['startDate', 'endDate'],
     "Member": ['name', "email"],
     "Book": ['title'],
@@ -183,5 +185,5 @@ library_attributes = {
     "MemberCategory": ["name", "maxNumberBooks"]
 }
 
-# sfa = SentenceFromAttributes(city_attributes)
+# sfa = SentenceFromAttributes(library_attributes)
 # print(sfa.attributes_description)

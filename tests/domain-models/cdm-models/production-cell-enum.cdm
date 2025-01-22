@@ -16,8 +16,8 @@
     <attributes xmi:id="_REuFYJauEe68rcy8su4JCA" name="kind" type="_M7yhIJauEe68rcy8su4JCA"/>
   </classes>
   <classes xsi:type="classdiagram:Class" xmi:id="_C_UQ8JauEe68rcy8su4JCA" name="TransportUnit" superTypes="_Bzq9MJauEe68rcy8su4JCA">
-    <associationEnds xmi:id="_IjJs8JauEe68rcy8su4JCA" name="to" assoc="_IjJs8pauEe68rcy8su4JCA" lowerBound="1"/>
-    <associationEnds xmi:id="_KAl7UJauEe68rcy8su4JCA" name="from" assoc="_KAl7UpauEe68rcy8su4JCA" lowerBound="1"/>
+    <associationEnds xmi:id="_IjJs8JauEe68rcy8su4JCA" name="transportsTo" assoc="_IjJs8pauEe68rcy8su4JCA" lowerBound="1"/>
+    <associationEnds xmi:id="_KAl7UJauEe68rcy8su4JCA" name="transportsFrom" assoc="_KAl7UpauEe68rcy8su4JCA" lowerBound="1"/>
     <attributes xmi:id="_V2B4QJauEe68rcy8su4JCA" name="kind" type="_R7OPkJauEe68rcy8su4JCA"/>
   </classes>
   <types xsi:type="classdiagram:CDVoid" xmi:id="_9QMK8JatEe68rcy8su4JCA"/>

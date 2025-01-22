@@ -12,8 +12,8 @@
     <associationEnds xmi:id="_uLuGMJatEe68rcy8su4JCA" name="myTransportUnit1" navigable="false" assoc="_uLutQJatEe68rcy8su4JCA" lowerBound="1"/>
   </classes>
   <classes xsi:type="classdiagram:Class" xmi:id="_iDrWUJatEe68rcy8su4JCA" name="TransportUnit" superTypes="_gvLBgJatEe68rcy8su4JCA">
-    <associationEnds xmi:id="_qwq7oJatEe68rcy8su4JCA" name="to" assoc="_qwsw0ZatEe68rcy8su4JCA" lowerBound="1"/>
-    <associationEnds xmi:id="_uLsRAJatEe68rcy8su4JCA" name="from" assoc="_uLutQJatEe68rcy8su4JCA" lowerBound="1"/>
+    <associationEnds xmi:id="_qwq7oJatEe68rcy8su4JCA" name="transportsTo" assoc="_qwsw0ZatEe68rcy8su4JCA" lowerBound="1"/>
+    <associationEnds xmi:id="_uLsRAJatEe68rcy8su4JCA" name="transportsFrom" assoc="_uLutQJatEe68rcy8su4JCA" lowerBound="1"/>
   </classes>
   <classes xsi:type="classdiagram:Class" xmi:id="_i9vx4JatEe68rcy8su4JCA" name="Product">
     <associationEnds xmi:id="_jwdBMJatEe68rcy8su4JCA" name="myProductionCell" navigable="false" assoc="_jwdBMZatEe68rcy8su4JCA" lowerBound="1"/>

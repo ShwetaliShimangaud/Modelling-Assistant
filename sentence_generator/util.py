@@ -90,8 +90,9 @@ def format_class_name(class_name):
 def get_plural(word):
     """Get the plural form of a word using the inflect library."""
     p = inflect.engine()
-    plural_form = p.plural(word)
-    return plural_form
+    if p.singular_noun(word):
+        return word
+    return p.plural(word)
 
 
 def get_singular(word):

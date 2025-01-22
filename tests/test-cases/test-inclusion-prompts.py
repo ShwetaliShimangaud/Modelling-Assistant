@@ -13,41 +13,33 @@ prompts = [
     "Can Statement 2 be derived from Statement 1?",
     "Can Statement 2 logically follow from Statement 1?",
     "Can Statement 2 be concluded based on Statement 1?",
-    "Does Statement 1 support Statement 2?"
+    "Does Statementest-inclusion-prompts.pyt 1 support Statement 2?"
 ]
+
+# prompts = [
+#     "Is Statement 2 possible given the context provided in Statement 1?",
+#     "Can Statement 2 be true based on the information in Statement 1?",
+#     "Is Statement 2 feasible given the details provided in Statement 1?",
+#     "Given Statement 1, could Statement 2 be valid?"
+# ]
 
 relationship_map = pd.DataFrame(
     columns=['generated_description', 'actual_description', 'actual_answer',
              'predicted_answer'])
 
 generated_descriptions = [
-    "A member category can have users.",
-
-    "A member category can have members.",
-
-    "A book can have book copies.",
-
-    "A book category can have books.",
-
-    "A book category can have books."
+    "an official garage has a numeric warranty.",
+    "a car has a numeric registration date.",
+    "an account has a numeric balance.",
+    "an account has a alphanumeric balance."
 ]
 
 actual_descriptions = [
-    "All information about what category of member a user belongs to (see borrowing rules below), his/her email "
-    "address, etc. is available from the central university server.",
-
-    "All information about what category of member a user belongs to (see borrowing rules below), his/her email "
-    "address, etc. is available from the central university server.",
-
-    "The system does not require users to identify themselves to search for books according to certain criteria and "
-    "to check the availability of a particular book.",
-
-    "Different categories of books have different loan periods (e.g., Lecturers may borrow a standard book for 3 "
-    "months, but can only loan a periodical for 1 month).",
-
-    "Often, a certain category of book has a different loan period for each category of member, e.g. Professors are "
-    "allowed to borrow a standard book for 6 months, whereas Graduate Students are allowed only 3 months."
-]
+    "We have a special type of garage, namely an official garage, which offers a specific warranty.",
+    "We will have cars for which we would like to store their registration date as well as their plate.",
+    "At any time, the owner of a bank account can check the current balance.",
+    "At any time, the owner of a bank account can check the current balance."
+    ]
 
 columns = ['generated_description', 'actual_description']
 columns.extend(prompts)

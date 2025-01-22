@@ -83,10 +83,12 @@ def parse_domain_model(xml_file_path):
             attr_type = attr_elem.get('type')
             # print(f"  Attribute: {attr_name}, Type: {attr_type}")
             # Without type:
-            attributes_list.append(attr_name)
+            # attributes_list.append(attr_name)
 
-            # With type:
-            # attributes_list.append(attr_name + ":" + attribute_types_map[attr_type])
+            # With type: TODO Remove this if check, this was added for dates. As of now attribute with date datatype
+            #  is not supported
+            if attr_type in attribute_types_map:
+                attributes_list.append(attr_name + ":" + attribute_types_map[attr_type])
         class_attributes[class_name] = attributes_list
 
         for assoc_end_elem in class_elem.findall('associationEnds', namespaces):

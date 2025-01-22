@@ -62,7 +62,7 @@ def test_attributes_types():
     accuracy = correct_count / len(result)
 
     print(accuracy)
-    result.to_csv(f"{domain_models_path}/results_with_context_bert.csv", index=False)
+    result.to_csv(f"{domain_models_path}/results_with_context_bert_synthetic_data.csv", index=False)
 
 
 test_attributes_types()

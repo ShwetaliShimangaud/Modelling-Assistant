@@ -10,6 +10,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 from transformers import BertTokenizer, BertModel
 
 # Load pre-trained BERT model and tokenizer
+# TODO uncomment for using bert model
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 model = BertModel.from_pretrained('bert-base-uncased')
 
@@ -25,6 +26,8 @@ class ConceptsPrediction:
         )
 
     def preprocess_text_bert(self, text):
+        if pd.isna(text):
+            text = ''
         # Tokenize the input text and convert tokens to input IDs
         inputs = tokenizer(text, return_tensors='pt', padding=True, truncation=True)
 
@@ -51,25 +54,27 @@ class ConceptsPrediction:
             self.glove_model[word] for word in tokens if word in self.glove_model
         ]
 
-        if len(embeddings) > 0:
-            concatenated_embedding = np.concatenate(embeddings)
-        else:
-            # If the list is empty, create an empty array
-            concatenated_embedding = np.array([])
-        # If the concatenated embedding length is less than 1200, append zeros
-        if len(concatenated_embedding) < 1200:
-            concatenated_embedding = np.pad(concatenated_embedding, (0, 1200 - len(concatenated_embedding)), 'constant')
-
-        return concatenated_embedding
         # if len(embeddings) > 0:
-        #     return np.mean(embeddings, axis=0)  # Take the mean of all token embeddings
+        #     concatenated_embedding = np.concatenate(embeddings)
         # else:
-        #     return np.zeros(300)  # Return zero vector if no embeddings found
+        #     # If the list is empty, create an empty array
+        #     concatenated_embedding = np.array([])
+        # # If the concatenated embedding length is less than 1200, append zeros
+        # if len(concatenated_embedding) < 1200:
+        #     concatenated_embedding = np.pad(concatenated_embedding, (0, 1200 - len(concatenated_embedding)), 'constant')
+        #
+        # return concatenated_embedding
+        if len(embeddings) > 0:
+            return np.mean(embeddings, axis=0)  # Take the mean of all token embeddings
+        else:
+            return np.zeros(300)  # Return zero vector if no embeddings found
 
     def train_models(self):
         encoder_type = preprocessing.LabelEncoder()
-        data_directory = "data/training/gpt4_data_balanced_v2.csv"
-        model_directory = "data/trained_models/synthetic_data_bert"
+
+        # TODO : Change these directories for your system
+        data_directory = "data/training/expanded_corrected_dataset2.csv"
+        model_directory = "data/trained_models/gpt_data_bert"
 
         # Load training data
         dirname = os.path.dirname(__file__)
@@ -79,7 +84,7 @@ class ConceptsPrediction:
         train_data = pd.read_csv(pathname_train_data)
         train_data = train_data.sample(frac=1)
 
-        encoder_type.fit(train_data["dataType"])
+        encoder_type.fit(train_data["type"])
 
         with open(
                 os.path.join(dirname, model_directory, "encoder_type"), "wb"
@@ -87,17 +92,20 @@ class ConceptsPrediction:
             pickle.dump(encoder_type, f)
 
         # Preprocess text and convert to vectors
-        train_data_embeddings = pd.DataFrame(columns=['attribute', 'className'])
-        train_data_embeddings["attribute"] = train_data["attribute"].apply(self.preprocess_text_bert)
-        train_data_embeddings["className"] = train_data['className'].apply(self.preprocess_text_bert)
+        train_data_embeddings = pd.DataFrame(columns=['qualifier', 'concept', 'context'])
+
+        # TODO Use preprocess_text_bert() if you want to use bert embeddings
+        train_data_embeddings["qualifier"] = train_data["qualifier"].apply(self.preprocess_text_bert)
+        train_data_embeddings["concept"] = train_data['concept'].apply(self.preprocess_text_bert)
+        train_data_embeddings["context"] = train_data['context'].apply(self.preprocess_text_bert)
 
         train_data_embeddings['combined'] = train_data_embeddings.apply(
-            lambda row: np.concatenate([row['attribute'], row['className']]), axis=1)
+            lambda row: np.concatenate([row['qualifier'], row['concept'], row['context']]), axis=1)
 
         train_vectors = np.array(train_data_embeddings['combined'].tolist())
 
         train_vectors_type = train_vectors
-        train_type_labels = encoder_type.transform(train_data["dataType"].values)
+        train_type_labels = encoder_type.transform(train_data["type"].values)
 
         # Define GradientBoosting for type prediction
         gb_classifier_type = GradientBoostingClassifier(
@@ -139,17 +147,18 @@ class ConceptsPrediction:
             encoder_type.inverse_transform(pred_type)[0],
         )
 
-    def predict_category_with_probability(self, attribute, className='', qualifier=''):
+    def predict_category_with_probability(self, concept, context='', qualifier=''):
         dirname = os.path.dirname(__file__)
 
-        model_directory = "data/trained_models/synthetic_data_bert"
+        model_directory = "data/trained_models/gpt_data_bert"
 
         # Preprocess text
-        attribute_vector = np.array([self.preprocess_text_bert(attribute)])
-        class_vector = np.array([self.preprocess_text_bert(className)])
-        # qualifier_vector = np.array([self.preprocess_text_bert(qualifier)])
+        # TODO Use preprocess_text_bert() if you want to use bert embeddings
+        concept_vector = np.array([self.preprocess_text_bert(concept)])
+        context_vector = np.array([self.preprocess_text_bert(context)])
+        qualifier_vector = np.array([self.preprocess_text_bert(qualifier)])
 
-        text_vector = np.concatenate([attribute_vector, class_vector], axis=1)
+        text_vector = np.concatenate([qualifier_vector, concept_vector, context_vector], axis=1)
         with open(
                 os.path.join(dirname, model_directory, "model_type"), "rb"
         ) as f:
@@ -161,14 +170,20 @@ class ConceptsPrediction:
 
         pred_type = model_type.predict_proba(text_vector)
 
-        return {
-            'date': pred_type[0][0],
-            'enum': pred_type[0][1],
-            'float': pred_type[0][2],
-            'integer': pred_type[0][3],
-            'string': pred_type[0][4],
-            'time': pred_type[0][5]
-        }
+        answer = {}
+        for i in range(pred_type.size):
+            answer[encoder_type.inverse_transform([i])[0]] = pred_type[0][i]
+
+        return answer
+
+        # return {
+        #     encoder_type.inverse_transform([0])[0]: pred_type[0][0],
+        #     encoder_type.inverse_transform([1])[0]: pred_type[0][1],
+        #     encoder_type.inverse_transform([2])[0]: pred_type[0][2],
+        #     encoder_type.inverse_transform([3])[0]: pred_type[0][3],
+        #     encoder_type.inverse_transform([4])[0]: pred_type[0][4],
+        #     encoder_type.inverse_transform([5])[0]: pred_type[0][5]
+        # }
 
         # return {
         #     'date': pred_type[0][0],
@@ -180,7 +195,9 @@ class ConceptsPrediction:
 
 
 if __name__ == "__main__":
+
     predictor = ConceptsPrediction()
+
     predictor.train_models()
 
     print("For concept number  ", predictor.predict_category_with_probability("number"))
