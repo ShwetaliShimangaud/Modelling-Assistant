@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
 <classdiagram:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:classdiagram="http://cs.mcgill.ca/sel/cdm/1.0" xmi:id="_Zq8R4FWsEe-E1tP0oGhB7Q" name="FlightReservation">
   <classes xsi:type="classdiagram:Class" xmi:id="_aVjVIFWsEe-E1tP0oGhB7Q" name="City">
-    <associationEnds xmi:id="_cD5GQVWsEe-E1tP0oGhB7Q" name="incoming" assoc="_cD5GQlWsEe-E1tP0oGhB7Q" upperBound="-1"/>
-    <associationEnds xmi:id="_ciyBsVWsEe-E1tP0oGhB7Q" name="outgoing" assoc="_ciyowFWsEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <associationEnds xmi:id="_cD5GQVWsEe-E1tP0oGhB7Q" name="incomingFlight" assoc="_cD5GQlWsEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <associationEnds xmi:id="_ciyBsVWsEe-E1tP0oGhB7Q" name="outgoingFlight" assoc="_ciyowFWsEe-E1tP0oGhB7Q" upperBound="-1"/>
   </classes>
   <classes xsi:type="classdiagram:Class" xmi:id="_bK1XUFWsEe-E1tP0oGhB7Q" name="Flight">
-    <associationEnds xmi:id="_cD5GQFWsEe-E1tP0oGhB7Q" name="to" assoc="_cD5GQlWsEe-E1tP0oGhB7Q" lowerBound="1"/>
-    <associationEnds xmi:id="_ciyBsFWsEe-E1tP0oGhB7Q" name="from" assoc="_ciyowFWsEe-E1tP0oGhB7Q" lowerBound="1"/>
+    <associationEnds xmi:id="_cD5GQFWsEe-E1tP0oGhB7Q" name="flewTo" assoc="_cD5GQlWsEe-E1tP0oGhB7Q" lowerBound="1"/>
+    <associationEnds xmi:id="_ciyBsFWsEe-E1tP0oGhB7Q" name="flewFrom" assoc="_ciyowFWsEe-E1tP0oGhB7Q" lowerBound="1"/>
     <associationEnds xmi:id="_-E0_kFWtEe-E1tP0oGhB7Q" name="occurrences" assoc="_-E0_kVWtEe-E1tP0oGhB7Q" upperBound="-1"/>
     <attributes xmi:id="_Hvef8FWuEe-E1tP0oGhB7Q" name="number" type="_Zq8R51WsEe-E1tP0oGhB7Q"/>
   </classes>
   <classes xsi:type="classdiagram:Class" xmi:id="_j_9k8FWsEe-E1tP0oGhB7Q" name="FlightOccurrence">
     <associationEnds xmi:id="_neLYQFWsEe-E1tP0oGhB7Q" name="partOf" assoc="_neL_UFWsEe-E1tP0oGhB7Q" upperBound="-1"/>
-    <associationEnds xmi:id="_x9tSMVWsEe-E1tP0oGhB7Q" name="transpoirting" assoc="_x9tSMlWsEe-E1tP0oGhB7Q" upperBound="-1"/>
+    <associationEnds xmi:id="_x9tSMVWsEe-E1tP0oGhB7Q" name="transporting" assoc="_x9tSMlWsEe-E1tP0oGhB7Q" upperBound="-1"/>
     <associationEnds xmi:id="_AoCYoFWtEe-E1tP0oGhB7Q" name="flownBy" assoc="_AoCYolWtEe-E1tP0oGhB7Q" lowerBound="1"/>
     <associationEnds xmi:id="_N_38cVWtEe-E1tP0oGhB7Q" name="bookings" assoc="_N_38clWtEe-E1tP0oGhB7Q" upperBound="-1"/>
     <associationEnds xmi:id="_-E0YgFWtEe-E1tP0oGhB7Q" name="flight" assoc="_-E0_kVWtEe-E1tP0oGhB7Q" lowerBound="1"/>
@@ -25,7 +25,7 @@
     <associationEnds xmi:id="_UDK7oVWtEe-E1tP0oGhB7Q" name="passenger" assoc="_UDK7olWtEe-E1tP0oGhB7Q" lowerBound="1"/>
   </classes>
   <classes xsi:type="classdiagram:Class" xmi:id="_wBsRcFWsEe-E1tP0oGhB7Q" name="Luggage">
-    <associationEnds xmi:id="_x9tSMFWsEe-E1tP0oGhB7Q" name="onFlight" assoc="_x9tSMlWsEe-E1tP0oGhB7Q"/>
+    <associationEnds xmi:id="_x9tSMFWsEe-E1tP0oGhB7Q" name="flight" assoc="_x9tSMlWsEe-E1tP0oGhB7Q"/>
     <associationEnds xmi:id="_3NdUkFWsEe-E1tP0oGhB7Q" name="trip" assoc="_3Nfw0FWsEe-E1tP0oGhB7Q" lowerBound="1"/>
   </classes>
   <classes xsi:type="classdiagram:Class" xmi:id="__azJcFWsEe-E1tP0oGhB7Q" name="Plane">

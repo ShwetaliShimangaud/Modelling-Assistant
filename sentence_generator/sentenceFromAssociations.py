@@ -1,3 +1,4 @@
+import re
 from typing import List
 
 import nltk
@@ -39,6 +40,24 @@ def ends_with_preposition(result):
     return last_token.pos_ == "ADP"
 
 
+def get_present_form_of_verb(main_verb, auxillary_verb):
+    if auxillary_verb is not None:
+        return main_verb.text
+    else:
+        base_form = main_verb.lemma_
+        if base_form.endswith("y") and not base_form[-2] in "aeiou":
+            # Convert verbs like "fly" -> "flies"
+            return base_form[:-1] + "ies"
+        elif (base_form.endswith("s") or base_form.endswith("sh") or
+              base_form.endswith("ch") or base_form.endswith("x") or
+              base_form.endswith("z")):
+            # Add "es" to verbs like "pass" -> "passes"
+            return base_form + "es"
+        else:
+            # Add "s" for regular verbs
+            return base_form + "s"
+
+
 def get_role_and_cardinality(role, cardinality, associated_class):
     verb_forms_with_auxillary_verb = ['Inf', 'Part']
 
@@ -61,6 +80,12 @@ def get_role_and_cardinality(role, cardinality, associated_class):
             return phrase
 
     words = util.split_camel_case(role)
+
+    # Sometimes Role has 'my' word in it, it is not a usual practice. Remove 'my' if its there.
+    if "my" in words:
+        words.remove("my")
+        role = role.replace("my", "")
+
     pos_tag = nltk.pos_tag(words)
     result = nlp(" ".join(words))
 
@@ -87,7 +112,18 @@ def get_role_and_cardinality(role, cardinality, associated_class):
 
     # Case 2.1: Main verb + auxiliary verb
     if not auxillary_verb_needed:
-        phrase = util.format_role_name(role) + " "
+        phrase = ''
+
+        if main_verb is not None:
+            main_verb_in_present_tense = get_present_form_of_verb(main_verb, auxillary_verb)
+            formatted_role_name = util.format_role_name(role).split(" ")
+            for elem in formatted_role_name:
+                if elem == main_verb.text:
+                    phrase += main_verb_in_present_tense + " "
+                else:
+                    phrase += elem + " "
+        else:
+            phrase += util.format_role_name(role)
         if util.is_singular(cardinality):
             phrase += util.get_appropriate_article(associated_class) + " " + util.format_class_name(
                 associated_class)
@@ -107,19 +143,41 @@ def get_role_and_cardinality(role, cardinality, associated_class):
 
         if util.is_singular(cardinality):
             phrase = "has "
-            phrase += util.get_appropriate_article(role) + " " + util.format_role_name(role)
+            singular_form = util.get_singular(role)
+            if isinstance(singular_form, bool):
+                singular_form = role
+            phrase += util.get_appropriate_article(singular_form) + " " + util.format_role_name(singular_form)
+
         else:
             # TODO : Handle the case where cardinality is 'many' and role name has associated class but it is not plural
-            # temp = ""
-            # ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
-            # result = nlp(ass_class)
-            # for doc in result:
-            #     if doc.dep_ == 'ROOT':
-            #         temp += util.get_plural(doc.text) + " "
-            #     else:
-            #         temp += doc.text + " "
+            temp = ""
+            role_nlp = " ".join([item.lower() for item in util.split_camel_case(role)])
+            result = nlp(role_nlp)
+            for doc in result:
+                if doc.dep_ == 'ROOT':
+                    temp += util.get_plural(doc.text) + " "
+                else:
+                    temp += doc.text + " "
+            phrase = "can have " + temp
+            # phrase += util.format_role_name(role)
+        return phrase
+
+    elif role.lower() in associated_class.lower():
+        if util.is_singular(cardinality):
+            phrase = "has "
+            phrase += util.format_concept(associated_class)
+        else:
+            # TODO : Handle the case where cardinality is 'many' and associated class  has  role name but it is not plural
+            temp_class = ""
+            ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
+            result = nlp(ass_class)
+            for doc in result:
+                if doc.dep_ == 'ROOT':
+                    temp_class += util.get_plural(doc.text) + " "
+                else:
+                    temp_class += doc.text + " "
             phrase = "can have "
-            phrase += util.format_role_name(role)
+            phrase += temp_class
         return phrase
 
         # Case 3: auxillary verb needed along with role and class name, but role name ends with preposition
@@ -140,10 +198,18 @@ def get_role_and_cardinality(role, cardinality, associated_class):
     else:
         # TODO check if you can use who,which etc instead of which always
         if util.is_singular(cardinality):
-            phrase = "has "
+            phrase = "has " + util.get_appropriate_article(role)
+
+            singular_form = util.get_singular(role)
+            if isinstance(singular_form, bool):
+                singular_form = role
+
+            phrase += " " + util.get_appropriate_article(singular_form) + " " + util.format_role_name(singular_form)
         else:
             phrase = "can have "
-        phrase += util.get_appropriate_article(role) + " " + util.format_role_name(role) + " which "
+            phrase += util.format_role_name(util.get_plural(role))
+
+        phrase += " which "
         supporting_verb = ''
         if util.is_singular(cardinality):
             # Only need an article for singular class name.
@@ -203,33 +269,34 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
             # else:
             #     part_of_sentence += "A "
 
-            part_of_sentence = "A "
+            if len(association['cardinality_class2']) != 0:
+                part_of_sentence = "A "
+                part_of_sentence += util.format_class_name(
+                    association['class1']) + " " + get_role_and_cardinality(
+                    association['role_class2'],
+                    association[
+                        'cardinality_class2'], association['class2'])
 
-            part_of_sentence += util.format_class_name(
-                association['class1']) + " " + get_role_and_cardinality(
-                association['role_class2'],
-                association[
-                    'cardinality_class2'], association['class2'])
+                self.sentences.append(part_of_sentence)
+                self.relationships.loc[len(self.relationships)] = [formatted_class1, formatted_class2,
+                                                                   association['role_class2'], part_of_sentence]
 
-            self.sentences.append(part_of_sentence)
-            self.relationships.loc[len(self.relationships)] = [formatted_class1, formatted_class2,
-                                                               association['role_class2'], part_of_sentence]
+            if len(association['cardinality_class1']) != 0:
+                part_of_sentence = "A "
+                # if association['cardinality_class1'] == '':
+                #     part_of_sentence += "A "
+                # elif util.is_singular(association['cardinality_class1']):
+                #     part_of_sentence += "Each "
+                # else:
+                #     part_of_sentence += "A "
+                part_of_sentence += util.format_class_name(
+                    association['class2']) + " " + get_role_and_cardinality(
+                    association['role_class1'], association['cardinality_class1'], association['class1'])
 
-            part_of_sentence = ''
-            if association['cardinality_class1'] == '':
-                part_of_sentence += "A "
-            elif util.is_singular(association['cardinality_class1']):
-                part_of_sentence += "Each "
-            else:
-                part_of_sentence += "A "
-            part_of_sentence += util.format_class_name(
-                association['class2']) + " " + get_role_and_cardinality(
-                association['role_class1'], association['cardinality_class1'], association['class1'])
-
-            self.sentences.append(part_of_sentence)
-            self.relationships.loc[len(self.relationships)] = [formatted_class2, formatted_class1,
-                                                               association['role_class1'],
-                                                               part_of_sentence]
+                self.sentences.append(part_of_sentence)
+                self.relationships.loc[len(self.relationships)] = [formatted_class2, formatted_class1,
+                                                                   association['role_class1'],
+                                                                   part_of_sentence]
 
             # <<<<<
 
@@ -418,24 +485,24 @@ insurance_associations = [
 ]
 
 production_cell_associations = [
-    {
-        'class1': 'ProductionCell',
-        'class2': 'Product',
-        'cardinality_class1': '1',
-        'cardinality_class2': '0..*',
-        'name': '',
-        'role_class1': '',
-        'role_class2': 'products'
-    },
-    {
-        'class1': 'ProductionCell',
-        'class2': 'Unit',
-        'cardinality_class1': '1',
-        'cardinality_class2': '1..*',
-        'name': '',
-        'role_class1': '',
-        'role_class2': 'units'
-    },
+    # {
+    #     'class1': 'ProductionCell',
+    #     'class2': 'Product',
+    #     'cardinality_class1': '1',
+    #     'cardinality_class2': '0..*',
+    #     'name': '',
+    #     'role_class1': '',
+    #     'role_class2': 'products'
+    # },
+    # {
+    #     'class1': 'ProductionCell',
+    #     'class2': 'Unit',
+    #     'cardinality_class1': '1',
+    #     'cardinality_class2': '1..*',
+    #     'name': '',
+    #     'role_class1': '',
+    #     'role_class2': 'units'
+    # },
     {
         'class1': 'ProcessingUnit',
         'class2': 'TransportUnit',
@@ -456,13 +523,162 @@ production_cell_associations = [
     }
 ]
 
+flight_reservation_associations = [
+    # {
+    #     'class1': 'Flight',
+    #     'class2': 'City',
+    #     'role_class1': 'incomingFlight',
+    #     'role_class2': 'flewTo',
+    #     'cardinality_class1': '0..*',
+    #     'cardinality_class2': '*'
+    # },
+    # {
+    #     'class1': 'Flight',
+    #     'class2': 'City',
+    #     'role_class1': 'outgoingFlight',
+    #     'role_class2': 'flewFrom',
+    #     'cardinality_class1': '0..*',
+    #     'cardinality_class2': '1'
+    # },
+    # {
+    #     'class1': 'Trip',
+    #     'class2': 'FlightOccurrence',
+    #     'role_class1': 'partOf',
+    #     'role_class2': 'flights',
+    #     'cardinality_class1': '0..*',
+    #     'cardinality_class2': '1..*'
+    # },
+    # {
+    #     'class1': 'Luggage',
+    #     'class2': 'FlightOccurrence',
+    #     'role_class1': 'transporting',
+    #     'role_class2': 'on',
+    #     'cardinality_class1': '0..*',
+    #     'cardinality_class2': ''
+    # },
+    # {
+    #     'class1': 'Luggage',
+    #     'class2': 'Trip',
+    #     'role_class1': 'checkedLuggage',
+    #     'role_class2': 'trip',
+    #     'cardinality_class1': '0..*',
+    #     'cardinality_class2': '1'
+    # },
+    # {
+    #     'class1': 'FlightOccurrence',
+    #     'class2': 'Plane',
+    #     'role_class1': 'flies',
+    #     'role_class2': 'flownBy',
+    #     'cardinality_class1': '0..*',
+    #     'cardinality_class2': '1'
+    # },
+    # {
+    #     'class1': 'Seat',
+    #     'class2': 'Plane',
+    #     'role_class1': 'seats',
+    #     'role_class2': 'installedIn',
+    #     'cardinality_class1': '0..*',
+    #     'cardinality_class2': '1'},
+    {
+        'class1': 'BookedFlight',
+        'class2': 'FlightOccurrence',
+        'role_class1': 'bookings',
+        'role_class2': 'flight',
+        'cardinality_class1': '0..*',
+        'cardinality_class2': '1'
+    },
+    # {
+    #     'class1': 'Person',
+    #     'class2': 'Trip',
+    #     'role_class1': 'passenger',
+    #     'role_class2': 'bookedTrips',
+    #     'cardinality_class1': '1',
+    #     'cardinality_class2': '0..*'
+    # },
+    # {
+    #     'class1': 'Person',
+    #     'class2': 'BookedFlight',
+    #     'role_class1': 'passenger',
+    #     'role_class2': 'bookedFlights',
+    #     'cardinality_class1': '1',
+    #     'cardinality_class2': '0..*'
+    # },
+    # {
+    #     'class1': 'BookedFlight',
+    #     'class2': 'Seat',
+    #     'role_class1': 'bookedFlights',
+    #     'role_class2': 'seat',
+    #     'cardinality_class1': '0..*',
+    #     'cardinality_class2': '1'
+    # },
+    # {
+    #     'class1': 'FlightOccurrence',
+    #     'class2': 'Flight',
+    #     'role_class1': 'occurrences',
+    #     'role_class2': 'flight',
+    #     'cardinality_class1': '0..*',
+    #     'cardinality_class2': '1'
+    # }
+]
 
-# sfa = SentenceFromAssociations(production_cell_associations)
+hotel_reservation_associations = [
+    {
+        'class1': 'Room',
+        'class2': 'Room',
+        'role_class1': 'adjoinedRooms',
+        'role_class2': 'myRoom',
+        'cardinality_class1': '0..*',
+        'cardinality_class2': '1'
+    },
+    {
+        'class1': 'Room',
+        'class2': 'Booking',
+        'role_class1': 'bookedRooms',
+        'role_class2': 'bookings',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '0..*'
+    },
+    {
+        'class1': 'Person',
+        'class2': 'Booking',
+        'role_class1': 'bookedBy',
+        'role_class2': 'myBookings',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..*'
+    },
+    {
+        'class1': 'RoomType',
+        'class2': 'Room',
+        'role_class1': 'type',
+        'role_class2': 'rooms',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..*'
+    },
+    {
+        'class1': 'Stay',
+        'class2': 'Person',
+        'role_class1': 'currentStay',
+        'role_class2': 'guest',
+        'cardinality_class1': '',
+        'cardinality_class2': '1'
+    },
+    {
+        'class1': 'Room',
+        'class2': 'Stay',
+        'role_class1': 'rooms',
+        'role_class2': 'currentStay',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': ''
+    }
+]
+
+# sfa = SentenceFromAssociations(flight_reservation_associations)
 # print(sfa.get_relationships())
 
 # without role name
 # for association in associations:
 #     part_of_sentence = ''
+
 #     part_of_sentence += "Each " + association['class1'] + " " + get_association_phrase(
 #         association['cardinality_class2']) + " "
 #     part_of_sentence += get_cardinality(association['cardinality_class2']) + " "

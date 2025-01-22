@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 
 from sentence_generator.sentenceFromAttributes import SentenceFromAttributes
@@ -8,7 +10,9 @@ from sentence_generator.sentenceFromInheritance import SentenceFromInheritance
 from sentence_generator.postProcessor import PostProcessor
 from domain_converter.xmlReader import parse_domain_model
 
-model_path = "D:\\Thesis\\modelling-assistant\\tests\\\domain-models\\cdm-models\\"
+model_path = "D:\\Thesis\\modelling-assistant\\tests\\\domain-models\\"
+
+processed_models_path = "wrong_models\\"
 
 
 class DescriptionGenerator:
@@ -51,22 +55,27 @@ class DescriptionGenerator:
 
     def read_model(self):
 
-        # Code to read domain diagram in .cdm format
-        class_attributes, associations, compositions, aggregations, inheritance, enums = parse_domain_model(
-            model_path + self.domain_name + ".cdm")
-
-        return class_attributes, associations, compositions, aggregations, inheritance, enums
         # TODO below code was used to read domain diagram from txt file
-        # with open(model_path + self.domain_name, 'r') as file:
-        #     content = file.read()
-        #
-        # local_vars = {}
-        #
-        # exec(content, local_vars)
-        #
-        # return (local_vars.get('class_attributes', {}), local_vars.get('associations', []),
-        #         local_vars.get('compositions', []), local_vars.get('aggregations', []),
-        #         local_vars.get('inheritance', []))
+        file_path = model_path + processed_models_path + self.domain_name
+        if os.path.exists(file_path):
+            with open(file_path, 'r') as file:
+                content = file.read()
+
+            local_vars = {}
+
+            exec(content, local_vars)
+
+            return (local_vars.get('class_attributes', {}), local_vars.get('associations', []),
+                    local_vars.get('compositions', []), local_vars.get('aggregations', []),
+                    local_vars.get('inheritance', []), local_vars.get('enums', []))
+        else:
+            print(f"File {file_path} does not exist. Read cdm model")
+
+            # Code to read domain diagram in .cdm format
+            class_attributes, associations, compositions, aggregations, inheritance, enums = parse_domain_model(
+                model_path + "cdm-models\\" + self.domain_name + ".cdm")
+
+            return class_attributes, associations, compositions, aggregations, inheritance, enums
 
     def generate_description(self):
         processed_sentences = []
@@ -123,6 +132,6 @@ class DescriptionGenerator:
         self.description = final_sentence
         print(final_sentence)
 
-# dec = DescriptionGenerator('Insurance')
+
+# dec = DescriptionGenerator('factory')
 # print(dec.get_attributes())
-# print(dec.get_relationships())

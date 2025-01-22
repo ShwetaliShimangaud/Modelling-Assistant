@@ -19,8 +19,8 @@ def get_prompts(file_name):
     exec(content, local_vars)
     return local_vars['prompts']
 
-
-parent_folder = "../entire-system-test"
+# TODO Change parent dir
+parent_folder = "../system-test"
 
 
 class WorkflowStart:
@@ -52,6 +52,11 @@ class WorkflowStart:
         else:
             return self.containment_checker
 
+    def add_dummy_values(self, check_index, pred_map, i):
+        for index in range(check_index + 1, len(self.checks)):
+            check = self.checks[index]
+            pred_map.at[i, check] = False
+
     def run(self):
         # Take actual and generated sentence Run all the checkers one by one. if result of any checker is true then
         # accordingly add it in warnings or errors array, Run next checker only if result of previous checker is false
@@ -71,7 +76,7 @@ class WorkflowStart:
                 actual_description = row['actual_description']
                 generated_description = row['generated_description']
 
-                for check in self.checks:
+                for check_index, check in enumerate(self.checks):
                     checker = self.checkers[check]
                     check_res = self.check_results[check]
 
@@ -88,10 +93,14 @@ class WorkflowStart:
                                     'actual_description': actual_description,
                                     'generated_description': generated_description
                                 })
+
+                            # This function add False value for remaining checks, this is done to avoid code break in
+                            # next steps
+                            self.add_dummy_values(check_index, pred_map, i)
                             break
 
             pred_map.to_csv(f"{parent_folder}/{self.domain}/{elements[index]}_pred_map.csv", index=False)
-
+            # print("save pred map")
         for check in self.checks:
             check_res = self.check_results[check]
             check_res.to_excel(f"{parent_folder}/{self.domain}/{check}_check.xlsx", index=False)
