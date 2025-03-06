@@ -8,7 +8,7 @@ from preprocessor.relationship_matcher import RelationshipMatcher
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-import coreferenceResolution as coref
+from preprocessor import coreferenceResolution as coref
 from src.descriptionReader import DescriptionReader
 from extractor.RelationshipExtractor import RelationshipsExtractor
 from extractor.conceptsExtractor import ConceptsExtractor
@@ -19,6 +19,7 @@ import spacy
 
 class Assistant:
     def __init__(self, domain_name):
+        self.enum_map = None
         self.compositions_map = None
         self.aggregations_map = None
         self.associations_map = None
@@ -26,11 +27,12 @@ class Assistant:
         self.inheritance_map = None
         self.errors = []
         self.warnings = []
+        self.language_model = spacy.load("en_core_web_trf")
+
         self.description_reader = DescriptionReader(domain_name)
-        self.description_generator = DescriptionGenerator(domain_name)
+        self.description_generator = DescriptionGenerator(domain_name, self.language_model)
         self.concepts_extractor = ConceptsExtractor()
         self.relationships_extractor = RelationshipsExtractor()
-        self.language_model = spacy.load("en_core_web_trf")
 
         # TODO Redundant part
         self.domain_name = domain_name
@@ -57,8 +59,7 @@ class Assistant:
         actual_description = actual_description.replace("i.e.", "")
         actual_description = actual_description.replace("etc.", "")
 
-        preprocessed_description = coref.get_preprocessed_text(actual_description)
-        sentences = [sent.strip() for sent in preprocessed_description.split(".")]
+        original_description, sentences = coref.get_preprocessed_text(actual_description)
 
         for sdx, sent in enumerate(sentences):
             sdx = "S" + str(sdx)
@@ -81,39 +82,45 @@ class Assistant:
 
         self.attributes_map = self.attribute_matcher.create_attributes_map(self.description_generator.get_attributes(),
                                                                            self.concepts_extractor.df_concepts,
-                                                                           sentences)
+                                                                           original_description)
 
         self.associations_map = self.relationships_matcher.create_relationships_map(
             self.description_generator.get_attributes(),
             self.description_generator.get_associations(),
             self.relationships_extractor.df_class_associations,
-            actual_description, self.concepts_extractor.df_concepts,
+            original_description, self.concepts_extractor.df_concepts,
             self.language_model)
 
         self.aggregations_map = self.relationships_matcher.create_relationships_map(
             self.description_generator.get_attributes(),
             self.description_generator.get_aggregations(),
             self.relationships_extractor.df_class_associations,
-            actual_description, self.concepts_extractor.df_concepts,
+            original_description, self.concepts_extractor.df_concepts,
             self.language_model)
 
         self.compositions_map = self.relationships_matcher.create_relationships_map(
             self.description_generator.get_attributes(),
             self.description_generator.get_compositions(),
             self.relationships_extractor.df_class_associations,
-            actual_description, self.concepts_extractor.df_concepts,
+            original_description, self.concepts_extractor.df_concepts,
             self.language_model)
 
         self.inheritance_map = self.relationships_matcher.create_relationships_map(
             self.description_generator.get_attributes(),
             self.description_generator.get_inheritance(),
             self.relationships_extractor.df_class_associations,
-            actual_description, self.concepts_extractor.df_concepts,
+            original_description, self.concepts_extractor.df_concepts,
             self.language_model)
+
+        self.enum_map = self.attribute_matcher.create_enum_map(
+            self.description_generator.get_enums(),
+            self.concepts_extractor.df_concepts,
+            self.relationships_extractor.df_class_associations,
+            original_description)
 
         workflow = WorkflowStart(
             [self.attributes_map, self.associations_map, self.aggregations_map, self.compositions_map,
-             self.inheritance_map], self.domain_name)
+             self.inheritance_map, self.enum_map], self.domain_name)
         errors = workflow.run()
 
         # calculate_metrics()
@@ -122,5 +129,5 @@ class Assistant:
         print("Done")
 
 
-assistant = Assistant("factory")
-assistant.run()
+# assistant = Assistant("factory")
+# assistant.run()

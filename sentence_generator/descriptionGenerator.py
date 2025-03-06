@@ -2,6 +2,7 @@ import os
 
 import pandas as pd
 
+from sentence_generator.SentenceFromEnums import SentenceFromEnums
 from sentence_generator.sentenceFromAttributes import SentenceFromAttributes
 from sentence_generator.sentenceFromAssociations import SentenceFromAssociations
 from sentence_generator.sentenceFromCompositions import SentenceFromCompositions
@@ -12,27 +13,31 @@ from domain_converter.xmlReader import parse_domain_model
 
 model_path = "D:\\Thesis\\modelling-assistant\\tests\\\domain-models\\"
 
-processed_models_path = "wrong_models\\"
+processed_models_path = "processed_models\\"
 
 
 class DescriptionGenerator:
-    def __init__(self, domain_name):
+    def __init__(self, domain_name, language_model):
         self.domain_name = domain_name
+        self.language_model = language_model
+
         attributes, associations, compositions, aggregations, inheritance, enums = self.read_model()
-        self.generator_from_attributes = SentenceFromAttributes(attributes)
-        self.generator_from_associations = SentenceFromAssociations(associations)
+        self.generator_from_attributes = SentenceFromAttributes(attributes, language_model)
+        self.generator_from_associations = SentenceFromAssociations(associations, language_model)
         self.generator_from_compositions = SentenceFromCompositions(compositions)
-        self.generator_from_aggregations = SentenceFromAggregation(aggregations)
+        self.generator_from_aggregations = SentenceFromAggregation(aggregations, language_model)
         self.generator_from_inheritance = SentenceFromInheritance(inheritance)
+        self.generator_from_enums = SentenceFromEnums(enums, language_model)
         self.post_processor = PostProcessor()
 
         # TODO : Keep only one format either description string or 'attributes' and 'relationships' dataframes
         self.description = ''
         self.attributes_description = pd.DataFrame(columns=['class', 'attribute', 'sentence'])
-        self.associations = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
-        self.compositions = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
-        self.aggregations = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
-        self.inheritance = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
+        self.associations = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
+        self.compositions = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
+        self.aggregations = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
+        self.inheritance = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
+        self.enums = pd.DataFrame(columns=['enum', 'enum_member', 'sentence'])
         self.generate_description()
 
     def get_description(self):
@@ -52,6 +57,9 @@ class DescriptionGenerator:
 
     def get_inheritance(self):
         return self.inheritance
+
+    def get_enums(self):
+        return self.enums
 
     def read_model(self):
 
@@ -96,6 +104,7 @@ class DescriptionGenerator:
             sentence = row['sentence'].replace("+sg", '')
             sentence = sentence.replace("+pl", '')
             self.associations.loc[len(self.associations)] = [row['source'], row['target'], row['role'],
+                                                             row['source_role'],
                                                              sentence]
             processed_sentences.append(sentence)
 
@@ -105,6 +114,7 @@ class DescriptionGenerator:
             sentence = sentence.replace("+sg", '')
             sentence = sentence.replace("+pl", '')
             self.compositions.loc[len(self.compositions)] = [row['parent_class'], row['child_class'], row['role'],
+                                                             row['source_role'],
                                                              sentence]
             processed_sentences.append(sentence)
 
@@ -114,6 +124,7 @@ class DescriptionGenerator:
             sentence = sentence.replace("+sg", '')
             sentence = sentence.replace("+pl", '')
             self.aggregations.loc[len(self.aggregations)] = [row['parent_class'], row['child_class'], row['role'],
+                                                             row['source_role'],
                                                              sentence]
             processed_sentences.append(sentence)
 
@@ -122,7 +133,7 @@ class DescriptionGenerator:
             sentence = self.post_processor.morphological_process(row['sentence'])
             sentence = sentence.replace("+sg", '')
             sentence = sentence.replace("+pl", '')
-            self.inheritance.loc[len(self.inheritance)] = [row['parent_class'], row['child_class'], '',
+            self.inheritance.loc[len(self.inheritance)] = [row['parent_class'], row['child_class'], None, None,
                                                            sentence]
             processed_sentences.append(sentence)
 
@@ -131,7 +142,6 @@ class DescriptionGenerator:
         final_sentence = ''.join([s + '. ' for s in sentences])
         self.description = final_sentence
         print(final_sentence)
-
 
 # dec = DescriptionGenerator('factory')
 # print(dec.get_attributes())
