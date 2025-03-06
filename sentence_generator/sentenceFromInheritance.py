@@ -60,5 +60,5 @@ production_cell_inheritance = [
 }
 ]
 
-sfi = SentenceFromInheritance(car_maintenance_inheritance)
-sfi.get_sentences()
+# sfi = SentenceFromInheritance(car_maintenance_inheritance)
+# sfi.get_sentences()

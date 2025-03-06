@@ -1,5 +1,14 @@
+import re
 
 description_file_path = "D:\\Thesis\\modelling-assistant\\tests\\actual-description\\"
+
+
+def clean_text(text):
+    if isinstance(text, str):
+        text = text.encode("utf-8", "ignore").decode("utf-8")  # Remove badly encoded characters
+        text = re.sub(r'[^\x00-\x7F]+', ' ', text)  # Remove non-ASCII characters
+        return text
+    return text
 
 
 class DescriptionReader:
@@ -8,7 +17,7 @@ class DescriptionReader:
         self.domain_name = domain_name
 
     def get_actual_description(self):
-        with open(description_file_path+self.domain_name, 'r') as file:
+        with open(description_file_path + self.domain_name, 'r') as file:
             content = file.read()
 
         local_vars = {}
@@ -16,4 +25,5 @@ class DescriptionReader:
         exec(content, local_vars)
 
         self.actual_description = local_vars.get('description', "")
-        return self.actual_description
+
+        return clean_text(self.actual_description)

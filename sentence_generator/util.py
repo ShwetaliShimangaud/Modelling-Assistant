@@ -1,7 +1,8 @@
-import sentence_generator.constants as constants
 import re
-import spacy
+
 import inflect
+
+import sentence_generator.constants as constants
 
 
 def get_cardinality(cardinality):
@@ -19,9 +20,8 @@ def contains_verb(tag):
     return any(substring in tag for substring in constants.verb_tags)
 
 
-def get_appropriate_article(attribute):
-    nlp = spacy.load("en_core_web_trf")
-    doc = nlp(attribute)
+def get_appropriate_article(attribute, language_model):
+    doc = language_model(attribute)
     if 'Plur' in doc[0].morph.get("Number"):
         return ""
     elif attribute[0].lower() in ['a', 'e', 'i', 'o', 'u']:
@@ -30,9 +30,8 @@ def get_appropriate_article(attribute):
         return 'a'
 
 
-def get_pos_tag(words):
-    nlp = spacy.load("en_core_web_trf")
-    doc = nlp(words)
+def get_pos_tag(words, language_model):
+    doc = language_model(words)
     pos_tags = []
 
     for token in doc:
@@ -63,9 +62,9 @@ def split_concept(concept):
     return " ".join([item.lower() for item in splitted_concept])
 
 
-def format_concept(concept):
+def format_concept(concept, language_model):
     digit_pattern = re.compile(r'\d')
-    article = get_appropriate_article(concept)
+    article = get_appropriate_article(concept, language_model)
 
     if bool(digit_pattern.search(concept)):
         return article + " " + concept

@@ -7,8 +7,10 @@ from sentence_generator.abstractSentenceGenerator import AbstractSentenceGenerat
 
 
 class SentenceFromAttributes(AbstractSentenceGenerator):
-    def __init__(self, attributes):
+    def __init__(self, attributes, model):
         self.attributes = attributes
+        self.language_model = model
+
         self.verb_phrase = 'has'  # can be changed later, it seems to work fine as of now
 
         # TODO : Keep only one format either sentences list or 'attributes'  dataframe
@@ -22,7 +24,6 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
     def get_attributes(self):
         return self.attributes_description
 
-    # Function to combine POS tags for a compound word
     def combine_pos_tags(self, words, splitted_words, pos_tags):
         tags = {}
 
@@ -137,7 +138,7 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
                 formatted_class_name = util.split_concept(class_name)
                 formatted_attribute = util.split_concept(attribute)
                 sentence = util.format_concept(class_name) + " " + self.verb_phrase + " " + util.format_concept(
-                    attribute)
+                    attribute, self.language_model)
                 self.attributes_description.loc[len(self.attributes_description)] = [formatted_class_name,
                                                                                      formatted_attribute, sentence]
                 self.sentences.append(sentence)

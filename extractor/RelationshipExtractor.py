@@ -90,11 +90,11 @@ class RelationshipsExtractor:
             if token.dep_ == "agent":
                 for tc in token.children:
                     if (
-                        tc.i > rel.i
-                        and tc.i in concepts_idx.values
-                        and tc.dep_ in object_deps
-                        and tc.tag_ in noun_tags
-                        and tc.i not in source_index_list
+                            tc.i > rel.i
+                            and tc.i in concepts_idx.values
+                            and tc.dep_ in object_deps
+                            and tc.tag_ in noun_tags
+                            and tc.i not in source_index_list
                     ):
                         target_class_list.append(token)
                         if token.children:
@@ -111,11 +111,11 @@ class RelationshipsExtractor:
                         break
 
             if (
-                token.i > rel.i
-                and token.i in concepts_idx.values
-                and token.dep_ in object_deps
-                and token.tag_ in noun_tags
-                and token.i not in source_index_list
+                    token.i > rel.i
+                    and token.i in concepts_idx.values
+                    and token.dep_ in object_deps
+                    and token.tag_ in noun_tags
+                    and token.i not in source_index_list
             ):
                 children = token.children
 
@@ -129,10 +129,10 @@ class RelationshipsExtractor:
                     conj_children = self.find_children_conj(token)
                     for c in conj_children:
                         if (
-                            c.i < len(c.doc) - 1
-                            and c.i + 1 > token.i
-                            and c.doc[c.i + 1].dep_ in ["prep"]
-                            and c.doc[c.i + 1].text == "of"
+                                c.i < len(c.doc) - 1
+                                and c.i + 1 > token.i
+                                and c.doc[c.i + 1].dep_ in ["prep"]
+                                and c.doc[c.i + 1].text == "of"
                         ):
                             flag_child = True
                             flag_child_count = c.i
@@ -140,8 +140,8 @@ class RelationshipsExtractor:
 
                 if not flag_child or (flag_child and rel.pos_ in ["AUX"]):
                     if (
-                        token.i + 1 <= len(token.doc) - 1
-                        and token.doc[token.i + 1].text != "of"
+                            token.i + 1 <= len(token.doc) - 1
+                            and token.doc[token.i + 1].text != "of"
                     ) or (token.i == len(token.doc)):
                         target_class_list.append(token)
                         if token.children:
@@ -157,8 +157,8 @@ class RelationshipsExtractor:
                                     # leng = len(token.doc)
                                     # text = token.doc[c.i + 1].text
                                     if (
-                                        c.i + 1 <= len(token.doc) - 1
-                                        and token.doc[c.i + 1].text != "of"
+                                            c.i + 1 <= len(token.doc) - 1
+                                            and token.doc[c.i + 1].text != "of"
                                     ) or (c.i >= len(token.doc) - 1):
                                         target_class_list.append(c)
 
@@ -173,17 +173,17 @@ class RelationshipsExtractor:
                         if x.text in ["-", "i.e."]:
                             mt_pr = x.i - 1
                             while (
-                                mt_pr < len(rel.doc) - 1 and rel.doc[mt_pr].tag_ != "."
+                                    mt_pr < len(rel.doc) - 1 and rel.doc[mt_pr].tag_ != "."
                             ):
                                 mt_pr = mt_pr + 1
                                 if (
-                                    (
-                                        rel.doc[mt_pr].dep_ in object_deps
-                                        or rel.doc[mt_pr].tag_ in ["IN"]
-                                        or rel.doc[mt_pr].tag_ in noun_tags
-                                    )
-                                    and rel.doc[mt_pr].i not in source_index_list
-                                    and rel.doc[mt_pr].i in concepts_idx.values
+                                        (
+                                                rel.doc[mt_pr].dep_ in object_deps
+                                                or rel.doc[mt_pr].tag_ in ["IN"]
+                                                or rel.doc[mt_pr].tag_ in noun_tags
+                                        )
+                                        and rel.doc[mt_pr].i not in source_index_list
+                                        and rel.doc[mt_pr].i in concepts_idx.values
                                 ):
                                     target_class_list.append(rel.doc[mt_pr])
                                     flag = True
@@ -193,12 +193,12 @@ class RelationshipsExtractor:
         if not flag and rel.tag_ in ["IN", "TO", "RB"]:
             for token in rel.children:
                 if (
-                    token.i > rel.i
-                    and token.i in concepts_idx.values
-                    and token.dep_ in object_deps
-                    and rel.tag_ in ["IN"]
-                    and token.tag_ in noun_tags
-                    and token.i not in source_index_list
+                        token.i > rel.i
+                        and token.i in concepts_idx.values
+                        and token.dep_ in object_deps
+                        and rel.tag_ in ["IN"]
+                        and token.tag_ in noun_tags
+                        and token.i not in source_index_list
                 ):
                     target_class_list.append(token)
                     flag = True
@@ -210,9 +210,9 @@ class RelationshipsExtractor:
                 if children and not flag:
                     for child in children:
                         if (
-                            child.i > rel.i
-                            and child.i not in source_index_list
-                            and child.i in concepts_idx.values
+                                child.i > rel.i
+                                and child.i not in source_index_list
+                                and child.i in concepts_idx.values
                         ):
                             target_class_list.append(child)
                             flag = True
@@ -226,9 +226,9 @@ class RelationshipsExtractor:
         if not flag:
             count = 1
             while (
-                count < len(rel.doc) - rel.i
-                and not flag
-                and rel.nbor(count).tag_ != "."
+                    count < len(rel.doc) - rel.i
+                    and not flag
+                    and rel.nbor(count).tag_ != "."
             ):
                 x = rel.nbor(count)
                 # if ((flag_child and rel.nbor(count).i > flag_child_count) or (not flag_child)) and (rel.tag_ in verb_tags and rel.nbor(count).i not in source_index_list and rel.nbor(count).i in concepts_idx.values and rel.nbor(count).tag_ in noun_tags):
@@ -236,9 +236,9 @@ class RelationshipsExtractor:
                 children = rel.nbor(count).children
                 for c in children:
                     if (
-                        c.i > rel.nbor(count).i
-                        and c.dep_ in ["prep"]
-                        and c.text == "of"
+                            c.i > rel.nbor(count).i
+                            and c.dep_ in ["prep"]
+                            and c.text == "of"
                     ):
                         flag_child = True
                         flag_child_count = c.i
@@ -248,10 +248,10 @@ class RelationshipsExtractor:
                     conj_children = self.find_children_conj(rel.nbor(count))
                     for c in conj_children:
                         if (
-                            c.i < len(c.doc) - 1
-                            and c.i + 1 > rel.nbor(count).i
-                            and c.doc[c.i + 1].dep_ in ["prep"]
-                            and c.doc[c.i + 1].text == "of"
+                                c.i < len(c.doc) - 1
+                                and c.i + 1 > rel.nbor(count).i
+                                and c.doc[c.i + 1].dep_ in ["prep"]
+                                and c.doc[c.i + 1].text == "of"
                         ):
                             flag_child = True
                             flag_child_count = c.i
@@ -260,20 +260,20 @@ class RelationshipsExtractor:
                 tag = rel.nbor(count).tag_
                 dep_ = rel.nbor(count).dep_
                 if (
-                    (
-                        rel.nbor(count).i < len(rel.doc) - 1
-                        and rel.doc[rel.nbor(count).i + 1].text != "of"
-                    )
-                    or (rel.nbor(count).i == len(rel.doc) - 1)
+                        (
+                                rel.nbor(count).i < len(rel.doc) - 1
+                                and rel.doc[rel.nbor(count).i + 1].text != "of"
+                        )
+                        or (rel.nbor(count).i == len(rel.doc) - 1)
                 ) and (
-                    ((not flag_child) or (flag_child and rel.pos_ in ["AUX"]))
-                    and (
-                        (rel.tag_ in verb_tags and rel.nbor(count).dep_ not in ["ROOT"])
-                        or (rel.dep_ in ["ROOT"])
-                    )
-                    and rel.nbor(count).i not in source_index_list
-                    and rel.nbor(count).i in concepts_idx.values
-                    and rel.nbor(count).tag_ in noun_tags
+                        ((not flag_child) or (flag_child and rel.pos_ in ["AUX"]))
+                        and (
+                                (rel.tag_ in verb_tags and rel.nbor(count).dep_ not in ["ROOT"])
+                                or (rel.dep_ in ["ROOT"])
+                        )
+                        and rel.nbor(count).i not in source_index_list
+                        and rel.nbor(count).i in concepts_idx.values
+                        and rel.nbor(count).tag_ in noun_tags
                 ):
                     # if ((rel.nbor(count).i < len(rel.doc)-1 and rel.doc[rel.nbor(count).i + 1].text != "of") or (rel.nbor(count).i == len(rel.doc)-1)) and (rel.tag_ in verb_tags and rel.nbor(count).i not in source_index_list and rel.nbor(count).i in concepts_idx.values and rel.nbor(count).tag_ in noun_tags):
 
@@ -286,8 +286,8 @@ class RelationshipsExtractor:
                     # if flag:
                     #     break
                     if (
-                        rel.nbor(count).i + 1 <= len(rel.doc) - 1
-                        and rel.doc[rel.nbor(count).i + 1].text != "of"
+                            rel.nbor(count).i + 1 <= len(rel.doc) - 1
+                            and rel.doc[rel.nbor(count).i + 1].text != "of"
                     ) or (rel.nbor(count).i >= len(rel.doc) - 1):
                         target_class_list.append(rel.nbor(count))
                         if rel.nbor(count).children:
@@ -295,18 +295,20 @@ class RelationshipsExtractor:
                             if children:
                                 target_class_list = target_class_list + children
                             elif (
-                                rel.nbor(count).head.tag_ in noun_tags
-                                and rel.nbor(count).head.i in concepts_idx.values
-                                and rel.nbor(count).head.i not in source_index_list
+                                    rel.nbor(count).head.tag_ in noun_tags
+                                    and rel.nbor(count).head.i in concepts_idx.values
+                                    and rel.nbor(count).head.i not in source_index_list
                             ):
                                 children = self.find_children2(rel.nbor(count).head)
                                 if children:
                                     # target_class_list.append(rel.nbor(count).head)
                                     for c in children:
-                                        if (
-                                            c.i + 1 <= len(rel.doc) - 1
-                                            and token.doc[c.i + 1].text != "of"
-                                        ) or (c.i == len(token.doc) - 1):
+                                        if c.i + 1 <= len(rel.doc) - 1:
+                                            # TODO Talk with rijul about this part
+                                            # if (
+                                            #     c.i + 1 <= len(rel.doc) - 1
+                                            #     and token.doc[c.i + 1].text != "of"
+                                            # ) or (c.i == len(token.doc) - 1):
                                             target_class_list.append(c)
                                         # elif c.i == len(rel.doc):
                                         #     target_class_list.append(c)
@@ -320,8 +322,8 @@ class RelationshipsExtractor:
                 for row in range(len(df_chunks)):
                     # if target_left.i == df_chunks.loc[row, 'position']:
                     if (
-                        sdx == df_chunks.loc[row, "s_id"]
-                        and target_left.i == (df_chunks.loc[row, "token"]).i
+                            sdx == df_chunks.loc[row, "s_id"]
+                            and target_left.i == (df_chunks.loc[row, "token"]).i
                     ):
                         new_row = {
                             "target_token": target_left,
@@ -384,6 +386,8 @@ class RelationshipsExtractor:
             "maybe",
             "such as",
             "for example",
+            "examples of",
+            "kinds of"
         ]
         association_samples = [
             "are",
@@ -508,10 +512,10 @@ class RelationshipsExtractor:
             if token.i < rel.i and token.pos_ == "VERB":
                 continue
             if (
-                token.i < rel.i
-                and token.i in concepts_idx.values
-                and token.dep_ in subject_deps
-                and token.tag_ in noun_tags
+                    token.i < rel.i
+                    and token.i in concepts_idx.values
+                    and token.dep_ in subject_deps
+                    and token.tag_ in noun_tags
             ):
                 source_class_list.append(token)
                 if token.children:
@@ -537,29 +541,29 @@ class RelationshipsExtractor:
                 flag = True
 
         if (
-            len(rel.doc) > rel.i - 1
-            and len(rel.doc) > rel.i + 1
-            and len(rel.doc) > rel.i - 2
-            and len(rel.doc) > rel.i + 2
+                len(rel.doc) > rel.i - 1
+                and len(rel.doc) > rel.i + 1
+                and len(rel.doc) > rel.i - 2
+                and len(rel.doc) > rel.i + 2
         ):
             if (
-                not flag
-                and (
+                    not flag
+                    and (
                     rel.doc[rel.i - 1].tag_ not in verb_tags
                     and rel.doc[rel.i + 1].tag_ not in verb_tags
-                )
-                and (
+            )
+                    and (
                     rel.doc[rel.i - 2].tag_ not in verb_tags
                     and rel.doc[rel.i + 2].tag_ not in verb_tags
-                )
-                and rel.doc[rel.i - 1].tag_ in ["TO", "IN"]
+            )
+                    and rel.doc[rel.i - 1].tag_ in ["TO", "IN"]
             ):
                 # if (not flag and (rel.doc[rel.i - 1].tag_ in ['TO','IN'] or rel.doc[rel.i +])):
                 m = rel.i - 1
                 while m > 0 and not flag and rel.doc[m].tag_ != ".":
                     if (
-                        rel.doc[m].dep_ in noun_deps
-                        and rel.doc[m].i in concepts_idx.values
+                            rel.doc[m].dep_ in noun_deps
+                            and rel.doc[m].i in concepts_idx.values
                     ):
                         source_class_list.append(rel.doc[m])
                         if rel.doc[m].children:
@@ -579,8 +583,8 @@ class RelationshipsExtractor:
                     abc = df_chunks.loc[row, "token"]
 
                     if (
-                        sdx == df_chunks.loc[row, "s_id"]
-                        and source_left.i == (df_chunks.loc[row, "token"]).i
+                            sdx == df_chunks.loc[row, "s_id"]
+                            and source_left.i == (df_chunks.loc[row, "token"]).i
                     ):
                         new_row = {
                             "source_token": source_left,
@@ -672,9 +676,9 @@ class RelationshipsExtractor:
             one_score.mask(one_score.eq("None")).dropna()
 
             if (
-                many_score.score.max() > one_score.score.max()
-                and many_score.score.max() > 0.8
-                and chunks[0]
+                    many_score.score.max() > one_score.score.max()
+                    and many_score.score.max() > 0.8
+                    and chunks[0]
             ):
                 found_id = many_score.loc[
                     many_score.score == many_score.score.max(), "id"
@@ -693,15 +697,15 @@ class RelationshipsExtractor:
             if token_text not in chunks and class_token.nbor(count).tag_ in noun_tags:
                 return "?", "", "", ""
             if token_text not in chunks and (
-                class_token.nbor(count).tag_ in id_tags
-                or class_token.nbor(count).dep_ == "nummod"
+                    class_token.nbor(count).tag_ in id_tags
+                    or class_token.nbor(count).dep_ == "nummod"
             ):
                 identifier = class_token.nbor(count)
                 if (
-                    identifier
-                    and identifier != class_token
-                    and identifier.tag_ in id_tags
-                    and identifier.dep_ != "nummod"
+                        identifier
+                        and identifier != class_token
+                        and identifier.tag_ in id_tags
+                        and identifier.dep_ != "nummod"
                 ):
                     identifier_index = identifier.i
                     identifier_token = nlp(identifier.text)
@@ -796,7 +800,7 @@ class RelationshipsExtractor:
             token
             for token in doc
             if (token.tag_ in rel_tags)
-            or (token.tag_ in ["IN"] and token.dep_ in ["prep"])
+               or (token.tag_ in ["IN"] and token.dep_ in ["prep"])
         ]
         # for rel_token in relation_tokens:
         for rel_token in relation_tokens:
@@ -940,44 +944,44 @@ class RelationshipsExtractor:
                 token_flag = False
                 doc_token = ""
                 if (
-                    len(doc) > idx + 1
-                    and idx - 1 >= 0
-                    and (
+                        len(doc) > idx + 1
+                        and idx - 1 >= 0
+                        and (
                         doc[idx + 1].tag_ in prep_tags
                         or (doc[idx + 1].tag_ == "RB" and doc[idx + 1].shape_ == "x.x.")
-                    )
+                )
                 ):
                     doc_token = doc[idx + 1]
                     token_flag = True
                 elif (
-                    idx - 1 >= 0
-                    and len(doc) > idx + 1
-                    and (
-                        doc[idx - 1].tag_ in prep_tags
-                        or (doc[idx - 1].tag_ == "RB" and doc[idx - 1].shape_ == "x.x.")
-                    )
+                        idx - 1 >= 0
+                        and len(doc) > idx + 1
+                        and (
+                                doc[idx - 1].tag_ in prep_tags
+                                or (doc[idx - 1].tag_ == "RB" and doc[idx - 1].shape_ == "x.x.")
+                        )
                 ):
                     doc_token = doc[idx - 1]
                     token_flag = True
                 elif (
-                    len(doc) > idx + 2
-                    and idx - 2 >= 0
-                    and doc[idx + 1].dep_ in ["punct"]
-                    and (
-                        doc[idx + 2].tag_ in prep_tags
-                        or (doc[idx + 2].tag_ == "RB" and doc[idx + 2].shape_ == "x.x.")
-                    )
+                        len(doc) > idx + 2
+                        and idx - 2 >= 0
+                        and doc[idx + 1].dep_ in ["punct"]
+                        and (
+                                doc[idx + 2].tag_ in prep_tags
+                                or (doc[idx + 2].tag_ == "RB" and doc[idx + 2].shape_ == "x.x.")
+                        )
                 ):
                     doc_token = doc[idx + 2]
                     token_flag = True
                 elif (
-                    len(doc) > idx + 2
-                    and idx - 2 >= 0
-                    and doc[idx - 1].dep_ in ["punct"]
-                    and (
-                        doc[idx - 2].tag_ in prep_tags
-                        or (doc[idx - 2].tag_ == "RB" and doc[idx - 2].shape_ == "x.x.")
-                    )
+                        len(doc) > idx + 2
+                        and idx - 2 >= 0
+                        and doc[idx - 1].dep_ in ["punct"]
+                        and (
+                                doc[idx - 2].tag_ in prep_tags
+                                or (doc[idx - 2].tag_ == "RB" and doc[idx - 2].shape_ == "x.x.")
+                        )
                 ):
                     doc_token = doc[idx - 2]
                     token_flag = True

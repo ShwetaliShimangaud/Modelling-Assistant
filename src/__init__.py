@@ -7,3 +7,6 @@
 #     print(assistant.get_warnings())
 #     print("----Errors----")
 #     print(assistant.get_errors())
+import nltk
+
+nltk.download('averaged_perceptron_tagger_eng')

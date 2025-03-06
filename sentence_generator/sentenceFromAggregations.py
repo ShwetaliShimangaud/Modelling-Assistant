@@ -9,12 +9,12 @@ from sentence_generator.sentenceFromAssociations import get_role_and_cardinality
 
 
 class SentenceFromAggregation(AbstractSentenceGenerator):
-    def __init__(self, aggregations):
+    def __init__(self, aggregations, model):
         self.aggregations = aggregations
-
+        self.language_model = model
         # TODO : Keep only one format either sentences list or 'relationships'  dataframe
         self.sentences = []
-        self.aggregation_result = pd.DataFrame(columns=['parent_class', 'child_class', 'role', 'sentence'])
+        self.aggregation_result = pd.DataFrame(columns=['parent_class', 'child_class', 'role', 'source_role', 'sentence'])
         self.aggregation_phrase = "has"
         self.generate_sentences()
 
@@ -44,12 +44,14 @@ class SentenceFromAggregation(AbstractSentenceGenerator):
 
             part_of_sentence += (util.format_class_name(parent_class)
                                  + " " +
-                                 get_role_and_cardinality(role, cardinality, child_class))
+                                 get_role_and_cardinality(role, cardinality, child_class, self.language_model))
 
             self.sentences.append(part_of_sentence)
             self.aggregation_result.loc[len(self.aggregation_result)] = [util.split_concept(parent_class),
                                                                          util.split_concept(child_class),
-                                                                         role, part_of_sentence]
+                                                                         role,
+                                                                         None,
+                                                                         part_of_sentence]
 
         # TODO see if we really need a sentence to describe other end of this aggregation i.e.
         # <<<<<

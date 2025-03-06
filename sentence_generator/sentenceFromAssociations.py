@@ -7,6 +7,7 @@ import sentence_generator.util as util
 import spacy
 import pandas as pd
 
+
 # Associations
 # Template : o1 cardinality -> o1 name -> association name -> o2 cardinality -> o2 name
 # Template: o1 cardinality -> o1 name/role -> "can have"/"can be associated to" -> o2 cardinality -> o2 name/roles
@@ -20,10 +21,7 @@ import pandas as pd
 # TODO : Check if multiple tense conditions needs to be checked or will 'has' work in every case
 # 4. Main verb infinitive form : drop : Go with 'has'
 
-nlp = spacy.load("en_core_web_trf")
-
-
-def get_main_and_auxillary_verb(result):
+def get_main_and_auxilary_verb(result):
     main_verb = None
     auxillary_verb = None
     for token in result:
@@ -58,7 +56,7 @@ def get_present_form_of_verb(main_verb, auxillary_verb):
             return base_form + "s"
 
 
-def get_role_and_cardinality(role, cardinality, associated_class):
+def get_role_and_cardinality(role, cardinality, associated_class, language_model):
     verb_forms_with_auxillary_verb = ['Inf', 'Part']
 
     # Case 1: Role name is not provided
@@ -70,7 +68,7 @@ def get_role_and_cardinality(role, cardinality, associated_class):
         else:
             phrase = "can have "
             ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
-            result = nlp(ass_class)
+            result = language_model(ass_class)
             for doc in result:
                 if doc.dep_ == 'ROOT':
                     phrase += util.get_plural(doc.text) + " "
@@ -87,10 +85,10 @@ def get_role_and_cardinality(role, cardinality, associated_class):
         role = role.replace("my", "")
 
     pos_tag = nltk.pos_tag(words)
-    result = nlp(" ".join(words))
+    result = language_model(" ".join(words))
 
     auxillary_verb_needed = True
-    main_verb, auxillary_verb = get_main_and_auxillary_verb(result)
+    main_verb, auxillary_verb = get_main_and_auxilary_verb(result)
 
     # Case 2: role name is provided
     # TODO First condition is redundant when second condition is there, can be removed at the end
@@ -125,11 +123,11 @@ def get_role_and_cardinality(role, cardinality, associated_class):
         else:
             phrase += util.format_role_name(role)
         if util.is_singular(cardinality):
-            phrase += util.get_appropriate_article(associated_class) + " " + util.format_class_name(
+            phrase += util.get_appropriate_article(associated_class, language_model) + " " + util.format_class_name(
                 associated_class)
         else:
             ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
-            result = nlp(ass_class)
+            result = language_model(ass_class)
             for doc in result:
                 if doc.dep_ == 'ROOT':
                     phrase += util.get_plural(doc.text) + " "
@@ -146,13 +144,14 @@ def get_role_and_cardinality(role, cardinality, associated_class):
             singular_form = util.get_singular(role)
             if isinstance(singular_form, bool):
                 singular_form = role
-            phrase += util.get_appropriate_article(singular_form) + " " + util.format_role_name(singular_form)
+            phrase += util.get_appropriate_article(singular_form, language_model) + " " + util.format_role_name(
+                singular_form)
 
         else:
             # TODO : Handle the case where cardinality is 'many' and role name has associated class but it is not plural
             temp = ""
             role_nlp = " ".join([item.lower() for item in util.split_camel_case(role)])
-            result = nlp(role_nlp)
+            result = language_model(role_nlp)
             for doc in result:
                 if doc.dep_ == 'ROOT':
                     temp += util.get_plural(doc.text) + " "
@@ -165,12 +164,13 @@ def get_role_and_cardinality(role, cardinality, associated_class):
     elif role.lower() in associated_class.lower():
         if util.is_singular(cardinality):
             phrase = "has "
-            phrase += util.format_concept(associated_class)
+            phrase += util.format_concept(associated_class, language_model)
         else:
-            # TODO : Handle the case where cardinality is 'many' and associated class  has  role name but it is not plural
+            # TODO : Handle the case where cardinality is 'many' and associated class  has  role name but it is not
+            #  plural
             temp_class = ""
             ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
-            result = nlp(ass_class)
+            result = language_model(ass_class)
             for doc in result:
                 if doc.dep_ == 'ROOT':
                     temp_class += util.get_plural(doc.text) + " "
@@ -184,11 +184,11 @@ def get_role_and_cardinality(role, cardinality, associated_class):
     elif ends_with_preposition(result):
         phrase = "is " + util.format_role_name(role) + " "
         if util.is_singular(cardinality):
-            phrase += util.get_appropriate_article(associated_class) + " " + util.format_class_name(
+            phrase += util.get_appropriate_article(associated_class, language_model) + " " + util.format_class_name(
                 associated_class)
         else:
             ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])
-            result = nlp(ass_class)
+            result = language_model(ass_class)
             for doc in result:
                 if doc.dep_ == 'ROOT':
                     phrase += util.get_plural(doc.text) + " "
@@ -198,13 +198,14 @@ def get_role_and_cardinality(role, cardinality, associated_class):
     else:
         # TODO check if you can use who,which etc instead of which always
         if util.is_singular(cardinality):
-            phrase = "has " + util.get_appropriate_article(role)
+            phrase = "has " + util.get_appropriate_article(role, language_model)
 
             singular_form = util.get_singular(role)
             if isinstance(singular_form, bool):
                 singular_form = role
 
-            phrase += " " + util.get_appropriate_article(singular_form) + " " + util.format_role_name(singular_form)
+            phrase += " " + util.get_appropriate_article(singular_form, language_model) + " " + util.format_role_name(
+                singular_form)
         else:
             phrase = "can have "
             phrase += util.format_role_name(util.get_plural(role))
@@ -213,7 +214,7 @@ def get_role_and_cardinality(role, cardinality, associated_class):
         supporting_verb = ''
         if util.is_singular(cardinality):
             # Only need an article for singular class name.
-            phrase += "is " + util.get_appropriate_article(associated_class) + " "
+            phrase += "is " + util.get_appropriate_article(associated_class, language_model) + " "
             supporting_verb = 'is'
         else:
             phrase += "are "
@@ -222,7 +223,7 @@ def get_role_and_cardinality(role, cardinality, associated_class):
         # Following code takes care of using singular/plural form of main Noun in role based on 'is/are'
         formatted_class_name = util.format_class_name(associated_class)
         formatted_class_name_list = formatted_class_name.split(" ")
-        res = nlp(formatted_class_name)
+        res = language_model(formatted_class_name)
         for i, token in enumerate(res):
             # To find main noun aka class name and not the adjective/adverb associated with it
             if token.dep_ == 'ROOT':
@@ -237,13 +238,14 @@ def get_role_and_cardinality(role, cardinality, associated_class):
 
 
 class SentenceFromAssociations(AbstractSentenceGenerator):
-    def __init__(self, associations):
+    def __init__(self, associations, model):
         self.associations = associations
+        self.language_model = model
         # self.association_phrase = "is connected to"
 
         # TODO : Keep only one format either sentences list or 'relationships'  dataframe
         self.sentences = []
-        self.relationships = pd.DataFrame(columns=['source', 'target', 'role', 'sentence'])
+        self.relationships = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
         self.generate_sentences()
 
     def get_sentences(self) -> List[str]:
@@ -275,11 +277,13 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
                     association['class1']) + " " + get_role_and_cardinality(
                     association['role_class2'],
                     association[
-                        'cardinality_class2'], association['class2'])
+                        'cardinality_class2'], association['class2'], self.language_model)
 
                 self.sentences.append(part_of_sentence)
                 self.relationships.loc[len(self.relationships)] = [formatted_class1, formatted_class2,
-                                                                   association['role_class2'], part_of_sentence]
+                                                                   association['role_class2'],
+                                                                   association['role_class1'],
+                                                                   part_of_sentence]
 
             if len(association['cardinality_class1']) != 0:
                 part_of_sentence = "A "
@@ -291,11 +295,13 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
                 #     part_of_sentence += "A "
                 part_of_sentence += util.format_class_name(
                     association['class2']) + " " + get_role_and_cardinality(
-                    association['role_class1'], association['cardinality_class1'], association['class1'])
+                    association['role_class1'], association['cardinality_class1'], association['class1'],
+                    self.language_model)
 
                 self.sentences.append(part_of_sentence)
                 self.relationships.loc[len(self.relationships)] = [formatted_class2, formatted_class1,
                                                                    association['role_class1'],
+                                                                   association['role_class2'],
                                                                    part_of_sentence]
 
             # <<<<<

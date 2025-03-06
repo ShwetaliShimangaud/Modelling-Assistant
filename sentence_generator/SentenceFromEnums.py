@@ -7,8 +7,9 @@ from sentence_generator.abstractSentenceGenerator import AbstractSentenceGenerat
 
 
 class SentenceFromEnums(AbstractSentenceGenerator):
-    def __init__(self, enums):
+    def __init__(self, enums, model):
         self.enums = enums
+        self.language_model = model
 
         # TODO : Keep only one format either sentences list or 'attributes'  dataframe
         self.sentences = []
@@ -33,7 +34,7 @@ class SentenceFromEnums(AbstractSentenceGenerator):
                 # else:
                 #     sentence += 'kind of ' + " ".join(formatted_enum)
 
-                formatted_enum = util.format_concept(enum)
+                formatted_enum = util.format_concept(enum, self.language_model)
                 formatted_enum_member = util.split_camel_case(enum_member)
 
                 # formatted_enum_member = [item.lower() for item in formatted_enum_member]
@@ -86,5 +87,5 @@ all_enums = {
     'Alphabet': ['A', 'B', 'C', 'D']
 }
 
-sfe = SentenceFromEnums(all_enums)
-print(sfe.get_enums())
+# sfe = SentenceFromEnums(all_enums, language_model)
+# print(sfe.get_enums())

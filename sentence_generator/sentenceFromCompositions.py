@@ -14,7 +14,8 @@ class SentenceFromCompositions(AbstractSentenceGenerator):
 
         # TODO : Keep only one format either sentences list or 'relationships'  dataframe
         self.sentences = []
-        self.compositions_result = pd.DataFrame(columns=['parent_class', 'child_class', 'role', 'sentence'])
+        self.compositions_result = pd.DataFrame(
+            columns=['parent_class', 'child_class', 'role', 'source_role', 'sentence'])
 
         self.generate_sentences()
 
@@ -39,6 +40,7 @@ class SentenceFromCompositions(AbstractSentenceGenerator):
             part_of_sentence += child_class_name
             self.sentences.append(part_of_sentence)
             self.compositions_result.loc[len(self.compositions_result)] = [parent_class_name, child_class_name, role,
+                                                                           None,
                                                                            part_of_sentence]
 
 
