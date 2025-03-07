@@ -245,7 +245,8 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
 
         # TODO : Keep only one format either sentences list or 'relationships'  dataframe
         self.sentences = []
-        self.relationships = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
+        self.relationships = pd.DataFrame(
+            columns=['source', 'target', 'role', 'source_role', 'multiplicity', 'sentence'])
         self.generate_sentences()
 
     def get_sentences(self) -> List[str]:
@@ -283,6 +284,8 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
                 self.relationships.loc[len(self.relationships)] = [formatted_class1, formatted_class2,
                                                                    association['role_class2'],
                                                                    association['role_class1'],
+                                                                   association[
+                                                                       'cardinality_class2'],
                                                                    part_of_sentence]
 
             if len(association['cardinality_class1']) != 0:
@@ -302,6 +305,8 @@ class SentenceFromAssociations(AbstractSentenceGenerator):
                 self.relationships.loc[len(self.relationships)] = [formatted_class2, formatted_class1,
                                                                    association['role_class1'],
                                                                    association['role_class2'],
+                                                                   association[
+                                                                       'cardinality_class1'],
                                                                    part_of_sentence]
 
             # <<<<<

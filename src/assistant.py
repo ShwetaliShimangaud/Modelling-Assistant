@@ -3,6 +3,7 @@
 import os
 import sys
 
+from evaluation.ResultAggregator import calculate_metrics
 from preprocessor.attribute_matcher import AttributeMatcher
 from preprocessor.relationship_matcher import RelationshipMatcher
 
@@ -18,7 +19,7 @@ import spacy
 
 
 class Assistant:
-    def __init__(self, domain_name):
+    def __init__(self, domain_name, results_dir):
         self.enum_map = None
         self.compositions_map = None
         self.aggregations_map = None
@@ -28,7 +29,7 @@ class Assistant:
         self.errors = []
         self.warnings = []
         self.language_model = spacy.load("en_core_web_trf")
-
+        self.results_dir = results_dir
         self.description_reader = DescriptionReader(domain_name)
         self.description_generator = DescriptionGenerator(domain_name, self.language_model)
         self.concepts_extractor = ConceptsExtractor()
@@ -120,14 +121,14 @@ class Assistant:
 
         workflow = WorkflowStart(
             [self.attributes_map, self.associations_map, self.aggregations_map, self.compositions_map,
-             self.inheritance_map, self.enum_map], self.domain_name)
+             self.inheritance_map, self.enum_map], self.domain_name, self.results_dir)
         errors = workflow.run()
 
-        # calculate_metrics()
+        calculate_metrics(self.domain_name, self.results_dir)
 
         print(errors)
         print("Done")
 
 
-# assistant = Assistant("factory")
-# assistant.run()
+assistant = Assistant("food-delivery-system","../dummy_testing")
+assistant.run()

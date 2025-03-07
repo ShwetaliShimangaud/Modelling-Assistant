@@ -19,13 +19,11 @@ def get_prompts(file_name):
     exec(content, local_vars)
     return local_vars['prompts']
 
-# TODO Change parent dir
-parent_folder = "../system-test"
-
 
 class WorkflowStart:
-    def __init__(self, individual_maps, domain):
+    def __init__(self, individual_maps, domain, results_dir):
         self.individual_maps = individual_maps
+        self.results_dir = f"{results_dir}/predictions"
         self.equality_checker = EqualityChecker()
         self.contradiction_checker = ContradictionChecker()
         self.containment_checker = ContainmentChecker()
@@ -37,11 +35,11 @@ class WorkflowStart:
         self.check_results = {}
 
         for check in self.checks:
-            prompts = ['actual_description', 'generated_description']
-            prompts.extend(get_prompts(check))
-
-            self.check_prompts[check] = prompts
-            self.check_results[check] = pd.DataFrame(columns=prompts)
+            # prompts = ['actual_description', 'generated_description']
+            # prompts.extend(get_prompts(check))
+            #
+            # self.check_prompts[check] = prompts
+            # self.check_results[check] = pd.DataFrame(columns=prompts)
             self.checkers[check] = self.get_checker(check)
 
     def get_checker(self, check):
@@ -62,29 +60,37 @@ class WorkflowStart:
         # accordingly add it in warnings or errors array, Run next checker only if result of previous checker is false
 
         errors = []
-        elements = ['attributes', 'associations', 'aggregations', 'compositions', 'inheritance']
+        elements = ['attributes', 'associations', 'aggregations', 'compositions', 'inheritance', 'enums']
 
-        if not os.path.exists(rf"{parent_folder}"):
-            os.makedirs(f"{parent_folder}")
+        if not os.path.exists(rf"{self.results_dir}"):
+            os.makedirs(f"{self.results_dir}")
 
-        if not os.path.exists(rf"{parent_folder}//{self.domain}"):
-            os.makedirs(f"{parent_folder}//{self.domain}")
+        if not os.path.exists(rf"{self.results_dir}//{self.domain}"):
+            os.makedirs(f"{self.results_dir}//{self.domain}")
 
+        # For each category of model element
         for index in range(len(self.individual_maps)):
             pred_map = self.individual_maps[index]
+
+            # For each model element
             for i, row in pred_map.iterrows():
                 actual_description = row['actual_description']
                 generated_description = row['generated_description']
+                source = row.get('source', '')
+                target = row.get('target', '')
+                multiplicity = row.get('multiplicity', '')
 
+                # each check
                 for check_index, check in enumerate(self.checks):
                     checker = self.checkers[check]
-                    check_res = self.check_results[check]
+                    # check_res = self.check_results[check]
 
-                    results, res = checker.run(actual_description, generated_description)
+                    results, res = checker.run(actual_description, generated_description, source, target,
+                                               elements[index], multiplicity)
                     pred_map.at[i, check] = res
                     result = [actual_description, generated_description]
                     result.extend(results)
-                    check_res.loc[len(check_res)] = result
+                    # check_res.loc[len(check_res)] = result
 
                     if isinstance(res, bool):
                         if res:
@@ -99,10 +105,10 @@ class WorkflowStart:
                             self.add_dummy_values(check_index, pred_map, i)
                             break
 
-            pred_map.to_csv(f"{parent_folder}/{self.domain}/{elements[index]}_pred_map.csv", index=False)
-            # print("save pred map")
-        for check in self.checks:
-            check_res = self.check_results[check]
-            check_res.to_excel(f"{parent_folder}/{self.domain}/{check}_check.xlsx", index=False)
+            pred_map.to_csv(f"{self.results_dir}/{self.domain}/{elements[index]}_pred_map.csv", index=False)
+
+        # for check in self.checks:
+        #     check_res = self.check_results[check]
+        #     check_res.to_excel(f"{parent_folder}/{self.domain}/{check}_check.xlsx", index=False)
 
         return errors

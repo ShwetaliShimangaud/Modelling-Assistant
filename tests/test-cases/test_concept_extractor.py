@@ -2,10 +2,8 @@ import ast
 
 import pandas as pd
 import spacy
-from functools import reduce
 
-
-from coreferenceResolution import get_preprocessed_text
+from preprocessor.coreferenceResolution import get_preprocessed_text
 from extractor.conceptsExtractor import ConceptsExtractor
 from src.descriptionReader import DescriptionReader
 

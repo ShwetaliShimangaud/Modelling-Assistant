@@ -1,8 +1,0 @@
-prompts = [
-"Emphasize the specific part of statement 1 which is not covered by statement 2? Provide a crisp answer.",
-"Tell me the inconsistencies in these two sentences. Provide a crisp answer.",
-"Identify the discrepancies between these two statements.",
-"Point out any incongruities you notice between these two statements.",
-"find and describe any disparities between these two statements.",
-"Identify the distinctive element of statement 1 that is not accounted for in statement 2."
-]

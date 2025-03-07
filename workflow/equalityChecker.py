@@ -17,6 +17,9 @@ class EqualityChecker(AbstractChecker):
         exec(content, local_vars)
         self.prompts = local_vars['prompts']
 
+    def get_prompts(self, model_element):
+        return self.prompts
+
     # def run(self, actual_sentence, generated_sentence):
     #     positive_count = 0
     #     negative_count = 0

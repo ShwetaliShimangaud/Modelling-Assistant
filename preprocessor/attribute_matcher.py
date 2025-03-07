@@ -68,7 +68,7 @@ class AttributeMatcher:
         return data
 
     def create_enum_map(self, enum_df, concepts, relationships, actual_description):
-        data = pd.DataFrame(columns=['enum', 'enum_member', 'generated_description', 'actual_description'])
+        data = pd.DataFrame(columns=['source', 'target', 'generated_description', 'actual_description'])
         all_sentence_ids = set()
 
         for sdx in range(len(actual_description)):

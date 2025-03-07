@@ -1,6 +1,40 @@
 from abc import ABC, abstractmethod
 
+from sentence_generator import util
 from workflow import apiCaller
+from sentence_generator.util import is_singular
+
+
+def format_value(multiplicity):
+    if is_singular(multiplicity):
+        return 'instance'
+    else:
+        return 'instances'
+
+
+def transform_multiplicity(multiplicity):
+    if len(multiplicity) == 0:
+        return ''
+    if multiplicity == '1':
+        return 'exactly one'
+    elif multiplicity == '0..*':
+        return 'zero or more'
+    elif multiplicity == '1..*':
+        return 'one or more'
+    else:
+        raise ValueError("invalid multiplicity")
+
+
+def format_string(template: str, source: str, target: str,
+                  statement1, statement2, multiplicity="") -> str:
+    formatted_template = (template.replace("{source}", source)
+                          .replace("{target}", target))
+
+    formatted_template = formatted_template.replace("{multiplicity}", transform_multiplicity(multiplicity))
+    formatted_template = formatted_template.replace("{instance}", format_value(multiplicity))
+    formatted_template = formatted_template.replace("{statement1}", statement1).replace("{statement2}", statement2)
+    formatted_template = formatted_template.replace("{target_plural}", util.get_plural('target'))
+    return formatted_template
 
 
 class AbstractChecker(ABC):
@@ -9,15 +43,22 @@ class AbstractChecker(ABC):
     def __init__(self):
         pass
 
-    def run(self, actual_sentence, generated_sentence):
+    @abstractmethod
+    def get_prompts(self, model_element):
+        pass
+
+    def run(self, actual_sentence, generated_sentence, source, target, model_element, multiplicity):
         yes_count = 0
         no_count = 0
         unclear_count = 0
 
         results = []
 
-        for prompt in self.prompts:
-            res = apiCaller.call_api(actual_sentence, generated_sentence, prompt)
+        prompts = self.get_prompts(model_element)
+
+        for prompt in prompts:
+            combined_prompt = format_string(prompt, source, target, generated_sentence, actual_sentence, multiplicity)
+            res = apiCaller.call_api(combined_prompt)
             results.append(res)
 
             print("Prompt:", prompt)
@@ -43,4 +84,3 @@ class AbstractChecker(ABC):
             final_answer = 'not clear'
 
         return results, final_answer
-

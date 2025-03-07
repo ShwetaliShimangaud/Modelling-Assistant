@@ -1,11 +1,11 @@
 prompts = [
-    "Can Statement 2 be inferred from Statement 1?",
-    "Can Statement 2 be implied from Statement 1?",
-    "Can Statement 2 be determined from Statement 1?",
-    "Can Statement 2 be derived from Statement 1?",
-    "Can Statement 2 logically follow from Statement 1?",
-    "Can Statement 2 be concluded based on Statement 1?",
-    "Does Statement 1 support Statement 2?"
+    "Can Statement 1 be inferred from Statement 2? \n Statement1:{statement1} \n Statement2:{statement2}",
+    "Can Statement 1 be implied from Statement 2? \n Statement1:{statement1} \n Statement2:{statement2}",
+    "Can Statement 1 be determined from Statement 2? \n Statement1:{statement1} \n Statement2:{statement2}",
+    "Can Statement 1 be derived from Statement 2? \n Statement1:{statement1} \n Statement2:{statement2}",
+    "Can Statement 1 logically follow from Statement 2? \n Statement1:{statement1} \n Statement2:{statement2}",
+    "Can Statement 1 be concluded based on Statement 2? \n Statement1:{statement1} \n Statement2:{statement2}",
+    "Does Statement 2 support Statement 1? \n Statement1:{statement1} \n Statement2:{statement2}"
 ]
 
 

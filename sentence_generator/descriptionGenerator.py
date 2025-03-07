@@ -13,6 +13,7 @@ from domain_converter.xmlReader import parse_domain_model
 
 model_path = "D:\\Thesis\\modelling-assistant\\tests\\\domain-models\\"
 
+
 processed_models_path = "processed_models\\"
 
 
@@ -33,9 +34,11 @@ class DescriptionGenerator:
         # TODO : Keep only one format either description string or 'attributes' and 'relationships' dataframes
         self.description = ''
         self.attributes_description = pd.DataFrame(columns=['class', 'attribute', 'sentence'])
-        self.associations = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
+        self.associations = pd.DataFrame(
+            columns=['source', 'target', 'role', 'source_role', 'multiplicity', 'sentence'])
         self.compositions = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
-        self.aggregations = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
+        self.aggregations = pd.DataFrame(
+            columns=['source', 'target', 'role', 'source_role', 'multiplicity', 'sentence'])
         self.inheritance = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
         self.enums = pd.DataFrame(columns=['enum', 'enum_member', 'sentence'])
         self.generate_description()
@@ -75,7 +78,7 @@ class DescriptionGenerator:
 
             return (local_vars.get('class_attributes', {}), local_vars.get('associations', []),
                     local_vars.get('compositions', []), local_vars.get('aggregations', []),
-                    local_vars.get('inheritance', []), local_vars.get('enums', []))
+                    local_vars.get('inheritance', []), local_vars.get('enums', {}))
         else:
             print(f"File {file_path} does not exist. Read cdm model")
 
@@ -104,7 +107,7 @@ class DescriptionGenerator:
             sentence = row['sentence'].replace("+sg", '')
             sentence = sentence.replace("+pl", '')
             self.associations.loc[len(self.associations)] = [row['source'], row['target'], row['role'],
-                                                             row['source_role'],
+                                                             row['source_role'], row['multiplicity'],
                                                              sentence]
             processed_sentences.append(sentence)
 
@@ -124,7 +127,7 @@ class DescriptionGenerator:
             sentence = sentence.replace("+sg", '')
             sentence = sentence.replace("+pl", '')
             self.aggregations.loc[len(self.aggregations)] = [row['parent_class'], row['child_class'], row['role'],
-                                                             row['source_role'],
+                                                             row['source_role'], row['multiplicity'],
                                                              sentence]
             processed_sentences.append(sentence)
 
@@ -135,6 +138,14 @@ class DescriptionGenerator:
             sentence = sentence.replace("+pl", '')
             self.inheritance.loc[len(self.inheritance)] = [row['parent_class'], row['child_class'], None, None,
                                                            sentence]
+            processed_sentences.append(sentence)
+
+        # From Enum
+        for index, row in self.generator_from_enums.get_enums().iterrows():
+            sentence = self.post_processor.morphological_process(row['sentence'])
+            sentence = sentence.replace("+sg", '')
+            sentence = sentence.replace("+pl", '')
+            self.enums.loc[len(self.inheritance)] = [row['enum'], row['enum_member'], sentence]
             processed_sentences.append(sentence)
 
         sentences = processed_sentences

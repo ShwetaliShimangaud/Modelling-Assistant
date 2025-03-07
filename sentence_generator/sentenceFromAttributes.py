@@ -137,7 +137,7 @@ class SentenceFromAttributes(AbstractSentenceGenerator):
             for attribute in attributes:
                 formatted_class_name = util.split_concept(class_name)
                 formatted_attribute = util.split_concept(attribute)
-                sentence = util.format_concept(class_name) + " " + self.verb_phrase + " " + util.format_concept(
+                sentence = util.format_concept(class_name, self.language_model) + " " + self.verb_phrase + " " + util.format_concept(
                     attribute, self.language_model)
                 self.attributes_description.loc[len(self.attributes_description)] = [formatted_class_name,
                                                                                      formatted_attribute, sentence]
