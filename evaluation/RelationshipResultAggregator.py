@@ -3,10 +3,6 @@ import os
 import numpy as np
 import pandas as pd
 
-# TODO Change parent dir
-parent_folder = "../system-test"
-results_folder = "../evaluation"
-
 
 def find_common_answer(lst):
     ans = False
@@ -69,60 +65,104 @@ def group_results_rel(df, col1, col2, col3='role'):
     return new_df
 
 
-def aggregate_relationship_results():
-    domains = ['bank', 'car-maintenance', 'factory', 'flight-reservation', 'hotel-reservation', 'library',
-               'production-cell-inheritance', 'smart-city', 'sustainable-transportation']
-
+def aggregate_relationship_results(folder_path):
+    new_columns = ['equality', 'contradiction', 'inclusion', 'answer']
     try:
-        for folder_name in os.listdir(parent_folder):
-            folder_path = os.path.join(parent_folder, folder_name)
-            if os.path.isdir(folder_path):
-                answer = pd.DataFrame(
-                    columns=['source', 'target', 'role', 'kind', 'generated_sentence', 'actual_sentence', 'equality',
-                             'contradiction', 'inclusion', 'answer'])
+        if os.path.isdir(folder_path):
 
-                df = pd.read_csv(f"{parent_folder}/{folder_name}/associations_pred_map.csv")
-                if not df.empty:
-                    df['equality'] = df['equality'].apply(change_col)
-                    df['contradiction'] = df['contradiction'].apply(change_col)
-                    df['inclusion'] = df['inclusion'].apply(change_col)
-                    processed_df = group_results_rel(df, 'source', 'target')
-                    processed_df['kind'] = 'association'
-                    answer = pd.concat([answer, processed_df])
+            df = pd.read_csv(f"{folder_path}/associations_pred_map.csv")
+            if not df.empty:
+                df['equality'] = df['equality'].apply(change_col)
+                df['contradiction'] = df['contradiction'].apply(change_col)
+                df['inclusion'] = df['inclusion'].apply(change_col)
+                associations = group_results_rel(df, 'source', 'target')
+                associations['kind'] = 'association'
+            else:
+                associations = pd.DataFrame(columns=list(df.columns)+new_columns)
 
-                df = pd.read_csv(f"{parent_folder}/{folder_name}/aggregations_pred_map.csv")
-                if not df.empty:
-                    df['equality'] = df['equality'].apply(change_col)
-                    df['contradiction'] = df['contradiction'].apply(change_col)
-                    df['inclusion'] = df['inclusion'].apply(change_col)
-                    processed_df = group_results_rel(df, 'source', 'target')
-                    processed_df['kind'] = 'aggregation'
-                    answer = pd.concat([answer, processed_df])
+            df = pd.read_csv(f"{folder_path}/aggregations_pred_map.csv")
+            if not df.empty:
+                df['equality'] = df['equality'].apply(change_col)
+                df['contradiction'] = df['contradiction'].apply(change_col)
+                df['inclusion'] = df['inclusion'].apply(change_col)
+                aggregations = group_results_rel(df, 'source', 'target')
+                aggregations['kind'] = 'aggregation'
+            else:
+                aggregations = pd.DataFrame(columns=list(df.columns) + new_columns)
 
-                df = pd.read_csv(f"{parent_folder}/{folder_name}/compositions_pred_map.csv")
-                if not df.empty:
-                    df['equality'] = df['equality'].apply(change_col)
-                    df['contradiction'] = df['contradiction'].apply(change_col)
-                    df['inclusion'] = df['inclusion'].apply(change_col)
-                    processed_df = group_results_rel(df, 'source', 'target')
-                    processed_df['kind'] = 'composition'
-                    answer = pd.concat([answer, processed_df])
+            df = pd.read_csv(f"{folder_path}/compositions_pred_map.csv")
+            if not df.empty:
+                df['equality'] = df['equality'].apply(change_col)
+                df['contradiction'] = df['contradiction'].apply(change_col)
+                df['inclusion'] = df['inclusion'].apply(change_col)
+                compositions = group_results_rel(df, 'source', 'target')
+                compositions['kind'] = 'composition'
+            else:
+                compositions = pd.DataFrame(columns=list(df.columns) + new_columns)
 
-                df = pd.read_csv(f"{parent_folder}/{folder_name}/inheritance_pred_map.csv")
-                if not df.empty:
-                    df['equality'] = df['equality'].apply(change_col)
-                    df['contradiction'] = df['contradiction'].apply(change_col)
-                    df['inclusion'] = df['inclusion'].apply(change_col)
-                    processed_df = group_results_rel(df, 'source', 'target')
-                    processed_df['kind'] = 'inheritance'
-                    answer = pd.concat([answer, processed_df])
+            df = pd.read_csv(f"{folder_path}/inheritance_pred_map.csv")
+            if not df.empty:
+                df['equality'] = df['equality'].apply(change_col)
+                df['contradiction'] = df['contradiction'].apply(change_col)
+                df['inclusion'] = df['inclusion'].apply(change_col)
+                inheritance = group_results_rel(df, 'source', 'target')
+                inheritance['kind'] = 'inheritance'
+            else:
+                inheritance = pd.DataFrame(columns=list(df.columns) + new_columns)
 
-                if not os.path.exists(rf"{results_folder}/predictions/{folder_name}"):
-                    os.makedirs(f"{results_folder}/predictions/{folder_name}")
+            return associations, aggregations, compositions, inheritance
 
-                answer.to_csv(f"{results_folder}/predictions/{folder_name}/relationship_results.csv", index=False)
     except Exception as e:
         raise Exception(e)
-
+    # try:
+    #     for folder_name in os.listdir(parent_folder):
+    #         folder_path = os.path.join(parent_folder, folder_name)
+    #         if os.path.isdir(folder_path):
+    #             answer = pd.DataFrame(
+    #                 columns=['source', 'target', 'role', 'kind', 'generated_sentence', 'actual_sentence', 'equality',
+    #                          'contradiction', 'inclusion', 'answer'])
+    #
+    #             df = pd.read_csv(f"{parent_folder}/{folder_name}/associations_pred_map.csv")
+    #             if not df.empty:
+    #                 df['equality'] = df['equality'].apply(change_col)
+    #                 df['contradiction'] = df['contradiction'].apply(change_col)
+    #                 df['inclusion'] = df['inclusion'].apply(change_col)
+    #                 processed_df = group_results_rel(df, 'source', 'target')
+    #                 processed_df['kind'] = 'association'
+    #                 answer = pd.concat([answer, processed_df])
+    #
+    #             df = pd.read_csv(f"{parent_folder}/{folder_name}/aggregations_pred_map.csv")
+    #             if not df.empty:
+    #                 df['equality'] = df['equality'].apply(change_col)
+    #                 df['contradiction'] = df['contradiction'].apply(change_col)
+    #                 df['inclusion'] = df['inclusion'].apply(change_col)
+    #                 processed_df = group_results_rel(df, 'source', 'target')
+    #                 processed_df['kind'] = 'aggregation'
+    #                 answer = pd.concat([answer, processed_df])
+    #
+    #             df = pd.read_csv(f"{parent_folder}/{folder_name}/compositions_pred_map.csv")
+    #             if not df.empty:
+    #                 df['equality'] = df['equality'].apply(change_col)
+    #                 df['contradiction'] = df['contradiction'].apply(change_col)
+    #                 df['inclusion'] = df['inclusion'].apply(change_col)
+    #                 processed_df = group_results_rel(df, 'source', 'target')
+    #                 processed_df['kind'] = 'composition'
+    #                 answer = pd.concat([answer, processed_df])
+    #
+    #             df = pd.read_csv(f"{parent_folder}/{folder_name}/inheritance_pred_map.csv")
+    #             if not df.empty:
+    #                 df['equality'] = df['equality'].apply(change_col)
+    #                 df['contradiction'] = df['contradiction'].apply(change_col)
+    #                 df['inclusion'] = df['inclusion'].apply(change_col)
+    #                 processed_df = group_results_rel(df, 'source', 'target')
+    #                 processed_df['kind'] = 'inheritance'
+    #                 answer = pd.concat([answer, processed_df])
+    #
+    #             if not os.path.exists(rf"{results_folder}/predictions/{folder_name}"):
+    #                 os.makedirs(f"{results_folder}/predictions/{folder_name}")
+    #
+    #             answer.to_csv(f"{results_folder}/predictions/{folder_name}/relationship_results.csv", index=False)
+    # except Exception as e:
+    #     raise Exception(e)
 
 # aggregate_relationship_results()

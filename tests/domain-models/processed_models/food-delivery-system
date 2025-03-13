@@ -1,0 +1,22 @@
+
+class_attributes = {
+    "Company": ['name:string' ],
+    "Vehicle" : ['registrationNumber:string'],
+    "Employee" : ['name:string','employeeType:enum']
+}
+
+enums = {
+"EmployeeType" : ["full-time","part-time"]
+}
+
+
+inheritance = [
+{
+    'parent_class': 'Employee',
+    'child_classes': ['fullTimeEmployee', 'partTimeEmployee']
+},
+{
+    'parent_class': 'Vehicle',
+    'child_classes': ['OwnedVehicle', 'RentedVehicle']
+}
+]

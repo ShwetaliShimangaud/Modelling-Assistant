@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<classdiagram:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:classdiagram="http://cs.mcgill.ca/sel/cdm/1.0" xmi:id="_TAOVwP9zEe-cppX7J4Iw1A" name="R1_Restaurant">
+  <classes xsi:type="classdiagram:Class" xmi:id="_qYkVMP9zEe-cppX7J4Iw1A" name="Restaurant">
+    <associationEnds xmi:id="_ttcmUP9zEe-cppX7J4Iw1A" name="employees" assoc="_ttd0cf9zEe-cppX7J4Iw1A" lowerBound="2" upperBound="-1"/>
+    <associationEnds xmi:id="_c0kvQP90Ee-cppX7J4Iw1A" name="tables" assoc="_c0kvQv90Ee-cppX7J4Iw1A" upperBound="-1"/>
+    <associationEnds xmi:id="_X0Nh0P92Ee-cppX7J4Iw1A" name="sections" assoc="_X0Nh0v92Ee-cppX7J4Iw1A" lowerBound="3" upperBound="3"/>
+    <associationEnds xmi:id="_Bk_RIP93Ee-cppX7J4Iw1A" name="stock" assoc="_Bk_RIv93Ee-cppX7J4Iw1A" upperBound="-1"/>
+    <attributes xmi:id="_loNSoP91Ee-cppX7J4Iw1A" name="cashFlow" type="_TAO81P9zEe-cppX7J4Iw1A"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_r_FAAP9zEe-cppX7J4Iw1A" name="Employee">
+    <associationEnds xmi:id="_ttd0cP9zEe-cppX7J4Iw1A" name="employer" navigable="false" assoc="_ttd0cf9zEe-cppX7J4Iw1A"/>
+    <associationEnds xmi:id="_bmvYQP92Ee-cppX7J4Iw1A" name="worksIn" assoc="_bmvYQf92Ee-cppX7J4Iw1A" lowerBound="1"/>
+    <attributes xmi:id="_0FmbMP9zEe-cppX7J4Iw1A" name="name" type="_TAO81v9zEe-cppX7J4Iw1A"/>
+    <attributes xmi:id="_1QYMQP9zEe-cppX7J4Iw1A" name="age" type="_TAO81P9zEe-cppX7J4Iw1A"/>
+    <attributes xmi:id="_C4qm4P90Ee-cppX7J4Iw1A" name="gender" type="_TAO81v9zEe-cppX7J4Iw1A"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_ZUTtgP90Ee-cppX7J4Iw1A" name="Table">
+    <associationEnds xmi:id="_c0kvQf90Ee-cppX7J4Iw1A" name="myRestaurant" navigable="false" assoc="_c0kvQv90Ee-cppX7J4Iw1A" lowerBound="1"/>
+    <associationEnds xmi:id="_KP-WMf91Ee-cppX7J4Iw1A" name="orders" assoc="_KP-WMv91Ee-cppX7J4Iw1A" upperBound="-1"/>
+    <attributes xmi:id="_bYImcP90Ee-cppX7J4Iw1A" name="number" type="_TAO81P9zEe-cppX7J4Iw1A"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_7Yj2AP90Ee-cppX7J4Iw1A" name="Order">
+    <associationEnds xmi:id="__lphgP90Ee-cppX7J4Iw1A" name="serverBy" assoc="__lqIkf90Ee-cppX7J4Iw1A" upperBound="-1"/>
+    <associationEnds xmi:id="_GekhIP91Ee-cppX7J4Iw1A" name="preparedBy" assoc="_GekhIv91Ee-cppX7J4Iw1A" upperBound="-1"/>
+    <associationEnds xmi:id="_KP-WMP91Ee-cppX7J4Iw1A" name="forTable" assoc="_KP-WMv91Ee-cppX7J4Iw1A" lowerBound="1"/>
+    <associationEnds xmi:id="_VXv74P91Ee-cppX7J4Iw1A" name="paymentHandledBy" assoc="_VXyYIf91Ee-cppX7J4Iw1A"/>
+    <associationEnds xmi:id="_KasGgP93Ee-cppX7J4Iw1A" name="orderedItems" assoc="_Kastkf93Ee-cppX7J4Iw1A" lowerBound="1" upperBound="-1"/>
+    <associationEnds xmi:id="_lIJAkP93Ee-cppX7J4Iw1A" name="transactions" assoc="_lIJAkv93Ee-cppX7J4Iw1A" upperBound="-1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_8g3h4P90Ee-cppX7J4Iw1A" name="Waiter" superTypes="_r_FAAP9zEe-cppX7J4Iw1A">
+    <associationEnds xmi:id="__lqIkP90Ee-cppX7J4Iw1A" name="servedOrders" assoc="__lqIkf90Ee-cppX7J4Iw1A" upperBound="-1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_9asF0P90Ee-cppX7J4Iw1A" name="Cook" superTypes="_r_FAAP9zEe-cppX7J4Iw1A">
+    <associationEnds xmi:id="_GekhIf91Ee-cppX7J4Iw1A" name="preparedOrders" assoc="_GekhIv91Ee-cppX7J4Iw1A" upperBound="-1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_-U5rUP90Ee-cppX7J4Iw1A" name="Cashier" superTypes="_r_FAAP9zEe-cppX7J4Iw1A">
+    <associationEnds xmi:id="_VXyYIP91Ee-cppX7J4Iw1A" name="handledOrders" assoc="_VXyYIf91Ee-cppX7J4Iw1A" upperBound="-1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_MTB9oP92Ee-cppX7J4Iw1A" name="Section">
+    <associationEnds xmi:id="_X0Nh0f92Ee-cppX7J4Iw1A" name="myRestaurant" navigable="false" assoc="_X0Nh0v92Ee-cppX7J4Iw1A" lowerBound="1"/>
+    <associationEnds xmi:id="_bmuxMP92Ee-cppX7J4Iw1A" name="myEmployee" navigable="false" assoc="_bmvYQf92Ee-cppX7J4Iw1A" upperBound="-1"/>
+    <attributes xmi:id="_XQ_gAP92Ee-cppX7J4Iw1A" name="kind" type="_DlDLwP90Ee-cppX7J4Iw1A"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_AlKy4P93Ee-cppX7J4Iw1A" name="Item">
+    <associationEnds xmi:id="_Bk_RIf93Ee-cppX7J4Iw1A" name="myRestaurant" navigable="false" assoc="_Bk_RIv93Ee-cppX7J4Iw1A" lowerBound="1"/>
+    <associationEnds xmi:id="_KastkP93Ee-cppX7J4Iw1A" name="myOrder" navigable="false" assoc="_Kastkf93Ee-cppX7J4Iw1A" lowerBound="1"/>
+    <attributes xmi:id="_EvQNsP93Ee-cppX7J4Iw1A" name="cost" type="_TAO81P9zEe-cppX7J4Iw1A"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_jAcUQP93Ee-cppX7J4Iw1A" name="Transaction">
+    <associationEnds xmi:id="_lIJAkf93Ee-cppX7J4Iw1A" name="myOrder" navigable="false" assoc="_lIJAkv93Ee-cppX7J4Iw1A" lowerBound="1"/>
+    <attributes xmi:id="_uqlAIP93Ee-cppX7J4Iw1A" name="kind" type="_nxu5AP93Ee-cppX7J4Iw1A"/>
+  </classes>
+  <types xsi:type="classdiagram:CDVoid" xmi:id="_TAO80P9zEe-cppX7J4Iw1A"/>
+  <types xsi:type="classdiagram:CDAny" xmi:id="_TAO80f9zEe-cppX7J4Iw1A"/>
+  <types xsi:type="classdiagram:CDBoolean" xmi:id="_TAO80v9zEe-cppX7J4Iw1A"/>
+  <types xsi:type="classdiagram:CDDouble" xmi:id="_TAO80_9zEe-cppX7J4Iw1A"/>
+  <types xsi:type="classdiagram:CDInt" xmi:id="_TAO81P9zEe-cppX7J4Iw1A"/>
+  <types xsi:type="classdiagram:CDLong" xmi:id="_TAO81f9zEe-cppX7J4Iw1A"/>
+  <types xsi:type="classdiagram:CDString" xmi:id="_TAO81v9zEe-cppX7J4Iw1A"/>
+  <types xsi:type="classdiagram:CDByte" xmi:id="_TAO81_9zEe-cppX7J4Iw1A"/>
+  <types xsi:type="classdiagram:CDFloat" xmi:id="_TAO82P9zEe-cppX7J4Iw1A"/>
+  <types xsi:type="classdiagram:CDChar" xmi:id="_TAO82f9zEe-cppX7J4Iw1A"/>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_DlDLwP90Ee-cppX7J4Iw1A" name="SectionKind">
+    <literals xmi:id="_Fk8m8P90Ee-cppX7J4Iw1A" name="Kitchen"/>
+    <literals xmi:id="_GGqM4P90Ee-cppX7J4Iw1A" name="Service"/>
+    <literals xmi:id="_Hb8k0P90Ee-cppX7J4Iw1A" name="Cash"/>
+  </types>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_nxu5AP93Ee-cppX7J4Iw1A" name="PaymentKind">
+    <literals xmi:id="_o5qKYP93Ee-cppX7J4Iw1A" name="Cash"/>
+    <literals xmi:id="_qDaAsP93Ee-cppX7J4Iw1A" name="CreditCard"/>
+    <literals xmi:id="_rHbpgP93Ee-cppX7J4Iw1A" name="DebitCard"/>
+  </types>
+  <associations xmi:id="_ttd0cf9zEe-cppX7J4Iw1A" name="Restaurant_Person" ends="_ttcmUP9zEe-cppX7J4Iw1A _ttd0cP9zEe-cppX7J4Iw1A"/>
+  <associations xmi:id="_c0kvQv90Ee-cppX7J4Iw1A" name="Restaurant_Table" ends="_c0kvQP90Ee-cppX7J4Iw1A _c0kvQf90Ee-cppX7J4Iw1A"/>
+  <associations xmi:id="__lqIkf90Ee-cppX7J4Iw1A" name="Order_Waiter" ends="__lphgP90Ee-cppX7J4Iw1A __lqIkP90Ee-cppX7J4Iw1A"/>
+  <associations xmi:id="_GekhIv91Ee-cppX7J4Iw1A" name="Order_Cook" ends="_GekhIP91Ee-cppX7J4Iw1A _GekhIf91Ee-cppX7J4Iw1A"/>
+  <associations xmi:id="_KP-WMv91Ee-cppX7J4Iw1A" name="Order_Table" ends="_KP-WMP91Ee-cppX7J4Iw1A _KP-WMf91Ee-cppX7J4Iw1A"/>
+  <associations xmi:id="_VXyYIf91Ee-cppX7J4Iw1A" name="Order_Cashier" ends="_VXv74P91Ee-cppX7J4Iw1A _VXyYIP91Ee-cppX7J4Iw1A"/>
+  <associations xmi:id="_X0Nh0v92Ee-cppX7J4Iw1A" name="Restaurant_Section" ends="_X0Nh0P92Ee-cppX7J4Iw1A _X0Nh0f92Ee-cppX7J4Iw1A"/>
+  <associations xmi:id="_bmvYQf92Ee-cppX7J4Iw1A" name="Section_Employee" ends="_bmuxMP92Ee-cppX7J4Iw1A _bmvYQP92Ee-cppX7J4Iw1A"/>
+  <associations xmi:id="_Bk_RIv93Ee-cppX7J4Iw1A" name="Restaurant_Item" ends="_Bk_RIP93Ee-cppX7J4Iw1A _Bk_RIf93Ee-cppX7J4Iw1A"/>
+  <associations xmi:id="_Kastkf93Ee-cppX7J4Iw1A" name="Order_Item" ends="_KasGgP93Ee-cppX7J4Iw1A _KastkP93Ee-cppX7J4Iw1A"/>
+  <associations xmi:id="_lIJAkv93Ee-cppX7J4Iw1A" name="Order_Transaction" ends="_lIJAkP93Ee-cppX7J4Iw1A _lIJAkf93Ee-cppX7J4Iw1A"/>
+  <layout xmi:id="_TAPj4P9zEe-cppX7J4Iw1A">
+    <containers xmi:id="_TAPj4f9zEe-cppX7J4Iw1A" key="_TAOVwP9zEe-cppX7J4Iw1A">
+      <value xmi:id="_qZY0kP9zEe-cppX7J4Iw1A" key="_qYkVMP9zEe-cppX7J4Iw1A">
+        <value xmi:id="_qZZboP9zEe-cppX7J4Iw1A" x="181.98389" y="165.99991"/>
+      </value>
+      <value xmi:id="_r_LtsP9zEe-cppX7J4Iw1A" key="_r_FAAP9zEe-cppX7J4Iw1A">
+        <value xmi:id="_r_Ltsf9zEe-cppX7J4Iw1A" x="618.0002" y="124.99991"/>
+      </value>
+      <value xmi:id="_DlFA8P90Ee-cppX7J4Iw1A" key="_DlDLwP90Ee-cppX7J4Iw1A">
+        <value xmi:id="_DlFA8f90Ee-cppX7J4Iw1A" x="899.02" y="-107.81844"/>
+      </value>
+      <value xmi:id="_ZUWw0P90Ee-cppX7J4Iw1A" key="_ZUTtgP90Ee-cppX7J4Iw1A">
+        <value xmi:id="_ZUWw0f90Ee-cppX7J4Iw1A" x="182.03079" y="686.1882"/>
+      </value>
+      <value xmi:id="_7YoHcP90Ee-cppX7J4Iw1A" key="_7Yj2AP90Ee-cppX7J4Iw1A">
+        <value xmi:id="_7YoHcf90Ee-cppX7J4Iw1A" x="617.91565" y="587.9999"/>
+      </value>
+      <value xmi:id="_8g5XEP90Ee-cppX7J4Iw1A" key="_8g3h4P90Ee-cppX7J4Iw1A">
+        <value xmi:id="_8g5XEf90Ee-cppX7J4Iw1A" x="561.7729" y="357.15292"/>
+      </value>
+      <value xmi:id="_9axlYP90Ee-cppX7J4Iw1A" key="_9asF0P90Ee-cppX7J4Iw1A">
+        <value xmi:id="_9axlYf90Ee-cppX7J4Iw1A" x="371.18143" y="357.14252"/>
+      </value>
+      <value xmi:id="_-U6SYP90Ee-cppX7J4Iw1A" key="_-U5rUP90Ee-cppX7J4Iw1A">
+        <value xmi:id="_-U6SYf90Ee-cppX7J4Iw1A" x="979.751" y="357.15057"/>
+      </value>
+      <value xmi:id="_MTFoAP92Ee-cppX7J4Iw1A" key="_MTB9oP92Ee-cppX7J4Iw1A">
+        <value xmi:id="_MTFoAf92Ee-cppX7J4Iw1A" x="617.9195" y="-75.31844"/>
+      </value>
+      <value xmi:id="_AlPEUP93Ee-cppX7J4Iw1A" key="_AlKy4P93Ee-cppX7J4Iw1A">
+        <value xmi:id="_AlPrYP93Ee-cppX7J4Iw1A" x="-92.456604" y="165.99974"/>
+      </value>
+      <value xmi:id="_jAhz0P93Ee-cppX7J4Iw1A" key="_jAcUQP93Ee-cppX7J4Iw1A">
+        <value xmi:id="_jAhz0f93Ee-cppX7J4Iw1A" x="979.751" y="587.9822"/>
+      </value>
+      <value xmi:id="_nxx8UP93Ee-cppX7J4Iw1A" key="_nxu5AP93Ee-cppX7J4Iw1A">
+        <value xmi:id="_nxx8Uf93Ee-cppX7J4Iw1A" x="982.7368" y="426.24658"/>
+      </value>
+    </containers>
+  </layout>
+</classdiagram:ClassDiagram>

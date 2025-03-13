@@ -5,9 +5,6 @@ import pandas as pd
 from evaluation.AttributeResultAggregator import aggregate_attribute_results
 from evaluation.RelationshipResultAggregator import aggregate_relationship_results
 
-ground_truth_dir = '../evaluation/ground-truth/'
-predictions_dir = '../evaluation/predictions/'
-
 
 def find_stats(actual, predicted):
     correct_correct = 0
@@ -70,86 +67,166 @@ def find_stats(actual, predicted):
     }
 
 
-def find_metrics_values(row):
-    total_elements = 0
-    for ele in row.values():
-        if isinstance(ele, int):
-            total_elements += ele
-
-    no_prediction = row['correct_and_noMatch'] + row['correct_and_inconclusive'] + \
-                    row['incorrect_and_noMatch'] + row['incorrect_and_inconclusive'] + \
-                    row['extra_and_noMatch'] + row['extra_and_inconclusive']
-
-    have_prediction = total_elements - no_prediction
-
-    if have_prediction == 0:
-        predicted_right = 0
-        predicted_wrong = 0
+def divide(dividend, divisor):
+    if divisor == 0 and dividend == 0:
+        return 1
+    elif divisor == 0:
+        return 0
     else:
-        predicted_right = (row['correct_and_correct'] + row['incorrect_and_incorrect']) / have_prediction
-        predicted_wrong = (row['correct_and_incorrect'] + row['incorrect_and_correct']) / have_prediction
-
-    correct = (row['correct_and_correct'] + row['correct_and_incorrect'] +
-               row['correct_and_noMatch'] + row['correct_and_inconclusive'])
-
-    if correct == 0:
-        correct_not_classified = 0
-    else:
-        correct_not_classified = (row['correct_and_noMatch'] + row['correct_and_inconclusive']) / correct
-
-    incorrect = (row['incorrect_and_correct'] + row['incorrect_and_incorrect'] +
-                 row['incorrect_and_noMatch'] + row['incorrect_and_inconclusive'])
-
-    if incorrect == 0:
-        incorrect_not_classified = 0
-    else:
-        incorrect_not_classified = (row['incorrect_and_noMatch'] + row['incorrect_and_inconclusive']) / incorrect
-
-    return {
-        'domain': row['domain'],
-        'have_prediction': have_prediction / total_elements,
-        'no_prediction': no_prediction / total_elements,
-        'predicted_right': predicted_right,
-        'predicted_wrong': predicted_wrong,
-        'correct_not_classified': correct_not_classified,
-        'incorrect_not_classified': incorrect_not_classified
-    }
+        return dividend / divisor
 
 
-def calculate_metrics():
-    # aggregate_attribute_results()
-    # aggregate_relationship_results()
+def find_metrics_values(detailed_results):
+    results = pd.DataFrame(
+        columns=['model_element', 'alignments_identified_and_correct', 'alignments_predicted_correct',
+                 'misalignments_identified_and_correct', 'misalignments_predicted_correct',
+                 'alignments', 'misalignments', 'precision_alignment', 'precision_misalignment',
+                 'overall_precision', 'recall_alignment', 'recall_misalignment', 'overall_recall'])
 
+    for i, row in detailed_results.iterrows():
+        model_element = row['model_element']
+
+        # Precision for alignment
+        alignments_identified_and_correct = row['correct_and_correct']
+        alignments_predicted_correct = (row['correct_and_correct'] + row['incorrect_and_correct'] +
+                                        row['extra_and_correct'])
+        precision_alignment = divide(alignments_identified_and_correct, alignments_predicted_correct)
+
+        # Precision for misalignment
+        misalignments_identified_and_correct = row['incorrect_and_incorrect']
+        misalignments_predicted_correct = (row['correct_and_incorrect'] + row['incorrect_and_incorrect'] +
+                                           row['extra_and_incorrect'])
+        precision_misalignment = divide(misalignments_identified_and_correct, misalignments_predicted_correct)
+
+        # Overall precision
+        overall_precision = divide((alignments_identified_and_correct + misalignments_identified_and_correct),
+                                   (alignments_predicted_correct + misalignments_predicted_correct))
+
+        # Recall for alignment
+        alignments = (row['correct_and_correct'] + row['correct_and_incorrect'] + row['correct_and_noMatch'] +
+                      row['correct_and_inconclusive'])
+        recall_alignment = divide(alignments_identified_and_correct, alignments)
+
+        # Recall for misalignment
+        misalignments = (row['incorrect_and_correct'] + row['incorrect_and_incorrect'] + row['incorrect_and_noMatch'] +
+                         row['incorrect_and_inconclusive'])
+        recall_misalignment = divide(misalignments_identified_and_correct, misalignments)
+
+        # Overall recall
+        overall_recall = divide((alignments_identified_and_correct + misalignments_identified_and_correct),
+                                (alignments + misalignments))
+
+        results.loc[len(results)] = [model_element, alignments_identified_and_correct, alignments_predicted_correct,
+                                      misalignments_identified_and_correct, misalignments_predicted_correct,
+                                      alignments, misalignments, precision_alignment, precision_misalignment,
+                                      overall_precision, recall_alignment, recall_misalignment, overall_recall]
+
+    # Precision for all model elements together
+    alignments_identified_and_correct = sum(results['alignments_identified_and_correct'])
+    alignments_predicted_correct = sum(results['alignments_predicted_correct'])
+    misalignments_identified_and_correct = sum(results['misalignments_identified_and_correct'])
+    misalignments_predicted_correct = sum(results['misalignments_predicted_correct'])
+    alignments = sum(results['alignments'])
+    misalignments = sum(results['misalignments'])
+    precision_alignment = divide(alignments_identified_and_correct, alignments_predicted_correct)
+    precision_misalignment = divide(misalignments_identified_and_correct, misalignments_predicted_correct)
+    overall_precision = divide((alignments_identified_and_correct + misalignments_identified_and_correct),
+                               (alignments_predicted_correct + misalignments_predicted_correct))
+
+    # Recall for all model elements together
+    recall_alignment = divide(alignments_identified_and_correct, alignments)
+    recall_misalignment = divide(misalignments_identified_and_correct, misalignments)
+    overall_recall = divide((alignments_identified_and_correct + misalignments_identified_and_correct),
+                            (alignments + misalignments))
+
+    results.loc[len(results)] = ['all', alignments_identified_and_correct, alignments_predicted_correct,
+                                  misalignments_identified_and_correct, misalignments_predicted_correct,
+                                  alignments, misalignments, precision_alignment, precision_misalignment,
+                                  overall_precision, recall_alignment, recall_misalignment, overall_recall]
+
+    return results
+    # total_elements = 0
+    # for ele in row.values():
+    #     if isinstance(ele, int):
+    #         total_elements += ele
+    #
+    # no_prediction = (row['correct_and_noMatch'] + row['correct_and_inconclusive'] +
+    #                  row['incorrect_and_noMatch'] + row['incorrect_and_inconclusive'] +
+    #                  row['extra_and_noMatch'] + row['extra_and_inconclusive'])
+    #
+    # have_prediction = total_elements - no_prediction
+    #
+    # if have_prediction == 0:
+    #     predicted_right = 0
+    #     predicted_wrong = 0
+    # else:
+    #     predicted_right = (row['correct_and_correct'] + row['incorrect_and_incorrect']) / have_prediction
+    #     predicted_wrong = (row['correct_and_incorrect'] + row['incorrect_and_correct']) / have_prediction
+    #
+    # correct = (row['correct_and_correct'] + row['correct_and_incorrect'] +
+    #            row['correct_and_noMatch'] + row['correct_and_inconclusive'])
+    #
+    # if correct == 0:
+    #     correct_not_classified = 0
+    # else:
+    #     correct_not_classified = (row['correct_and_noMatch'] + row['correct_and_inconclusive']) / correct
+    #
+    # incorrect = (row['incorrect_and_correct'] + row['incorrect_and_incorrect'] +
+    #              row['incorrect_and_noMatch'] + row['incorrect_and_inconclusive'])
+    #
+    # if incorrect == 0:
+    #     incorrect_not_classified = 0
+    # else:
+    #     incorrect_not_classified = (row['incorrect_and_noMatch'] + row['incorrect_and_inconclusive']) / incorrect
+    #
+    # return {
+    #     'domain': row['domain'],
+    #     'model_element': row['model_element'],
+    #     'have_prediction': have_prediction / total_elements,
+    #     'no_prediction': no_prediction / total_elements,
+    #     'predicted_right': predicted_right,
+    #     'predicted_wrong': predicted_wrong,
+    #     'correct_not_classified': correct_not_classified,
+    #     'incorrect_not_classified': incorrect_not_classified
+    # }
+
+
+def calculate_metrics(domain_name, results_dir):
+    ground_truth_dir = f'{results_dir}/ground-truth/{domain_name}/'
+    predictions_dir = f'{results_dir}/predictions/{domain_name}/'
+
+    model_elements = ['attribute', 'association', 'aggregation', 'composition', 'inheritance', 'enum']
+
+    attributes, enums = aggregate_attribute_results(predictions_dir)
+    associations, aggregations, compositions, inheritance = aggregate_relationship_results(predictions_dir)
+
+    predictions = [attributes, associations, aggregations, compositions, inheritance, enums]
     detailed_results = pd.DataFrame(
-        columns=['domain', 'correct_and_correct', 'correct_and_incorrect', 'correct_and_noMatch',
+        columns=['domain', 'model_element', 'correct_and_correct', 'correct_and_incorrect', 'correct_and_noMatch',
                  'correct_and_inconclusive', 'incorrect_and_correct',
                  'incorrect_and_incorrect', 'incorrect_and_noMatch',
                  'incorrect_and_inconclusive', 'extra_and_correct',
                  'extra_and_incorrect', 'extra_and_noMatch', 'extra_and_inconclusive'])
 
-    results = pd.DataFrame(columns=['domain', 'have_prediction', 'predicted_right', 'predicted_wrong',
-                                    'no_prediction', 'correct_not_classified',
-                                    'incorrect_not_classified'])
+    if os.path.isdir(ground_truth_dir):
+        ground_truth_attributes = pd.read_csv(f"{ground_truth_dir}/attributes_results.csv")
+        ground_truth_associations = pd.read_csv(f"{ground_truth_dir}/associations_results.csv")
+        ground_truth_aggregations = pd.read_csv(f"{ground_truth_dir}/aggregations_results.csv")
+        ground_truth_compositions = pd.read_csv(f"{ground_truth_dir}/compositions_results.csv")
+        ground_truth_inheritance = pd.read_csv(f"{ground_truth_dir}/inheritance_results.csv")
+        ground_truth_enums = pd.read_csv(f"{ground_truth_dir}/enums_results.csv")
 
-    for folder_name in os.listdir(ground_truth_dir):
-        folder_path = os.path.join(ground_truth_dir, folder_name)
-        if os.path.isdir(folder_path):
-            ground_truth_attributes = pd.read_csv(f"{folder_path}/attributes_results.csv")
-            ground_truth_relationships = pd.read_csv(f"{folder_path}/relationship_results.csv")
+        ground_truth = [ground_truth_attributes, ground_truth_associations, ground_truth_aggregations,
+                        ground_truth_compositions, ground_truth_inheritance, ground_truth_enums]
+        for model_element, actual, pred in zip(model_elements, ground_truth, predictions):
+            stats = find_stats(list(actual['answer']), list(pred['answer']))
+            stats['domain'] = domain_name
+            stats['model_element'] = model_element
+            detailed_results = pd.concat([detailed_results, pd.DataFrame([stats])])
 
-            prediction_attributes = pd.read_csv(f"{predictions_dir}/{folder_name}/attributes_results.csv")
-            prediction_relationships = pd.read_csv(f"{predictions_dir}/{folder_name}/relationship_results.csv")
-
-            res = find_stats(list(ground_truth_attributes['answer']) + list(ground_truth_relationships['answer']),
-                             list(prediction_attributes['answer']) + list(prediction_relationships['answer']))
-            res['domain'] = folder_name
-            detailed_results = pd.concat([detailed_results, pd.DataFrame([res])])
-
-            final_res = find_metrics_values(res)
-            results = pd.concat([results, pd.DataFrame([final_res])])
-
-    detailed_results.to_csv("../evaluation/detailed_results.csv", index=False)
-    results.to_csv("../evaluation/results.csv", index=False)
+        results = find_metrics_values(detailed_results)
+        detailed_results.to_csv(f"{results_dir}/detailed_results_{domain_name}.csv", index=False)
+        results.to_csv(f"{results_dir}/results_{domain_name}.csv", index=False)
 
 
-# calculate_metrics()
+# calculate_metrics("factory", "../dummy_testing")

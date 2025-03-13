@@ -1,0 +1,1 @@
+description = "A project management system assigns one or multiple projects to students. A student can be an undergraduate student or a graduate student. Each student has a name, email and student id.  Furthermore, each project has a title, description, start date, deadline, and grade. These projects can be classified as research projects or course-based projects."

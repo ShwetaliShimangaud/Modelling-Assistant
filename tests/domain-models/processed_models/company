@@ -1,0 +1,24 @@
+
+class_attributes = {
+    "Department": ['id:integer', 'email:string' ],
+    "Employee" : ['name:string','employeeId:string','employeeNumber:string','email:string'],
+    "Project" : ['title:string','description:string','budget:float','deadline:date'],
+    "ProductionProject" : ['siteCode:string'],
+    "FundingGroup" : ['groupType:enum']
+}
+
+enums = {
+'GroupType' : ["private","group","mixed"]
+}
+
+
+inheritance = [
+{
+    'parent_class': 'Project',
+    'child_classes': ['ProductionProject', 'EducationProject', 'ResearchProject','CommunityProject']
+},
+{
+    'parent_class': 'Employee',
+    'child_classes': ['temporaryEmployee', 'permanentEmployee']
+}
+]

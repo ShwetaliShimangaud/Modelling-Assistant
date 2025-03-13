@@ -1,0 +1,8 @@
+
+
+inheritance = [
+{
+    'parent_class': 'Student',
+    'child_classes': ['UndergraduateStudent', 'GraduateStudent']
+}
+]

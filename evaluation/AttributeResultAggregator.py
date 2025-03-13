@@ -1,10 +1,6 @@
 import os
 import pandas as pd
 
-# TODO Change parent dir
-parent_folder = "../system-test"
-results_folder = "../evaluation"
-
 
 def change_col(val):
     if val == 'TRUE' or val == 'True':
@@ -56,28 +52,48 @@ def group_results(df, col1, col2):
     return new_df
 
 
-def aggregate_attribute_results():
-    domains = ['bank', 'car-maintenance', 'factory', 'flight-reservation', 'hotel-reservation', 'library',
-               'production-cell-inheritance', 'smart-city', 'sustainable-transportation']
-
+def aggregate_attribute_results(folder_path):
+    new_columns = ['equality', 'contradiction', 'inclusion', 'answer']
     try:
-        for folder_name in os.listdir(parent_folder):
-            folder_path = os.path.join(parent_folder, folder_name)
-            if os.path.isdir(folder_path):
-                df = pd.read_csv(f"{parent_folder}/{folder_name}/attributes_pred_map.csv")
-                if not df.empty:
-                    df['equality'] = df['equality'].apply(change_col)
-                    df['contradiction'] = df['contradiction'].apply(change_col)
-                    df['inclusion'] = df['inclusion'].apply(change_col)
-                    processed_df = group_results(df, 'class_name', 'attributes')
+        if os.path.isdir(folder_path):
+            df = pd.read_csv(f"{folder_path}/attributes_pred_map.csv")
+            if not df.empty:
+                df['equality'] = df['equality'].apply(change_col)
+                df['contradiction'] = df['contradiction'].apply(change_col)
+                df['inclusion'] = df['inclusion'].apply(change_col)
+                attributes = group_results(df, 'class_name', 'attributes')
+            else:
+                attributes = pd.DataFrame(columns=list(df.columns)+new_columns)
 
-                    if not os.path.exists(rf"{results_folder}/predictions/{folder_name}"):
-                        os.makedirs(f"{results_folder}/predictions/{folder_name}")
+            df = pd.read_csv(f"{folder_path}/enums_pred_map.csv")
+            if not df.empty:
+                df['equality'] = df['equality'].apply(change_col)
+                df['contradiction'] = df['contradiction'].apply(change_col)
+                df['inclusion'] = df['inclusion'].apply(change_col)
+                enums = group_results(df, 'enum', 'enum_member')
+            else:
+                enums = pd.DataFrame(columns=list(df.columns)+new_columns)
 
-                    processed_df.to_csv(f"{results_folder}/predictions/{folder_name}/attributes_results.csv",
-                                        index=False)
+            return attributes, enums
     except Exception as e:
         raise Exception(e)
-
+    # try:
+    #     for folder_name in os.listdir(parent_folder):
+    #         folder_path = os.path.join(parent_folder, folder_name)
+    #         if os.path.isdir(folder_path):
+    #             df = pd.read_csv(f"{parent_folder}/{folder_name}/attributes_pred_map.csv")
+    #             if not df.empty:
+    #                 df['equality'] = df['equality'].apply(change_col)
+    #                 df['contradiction'] = df['contradiction'].apply(change_col)
+    #                 df['inclusion'] = df['inclusion'].apply(change_col)
+    #                 processed_df = group_results(df, 'class_name', 'attributes')
+    #
+    #                 if not os.path.exists(rf"{results_folder}/predictions/{folder_name}"):
+    #                     os.makedirs(f"{results_folder}/predictions/{folder_name}")
+    #
+    #                 processed_df.to_csv(f"{results_folder}/predictions/{folder_name}/attributes_results.csv",
+    #                                     index=False)
+    # except Exception as e:
+    #     raise Exception(e)
 
 # aggregate_attribute_results()

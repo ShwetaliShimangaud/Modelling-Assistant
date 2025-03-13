@@ -1,0 +1,8 @@
+
+
+inheritance = [
+{
+    'parent_class': 'FeatureType',
+    'child_classes': ['Region', 'Curve', 'Point']
+}
+]

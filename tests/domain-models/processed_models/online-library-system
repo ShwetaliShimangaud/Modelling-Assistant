@@ -1,0 +1,18 @@
+
+enums = {
+"Status" : ['onHold','onLoan','available'],
+"ItemStatus" : [ 'pending','completed'],
+"BookFormat" : ['downloadable','disc'],
+"DigitalType" : [ 'eBook','print']
+}
+
+inheritance = [
+{
+    'parent_class': 'LibraryItem',
+    'child_classes': ['Book', 'Digital']
+},
+{
+    'parent_class': 'Digital',
+    'child_classes': ['Audio', 'Video']
+}
+]

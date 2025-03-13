@@ -21,6 +21,8 @@ def transform_multiplicity(multiplicity):
         return 'zero or more'
     elif multiplicity == '1..*':
         return 'one or more'
+    elif multiplicity == '*':
+        return 'many'
     else:
         raise ValueError("invalid multiplicity")
 

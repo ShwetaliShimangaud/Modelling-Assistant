@@ -1,0 +1,22 @@
+inheritance = [
+{
+    'parent_class': 'Sector',
+    'child_classes': ['SeaSector', 'LandSector', 'CoastSector']
+},
+{
+    'parent_class': 'MilitaryUnit',
+    'child_classes': ['SeaUnit', 'LandUnit','AirUnit']
+},
+{
+    'parent_class': 'SeaUnit',
+    'child_classes': ['Carrier', 'BattleShip', 'Transporter']
+},
+{
+    'parent_class': 'LandUnit',
+    'child_classes': ['Tank', 'Artillery']
+},
+{
+    'parent_class': 'AirUnit',
+    'child_classes': ['FighterPlane', 'Bomber']
+}
+]
