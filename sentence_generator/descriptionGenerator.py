@@ -145,7 +145,7 @@ class DescriptionGenerator:
             sentence = self.post_processor.morphological_process(row['sentence'])
             sentence = sentence.replace("+sg", '')
             sentence = sentence.replace("+pl", '')
-            self.enums.loc[len(self.inheritance)] = [row['enum'], row['enum_member'], sentence]
+            self.enums.loc[len(self.enums)] = [row['enum'], row['enum_member'], sentence]
             processed_sentences.append(sentence)
 
         sentences = processed_sentences

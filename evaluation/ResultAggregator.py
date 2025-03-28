@@ -24,7 +24,7 @@ def find_stats(actual, predicted):
 
     for a, p in zip(actual, predicted):
         if a == 'correct':
-            if p == 'incorrect':
+            if p == 'wrong':
                 correct_incorrect += 1
             elif p == 'no_match':
                 correct_noMatch += 1
@@ -32,8 +32,8 @@ def find_stats(actual, predicted):
                 correct_inconclusive += 1
             elif p == 'correct':
                 correct_correct += 1
-        elif a == 'incorrect':
-            if p == 'incorrect':
+        elif a == 'wrong':
+            if p == 'wrong':
                 incorrect_incorrect += 1
             elif p == 'no_match':
                 incorrect_noMatch += 1
@@ -42,7 +42,7 @@ def find_stats(actual, predicted):
             elif p == 'correct':
                 incorrect_correct += 1
         elif a == 'extra':
-            if p == 'incorrect':
+            if p == 'wrong':
                 extra_incorrect += 1
             elif p == 'no_match':
                 extra_noMatch += 1
@@ -88,14 +88,12 @@ def find_metrics_values(detailed_results):
 
         # Precision for alignment
         alignments_identified_and_correct = row['correct_and_correct']
-        alignments_predicted_correct = (row['correct_and_correct'] + row['incorrect_and_correct'] +
-                                        row['extra_and_correct'])
+        alignments_predicted_correct = (row['correct_and_correct'] + row['incorrect_and_correct'])
         precision_alignment = divide(alignments_identified_and_correct, alignments_predicted_correct)
 
         # Precision for misalignment
         misalignments_identified_and_correct = row['incorrect_and_incorrect']
-        misalignments_predicted_correct = (row['correct_and_incorrect'] + row['incorrect_and_incorrect'] +
-                                           row['extra_and_incorrect'])
+        misalignments_predicted_correct = (row['correct_and_incorrect'] + row['incorrect_and_incorrect'])
         precision_misalignment = divide(misalignments_identified_and_correct, misalignments_predicted_correct)
 
         # Overall precision
@@ -117,9 +115,9 @@ def find_metrics_values(detailed_results):
                                 (alignments + misalignments))
 
         results.loc[len(results)] = [model_element, alignments_identified_and_correct, alignments_predicted_correct,
-                                      misalignments_identified_and_correct, misalignments_predicted_correct,
-                                      alignments, misalignments, precision_alignment, precision_misalignment,
-                                      overall_precision, recall_alignment, recall_misalignment, overall_recall]
+                                     misalignments_identified_and_correct, misalignments_predicted_correct,
+                                     alignments, misalignments, precision_alignment, precision_misalignment,
+                                     overall_precision, recall_alignment, recall_misalignment, overall_recall]
 
     # Precision for all model elements together
     alignments_identified_and_correct = sum(results['alignments_identified_and_correct'])
@@ -140,9 +138,9 @@ def find_metrics_values(detailed_results):
                             (alignments + misalignments))
 
     results.loc[len(results)] = ['all', alignments_identified_and_correct, alignments_predicted_correct,
-                                  misalignments_identified_and_correct, misalignments_predicted_correct,
-                                  alignments, misalignments, precision_alignment, precision_misalignment,
-                                  overall_precision, recall_alignment, recall_misalignment, overall_recall]
+                                 misalignments_identified_and_correct, misalignments_predicted_correct,
+                                 alignments, misalignments, precision_alignment, precision_misalignment,
+                                 overall_precision, recall_alignment, recall_misalignment, overall_recall]
 
     return results
     # total_elements = 0
@@ -194,8 +192,17 @@ def find_metrics_values(detailed_results):
 def calculate_metrics(domain_name, results_dir):
     ground_truth_dir = f'{results_dir}/ground-truth/{domain_name}/'
     predictions_dir = f'{results_dir}/predictions/{domain_name}/'
-
     model_elements = ['attribute', 'association', 'aggregation', 'composition', 'inheritance', 'enum']
+
+    combined_results_csv = f"{results_dir}/results.csv"
+    if not os.path.exists(combined_results_csv):
+        combined_results_csv = pd.DataFrame(
+            columns=['model', 'alignments_identified_and_correct', 'alignments_predicted_correct',
+                     'misalignments_identified_and_correct', 'misalignments_predicted_correct',
+                     'alignments', 'misalignments', 'precision_alignment', 'precision_misalignment',
+                     'overall_precision', 'recall_alignment', 'recall_misalignment', 'overall_recall'])
+    else:
+        combined_results_csv = pd.read_csv(f"{combined_results_csv}")
 
     attributes, enums = aggregate_attribute_results(predictions_dir)
     associations, aggregations, compositions, inheritance = aggregate_relationship_results(predictions_dir)
@@ -209,6 +216,7 @@ def calculate_metrics(domain_name, results_dir):
                  'extra_and_incorrect', 'extra_and_noMatch', 'extra_and_inconclusive'])
 
     if os.path.isdir(ground_truth_dir):
+
         ground_truth_attributes = pd.read_csv(f"{ground_truth_dir}/attributes_results.csv")
         ground_truth_associations = pd.read_csv(f"{ground_truth_dir}/associations_results.csv")
         ground_truth_aggregations = pd.read_csv(f"{ground_truth_dir}/aggregations_results.csv")
@@ -225,8 +233,13 @@ def calculate_metrics(domain_name, results_dir):
             detailed_results = pd.concat([detailed_results, pd.DataFrame([stats])])
 
         results = find_metrics_values(detailed_results)
-        detailed_results.to_csv(f"{results_dir}/detailed_results_{domain_name}.csv", index=False)
-        results.to_csv(f"{results_dir}/results_{domain_name}.csv", index=False)
+        last_row = results.iloc[-1]
+        last_row['model_element'] = domain_name
+        combined_results_csv.loc[len(combined_results_csv)] = list(last_row)
+
+        detailed_results.to_csv(f"{predictions_dir}/detailed_results_{domain_name}.csv", index=False)
+        results.to_csv(f"{predictions_dir}/results_{domain_name}.csv", index=False)
+        combined_results_csv.to_csv(f"{results_dir}/results.csv", index=False)
 
 
-# calculate_metrics("factory", "../dummy_testing")
+# calculate_metrics("R5-computer-game2", "../final_evaluation_misalignment")

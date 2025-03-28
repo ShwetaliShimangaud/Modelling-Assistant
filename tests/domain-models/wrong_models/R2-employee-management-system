@@ -1,0 +1,34 @@
+associations = [
+    {
+        'class1': 'Department',
+        'class2': 'Employee',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': 'worksIn',
+        'role_class2': '',
+    },
+]
+
+compositions = [
+]
+
+inheritance = [
+    {
+        'parent_class': 'Manager',
+        'child_classes': ['ShiftWorker'],
+    },
+    {
+        'parent_class': 'ShiftWorker',
+        'child_classes': ['Worker'],
+    },
+    {
+        'parent_class': 'Department',
+        'child_classes': ['OffShiftWorker'],
+    },
+    {
+        'parent_class': 'Production',
+        'child_classes': ['Department'],
+    },
+]
+

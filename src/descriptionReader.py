@@ -17,7 +17,7 @@ class DescriptionReader:
         self.domain_name = domain_name
 
     def get_actual_description(self):
-        with open(description_file_path + self.domain_name, 'r') as file:
+        with open(description_file_path + self.domain_name, 'r', encoding='utf-8') as file:
             content = file.read()
 
         local_vars = {}

@@ -1,0 +1,43 @@
+associations = [
+    {
+        'class1': 'Reservation',
+        'class2': 'ItemOrdered',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': '',
+    },
+    {
+        'class1': 'Reservation',
+        'class2': 'Waiter',
+        'cardinality_class1': '1',
+        'cardinality_class2': '1..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': '',
+    },
+]
+
+compositions = [
+]
+
+inheritance = [
+    {
+        'parent_class': 'Individual',
+        'child_classes': ['BusPerson'],
+    },
+    {
+        'parent_class': 'BusPerson',
+        'child_classes': ['Worker'],
+    },
+    {
+        'parent_class': 'ItemOrdered',
+        'child_classes': ['Banquet'],
+    },
+    {
+        'parent_class': 'Banquet',
+        'child_classes': ['Reservation'],
+    },
+]
+

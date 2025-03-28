@@ -1,0 +1,49 @@
+associations = [
+    {
+        'class1': 'User',
+        'class2': 'Wallet',
+        'cardinality_class1': '',
+        'cardinality_class2': '1..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': '',
+    },
+    {
+        'class1': 'Donation',
+        'class2': 'Organization',
+        'cardinality_class1': '',
+        'cardinality_class2': '1..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'to',
+    },
+    {
+        'class1': 'User',
+        'class2': 'InitialPublicOffering',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'apply',
+    },
+]
+
+compositions = [
+    {
+        'parent_class': 'Transaction',
+        'child_class': 'Wallet',
+        'cardinality': '',
+    },
+]
+
+inheritance = [
+    {
+        'parent_class': 'InitialPublicOffering',
+        'child_classes': ['UsernamePassword'],
+    },
+    {
+        'parent_class': 'UsernamePassword',
+        'child_classes': ['LoginOptions'],
+    },
+]
+

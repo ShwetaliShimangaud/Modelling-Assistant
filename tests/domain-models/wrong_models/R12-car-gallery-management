@@ -1,0 +1,63 @@
+associations = [
+    {
+        'class1': 'Customer',
+        'class2': 'car',
+        'cardinality_class1': '0..*',
+        'cardinality_class2': '0..1',
+        'name': '',
+        'role_class1': 'rentedBy',
+        'role_class2': 'rentedCars',
+    },
+    {
+        'class1': 'Customer',
+        'class2': 'car',
+        'cardinality_class1': '0..1',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'rentedCars',
+        'role_class2': 'rentedBy',
+    },
+    {
+        'class1': 'Customer',
+        'class2': 'Lease',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '0..1',
+        'name': '',
+        'role_class1': 'rentingCustomer',
+        'role_class2': 'rentals',
+    },
+    {
+        'class1': 'Customer',
+        'class2': 'Lease',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'rentals',
+        'role_class2': 'rentingCustomer',
+    },
+    {
+        'class1': 'Car',
+        'class2': 'Lease',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'rentedCar',
+        'role_class2': 'currentRental',
+    },
+    {
+        'class1': 'Car',
+        'class2': 'Lease',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..1',
+        'name': '',
+        'role_class1': 'currentRental',
+        'role_class2': 'rentedCar',
+    },
+]
+
+compositions = [
+]
+
+inheritance = [
+]
+

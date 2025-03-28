@@ -1,0 +1,18 @@
+associations = [
+    {
+        'class1': 'Student',
+        'class2': 'Course',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'enrolls',
+    },
+]
+
+compositions = [
+]
+
+inheritance = [
+]
+

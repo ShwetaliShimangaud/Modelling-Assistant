@@ -1,0 +1,23 @@
+associations = [
+    {
+        'class1': 'Bank',
+        'class2': 'CentralComputer',
+        'cardinality_class1': '1',
+        'cardinality_class2': '1..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': '',
+    },
+]
+
+compositions = [
+    {
+        'parent_class': 'Account',
+        'child_class': 'Bank',
+        'cardinality': '0..*',
+    },
+]
+
+inheritance = [
+]
+

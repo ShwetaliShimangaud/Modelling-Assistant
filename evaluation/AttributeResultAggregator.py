@@ -20,10 +20,10 @@ def find_common_answer(lst):
 
 
 # Grouping by class_name and attribute_name
-def process_group(group):
+def process_group(group, col1, col2):
     result = {
-        'class_name': group['class_name'].iloc[0],
-        'attribute_name': group['attributes'].iloc[0],
+        col1: group[col1].iloc[0],
+        col2: group[col2].iloc[0],
         'generated_sentence': group['generated_description'].iloc[0],
         'actual_sentence': group['actual_description'].iloc[0],
         'equality': find_common_answer(list(group['equality'])),
@@ -48,7 +48,7 @@ def process_group(group):
 
 
 def group_results(df, col1, col2):
-    new_df = df.groupby([col1, col2]).apply(process_group).reset_index(drop=True)
+    new_df = df.groupby([col1, col2]).apply(lambda group: process_group(group, col1, col2)).reset_index(drop=True)
     return new_df
 
 
@@ -63,16 +63,16 @@ def aggregate_attribute_results(folder_path):
                 df['inclusion'] = df['inclusion'].apply(change_col)
                 attributes = group_results(df, 'class_name', 'attributes')
             else:
-                attributes = pd.DataFrame(columns=list(df.columns)+new_columns)
+                attributes = pd.DataFrame(columns=list(df.columns) + new_columns)
 
             df = pd.read_csv(f"{folder_path}/enums_pred_map.csv")
             if not df.empty:
                 df['equality'] = df['equality'].apply(change_col)
                 df['contradiction'] = df['contradiction'].apply(change_col)
                 df['inclusion'] = df['inclusion'].apply(change_col)
-                enums = group_results(df, 'enum', 'enum_member')
+                enums = group_results(df, 'source', 'target')
             else:
-                enums = pd.DataFrame(columns=list(df.columns)+new_columns)
+                enums = pd.DataFrame(columns=list(df.columns) + new_columns)
 
             return attributes, enums
     except Exception as e:

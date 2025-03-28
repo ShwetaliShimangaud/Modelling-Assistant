@@ -1,0 +1,27 @@
+associations = [
+    {
+        'class1': 'FootballTeam',
+        'class2': 'FootballPlayer',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': 'playsFor',
+        'role_class2': 'has',
+    },
+    {
+        'class1': 'FootballTeam',
+        'class2': 'FootballPlayer',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'has',
+        'role_class2': 'playsFor',
+    },
+]
+
+compositions = [
+]
+
+inheritance = [
+]
+

@@ -1,0 +1,36 @@
+associations = [
+    {
+        'class1': 'Product',
+        'class2': 'Stock',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': 'contains',
+        'role_class2': 'ProductStock',
+    },
+    {
+        'class1': 'Customer',
+        'class2': 'Invoice',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': '',
+    },
+]
+
+compositions = [
+    {
+        'parent_class': 'Stock',
+        'child_class': 'Supermarket',
+        'cardinality': '',
+    },
+]
+
+inheritance = [
+{
+        'parent_class': 'ExtraCustomer',
+        'child_classes': ['Customer'],
+    },
+]
+

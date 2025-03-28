@@ -49,7 +49,13 @@ class Assistant:
         self.results_dir = results_dir
         self.description_reader = DescriptionReader(domain_name)
 
-        self.log_file_path = f"{results_dir}/{domain_name}_logs.txt"
+        # TODO Redundant part
+        self.domain_name = domain_name
+
+        self.log_file_path = f"{results_dir}//predictions//{self.domain_name}//domain_logs.txt"
+        if not os.path.exists(rf"{results_dir}//predictions//{self.domain_name}"):
+            os.makedirs(f"{results_dir}//predictions//{self.domain_name}")
+
         if not os.path.exists(self.log_file_path):
             with open(self.log_file_path, "w") as f:
                 f.write("Execution Time Log\n")
@@ -59,9 +65,6 @@ class Assistant:
 
         self.concepts_extractor = ConceptsExtractor()
         self.relationships_extractor = RelationshipsExtractor()
-
-        # TODO Redundant part
-        self.domain_name = domain_name
 
         # Tokenizer treats 'id' as I'd and that's why it gets split as 'I' and 'd'.
         # but here I want it to be a single word, hence removing that rule.
@@ -155,5 +158,5 @@ class Assistant:
         print("Done")
 
 
-assistant = Assistant("factory", "../dummy_testing")
+assistant = Assistant("R4-computer-game1", "../final_evaluation_misalignment")
 assistant.run()

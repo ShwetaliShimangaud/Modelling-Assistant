@@ -1,0 +1,44 @@
+associations = [
+    {
+        'class1': 'Hotel',
+        'class2': 'Standard',
+        'cardinality_class1': '',
+        'cardinality_class2': '6',
+        'name': '',
+        'role_class1': '',
+        'role_class2': '',
+    },
+    {
+        'class1': 'Hotel',
+        'class2': 'Deluxe',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': '',
+    },
+    {
+        'class1': 'Hotel',
+        'class2': 'LargeDeluxe',
+        'cardinality_class1': '',
+        'cardinality_class2': '100',
+        'name': '',
+        'role_class1': '',
+        'role_class2': '',
+    },
+]
+
+compositions = [
+]
+
+inheritance = [
+    {
+        'parent_class': 'Room',
+        'child_classes': ['Reservation'],
+    },
+    {
+        'parent_class': 'Deluxe',
+        'child_classes': ['Room'],
+    },
+]
+

@@ -1,0 +1,26 @@
+associations = [
+    {
+        'class1': 'RentalOffice',
+        'class2': 'Vehicle',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': 'homeOffice',
+        'role_class2': '',
+    },
+]
+
+compositions = [
+]
+
+inheritance = [
+    {
+        'parent_class': 'Company',
+        'child_classes': ['Individual'],
+    },
+    {
+        'parent_class': 'Individual',
+        'child_classes': ['Customer'],
+    },
+]
+

@@ -32,3 +32,26 @@ class ContradictionChecker(AbstractChecker):
         else:
             return self.attribute_prompts
 
+    def process_response(self, response, model_element):
+        if model_element in ['associations', 'aggregations', 'enums']:
+            response = response.replace('*', '').lower()
+            if 'conclusion: yes' in response:
+                return "Yes"
+            elif 'conclusion: not sure' in response:
+                return 'not sure'
+            elif 'conclusion: no' in response:
+                return 'No'
+            else:
+                return "not clear"
+        if model_element == 'inheritance':
+            response = response.replace('*', '').lower()
+            if 'conclusion: yes' in response:
+                return "No"
+            elif 'conclusion: not sure' in response:
+                return 'not sure'
+            elif 'conclusion: no' in response:
+                return 'Yes'
+            else:
+                return "not clear"
+        else:
+            return response

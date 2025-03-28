@@ -20,6 +20,9 @@ class EqualityChecker(AbstractChecker):
     def get_prompts(self, model_element):
         return self.prompts
 
+    def process_response(self, response, model_element):
+        return response
+
     # def run(self, actual_sentence, generated_sentence):
     #     positive_count = 0
     #     negative_count = 0

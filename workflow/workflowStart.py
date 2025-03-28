@@ -8,7 +8,7 @@ from workflow.contradictionChecker import ContradictionChecker
 from workflow.containmentChecker import ContainmentChecker
 
 
-def get_prompts(file_name):
+def get_prompts(file_name, model_element):
     dirname = util.get_project_directory()
     file_path = os.path.join(dirname, f'src/resources/prompts/{file_name}')
     with open(file_path, 'r') as file:
@@ -17,6 +17,22 @@ def get_prompts(file_name):
     local_vars = {}
 
     exec(content, local_vars)
+
+    if file_name == 'contradiction':
+        attribute_prompts = local_vars['attribute_prompts']
+        association_prompts = local_vars['association_prompts']
+        inheritance_prompt = local_vars['inheritance_prompt']
+        enum_prompt = local_vars['enum_prompt']
+
+        if model_element == 'associations' or model_element == 'aggregations':
+            return association_prompts
+        elif model_element == 'inheritance':
+            return inheritance_prompt
+        elif model_element == 'enums':
+            return enum_prompt
+        else:
+            return attribute_prompts
+
     return local_vars['prompts']
 
 
@@ -30,16 +46,16 @@ class WorkflowStart:
         # self.difference_finder = DifferenceFinder()
         self.domain = domain
         self.checks = ['equality', 'contradiction', 'inclusion']
-        self.check_prompts = {}
         self.checkers = {}
         self.check_results = {}
 
+        self.elements = ['attributes', 'associations', 'aggregations', 'compositions', 'inheritance', 'enums']
+
         for check in self.checks:
-            # prompts = ['actual_description', 'generated_description']
-            # prompts.extend(get_prompts(check))
-            #
-            # self.check_prompts[check] = prompts
-            # self.check_results[check] = pd.DataFrame(columns=prompts)
+            for element in self.elements:
+                prompts = ['actual_description', 'generated_description']
+                prompts.extend(get_prompts(check, element))
+                self.check_results[(check, element)] = pd.DataFrame(columns=prompts)
             self.checkers[check] = self.get_checker(check)
 
     def get_checker(self, check):
@@ -60,7 +76,6 @@ class WorkflowStart:
         # accordingly add it in warnings or errors array, Run next checker only if result of previous checker is false
 
         errors = []
-        elements = ['attributes', 'associations', 'aggregations', 'compositions', 'inheritance', 'enums']
 
         if not os.path.exists(rf"{self.results_dir}"):
             os.makedirs(f"{self.results_dir}")
@@ -83,32 +98,46 @@ class WorkflowStart:
                 # each check
                 for check_index, check in enumerate(self.checks):
                     checker = self.checkers[check]
-                    # check_res = self.check_results[check]
+                    check_res = self.check_results[(check, self.elements[index])]
 
-                    results, res = checker.run(actual_description, generated_description, source, target,
-                                               elements[index], multiplicity)
-                    pred_map.at[i, check] = res
-                    result = [actual_description, generated_description]
-                    result.extend(results)
-                    # check_res.loc[len(check_res)] = result
+                    if check not in pred_map.columns or pred_map.at[i, check] is None or pd.isna(pred_map.at[i, check]):
+                        results, res = checker.run(actual_description, generated_description, source, target,
+                                                   self.elements[index], multiplicity)
+                        pred_map.at[i, check] = res
+                        result = [actual_description, generated_description]
+                        result.extend(results)
+                        check_res.loc[len(check_res)] = result
 
-                    if isinstance(res, bool):
-                        if res:
-                            if check == 'contradiction':
-                                errors.append({
-                                    'actual_description': actual_description,
-                                    'generated_description': generated_description
-                                })
+                        if isinstance(res, bool):
+                            if res:
+                                if check == 'contradiction':
+                                    errors.append({
+                                        'actual_description': actual_description,
+                                        'generated_description': generated_description
+                                    })
 
-                            # This function add False value for remaining checks, this is done to avoid code break in
-                            # next steps
-                            self.add_dummy_values(check_index, pred_map, i)
-                            break
+                                    # This function add False value for remaining checks, this is done to avoid code
+                                    # break in next steps
+                                self.add_dummy_values(check_index, pred_map, i)
+                                break
 
-            pred_map.to_csv(f"{self.results_dir}/{self.domain}/{elements[index]}_pred_map.csv", index=False)
-
-        # for check in self.checks:
-        #     check_res = self.check_results[check]
-        #     check_res.to_excel(f"{parent_folder}/{self.domain}/{check}_check.xlsx", index=False)
+            pred_map.to_csv(f"{self.results_dir}/{self.domain}/{self.elements[index]}_pred_map.csv", index=False)
+        for check in self.checks:
+            for element in self.elements:
+                check_res = self.check_results[(check, element)]
+                check_res.to_excel(f"{self.results_dir}/{self.domain}/{element}_{check}_check.xlsx", index=False)
 
         return errors
+
+
+# domain_name, results_dir = "R19-airport", "../final_evaluation_misalignment"
+# attributes_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/attributes_pred_map.csv")
+# associations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/associations_pred_map.csv")
+# aggregations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/aggregations_pred_map.csv")
+# compositions_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/compositions_pred_map.csv")
+# inheritance_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/inheritance_pred_map.csv")
+# enum_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/enums_pred_map.csv")
+# workflow = WorkflowStart(
+#     [attributes_map, associations_map, aggregations_map, compositions_map,
+#      inheritance_map, enum_map], domain_name, results_dir)
+# errors = workflow.run()

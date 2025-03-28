@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="ASCII"?>
+<classdiagram:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:classdiagram="http://cs.mcgill.ca/sel/cdm/1.0" xmi:id="_EnP8YOrrEe-icfF2ipdYYg" name="Strategic Conquest">
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnRxkOrrEe-icfF2ipdYYg" name="Game">
+    <associationEnds xmi:id="_EnUN0OrrEe-icfF2ipdYYg" name="participants" assoc="_EnksgOrrEe-icfF2ipdYYg" lowerBound="2" upperBound="-1"/>
+    <associationEnds xmi:id="_EnUN0errEe-icfF2ipdYYg" name="map" assoc="_EnksgerrEe-icfF2ipdYYg" upperBound="-1" referenceType="Aggregation"/>
+    <associationEnds xmi:id="_EnUN0urrEe-icfF2ipdYYg" name="currentPlayer" assoc="_EnksgurrEe-icfF2ipdYYg"/>
+    <attributes xmi:id="_EnU04errEe-icfF2ipdYYg" name="numElapsedDays" type="_Enel4OrrEe-icfF2ipdYYg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnVb8OrrEe-icfF2ipdYYg" name="Player">
+    <associationEnds xmi:id="_EnVb8errEe-icfF2ipdYYg" name="units" assoc="_EnkFcerrEe-icfF2ipdYYg" upperBound="-1"/>
+    <associationEnds xmi:id="_EnVb8urrEe-icfF2ipdYYg" name="participatingIn" navigable="false" assoc="_EnksgOrrEe-icfF2ipdYYg" upperBound="-1"/>
+    <associationEnds xmi:id="_EnVb8-rrEe-icfF2ipdYYg" name="focussingOn" navigable="false" assoc="_EnksgurrEe-icfF2ipdYYg"/>
+    <associationEnds xmi:id="_EnWDAOrrEe-icfF2ipdYYg" name="myCities" assoc="_Enksg-rrEe-icfF2ipdYYg" upperBound="-1"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnWqEOrrEe-icfF2ipdYYg" name="MilitaryUnit">
+    <associationEnds xmi:id="_EnWqEerrEe-icfF2ipdYYg" name="owner" assoc="_EnkFcerrEe-icfF2ipdYYg" lowerBound="1"/>
+    <associationEnds xmi:id="_EnXRIOrrEe-icfF2ipdYYg" name="currentLocation" assoc="_EnkFc-rrEe-icfF2ipdYYg" lowerBound="1"/>
+    <associationEnds xmi:id="_8uiaEOryEe-icfF2ipdYYg" name="myProductionItem" navigable="false" assoc="_8uiaEeryEe-icfF2ipdYYg" lowerBound="1"/>
+    <attributes xmi:id="_EnX4MOrrEe-icfF2ipdYYg" name="state" type="_Enf0AerrEe-icfF2ipdYYg"/>
+    <attributes xmi:id="_EnX4MerrEe-icfF2ipdYYg" name="speed" type="_Enel4OrrEe-icfF2ipdYYg"/>
+    <attributes xmi:id="_EnX4MurrEe-icfF2ipdYYg" name="currentForce" type="_Enel4OrrEe-icfF2ipdYYg"/>
+    <attributes xmi:id="_EnX4M-rrEe-icfF2ipdYYg" name="maxForce" type="_Enel4OrrEe-icfF2ipdYYg"/>
+    <attributes xmi:id="_EnX4NOrrEe-icfF2ipdYYg" name="daysToProduce" type="_Enel4OrrEe-icfF2ipdYYg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnX4NerrEe-icfF2ipdYYg" name="SeaUnit" superTypes="_EnWqEOrrEe-icfF2ipdYYg"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnYfQOrrEe-icfF2ipdYYg" name="LandUnit" superTypes="_EnWqEOrrEe-icfF2ipdYYg">
+    <associationEnds xmi:id="_EnYfQerrEe-icfF2ipdYYg" name="transportedBy" assoc="_EnkFcOrrEe-icfF2ipdYYg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnYfQurrEe-icfF2ipdYYg" name="AirUnit" superTypes="_EnWqEOrrEe-icfF2ipdYYg">
+    <attributes xmi:id="_EnYfQ-rrEe-icfF2ipdYYg" name="fuelLevel" type="_Enel4OrrEe-icfF2ipdYYg"/>
+    <attributes xmi:id="_EnYfROrrEe-icfF2ipdYYg" name="maxFuel" type="_Enel4OrrEe-icfF2ipdYYg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnYfRerrEe-icfF2ipdYYg" name="Battleship" superTypes="_EnX4NerrEe-icfF2ipdYYg">
+    <attributes xmi:id="_EnYfRurrEe-icfF2ipdYYg" name="radarRange" type="_Enel4OrrEe-icfF2ipdYYg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnYfR-rrEe-icfF2ipdYYg" name="Transporter" superTypes="_EnX4NerrEe-icfF2ipdYYg">
+    <associationEnds xmi:id="_EnYfSOrrEe-icfF2ipdYYg" name="unitsOnBoard" assoc="_EnkFcOrrEe-icfF2ipdYYg" upperBound="6"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnYfSerrEe-icfF2ipdYYg" name="Tank" superTypes="_EnYfQOrrEe-icfF2ipdYYg"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnYfSurrEe-icfF2ipdYYg" name="Artillery" superTypes="_EnYfQOrrEe-icfF2ipdYYg">
+    <attributes xmi:id="_EnYfS-rrEe-icfF2ipdYYg" name="radarRange" type="_Enel4OrrEe-icfF2ipdYYg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnZGUOrrEe-icfF2ipdYYg" name="FighterPlane" superTypes="_EnYfQurrEe-icfF2ipdYYg"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnZGUerrEe-icfF2ipdYYg" name="City">
+    <associationEnds xmi:id="_EnZGUurrEe-icfF2ipdYYg" name="mySector" navigable="false" assoc="_EnkFcurrEe-icfF2ipdYYg" lowerBound="1"/>
+    <associationEnds xmi:id="_EnZGVOrrEe-icfF2ipdYYg" name="owner" assoc="_Enksg-rrEe-icfF2ipdYYg"/>
+    <associationEnds xmi:id="_2mmygOryEe-icfF2ipdYYg" name="myProductionItem" navigable="false" assoc="_2mmygeryEe-icfF2ipdYYg" lowerBound="1"/>
+    <attributes xmi:id="_EnZGVerrEe-icfF2ipdYYg" name="name" type="_EnfM8errEe-icfF2ipdYYg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnZGVurrEe-icfF2ipdYYg" name="Sector">
+    <associationEnds xmi:id="_EnZGV-rrEe-icfF2ipdYYg" name="contains" assoc="_EnkFcurrEe-icfF2ipdYYg" referenceType="Composition"/>
+    <associationEnds xmi:id="_EnZGWOrrEe-icfF2ipdYYg" name="currentUnits" assoc="_EnkFc-rrEe-icfF2ipdYYg" upperBound="-1"/>
+    <associationEnds xmi:id="_EnZtYOrrEe-icfF2ipdYYg" name="myGame" navigable="false" assoc="_EnksgerrEe-icfF2ipdYYg" lowerBound="1"/>
+    <attributes xmi:id="_EnZtYerrEe-icfF2ipdYYg" name="xPos" type="_Enel4OrrEe-icfF2ipdYYg"/>
+    <attributes xmi:id="_EnZtYurrEe-icfF2ipdYYg" name="yPos" type="_Enel4OrrEe-icfF2ipdYYg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnZtY-rrEe-icfF2ipdYYg" name="SeaSector" superTypes="_EnZGVurrEe-icfF2ipdYYg"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnZtZOrrEe-icfF2ipdYYg" name="LandSector" superTypes="_EnZGVurrEe-icfF2ipdYYg"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_EnZtZerrEe-icfF2ipdYYg" name="CoastSector" superTypes="_EnZGVurrEe-icfF2ipdYYg"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_KYVxQOrrEe-icfF2ipdYYg" name="ProductionItem">
+    <associationEnds xmi:id="_2mmLcOryEe-icfF2ipdYYg" name="producingCity" assoc="_2mmygeryEe-icfF2ipdYYg" lowerBound="1"/>
+    <associationEnds xmi:id="_8uhzAOryEe-icfF2ipdYYg" name="unitUnderConstruction" assoc="_8uiaEeryEe-icfF2ipdYYg" lowerBound="1"/>
+    <attributes xmi:id="_MBe5UOrrEe-icfF2ipdYYg" name="daysLeft" type="_Enel4OrrEe-icfF2ipdYYg"/>
+  </classes>
+  <classes xsi:type="classdiagram:Class" xmi:id="_0-GnUPELEe-t5qdNLOXJ4w" name="Bomber" superTypes="_EnYfQurrEe-icfF2ipdYYg"/>
+  <classes xsi:type="classdiagram:Class" xmi:id="_4lFVEPELEe-t5qdNLOXJ4w" name="Carrier" superTypes="_EnX4NerrEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDVoid" xmi:id="_EnaUcOrrEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDAny" xmi:id="_EnbikOrrEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDBoolean" xmi:id="_EncwsOrrEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDDouble" xmi:id="_End-0OrrEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDInt" xmi:id="_Enel4OrrEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDLong" xmi:id="_EnfM8OrrEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDString" xmi:id="_EnfM8errEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDByte" xmi:id="_EnfM8urrEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDFloat" xmi:id="_EnfM8-rrEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDChar" xmi:id="_Enf0AOrrEe-icfF2ipdYYg"/>
+  <types xsi:type="classdiagram:CDEnum" xmi:id="_Enf0AerrEe-icfF2ipdYYg" name="UnitStatus">
+    <literals xmi:id="_EnhCIOrrEe-icfF2ipdYYg" name="AwaitingOrders"/>
+    <literals xmi:id="_EnhCIerrEe-icfF2ipdYYg" name="Fortified"/>
+    <literals xmi:id="_EniQQOrrEe-icfF2ipdYYg" name="Moving"/>
+  </types>
+  <associations xmi:id="_EnkFcOrrEe-icfF2ipdYYg" name="Transporter_LandUnit" ends="_EnYfSOrrEe-icfF2ipdYYg _EnYfQerrEe-icfF2ipdYYg"/>
+  <associations xmi:id="_EnkFcerrEe-icfF2ipdYYg" name="Player_MilitaryUnit" ends="_EnVb8errEe-icfF2ipdYYg _EnWqEerrEe-icfF2ipdYYg"/>
+  <associations xmi:id="_EnkFcurrEe-icfF2ipdYYg" name="Sector_City" ends="_EnZGV-rrEe-icfF2ipdYYg _EnZGUurrEe-icfF2ipdYYg"/>
+  <associations xmi:id="_EnkFc-rrEe-icfF2ipdYYg" name="Sector_MilitaryUnit" ends="_EnZGWOrrEe-icfF2ipdYYg _EnXRIOrrEe-icfF2ipdYYg"/>
+  <associations xmi:id="_EnksgOrrEe-icfF2ipdYYg" name="Game_Player" ends="_EnUN0OrrEe-icfF2ipdYYg _EnVb8urrEe-icfF2ipdYYg"/>
+  <associations xmi:id="_EnksgerrEe-icfF2ipdYYg" name="Sector_Game" ends="_EnZtYOrrEe-icfF2ipdYYg _EnUN0errEe-icfF2ipdYYg"/>
+  <associations xmi:id="_EnksgurrEe-icfF2ipdYYg" name="Game_Player" ends="_EnUN0urrEe-icfF2ipdYYg _EnVb8-rrEe-icfF2ipdYYg"/>
+  <associations xmi:id="_Enksg-rrEe-icfF2ipdYYg" name="City_Player" ends="_EnZGVOrrEe-icfF2ipdYYg _EnWDAOrrEe-icfF2ipdYYg"/>
+  <associations xmi:id="_2mmygeryEe-icfF2ipdYYg" name="ProductionItem_City" ends="_2mmLcOryEe-icfF2ipdYYg _2mmygOryEe-icfF2ipdYYg"/>
+  <associations xmi:id="_8uiaEeryEe-icfF2ipdYYg" name="ProductionItem_MilitaryUnit" ends="_8uhzAOryEe-icfF2ipdYYg _8uiaEOryEe-icfF2ipdYYg"/>
+  <layout xmi:id="_EnkshOrrEe-icfF2ipdYYg">
+    <containers xmi:id="_EnlTkOrrEe-icfF2ipdYYg" key="_EnP8YOrrEe-icfF2ipdYYg">
+      <value xmi:id="_EnlTkerrEe-icfF2ipdYYg" key="_EnRxkOrrEe-icfF2ipdYYg">
+        <value xmi:id="_Enl6oOrrEe-icfF2ipdYYg" x="531.64594" y="-526.1222"/>
+      </value>
+      <value xmi:id="_Enl6oerrEe-icfF2ipdYYg" key="_EnVb8OrrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhsOrrEe-icfF2ipdYYg" x="544.678" y="-214.9777"/>
+      </value>
+      <value xmi:id="_EnmhserrEe-icfF2ipdYYg" key="_EnWqEOrrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhsurrEe-icfF2ipdYYg" x="539.0793" y="127.86833"/>
+      </value>
+      <value xmi:id="_Enmhs-rrEe-icfF2ipdYYg" key="_EnX4NerrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhtOrrEe-icfF2ipdYYg" x="256.3738" y="419.72968"/>
+      </value>
+      <value xmi:id="_EnmhterrEe-icfF2ipdYYg" key="_EnYfQOrrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhturrEe-icfF2ipdYYg" x="651.5905" y="419.82983"/>
+      </value>
+      <value xmi:id="_Enmht-rrEe-icfF2ipdYYg" key="_EnYfQurrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhuOrrEe-icfF2ipdYYg" x="1007.0161" y="391.7287"/>
+      </value>
+      <value xmi:id="_EnmhuerrEe-icfF2ipdYYg" key="_Enf0AerrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhuurrEe-icfF2ipdYYg" x="833.8774" y="-37.93204"/>
+      </value>
+      <value xmi:id="_Enmhu-rrEe-icfF2ipdYYg" key="_EnYfRerrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhvOrrEe-icfF2ipdYYg" x="256.3738" y="566.14044"/>
+      </value>
+      <value xmi:id="_EnmhverrEe-icfF2ipdYYg" key="_EnYfR-rrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhvurrEe-icfF2ipdYYg" x="443.56387" y="581.13654"/>
+      </value>
+      <value xmi:id="_Enmhv-rrEe-icfF2ipdYYg" key="_EnYfSerrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhwOrrEe-icfF2ipdYYg" x="651.5796" y="581.2203"/>
+      </value>
+      <value xmi:id="_EnmhwerrEe-icfF2ipdYYg" key="_EnYfSurrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhwurrEe-icfF2ipdYYg" x="833.79846" y="566.2537"/>
+      </value>
+      <value xmi:id="_Enmhw-rrEe-icfF2ipdYYg" key="_EnZGUOrrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhxOrrEe-icfF2ipdYYg" x="1006.943" y="581.1408"/>
+      </value>
+      <value xmi:id="_EnmhxerrEe-icfF2ipdYYg" key="_EnZGUerrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhxurrEe-icfF2ipdYYg" x="175.34213" y="-74.66419"/>
+      </value>
+      <value xmi:id="_Enmhx-rrEe-icfF2ipdYYg" key="_EnZGVurrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhyOrrEe-icfF2ipdYYg" x="-63.38838" y="211.79846"/>
+      </value>
+      <value xmi:id="_EnmhyerrEe-icfF2ipdYYg" key="_EnZtY-rrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhyurrEe-icfF2ipdYYg" x="-176.47128" y="419.7287"/>
+      </value>
+      <value xmi:id="_Enmhy-rrEe-icfF2ipdYYg" key="_EnZtZOrrEe-icfF2ipdYYg">
+        <value xmi:id="_EnmhzOrrEe-icfF2ipdYYg" x="-63.38838" y="476.99762"/>
+      </value>
+      <value xmi:id="_EnmhzerrEe-icfF2ipdYYg" key="_EnZtZerrEe-icfF2ipdYYg">
+        <value xmi:id="_EnnIwOrrEe-icfF2ipdYYg" x="62.905598" y="419.58838"/>
+      </value>
+      <value xmi:id="_KYlB0OrrEe-icfF2ipdYYg" key="_KYVxQOrrEe-icfF2ipdYYg">
+        <value xmi:id="_KYlB0errEe-icfF2ipdYYg" x="171.84213" y="121.886185"/>
+      </value>
+      <value xmi:id="_0-NVAPELEe-t5qdNLOXJ4w" key="_0-GnUPELEe-t5qdNLOXJ4w">
+        <value xmi:id="_0-N8EPELEe-t5qdNLOXJ4w" x="1182.2589" y="581.1408"/>
+      </value>
+      <value xmi:id="_4lMCwPELEe-t5qdNLOXJ4w" key="_4lFVEPELEe-t5qdNLOXJ4w">
+        <value xmi:id="_4lMCwfELEe-t5qdNLOXJ4w" x="62.905594" y="581.1408"/>
+      </value>
+    </containers>
+  </layout>
+</classdiagram:ClassDiagram>

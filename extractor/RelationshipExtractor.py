@@ -629,7 +629,7 @@ class RelationshipsExtractor:
             "many",
             "some",
             "multiple",
-            "diferent",
+            "different",
             "diverse",
             "certain",
             "several",

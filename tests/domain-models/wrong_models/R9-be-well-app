@@ -1,0 +1,40 @@
+associations = [
+    {
+        'class1': 'App',
+        'class2': 'Video',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': '',
+    },
+    {
+        'class1': 'Day',
+        'class2': 'Diet',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': '',
+    },
+]
+
+compositions = [
+    {
+        'parent_class': 'Calender',
+        'child_class': 'User',
+        'cardinality': '',
+    },
+]
+
+inheritance = [
+    {
+        'parent_class': 'App',
+        'child_classes': ['Running'],
+    },
+    {
+        'parent_class': 'Running',
+        'child_classes': ['Activity'],
+    },
+]
+

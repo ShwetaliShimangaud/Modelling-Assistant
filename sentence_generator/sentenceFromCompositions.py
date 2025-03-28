@@ -27,6 +27,10 @@ class SentenceFromCompositions(AbstractSentenceGenerator):
         for composition in self.compositions:
             parent_class_name = util.format_class_name(composition['parent_class'])
             child_class_name = util.format_class_name(composition['child_class'])
+            cardinality = composition['cardinality']
+
+            if len(cardinality) == 0:
+                cardinality = "0..*"
 
             if 'role' in composition:
                 role = util.format_role_name(composition['role'])
@@ -36,8 +40,11 @@ class SentenceFromCompositions(AbstractSentenceGenerator):
             part_of_sentence = ''
             part_of_sentence += "Each " + parent_class_name + " "
             part_of_sentence += self.composition_phrase + " "
-            part_of_sentence += util.get_cardinality(composition['cardinality']) + " "
-            part_of_sentence += child_class_name
+
+            if not util.is_singular(cardinality):
+                part_of_sentence += util.get_plural(child_class_name)
+            else:
+                part_of_sentence += child_class_name
             self.sentences.append(part_of_sentence)
             self.compositions_result.loc[len(self.compositions_result)] = [parent_class_name, child_class_name, role,
                                                                            None,

@@ -1,0 +1,35 @@
+associations = [
+    {
+        'class1': 'Member',
+        'class2': 'Reservation',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': 'madeBy',
+        'role_class2': 'reservations',
+    },
+    {
+        'class1': 'Member',
+        'class2': 'Reservation',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'reservations',
+        'role_class2': 'madeBy',
+    },
+]
+
+compositions = [
+]
+
+inheritance = [
+    {
+        'parent_class': 'Book',
+        'child_classes': ['LanguageTape'],
+    },
+    {
+        'parent_class': 'Member',
+        'child_classes': ['Book'],
+    },
+]
+

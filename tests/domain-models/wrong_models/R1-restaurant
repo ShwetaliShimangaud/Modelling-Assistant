@@ -1,0 +1,41 @@
+associations = [
+    {
+        'class1': 'Restaurant',
+        'class2': 'Table',
+        'role_class1': 'myRestaurant',
+        'role_class2': 'tables',
+        'cardinality_class1': '1..*',
+        'cardinality_class2': '0..1',
+    },
+    {
+        'class1': 'Order',
+        'class2': 'Waiter',
+        'role_class1': 'servedOrders',
+        'role_class2': 'serverBy',
+        'cardinality_class1': '0..1',
+        'cardinality_class2': '0..1',
+    },
+    {
+        'class1': 'Order',
+        'class2': 'Cook',
+        'role_class1': 'preparedOrders',
+        'role_class2': 'preparedBy',
+        'cardinality_class1': '0..1',
+        'cardinality_class2': '0..1',
+    },
+]
+
+compositions = [
+]
+
+inheritance = [
+    {
+        'parent_class': 'Item',
+        'child_classes': ['Waiter'],
+    },
+    {
+        'parent_class': 'Waiter',
+        'child_classes': ['Employee'],
+    },
+]
+

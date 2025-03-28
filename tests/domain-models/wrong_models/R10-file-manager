@@ -1,0 +1,31 @@
+associations = [
+    {
+        'class1': 'Document',
+        'class2': 'Editor',
+        'cardinality_class1': '',
+        'cardinality_class2': '1..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'uses',
+    },
+]
+
+compositions = [
+    {
+        'parent_class': 'Document',
+        'child_class': 'FileSystem',
+        'cardinality': '',
+    },
+]
+
+inheritance = [
+    {
+        'parent_class': 'FileSystem',
+        'child_classes': ['ImageEditor'],
+    },
+    {
+        'parent_class': 'ImageEditor',
+        'child_classes': ['Editor'],
+    },
+]
+

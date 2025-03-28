@@ -1,0 +1,26 @@
+associations = [
+    {
+        'class1': 'Player',
+        'class2': 'Robot',
+        'cardinality_class1': '',
+        'cardinality_class2': '1..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'controls',
+    },
+]
+
+compositions = [
+]
+
+inheritance = [
+    {
+        'parent_class': 'Level',
+        'child_classes': ['Alien'],
+    },
+    {
+        'parent_class': 'Alien',
+        'child_classes': ['Enemy'],
+    },
+]
+

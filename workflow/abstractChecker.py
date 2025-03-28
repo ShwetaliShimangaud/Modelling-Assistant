@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+import pandas as pd
+
 from sentence_generator import util
 from workflow import apiCaller
 from sentence_generator.util import is_singular
@@ -13,6 +15,8 @@ def format_value(multiplicity):
 
 
 def transform_multiplicity(multiplicity):
+    if pd.isna(multiplicity):
+        return ''
     if len(multiplicity) == 0:
         return ''
     if multiplicity == '1':
@@ -21,8 +25,32 @@ def transform_multiplicity(multiplicity):
         return 'zero or more'
     elif multiplicity == '1..*':
         return 'one or more'
+    elif multiplicity == '2..*':
+        return 'two or more'
     elif multiplicity == '*':
         return 'many'
+    elif multiplicity == '3..3':
+        return 'exactly three'
+    elif multiplicity == '100':
+        return 'exactly hundred'
+    elif multiplicity == '6':
+        return 'exactly six'
+    elif multiplicity == '4':
+        return 'exactly four'
+    elif multiplicity == '2':
+        return 'exactly two'
+    elif multiplicity == '0..20':
+        return 'zero to twenty'
+    elif multiplicity == '0..1':
+        return 'zero or one'
+    elif multiplicity == '5..10':
+        return 'five to ten'
+    elif multiplicity == '100..200':
+        return 'hundred to two hundred'
+    elif multiplicity == '1000..2000':
+        return 'one thousand to two thousand'
+    elif multiplicity == '0..10':
+        return 'one thousand to two thousand'
     else:
         raise ValueError("invalid multiplicity")
 
@@ -49,6 +77,10 @@ class AbstractChecker(ABC):
     def get_prompts(self, model_element):
         pass
 
+    @abstractmethod
+    def process_response(self, response, model_element):
+        pass
+
     def run(self, actual_sentence, generated_sentence, source, target, model_element, multiplicity):
         yes_count = 0
         no_count = 0
@@ -69,6 +101,7 @@ class AbstractChecker(ABC):
             print("Result:", res)
             print()
 
+            res = self.process_response(res, model_element)
             if res.startswith("Yes") or res.startswith("yes"):
                 yes_count = yes_count + 1
             elif res.startswith("No") or res.startswith("no"):
