@@ -1,0 +1,38 @@
+class_attributes = {
+    'Transaction': ['money'],
+    "card": ['type'],
+    "Wallet": ['balance','termsConditionsAccepted']
+}
+
+associations = [
+    {
+        'class1': 'User',
+        'class2': 'Wallet',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'User',
+        'class2': 'Card',
+        'cardinality_class1': '',
+        'cardinality_class2': '1..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    }
+]
+
+compositions = [
+    {
+        'parent_class': 'Wallet',
+        'child_class': 'Transaction',
+        'cardinality': '',
+    }
+]
+
+enums = {
+'CardType' : ["Debit",'Credit']
+}

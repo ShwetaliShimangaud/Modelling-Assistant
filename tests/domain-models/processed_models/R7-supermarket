@@ -1,0 +1,84 @@
+class_attributes = {
+    'Product': ["productType", 'expirationDate', 'price'],
+    "DeliveryOrder": ['status']
+}
+
+associations = [
+    {
+        'class1': 'Customer',
+        'class2': 'DeliveryOrder',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Customer',
+        'class2': 'Invoice',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Invoice',
+        'class2': 'Product',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'ColdChamber',
+        'class2': 'Product',
+        'cardinality_class1': '0..1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'contains'
+    },
+    {
+        'class1': 'Shelf',
+        'class2': 'Product',
+        'cardinality_class1': '0..1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'contains'
+    },
+    {
+        'class1': 'Stock',
+        'class2': 'Product',
+        'cardinality_class1': '0..1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'ProductStock',
+        'role_class2': 'contains'
+    }
+]
+
+compositions = [
+    {
+        'parent_class': 'Supermarket',
+        'child_class': 'ColdChamber',
+        'cardinality': '',
+    },
+    {
+        'parent_class': 'Supermarket',
+        'child_class': 'Shelf',
+        'cardinality': '',
+    },
+    {
+        'parent_class': 'Supermarket',
+        'child_class': 'Stock',
+        'cardinality': '',
+    }
+]
+
+enums = {
+'Type' : ["Food","Pastry","Meat"],
+'OrderStatus' : ["Started", "Completed"]
+}

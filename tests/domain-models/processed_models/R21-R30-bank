@@ -1,0 +1,173 @@
+class_attributes = {
+    "User" : ['communicationPreference','hasPin','unpaidCredit', 'blockedAccount', 'fraudUser','name','surname','email','telephoneNumber','failedAttempts', 'type'],
+    "SavingsAccount" : [],
+    'Donation': ['amount'],
+    "Account": ['active', 'balance','accountNumber','currency'],
+    "InitialPublicOffering" : ['documentation','rejected','numShares','moneyPaid'],
+    "Company" : ['name'],
+    "Blocking" : ['reason',"reasonText"],
+    "card" : ['type','number','cvv','status'],
+    "Wallet": ['balance','termsConditionsAccepted'],
+    "Transaction": ['money'],
+    "Biometric": ['termsAccepted', 'pin','enabled'],
+    "LoginActivity": ['date', "userInfo"],
+    "PrepaidCard": ['balance'],
+}
+
+associations = [
+{
+    'class1': 'User',
+    'class2': 'BankingSystem',
+    'cardinality_class1': '*',
+    'cardinality_class2': '',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'Organization',
+    'class2': 'BankingSystem',
+    'cardinality_class1': '*',
+    'cardinality_class2': '',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'User',
+    'class2': 'Account',
+    'cardinality_class1': '',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'User',
+    'class2': 'InitialPublicOffering',
+    'cardinality_class1': '',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': '',
+    'role_class2': 'apply'
+},
+{
+    'class1': 'Company',
+    'class2': 'InitialPublicOffering',
+    'cardinality_class1': '1',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'User',
+    'class2': 'Card',
+    'cardinality_class1': '',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'User',
+    'class2': 'AppleWallet',
+    'cardinality_class1': '',
+    'cardinality_class2': '1',
+    'name': '',
+    'role_class1': '',
+    'role_class2': 'wallet'
+},
+{
+        'class1': 'User',
+        'class2': 'Wallet',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+},
+{
+        'class1': 'User',
+        'class2': 'LoginOptions',
+        'cardinality_class1': '',
+        'cardinality_class2': '1..2',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+{
+    'class1': 'Card',
+    'class2': 'Blocking',
+    'cardinality_class1': '',
+    'cardinality_class2': '0..1',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+        'class1': 'Biometric',
+        'class2': 'LoginActivity',
+        'cardinality_class1': '',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+
+
+    {
+        'class1': 'Donation',
+        'class2': 'Organization',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'to'
+    },
+
+    {
+        'class1': 'SavingsAccount',
+        'class2': 'Donation',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'from',
+        'role_class2': ''
+    },
+
+]
+
+compositions = [
+    {
+        'parent_class': 'Wallet',
+        'child_class': 'Transaction',
+        'cardinality': '',
+    }
+]
+
+inheritance = [
+{
+    'parent_class': 'LoginOptions',
+    'child_classes': ['UsernamePassword', 'Biometric']
+},
+{
+    'parent_class': 'Card',
+    'child_classes': ['PrepaidCard']
+},
+{
+    'parent_class': 'Account',
+    'child_classes': ['SavingsAccount']
+}
+]
+
+enums = {
+'Currency' : ["EUR","USD",'GBP','TRY'],
+"CustomerType" : ['Retail','Corporate'],
+'cardType' : ["Debit","Credit",'Virtual','Supplementary'],
+'Channel' : ["Email","sms"],
+"Status" : ['Blocked','Restricted','Available','Dormant'],
+"BlockingReason" : ['Stolen','Missing','Others'],
+}
+
+

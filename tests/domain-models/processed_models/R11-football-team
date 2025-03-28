@@ -1,0 +1,20 @@
+class_attributes = {
+    'FootballTeam': [],
+    "FootballPlayer": ['name', 'age', 'number', 'position']
+}
+
+associations = [
+    {
+        'class1': 'FootballTeam',
+        'class2': 'FootballPlayer',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'playsFor',
+        'role_class2': 'has'
+    }
+]
+
+enums = {
+'Position' : ["forward","midfield","defense"]
+}

@@ -1,0 +1,31 @@
+
+class_attributes = {
+    "User" : ['customerType', 'unpaidCredit', 'blockedAccount', 'fraudUser','name','surname','email','telephoneNumber','failedAttempts'],
+    "Company" : ['name'],
+    "InitialPublicOffering" : ['documentation','rejected','numShares','moneyPaid']
+}
+
+associations = [{
+    'class1': 'User',
+    'class2': 'InitialPublicOffering',
+    'cardinality_class1': '',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': '',
+    'role_class2': 'apply'
+},
+{
+    'class1': 'Company',
+    'class2': 'InitialPublicOffering',
+    'cardinality_class1': '1',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+}
+]
+
+
+enums = {
+'Customer' : ["Retail","Other"]
+}

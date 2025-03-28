@@ -1,0 +1,21 @@
+
+class_attributes = {
+    "User" : ['hasPin'],
+    "card" : ['type','number','cvv']
+}
+
+associations = [{
+    'class1': 'User',
+    'class2': 'Card',
+    'cardinality_class1': '',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+}
+]
+
+
+enums = {
+'cardType' : ["Debit","Credit",'Virtual','Supplementary']
+}

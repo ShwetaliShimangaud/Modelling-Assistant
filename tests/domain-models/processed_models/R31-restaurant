@@ -1,0 +1,87 @@
+class_attributes = {
+    'Reservation': ['time','date','numberOfPeople','name','phoneNumber','number'],
+    "Banquet": ['groupName', 'paymentMethod'],
+    "Individual": ['seating','smocking'],
+    "Table" : ['number','description','capacity'],
+    "ItemOrdered" : ['time'],
+    "MenuItem" : ['description','prepTime','classification'],
+    "FoodItem" : ['number','description','purchaseFlag','unit'],
+    "Quantity" : ['amount'],
+    "Worker" : ['name','dateOfBirth','driverLicenseNumber']
+}
+
+associations = [
+    {
+        'class1': 'Reservation',
+        'class2': 'ItemOrdered',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Reservation',
+        'class2': 'Waiter',
+        'cardinality_class1': '*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'ItemOrdered',
+        'class2': 'MenuItem',
+        'cardinality_class1': '*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'item'
+    },
+    {
+        'class1': 'MenuItem',
+        'class2': 'FoodItem',
+        'cardinality_class1': '*',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'isUtilized',
+        'role_class2': 'utilizes'
+    },
+    {
+        'class1': 'FoodItem',
+        'class2': 'Quantity',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'comprises'
+    },
+    {
+        'class1': 'FoodItem',
+        'class2': 'Quantity',
+        'cardinality_class1': '1',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': 'ingredient',
+        'role_class2': ''
+    }
+]
+
+
+inheritance = [
+{
+    'parent_class': 'Reservation',
+    'child_classes': ['Individual','Banquet']
+},
+{
+    'parent_class': 'Worker',
+    'child_classes': ['Manager','HeadWaiter','Chef','Waiter','Bartender','BusPerson','Cook','Dishwasher']
+}
+]
+
+enums = {
+'SeatingPreference' : ["inside",'patio'],
+"SmockingPreference" : ['smocking','non-smoking'],
+"ItemType" : ['Appetizer','Main','Dessert','Beverage'],
+"UnitOfMeasure" : ['Ounce','Sheet','Pound','Gram','Dozen']
+}

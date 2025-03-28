@@ -1,0 +1,63 @@
+class_attributes = {
+    'Room': ["number", 'price', 'maxPeople'],
+    "Reservation": ['price', 'paymentType']
+}
+
+associations = [
+    {
+        'class1': 'Room',
+        'class2': 'Reservation',
+        'cardinality_class1': '*',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Reservation',
+        'class2': 'User',
+        'cardinality_class1': '*',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Hotel',
+        'class2': 'Standard',
+        'cardinality_class1': '',
+        'cardinality_class2': '100',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Hotel',
+        'class2': 'Deluxe',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Hotel',
+        'class2': 'LargeDeluxe',
+        'cardinality_class1': '',
+        'cardinality_class2': '6',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    }
+]
+
+inheritance = [
+{
+    'parent_class': 'Room',
+    'child_classes': ['Standard', 'Deluxe', 'LargeDeluxe']
+}
+]
+
+enums = {
+'PaymentType' : ["P","H","S"]
+}

@@ -1,0 +1,74 @@
+class_attributes = {
+    "Grade": ['grade'],
+    "Course": ['department', "prerequisites", "minStudents", 'maxStudents','cancelled']
+}
+
+associations = [
+    {
+        'class1': 'Bill',
+        'class2': 'Student',
+        'cardinality_class1': '*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'ElectronicReportCard',
+        'class2': 'Student',
+        'cardinality_class1': '1',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Student',
+        'class2': 'Course',
+        'cardinality_class1': '*',
+        'cardinality_class2': '4',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'selected'
+    },
+    {
+        'class1': 'Student',
+        'class2': 'Course',
+        'cardinality_class1': '*',
+        'cardinality_class2': '2',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'choices'
+    },
+    {
+        'class1': 'Grade',
+        'class2': 'Course',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'course'
+    },
+    {
+        'class1': 'Professor',
+        'class2': 'Course',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'teach'
+    }
+]
+
+compositions = [
+    {
+        'parent_class': 'ElectronicReportCard',
+        'child_class': 'Grade',
+        'cardinality': '',
+    },
+    {
+        'parent_class': 'CourseCatalog',
+        'child_class': 'Course',
+        'cardinality': '',
+    }
+]

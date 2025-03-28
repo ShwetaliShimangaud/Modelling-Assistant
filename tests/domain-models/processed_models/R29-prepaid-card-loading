@@ -1,0 +1,39 @@
+class_attributes = {
+    'Account': ['balance'],
+    "card": ['type', 'status'],
+    "PrepaidCard": ['balance']
+}
+
+associations = [
+    {
+        'class1': 'User',
+        'class2': 'Account',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'User',
+        'class2': 'Card',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    }
+]
+
+
+inheritance = [
+{
+    'parent_class': 'Card',
+    'child_classes': ['PrepaidCard']
+}
+]
+
+enums = {
+'CardType' : ["prepaid"],
+"CardStatus" : ['Available','Dormant','Blocked']
+}

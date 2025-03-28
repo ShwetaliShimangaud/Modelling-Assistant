@@ -1,0 +1,22 @@
+
+class_attributes = {
+    "Customer" : ['email', 'name', 'surname', 'type'],
+    "SavingsAccount" : ['balance','accountNumber','currency']
+}
+
+associations = [{
+    'class1': 'Customer',
+    'class2': 'SavingsAccount',
+    'cardinality_class1': '',
+    'cardinality_class2': '0..10',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+}
+]
+
+
+enums = {
+'Currency' : ["EUR","USD",'GBP','TRY'],
+"CustomerType" : ['Retail','Corporate']
+}

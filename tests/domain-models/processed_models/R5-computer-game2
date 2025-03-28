@@ -1,0 +1,47 @@
+class_attributes = {
+    'Robot': ["movement"],
+    "Level": ['distanceToBeReached', 'timeToBeReached','currentPhase'],
+    "Enemy" : ['spawnRate']
+}
+
+associations = [
+    {
+        'class1': 'Player',
+        'class2': 'Robot',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'controls'
+    },
+    {
+        'class1': 'Level',
+        'class2': 'EnemyBase',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'endsWith'
+    },
+    {
+        'class1': 'Spaceship',
+        'class2': 'Bomb',
+        'cardinality_class1': '',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'drops'
+    }
+]
+
+inheritance = [
+{
+    'parent_class': 'Enemy',
+    'child_classes': ['Alien', 'Spaceship']
+}
+]
+
+enums = {
+'Phase' : ["One","Two"],
+"MovementKind" : ["Forward","Backward","Jump","Duck"]
+}

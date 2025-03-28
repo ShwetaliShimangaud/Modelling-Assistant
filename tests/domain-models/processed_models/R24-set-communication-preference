@@ -1,0 +1,9 @@
+
+class_attributes = {
+    "User" : ['email','phoneNumber','communicationPreference']
+}
+
+
+enums = {
+'Channel' : ["Email","sms"]
+}

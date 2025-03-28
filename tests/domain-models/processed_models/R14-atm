@@ -1,0 +1,68 @@
+class_attributes = {
+}
+
+associations = [
+    {
+        'class1': 'Bank',
+        'class2': 'CentralComputer',
+        'cardinality_class1': '*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'CentralComputer',
+        'class2': 'ATM',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'communicate',
+        'role_class2': ''
+    },
+    {
+        'class1': 'ATM',
+        'class2': 'User',
+        'cardinality_class1': '*',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'interactsWith',
+        'role_class2': 'interactsWith'
+    },
+    {
+        'class1': 'Computer',
+        'class2': 'CashierStation',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'communicateWith'
+    },
+    {
+        'class1': 'cashierStation',
+        'class2': 'HumanCashier',
+        'cardinality_class1': '',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    }
+]
+
+compositions = [
+    {
+        'parent_class': 'Bank',
+        'child_class': 'Computer',
+        'cardinality': '1',
+    },
+    {
+        'parent_class': 'Bank',
+        'child_class': 'Transaction',
+        'cardinality': '0..*',
+    },
+    {
+        'parent_class': 'Bank',
+        'child_class': 'Account',
+        'cardinality': '0..*',
+    }
+]

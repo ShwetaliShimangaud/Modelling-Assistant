@@ -1,0 +1,100 @@
+class_attributes = {
+    'App': [],
+    'Video': [],
+    'User': [],
+    'Calender': [],
+    'Input': [],
+    'Day': [],
+    'Diet': [],
+    'Event': [],
+    'Activity': [],
+    'Exercise': ['repetitionNumber'],
+    "Running": ['speed', 'caloriesBurnt','distance','time']
+}
+
+associations = [
+    {
+        'class1': 'App',
+        'class2': 'Video',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'App',
+        'class2': 'Diet',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Day',
+        'class2': 'Diet',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Day',
+        'class2': 'Event',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Day',
+        'class2': 'Activity',
+        'cardinality_class1': '',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Day',
+        'class2': 'Exercise',
+        'cardinality_class1': '*',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    }
+]
+
+compositions = [
+    {
+        'parent_class': 'App',
+        'child_class': 'User',
+        'cardinality': '*',
+    },
+    {
+        'parent_class': 'User',
+        'child_class': 'Calender',
+        'cardinality': '',
+    },
+    {
+        'parent_class': 'User',
+        'child_class': 'Input',
+        'cardinality': '',
+    },
+    {
+        'parent_class': 'Calender',
+        'child_class': 'Day',
+        'cardinality': '',
+    }
+]
+
+inheritance = [
+{
+    'parent_class': 'Activity',
+    'child_classes': ['Running']
+}
+]

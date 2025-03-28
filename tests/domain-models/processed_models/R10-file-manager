@@ -1,0 +1,32 @@
+class_attributes = {
+    'FileSystem': [],
+    "Document": ['name', 'creationDate','authorInfo','size'],
+    "Editor": ['name', "fileManagementTask"]
+}
+
+associations = [
+    {
+        'class1': 'Document',
+        'class2': 'Editor',
+        'cardinality_class1': '',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'uses'
+    }
+]
+
+compositions = [
+    {
+        'parent_class': 'FileSystem',
+        'child_class': 'Document',
+        'cardinality': '',
+    }
+]
+
+inheritance = [
+{
+    'parent_class': 'Editor',
+    'child_classes': ['TextEditor', 'ImageEditor', 'VideoEditor']
+}
+]

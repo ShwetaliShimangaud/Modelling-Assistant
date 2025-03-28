@@ -1,0 +1,30 @@
+
+class_attributes = {
+    "Card" : ['status']
+}
+
+associations = [{
+    'class1': 'User',
+    'class2': 'AppleWallet',
+    'cardinality_class1': '',
+    'cardinality_class2': '1',
+    'name': '',
+    'role_class1': '',
+    'role_class2': 'wallet'
+},
+{
+    'class1': 'Card',
+    'class2': 'AppleWallet',
+    'cardinality_class1': '*',
+    'cardinality_class2': '',
+    'name': '',
+    'role_class1': 'addedCards',
+    'role_class2': ''
+}
+]
+
+
+enums = {
+'CardType' : ["Debit","Credit",'Virtual','Supplementary'],
+"Status" : ['Blocked','Restricted','Available']
+}

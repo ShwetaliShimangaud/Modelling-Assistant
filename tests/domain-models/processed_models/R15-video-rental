@@ -1,0 +1,53 @@
+class_attributes = {
+    "IdCard" : ['barCode'],
+    "Customer" : ['accountNumber'],
+    "Tape" : ['barCode','returnDate'],
+    "Video" : ['information']
+}
+
+associations = [
+    {
+        'class1': 'IdCard',
+        'class2': 'Customer',
+        'cardinality_class1': '1',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Customer',
+        'class2': 'Order',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Order',
+        'class2': 'Tape',
+        'cardinality_class1': '1',
+        'cardinality_class2': '0..20',
+        'name': '',
+        'role_class1': 'outstanding',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Tape',
+        'class2': 'Video',
+        'cardinality_class1': '',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    }
+]
+
+compositions = [
+    {
+        'parent_class': 'Inventory',
+        'child_class': 'Tape',
+        'cardinality': '',
+    }
+]

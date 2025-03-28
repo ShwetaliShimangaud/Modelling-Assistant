@@ -1,0 +1,45 @@
+class_attributes = {
+    'Course': ["name","code","startTime","endTime","quotaLimit"],
+    "Instructor": ['name', 'surname', 'title', 'specialty'],
+    "Room": ['ad', "capacity", "floor", "blockInformation"],
+
+}
+
+associations = [
+    {
+        'class1': 'Student',
+        'class2': 'Course',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'enrolls'
+    },
+    {
+        'class1': 'Day',
+        'class2': 'Course',
+        'cardinality_class1': '*',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': 'days',
+        'role_class2': ''
+    },
+   {
+        'class1': 'Instructor',
+        'class2': 'Course',
+        'cardinality_class1': '*',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'isTaughtBy',
+        'role_class2': 'teaches'
+    },
+    {
+        'class1': 'Room',
+        'class2': 'Course',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'room1',
+        'role_class2': 'courses'
+    }
+]

@@ -1,0 +1,32 @@
+
+class_attributes = {
+    "Card" : ['status'],
+    "Blocking" : ['reason',"reasonText"]
+}
+
+associations = [{
+    'class1': 'User',
+    'class2': 'Card',
+    'cardinality_class1': '',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'Card',
+    'class2': 'Blocking',
+    'cardinality_class1': '',
+    'cardinality_class2': '0..1',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+}
+]
+
+
+enums = {
+'CardType' : ["Debit","Credit",'Virtual','Supplementary'],
+"CardStatus" : ['Available'],
+"BlockingReason" : ['Stolen','Missing','Others']
+}

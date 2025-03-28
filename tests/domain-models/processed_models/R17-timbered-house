@@ -1,0 +1,61 @@
+class_attributes = {
+    "TimberedHouse" : ['numRooms', 'numFloors'],
+    "Carpenter" : ['name','hourlyWage']
+}
+
+associations = [{
+    'class1': 'TimberedHouse',
+    'class2': 'Log',
+    'cardinality_class1': '1',
+    'cardinality_class2': '5..10',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'TimberedHouse',
+    'class2': 'MudBrick',
+    'cardinality_class1': '1',
+    'cardinality_class2': '100..200',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'TimberedHouse',
+    'class2': 'Nail',
+    'cardinality_class1': '1',
+    'cardinality_class2': '1000..2000',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'TimberedHouse',
+    'class2': 'Carpenter',
+    'cardinality_class1': '1',
+    'cardinality_class2': '1..*',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'Carpenter',
+    'class2': 'Hammer',
+    'cardinality_class1': '',
+    'cardinality_class2': '1',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+},
+{
+    'class1': 'Carpenter',
+    'class2': 'Saw',
+    'cardinality_class1': '',
+    'cardinality_class2': '1',
+    'name': '',
+    'role_class1': '',
+    'role_class2': ''
+}
+]
+

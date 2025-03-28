@@ -1,0 +1,59 @@
+class_attributes = {
+    'Item': ["barcode", 'status', 'available'],
+    "LanguageTape": ['titleLanguage', 'level'],
+    "Book" : ['title','author'],
+    "Loan" : ['endDate'],
+    "Reservation" : ['endDate'],
+    "Member" : ['memberNumber','name','address','dateOfBirth']
+}
+
+associations = [
+    {
+        'class1': 'Item',
+        'class2': 'Reservation',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'reservations'
+    },
+    {
+        'class1': 'Reservation',
+        'class2': 'Member',
+        'cardinality_class1': '*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': 'reservations',
+        'role_class2': 'madeBy'
+    },
+    {
+        'class1': 'Loan',
+        'class2': 'Item',
+        'cardinality_class1': '*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': 'loans',
+        'role_class2': 'item'
+    },
+    {
+        'class1': 'Loan',
+        'class2': 'Member',
+        'cardinality_class1': '*',
+        'cardinality_class2': '1',
+        'name': '',
+        'role_class1': 'loans',
+        'role_class2': ''
+    }
+]
+
+inheritance = [
+{
+    'parent_class': 'Item',
+    'child_classes': ['LanguageTape', 'Book']
+}
+]
+
+enums = {
+'Status' : ["Borrowed","Reserved","Renewed"],
+"Level" : ["Beginner","advanced","Intermediate"]
+}

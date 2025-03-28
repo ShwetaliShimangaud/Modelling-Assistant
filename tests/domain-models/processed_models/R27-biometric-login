@@ -1,0 +1,25 @@
+class_attributes = {
+    'Login': [],
+    "Biometric": ['termsAccepted', 'pin','enabled'],
+    "LoginActivity": ['date', "userInfo"]
+}
+
+associations = [
+    {
+        'class1': 'Biometric',
+        'class2': 'LoginActivity',
+        'cardinality_class1': '',
+        'cardinality_class2': '0..*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    }
+]
+
+
+inheritance = [
+{
+    'parent_class': 'Login',
+    'child_classes': ['UsernamePassword', 'Biometric']
+}
+]

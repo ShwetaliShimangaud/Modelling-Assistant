@@ -1,0 +1,73 @@
+class_attributes = {
+    'RentalOffice': ['name','number','Address'],
+    "Vehicle": ['id', 'registrationStatus','licensePlateNumber','vehicleTypeCode','registrationLastMaintenanceDate','expirationDate'],
+    "Truck": ['odometerReading','gasTankCapacity','workingRadio','mileage'],
+    "RentalAgreement" : ['number','rentalDate','anticipatedDuration','depositPaid','quotedDailyRate','quotedRatePerMileage'],
+    "Customer" : ['name','address','poorRisk'],
+    "Company" : ['idNumber'],
+    "Individual" : ['homePhone','driversLicenseState','driversLicenseNumber','driversLicenseExpirationDate']
+}
+
+associations = [
+    {
+        'class1': 'RentalOffice',
+        'class2': 'Vehicle',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': 'homeOffice',
+        'role_class2': ''
+    },
+    {
+        'class1': 'RentalOffice',
+        'class2': 'RentalAgreement',
+        'cardinality_class1': '1',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': 'originatingRentalOffice',
+        'role_class2': ''
+    },
+    {
+        'class1': 'RentalOffice',
+        'class2': 'RentalAgreement',
+        'cardinality_class1': '1',
+        'cardinality_class2': '',
+        'name': '',
+        'role_class1': 'dropoffRentalOffice',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Vehicle',
+        'class2': 'RentalAgreement',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Customer',
+        'class2': 'RentalAgreement',
+        'cardinality_class1': '1',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    }
+]
+
+
+inheritance = [
+{
+    'parent_class': 'Vehicle',
+    'child_classes': ['Truck']
+},
+{
+    'parent_class': 'Customer',
+    'child_classes': ['Individual','Company']
+}
+]
+
+enums = {
+"vehicleTypeCode" : ['Truck','Truck24','Truck10','coveredTrailer','openTrailer']
+}

@@ -1,0 +1,57 @@
+class_attributes = {
+    "Customer": ['address'],
+    "Tape" : ['rentalPrice','status','available'],
+    "Rental" : ['delay']
+}
+
+associations = [
+    {
+        'class1': 'MusicalStore',
+        'class2': 'Customer',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'MusicalStore',
+        'class2': 'Tape',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Customer',
+        'class2': 'Tape',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': 'requests'
+    },
+    {
+        'class1': 'Customer',
+        'class2': 'Rental',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    },
+    {
+        'class1': 'Tape',
+        'class2': 'Rental',
+        'cardinality_class1': '',
+        'cardinality_class2': '*',
+        'name': '',
+        'role_class1': '',
+        'role_class2': ''
+    }
+]
+
+enums = {
+'Status' : ["Available","Other"]
+}

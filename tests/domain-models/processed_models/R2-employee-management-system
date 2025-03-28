@@ -1,0 +1,53 @@
+
+class_attributes = {
+    "Employee" : ['department', 'name', 'dateOfBirth', 'socialInsuranceNumber'],
+    "Worker" : ['weeklyWorkingHours','hourlyRate'],
+    "SalePerson" : ['fixedSalary','amountOfSales','commissionPercentage'],
+    "Manager" : ['fixedSalary', 'positionInformation'],
+    "ShiftWorker" : ['premiums'],
+    "OffShiftWorker" : ['permits']
+}
+
+associations = [{
+    'class1': 'Department',
+    'class2': 'Employee',
+    'cardinality_class1': '1',
+    'cardinality_class2': '',
+    'name': '',
+    'role_class1': 'worksIn',
+    'role_class2': ''
+},
+{
+    'class1': 'Department',
+    'class2': 'Manager',
+    'cardinality_class1': '',
+    'cardinality_class2': '1',
+    'name': '',
+    'role_class1': 'controls',
+    'role_class2': 'controlledBy'
+},
+{
+    'class1': 'Company',
+    'class2': 'Employee',
+    'cardinality_class1': '',
+    'cardinality_class2': '*',
+    'name': '',
+    'role_class1': '',
+    'role_class2': 'has'
+}
+]
+
+inheritance = [
+{
+    'parent_class': 'Department',
+    'child_classes': ['Production', 'Control','Delivery']
+},
+{
+    'parent_class': 'Employee',
+    'child_classes': ['Worker', 'SalePerson','Manager']
+},
+{
+    'parent_class': 'Worker',
+    'child_classes': ['ShiftWorker', 'OffShiftWorker']
+}
+]
