@@ -2,3 +2,14 @@
 class_attributes = {
     "System" : ['threshold', 'manualBlock']
 }
+
+associations = [{
+    'class1': 'HumanOperator',
+    'class2': 'System',
+    'cardinality_class1': '',
+    'cardinality_class2': '1',
+    'name': '',
+    'role_class1': '',
+    'role_class2': 'operates'
+}
+]

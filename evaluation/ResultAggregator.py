@@ -189,6 +189,20 @@ def find_metrics_values(detailed_results):
     # }
 
 
+def format_result(result):
+    for i, row in result.iterrows():
+        if row['contradiction'] == True:
+            result.at[i, 'answer'] = 'wrong'
+        elif row['equality'] == True or row['inclusion'] == True:
+            result.at[i, 'answer'] = 'correct'
+        elif row['actual_sentence'] == '':
+            result.at[i, 'answer'] = 'no match'
+        else:
+            result.at[i, 'answer'] = 'inconclusive'
+
+    return result
+
+
 def calculate_metrics(domain_name, results_dir):
     ground_truth_dir = f'{results_dir}/ground-truth/{domain_name}/'
     predictions_dir = f'{results_dir}/predictions/{domain_name}/'
@@ -204,8 +218,22 @@ def calculate_metrics(domain_name, results_dir):
     else:
         combined_results_csv = pd.read_csv(f"{combined_results_csv}")
 
-    attributes, enums = aggregate_attribute_results(predictions_dir)
-    associations, aggregations, compositions, inheritance = aggregate_relationship_results(predictions_dir)
+    # attributes, enums = aggregate_attribute_results(predictions_dir)
+    # associations, aggregations, compositions, inheritance = aggregate_relationship_results(predictions_dir)
+
+    attributes = pd.read_csv(f"{predictions_dir}/attributes_pred_map.csv")
+    associations = pd.read_csv(f"{predictions_dir}/associations_pred_map.csv")
+    aggregations = pd.read_csv(f"{predictions_dir}/aggregations_pred_map.csv")
+    compositions = pd.read_csv(f"{predictions_dir}/compositions_pred_map.csv")
+    inheritance = pd.read_csv(f"{predictions_dir}/inheritance_pred_map.csv")
+    enums = pd.read_csv(f"{predictions_dir}/enums_pred_map.csv")
+    #
+    # attributes = format_result(attributes)
+    # associations = format_result(associations)
+    # aggregations = format_result(aggregations)
+    # compositions = format_result(compositions)
+    # inheritance= format_result(inheritance)
+    # enums = format_result(enums)
 
     predictions = [attributes, associations, aggregations, compositions, inheritance, enums]
     detailed_results = pd.DataFrame(

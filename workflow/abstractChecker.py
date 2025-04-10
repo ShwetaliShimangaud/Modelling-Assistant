@@ -8,6 +8,9 @@ from sentence_generator.util import is_singular
 
 
 def format_value(multiplicity):
+    if pd.isna(multiplicity):
+        return ''
+    multiplicity = str(multiplicity)
     if is_singular(multiplicity):
         return 'instance'
     else:
@@ -17,6 +20,7 @@ def format_value(multiplicity):
 def transform_multiplicity(multiplicity):
     if pd.isna(multiplicity):
         return ''
+    multiplicity = str(multiplicity)
     if len(multiplicity) == 0:
         return ''
     if multiplicity == '1':
@@ -51,8 +55,10 @@ def transform_multiplicity(multiplicity):
         return 'one thousand to two thousand'
     elif multiplicity == '0..10':
         return 'one thousand to two thousand'
+    elif multiplicity == '1..3':
+        return 'one to three'
     else:
-        raise ValueError("invalid multiplicity")
+        return multiplicity
 
 
 def format_string(template: str, source: str, target: str,

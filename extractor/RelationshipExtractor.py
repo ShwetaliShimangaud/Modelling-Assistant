@@ -599,190 +599,194 @@ class RelationshipsExtractor:
         return final_source_list
 
     def find_multiplicity(self, nlp, class_token, token_lemma):
-        # plural_nouns = ['NNPS', 'NNS']
-        noun_tags = ["NNP", "NN", "NNPS", "NNS"]
-        id_tags = ["CD", "JJ", "DT", "JJR", "JJS"]
-        many_score, one_score = pd.DataFrame(
-            columns=["id", "idx", "score"]
-        ), pd.DataFrame(columns=["id", "score"])
-        many_score2, one_score2 = pd.DataFrame(
-            columns=["id", "idx", "score"]
-        ), pd.DataFrame(columns=["id", "score"])
-        samples_one = [
-            "one",
-            "an",
-            "a",
-            "the",
-            "single",
-            "only",
-            "unique",
-            "exclusive",
-            "particular",
-            "individual",
-            "lone",
-            "only",
-            "solo",
-            "lone",
-            "separate",
-        ]
-        samples_multi = [
-            "many",
-            "some",
-            "multiple",
-            "different",
-            "diverse",
-            "certain",
-            "several",
-            "various",
-            "few",
-            "number",
-            "huge",
-            "numbers",
-            "large",
-            "much",
-            "more",
-        ]
+        try:
+            # plural_nouns = ['NNPS', 'NNS']
+            noun_tags = ["NNP", "NN", "NNPS", "NNS"]
+            id_tags = ["CD", "JJ", "DT", "JJR", "JJS"]
+            many_score, one_score = pd.DataFrame(
+                columns=["id", "idx", "score"]
+            ), pd.DataFrame(columns=["id", "score"])
+            many_score2, one_score2 = pd.DataFrame(
+                columns=["id", "idx", "score"]
+            ), pd.DataFrame(columns=["id", "score"])
+            samples_one = [
+                "one",
+                "an",
+                "a",
+                "the",
+                "single",
+                "only",
+                "unique",
+                "exclusive",
+                "particular",
+                "individual",
+                "lone",
+                "only",
+                "solo",
+                "lone",
+                "separate",
+            ]
+            samples_multi = [
+                "many",
+                "some",
+                "multiple",
+                "different",
+                "diverse",
+                "certain",
+                "several",
+                "various",
+                "few",
+                "number",
+                "huge",
+                "numbers",
+                "large",
+                "much",
+                "more",
+            ]
 
-        # multi_tokens = nlp(samples_multi)
-        # one_tokens = nlp(samples_one)
+            # multi_tokens = nlp(samples_multi)
+            # one_tokens = nlp(samples_one)
 
-        chunks = re.findall("[A-Z][^A-Z]*", token_lemma)
-        if len(chunks) > 1 and (nlp(chunks[0]))[0].tag_ in id_tags:
-            for sm in samples_multi:
-                new_row = {
-                    {"id": chunks[0], "score": (nlp(chunks[0])).similarity(nlp(sm))},
-                }
-                new_row_df = pd.DataFrame(new_row, index=[0])
-                many_score = pd.concat([many_score, new_row_df], ignore_index=True)
+            chunks = re.findall("[A-Z][^A-Z]*", token_lemma)
+            if len(chunks) > 1 and (nlp(chunks[0]))[0].tag_ in id_tags:
+                for sm in samples_multi:
+                    new_row = {
+                        {"id": chunks[0], "score": (nlp(chunks[0])).similarity(nlp(sm))},
+                    }
+                    new_row_df = pd.DataFrame(new_row, index=[0])
+                    many_score = pd.concat([many_score, new_row_df], ignore_index=True)
 
-            for so in samples_one:
-                new_row = {
-                    {"id": chunks[0], "score": (nlp(chunks[0])).similarity(nlp(so))},
-                }
-                new_row_df = pd.DataFrame(new_row, index=[0])
-                one_score = pd.concat([one_score, new_row_df], ignore_index=True)
+                for so in samples_one:
+                    new_row = {
+                        {"id": chunks[0], "score": (nlp(chunks[0])).similarity(nlp(so))},
+                    }
+                    new_row_df = pd.DataFrame(new_row, index=[0])
+                    one_score = pd.concat([one_score, new_row_df], ignore_index=True)
 
-            # for val in many_score:
-            #     if val != None :
-            #         many_score2.append(val)
+                # for val in many_score:
+                #     if val != None :
+                #         many_score2.append(val)
 
-            # for val in one_score:
-            #     if val != None :
-            #         one_score2.append(val)
-            # abc = max(many_score)
-            # deff = max(one_score)
+                # for val in one_score:
+                #     if val != None :
+                #         one_score2.append(val)
+                # abc = max(many_score)
+                # deff = max(one_score)
 
-            many_score.mask(many_score.eq("None")).dropna()
-            one_score.mask(one_score.eq("None")).dropna()
+                many_score.mask(many_score.eq("None")).dropna()
+                one_score.mask(one_score.eq("None")).dropna()
 
-            if (
-                    many_score.score.max() > one_score.score.max()
-                    and many_score.score.max() > 0.8
-                    and chunks[0]
-            ):
-                found_id = many_score.loc[
-                    many_score.score == many_score.score.max(), "id"
-                ].values[0]
-                return "0..*", found_id, "", many_score.score.max
-
-            # if (max(many_score) > max(one_score)) and max(many_score) > 0.8 and chunks[0]:
-            #     return '0..*'
-
-        identifier = class_token
-        count = -1
-        while count >= (-(class_token.i)):
-            # if class_token.nbor(count).pos_ == 'DET' or class_token.nbor(count).dep_ == 'nummod':
-            token_text = class_token.nbor(count).text
-            token_text = token_text.title()
-            if token_text not in chunks and class_token.nbor(count).tag_ in noun_tags:
-                return "?", "", "", ""
-            if token_text not in chunks and (
-                    class_token.nbor(count).tag_ in id_tags
-                    or class_token.nbor(count).dep_ == "nummod"
-            ):
-                identifier = class_token.nbor(count)
                 if (
-                        identifier
-                        and identifier != class_token
-                        and identifier.tag_ in id_tags
-                        and identifier.dep_ != "nummod"
+                        many_score.score.max() > one_score.score.max()
+                        and many_score.score.max() > 0.8
+                        and chunks[0]
                 ):
-                    identifier_index = identifier.i
-                    identifier_token = nlp(identifier.text)
+                    found_id = many_score.loc[
+                        many_score.score == many_score.score.max(), "id"
+                    ].values[0]
+                    return "0..*", found_id, "", many_score.score.max
 
-                    for sm in samples_multi:
-                        new_row = {
-                            "id": identifier_token,
-                            "idx": identifier_index,
-                            "score": (identifier_token).similarity(nlp(sm)),
-                        }
+                # if (max(many_score) > max(one_score)) and max(many_score) > 0.8 and chunks[0]:
+                #     return '0..*'
 
-                        new_row_df = pd.DataFrame(new_row, index=[0])
-                        many_score2 = pd.concat(
-                            [many_score2, new_row_df], ignore_index=True
-                        )
+            identifier = class_token
+            count = -1
+            while count >= (-(class_token.i)):
+                # if class_token.nbor(count).pos_ == 'DET' or class_token.nbor(count).dep_ == 'nummod':
+                token_text = class_token.nbor(count).text
+                token_text = token_text.title()
+                if token_text not in chunks and class_token.nbor(count).tag_ in noun_tags:
+                    return "?", "", "", ""
+                if token_text not in chunks and (
+                        class_token.nbor(count).tag_ in id_tags
+                        or class_token.nbor(count).dep_ == "nummod"
+                ):
+                    identifier = class_token.nbor(count)
+                    if (
+                            identifier
+                            and identifier != class_token
+                            and identifier.tag_ in id_tags
+                            and identifier.dep_ != "nummod"
+                    ):
+                        identifier_index = identifier.i
+                        identifier_token = nlp(identifier.text)
 
-                    for so in samples_one:
-                        # one_score.append((identifier_token).similarity(nlp(so)))
-                        new_row = {
-                            "id": identifier_token,
-                            "idx": identifier_index,
-                            "score": (identifier_token).similarity(nlp(so)),
-                        }
-                        new_row_df = pd.DataFrame(new_row, index=[0])
-                        one_score2 = pd.concat(
-                            [one_score2, new_row_df], ignore_index=True
-                        )
+                        for sm in samples_multi:
+                            new_row = {
+                                "id": identifier_token,
+                                "idx": identifier_index,
+                                "score": (identifier_token).similarity(nlp(sm)),
+                            }
 
-                    # for val in many_score:
-                    #     if val != None:
-                    #         many_score2.append(val)
+                            new_row_df = pd.DataFrame(new_row, index=[0])
+                            many_score2 = pd.concat(
+                                [many_score2, new_row_df], ignore_index=True
+                            )
 
-                    # for val in one_score:
-                    #     if val != None:
-                    #         one_score2.append(val)
+                        for so in samples_one:
+                            # one_score.append((identifier_token).similarity(nlp(so)))
+                            new_row = {
+                                "id": identifier_token,
+                                "idx": identifier_index,
+                                "score": (identifier_token).similarity(nlp(so)),
+                            }
+                            new_row_df = pd.DataFrame(new_row, index=[0])
+                            one_score2 = pd.concat(
+                                [one_score2, new_row_df], ignore_index=True
+                            )
 
-                    many_score2.mask(many_score.eq("None")).dropna()
-                    one_score2.mask(one_score.eq("None")).dropna()
+                        # for val in many_score:
+                        #     if val != None:
+                        #         many_score2.append(val)
 
-                    # if many_score.score.max() > one_score.score.max() and many_score.score.max() > 0.8 and chunks[0]:
-                    #     found_id = many_score.loc[many_score.score == many_score.score.max(),'id'].values[0]
-                    #     return '0..*',found_id,many_score.score.max
+                        # for val in one_score:
+                        #     if val != None:
+                        #         one_score2.append(val)
 
-                    if len(one_score2) != 0 and len(many_score2) != 0:
-                        max_many_sco = many_score2.score.max()
-                        max_one_sco = one_score2.score.max()
+                        many_score2.mask(many_score.eq("None")).dropna()
+                        one_score2.mask(one_score.eq("None")).dropna()
 
-                        if (max_many_sco >= max_one_sco) and max_many_sco > 0.7:
-                            found_id = many_score2.loc[
-                                many_score2.score == many_score2.score.max(), "id"
-                            ].values[0]
-                            found_idx = many_score2.loc[
-                                many_score2.score == many_score2.score.max(), "idx"
-                            ].values[0]
-                            return "0..*", found_id, found_idx, max_many_sco
-                        elif (max_one_sco >= max_many_sco) and max_one_sco > 0.7:
-                            found_id = one_score2.loc[
-                                one_score2.score == one_score2.score.max(), "id"
-                            ].values[0]
-                            found_idx = one_score2.loc[
-                                one_score2.score == one_score2.score.max(), "idx"
-                            ].values[0]
-                            return "0..1", found_id, found_idx, max_one_sco
-                elif identifier and identifier.dep_ == "nummod":
-                    if identifier.shape_ == "d":
-                        concan_value = "0.." + str(identifier.text) + "'"
-                    else:
-                        value = w2n.word_to_num(identifier.text)
-                        concan_value = "0.." + str(value) + "'"
-                    if concan_value:
-                        return concan_value, identifier.text, identifier.i, ""
-            count = count - 1
-        # elif (identifier != class_token and identifier.tag_ in singular_nouns) or class_token.tag_ in singular_nouns:
-        #     return "0..1"
-        # elif (identifier != class_token and identifier.tag_ in plural_nouns) or class_token.tag_ in plural_nouns:
-        #     return "0..*"
-        else:
+                        # if many_score.score.max() > one_score.score.max() and many_score.score.max() > 0.8 and chunks[0]:
+                        #     found_id = many_score.loc[many_score.score == many_score.score.max(),'id'].values[0]
+                        #     return '0..*',found_id,many_score.score.max
+
+                        if len(one_score2) != 0 and len(many_score2) != 0:
+                            max_many_sco = many_score2.score.max()
+                            max_one_sco = one_score2.score.max()
+
+                            if (max_many_sco >= max_one_sco) and max_many_sco > 0.7:
+                                found_id = many_score2.loc[
+                                    many_score2.score == many_score2.score.max(), "id"
+                                ].values[0]
+                                found_idx = many_score2.loc[
+                                    many_score2.score == many_score2.score.max(), "idx"
+                                ].values[0]
+                                return "0..*", found_id, found_idx, max_many_sco
+                            elif (max_one_sco >= max_many_sco) and max_one_sco > 0.7:
+                                found_id = one_score2.loc[
+                                    one_score2.score == one_score2.score.max(), "id"
+                                ].values[0]
+                                found_idx = one_score2.loc[
+                                    one_score2.score == one_score2.score.max(), "idx"
+                                ].values[0]
+                                return "0..1", found_id, found_idx, max_one_sco
+                    elif identifier and identifier.dep_ == "nummod":
+                        if identifier.shape_ == "d":
+                            concan_value = "0.." + str(identifier.text) + "'"
+                        else:
+                            value = w2n.word_to_num(identifier.text)
+                            concan_value = "0.." + str(value) + "'"
+                        if concan_value:
+                            return concan_value, identifier.text, identifier.i, ""
+                count = count - 1
+            # elif (identifier != class_token and identifier.tag_ in singular_nouns) or class_token.tag_ in singular_nouns:
+            #     return "0..1"
+            # elif (identifier != class_token and identifier.tag_ in plural_nouns) or class_token.tag_ in plural_nouns:
+            #     return "0..*"
+            else:
+                return "?", "", "", ""
+        except Exception as e:
+            print("Error in finding the multiplicity ", {e})
             return "?", "", "", ""
 
     def intersection(self, lst1, lst2):
