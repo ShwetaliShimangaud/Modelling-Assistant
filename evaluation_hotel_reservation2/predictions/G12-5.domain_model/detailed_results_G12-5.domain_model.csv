@@ -1,0 +1,3 @@
+domain,model_element,correct_and_correct,correct_and_incorrect,correct_and_noMatch,correct_and_inconclusive,incorrect_and_correct,incorrect_and_incorrect,incorrect_and_noMatch,incorrect_and_inconclusive,extra_and_correct,extra_and_incorrect,extra_and_noMatch,extra_and_inconclusive
+G12-5.domain_model,attribute,5,0,0,0,0,0,0,0,0,0,0,0
+G12-5.domain_model,association,1,0,0,0,0,0,0,0,0,0,0,0

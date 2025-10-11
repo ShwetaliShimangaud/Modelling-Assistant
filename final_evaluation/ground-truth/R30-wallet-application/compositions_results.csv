@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,wallet,transaction,,Each wallet is made up of transactions,"Secondly, the user should make the desired amount of money transactions to the wallet.",FALSE,FALSE,FALSE,correct,composition

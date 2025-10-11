@@ -1,0 +1,19 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+position,cell,,,cell is a type of position,The player may change directions multiple times but cannot enter the same cell twice during a single turn.,FALSE,FALSE,FALSE
+position,cell,,,cell is a type of position,It costs the player a single move to enter the atmosphere from the adjacent cell.,FALSE,FALSE,FALSE
+position,cell,,,cell is a type of position,"Also, a player may not move into a cell occupied by another player's token.",FALSE,FALSE,FALSE
+position,cell,,,cell is a type of position,A player visits a planet by making legal moves on the board until a cell adjacent to an atmosphere entry point is reached.,FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,"The planets, Linuta and Verlute, have a wormhole connecting each other, as do Earth and Evilon.",FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,The player can enter the planet's atmosphere in a different number of moves.,FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,"A player wins the game by announcing their murder hypothesis, consisting of a planet, a perpetrator, and a murder weapon at any time during their turn, and having the server determine that the hypothesis is correct.",FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,The wormholes connect certain planets.,FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,A player whose token resides on one of four planets having wormhole connections to other planets may choose not to spin the spinner and take the wormhole directly to the other planet.,FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,A player visits a planet by making legal moves on the board until a cell adjacent to an atmosphere entry point is reached.,FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,"The game is an intergalactic murder mystery, which emulates a board game scenario in which players spin a wheel to determine a randomly selected number of moves by which they travel through space to various planets.",FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,The player is considered to be on the planet as soon as the planet's atmosphere has been entered.,FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,"To visit a planet, a player must enter the planet's atmosphere at one of the predefined entry points.",FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,The objective of player movement throughout the universe is to investigate specific planets to determine if that was the murder site.,FALSE,TRUE,FALSE
+position,planet,,,planet is a type of position,"The game's strategy is embodied in selecting questions to ask other players, selecting planet destinations, and efficiently deducing the correct murder scenario.",FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,Each planet has between one and three predefined atmospheric entry points.,FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,These entry points are graphically depicted on the game as a diagonal line off a square on the board leading into a planet's atmosphere.,FALSE,FALSE,FALSE
+position,planet,,,planet is a type of position,A player may not re-visit the same planet on a single turn.,FALSE,FALSE,FALSE

@@ -1,6 +1,6 @@
 class_attributes = {
-    'Product': ["productType", 'expirationDate', 'price'],
-    "DeliveryOrder": ['status']
+    'Product': ["productType:enumeration", 'expirationDate:date', 'price:double'],
+    "DeliveryOrder": ['status:enumeration']
 }
 
 associations = [

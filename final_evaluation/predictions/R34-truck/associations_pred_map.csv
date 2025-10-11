@@ -1,0 +1,139 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+rental office,vehicle,,*,A rental office can have vehicles ,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,False,not clear,True
+vehicle,rental office,homeOffice,1,A vehicle has a a home office which is a rental office,Each rental office has an official name like 'Littleton Right-Way.',False,not clear,False
+vehicle,rental office,homeOffice,1,A vehicle has a a home office which is a rental office,Each rental agreement is identified by the originating rental office number and a rental agreement number.,False,not clear,False
+vehicle,rental office,homeOffice,1,A vehicle has a a home office which is a rental office,"Each office is a home office for some vehicles, and each vehicle is based on a single home office.",False,not clear,False
+vehicle,rental office,homeOffice,1,A vehicle has a a home office which is a rental office,We have 347 rental offices across the western United States.,False,not clear,False
+vehicle,rental office,homeOffice,1,A vehicle has a a home office which is a rental office,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,False,not clear,False
+vehicle,rental office,homeOffice,1,A vehicle has a a home office which is a rental office,The central office oversees vehicle distribution and directs transfers of vehicles from one rental office to another.,False,not clear,False
+vehicle,rental office,homeOffice,1,A vehicle has a a home office which is a rental office,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",False,not clear,False
+rental agreement,rental office,originatingRentalOffice,1,A rental agreement has an originating rental office,Each rental agreement is identified by the originating rental office number and a rental agreement number.,False,not clear,True
+rental agreement,rental office,dropoffRentalOffice,1,A rental agreement has a dropoff rental office,Each rental agreement is identified by the originating rental office number and a rental agreement number.,False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,Our corporate sales group handles all that information separately.,False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"Each office is a home office for some vehicles, and each vehicle is based on a single home office.",False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,We have 347 rental offices across the western United States.,False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"For all our vehicles, we need to track their registration's last maintenance date and expiration date.",False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,We don't take reservations or speculate when the customer will return rented vehicles.,False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,Each office also has a unique three-digit office number.,False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,Each rental agreement is identified by the originating rental office number and a rental agreement number.,False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"Yes, we do have customers rent two or more vehicles at the same time.",False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"If a customer damaged a vehicle, abandoned it, or didn't fully pay the bill, we tag the customer as a poor risk and won't rent to that customer again.",False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"Of course, for the trailers, there isn't a mileage charge.",False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"Yes, we do have a vehicle type code.",False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"Each vehicle has a vehicle id, registration state, and license plate registration number.",False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"We only allow a single individual or company for a given rental agreement, and we write a separate rental agreement for each vehicle.",False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,Each rental office has an official name like 'Littleton Right-Way.',False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,We assign each company an identifying company number and track the company's name and address.,False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"No, we don't need to automate the financial side of our business, just our rental agreement tracking and vehicle assignment functions.",False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"For long moves, customers prefer a radio.",False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,We like to keep track of all our customers.,False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"No, we don't need to worry about any additional information about the company.",False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,We do rent a small percentage of our trucks to companies.,False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,We must implement a system to track our rental agreements and vehicle assignments.,False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,The Right-Way Rental Truck Company rents small moving trucks and trailers for local and one-way usage.,False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,The central office oversees vehicle distribution and directs transfers of vehicles from one rental office to another.,False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,We log the current mileage just before we rent a truck and then again when it is returned.,False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"Most of our rental agreements are for individual customers, but a rental agreement can either be for an individual or a company.",False,not clear,True
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,We also keep each office's address.,False,not clear,False
+vehicle,rental agreement,,*,A vehicle can have rental agreements ,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,Our corporate sales group handles all that information separately.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"Each office is a home office for some vehicles, and each vehicle is based on a single home office.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,We have 347 rental offices across the western United States.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"For all our vehicles, we need to track their registration's last maintenance date and expiration date.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,We don't take reservations or speculate when the customer will return rented vehicles.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,Each office also has a unique three-digit office number.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,Each rental agreement is identified by the originating rental office number and a rental agreement number.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"Yes, we do have customers rent two or more vehicles at the same time.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"If a customer damaged a vehicle, abandoned it, or didn't fully pay the bill, we tag the customer as a poor risk and won't rent to that customer again.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"Of course, for the trailers, there isn't a mileage charge.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"Yes, we do have a vehicle type code.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"Each vehicle has a vehicle id, registration state, and license plate registration number.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"We only allow a single individual or company for a given rental agreement, and we write a separate rental agreement for each vehicle.",False,not clear,True
+rental agreement,vehicle,,1,A rental agreement has vehicle,Each rental office has an official name like 'Littleton Right-Way.',False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,We assign each company an identifying company number and track the company's name and address.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"No, we don't need to automate the financial side of our business, just our rental agreement tracking and vehicle assignment functions.",False,not clear,True
+rental agreement,vehicle,,1,A rental agreement has vehicle,"For long moves, customers prefer a radio.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,We like to keep track of all our customers.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"No, we don't need to worry about any additional information about the company.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,We do rent a small percentage of our trucks to companies.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,We must implement a system to track our rental agreements and vehicle assignments.,False,not clear,True
+rental agreement,vehicle,,1,A rental agreement has vehicle,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,not clear,True
+rental agreement,vehicle,,1,A rental agreement has vehicle,The Right-Way Rental Truck Company rents small moving trucks and trailers for local and one-way usage.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,The central office oversees vehicle distribution and directs transfers of vehicles from one rental office to another.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,We log the current mileage just before we rent a truck and then again when it is returned.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"Most of our rental agreements are for individual customers, but a rental agreement can either be for an individual or a company.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,We also keep each office's address.,False,not clear,False
+rental agreement,vehicle,,1,A rental agreement has vehicle,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,Our corporate sales group handles all that information separately.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"Each office is a home office for some vehicles, and each vehicle is based on a single home office.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,We have 347 rental offices across the western United States.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"For all our vehicles, we need to track their registration's last maintenance date and expiration date.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,We don't take reservations or speculate when the customer will return rented vehicles.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,Each office also has a unique three-digit office number.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,Each rental agreement is identified by the originating rental office number and a rental agreement number.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"Yes, we do have customers rent two or more vehicles at the same time.",False,not clear,True
+customer,rental agreement,,*,A customer can have rental agreements ,"If a customer damaged a vehicle, abandoned it, or didn't fully pay the bill, we tag the customer as a poor risk and won't rent to that customer again.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"Of course, for the trailers, there isn't a mileage charge.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"Yes, we do have a vehicle type code.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"Each vehicle has a vehicle id, registration state, and license plate registration number.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"We only allow a single individual or company for a given rental agreement, and we write a separate rental agreement for each vehicle.",False,not clear,True
+customer,rental agreement,,*,A customer can have rental agreements ,Each rental office has an official name like 'Littleton Right-Way.',False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,We assign each company an identifying company number and track the company's name and address.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"No, we don't need to automate the financial side of our business, just our rental agreement tracking and vehicle assignment functions.",False,not clear,True
+customer,rental agreement,,*,A customer can have rental agreements ,"For long moves, customers prefer a radio.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,False,not clear,True
+customer,rental agreement,,*,A customer can have rental agreements ,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",False,not clear,True
+customer,rental agreement,,*,A customer can have rental agreements ,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,We like to keep track of all our customers.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"No, we don't need to worry about any additional information about the company.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,We do rent a small percentage of our trucks to companies.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,We must implement a system to track our rental agreements and vehicle assignments.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,The Right-Way Rental Truck Company rents small moving trucks and trailers for local and one-way usage.,False,not clear,True
+customer,rental agreement,,*,A customer can have rental agreements ,The central office oversees vehicle distribution and directs transfers of vehicles from one rental office to another.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,We log the current mileage just before we rent a truck and then again when it is returned.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"Most of our rental agreements are for individual customers, but a rental agreement can either be for an individual or a company.",False,not clear,True
+customer,rental agreement,,*,A customer can have rental agreements ,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,We also keep each office's address.,False,not clear,False
+customer,rental agreement,,*,A customer can have rental agreements ,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,Our corporate sales group handles all that information separately.,False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"Each office is a home office for some vehicles, and each vehicle is based on a single home office.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,We have 347 rental offices across the western United States.,False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"For all our vehicles, we need to track their registration's last maintenance date and expiration date.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,We don't take reservations or speculate when the customer will return rented vehicles.,False,not clear,True
+rental agreement,customer,,1,A rental agreement has customer,Each office also has a unique three-digit office number.,False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,Each rental agreement is identified by the originating rental office number and a rental agreement number.,False,not clear,True
+rental agreement,customer,,1,A rental agreement has customer,"Yes, we do have customers rent two or more vehicles at the same time.",False,not clear,True
+rental agreement,customer,,1,A rental agreement has customer,"If a customer damaged a vehicle, abandoned it, or didn't fully pay the bill, we tag the customer as a poor risk and won't rent to that customer again.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"Of course, for the trailers, there isn't a mileage charge.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"Yes, we do have a vehicle type code.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"Each vehicle has a vehicle id, registration state, and license plate registration number.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"We only allow a single individual or company for a given rental agreement, and we write a separate rental agreement for each vehicle.",False,not clear,True
+rental agreement,customer,,1,A rental agreement has customer,Each rental office has an official name like 'Littleton Right-Way.',False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,We assign each company an identifying company number and track the company's name and address.,False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"No, we don't need to automate the financial side of our business, just our rental agreement tracking and vehicle assignment functions.",False,not clear,True
+rental agreement,customer,,1,A rental agreement has customer,"For long moves, customers prefer a radio.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,False,not clear,True
+rental agreement,customer,,1,A rental agreement has customer,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,not clear,True
+rental agreement,customer,,1,A rental agreement has customer,We like to keep track of all our customers.,False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"No, we don't need to worry about any additional information about the company.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,We do rent a small percentage of our trucks to companies.,False,not clear,True
+rental agreement,customer,,1,A rental agreement has customer,We must implement a system to track our rental agreements and vehicle assignments.,False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,The Right-Way Rental Truck Company rents small moving trucks and trailers for local and one-way usage.,False,not clear,True
+rental agreement,customer,,1,A rental agreement has customer,The central office oversees vehicle distribution and directs transfers of vehicles from one rental office to another.,False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,We log the current mileage just before we rent a truck and then again when it is returned.,False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"Most of our rental agreements are for individual customers, but a rental agreement can either be for an individual or a company.",False,not clear,True
+rental agreement,customer,,1,A rental agreement has customer,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,We also keep each office's address.,False,not clear,False
+rental agreement,customer,,1,A rental agreement has customer,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",False,not clear,False

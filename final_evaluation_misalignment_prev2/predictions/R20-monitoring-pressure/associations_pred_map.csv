@@ -1,0 +1,2 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+human operator,system,operates,A human operator operates 5 or more systems ,The human operator can override system actions by turning on a block button and resets the manual block by pushing on a reset button.,False,True,False,inconclusive,association

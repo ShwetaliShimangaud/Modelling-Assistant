@@ -1,0 +1,9 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+app,running,,,running is a type of app,The app will take the device's GPS location and track the user's running activity.,not clear,False,not clear
+app,running,,,running is a type of app,The application will track the user's running activity and convert them into calories burnt.,not clear,True,False
+app,running,,,running is a type of app,The application will track the user's running activity and convert them into calories burnt.,False,True,False
+app,running,,,running is a type of app,The app will take the device's GPS location and track the user's running activity.,False,False,not clear
+running,activity,,,activity is a type of running,The application will track the user's running activity and convert them into calories burnt.,not clear,False,not clear
+running,activity,,,activity is a type of running,The app will take the device's GPS location and track the user's running activity.,not clear,False,not clear
+running,activity,,,activity is a type of running,The application will track the user's running activity and convert them into calories burnt.,not clear,False,not clear
+running,activity,,,activity is a type of running,The app will take the device's GPS location and track the user's running activity.,False,False,not clear

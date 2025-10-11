@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+manager,department,controlled by,,,,False,False,False,inconclusive,Each manager is made up of department,Each department has to be controlled by a manager.,composition

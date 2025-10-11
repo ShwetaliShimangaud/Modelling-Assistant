@@ -1,11 +1,11 @@
 
 class_attributes = {
-    "Employee" : ['department', 'name', 'dateOfBirth', 'socialInsuranceNumber'],
-    "Worker" : ['weeklyWorkingHours','hourlyRate'],
-    "SalePerson" : ['fixedSalary','amountOfSales','commissionPercentage'],
-    "Manager" : ['fixedSalary', 'positionInformation'],
-    "ShiftWorker" : ['premiums'],
-    "OffShiftWorker" : ['permits']
+    "Employee" : ['department:string', 'name:string', 'dateOfBirth:date', 'socialInsuranceNumber:int'],
+    "Worker" : ['weeklyWorkingHours:double','hourlyRate:double'],
+    "SalePerson" : ['fixedSalary:double','amountOfSales:int','commissionPercentage:double'],
+    "Manager" : ['fixedSalary:double', 'positionInformation:string'],
+    "ShiftWorker" : ['premiums:int'],
+    "OffShiftWorker" : ['permits:int']
 }
 
 associations = [{

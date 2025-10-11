@@ -1,6 +1,6 @@
 class_attributes = {
     'FootballTeam': [],
-    "FootballPlayer": ['name', 'age', 'number', 'position']
+    "FootballPlayer": ['name:string', 'age:int', 'number:int', 'position:enumeration']
 }
 
 associations = [

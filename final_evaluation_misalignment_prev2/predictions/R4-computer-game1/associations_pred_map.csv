@@ -1,0 +1,10 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+entry point,cell,adjacentTo,A entry point is adjacent to cells ,It costs the player a single move to enter the atmosphere from the adjacent cell.,FALSE,FALSE,TRUE,correct,association
+player,hypothesis,,A player can have hypothesis ,Other players are informed that the hypothesis was refuted but need to be shown the piece of evidence that refuted the hypothesis.,FALSE,FALSE,TRUE,correct,association
+question,player,askedBy,A question is asked by a player,"The questions form a hypothesis for the murder circumstance and perpetrator, which the remaining players are invited to disprove with their evidence.",FALSE,TRUE,FALSE,wrong,association
+planet,planet,hasAWarmholeTo,A planet haves warmhole to planets ,"The planets, Linuta and Verlute, have a wormhole connecting each other, as do Earth and Evilon.",FALSE,FALSE,TRUE,correct,association
+hypothesis,planet,planet,A hypothesis has a planet,The objective of player movement throughout the universe is to investigate specific planets to determine if that was the murder site.,FALSE,FALSE,TRUE,correct,association
+clue,player,,A clue has player,The game's objective is to gather clues while traveling about the universe.,FALSE,FALSE,TRUE,correct,association
+player,planet,travelsTo,A player travels to a planet,A player whose token resides on one of four planets having wormhole connections to other planets may choose not to spin the spinner and take the wormhole directly to the other planet.,FALSE,FALSE,FALSE,inconclusive,association
+player,clue,gathered,A player has a a gathered which is a clue,"After gathering a certain set of clues and applying deductive reasoning, players may deduce the perpetrator and circumstance of the murder.",FALSE,TRUE,FALSE,wrong,association
+player,question,asks,A player has  an ask which is a question,"The game's strategy is embodied in selecting questions to ask other players, selecting planet destinations, and efficiently deducing the correct murder scenario.",FALSE,TRUE,FALSE,wrong,association

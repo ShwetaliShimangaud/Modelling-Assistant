@@ -1,0 +1,2 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+football player,football team,Each football player is made up of football teams,"Football players have team, name, age, and number.",False,True,False,wrong

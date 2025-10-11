@@ -1,0 +1,3 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+file system,image editor,,,image editor is a type of file system,"The system has three editors that allow you to manage documents: Text Editor, Image Editor, and Video Editor.",FALSE,TRUE,FALSE
+image editor,editor,,,editor is a type of image editor,"The system has three editors that allow you to manage documents: Text Editor, Image Editor, and Video Editor.",not clear,TRUE,not clear

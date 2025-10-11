@@ -1,0 +1,6 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+app,diet,,A app can have diets ,The application can suggest videos and diets and schedule them on the calendar.,FALSE,FALSE,TRUE,correct,association
+day,exercise,,A day can have exercises ,The Bewell app is mainly for those who plan to lose or gain weight and require a planned medium.,FALSE,FALSE,TRUE,correct,association
+exercise,day,,A exercise can have days ,The Bewell app is mainly for those who plan to lose or gain weight and require a planned medium.,FALSE,FALSE,FALSE,inconclusive,association
+day,event,,A day has event,The app will have a calendar layout where the user can click on a specific day to find all the events and diets scheduled for the day.,FALSE,TRUE,FALSE,wrong,association
+day,diet,,A day has diet,The app will have a calendar layout where the user can click on a specific day to find all the events and diets scheduled for the day.,FALSE,TRUE,FALSE,wrong,association

@@ -1,0 +1,5 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,reservation,item ordered,,A reservation has item ordered,"Therefore, there can be overlapping table reservations.",FALSE,TRUE,FALSE,wrong,association
+0,item ordered,reservation,,A item ordered can have reservations ,"In other words, each reservation can be associated with many menu items, and a menu item can be associated with many reservations.",FALSE,FALSE,FALSE,wrong,association
+0,reservation,waiter,,A reservation can have waiters ,"When the reservation party arrives at Romano's, the reservation is assigned to one waiter.",FALSE,TRUE,FALSE,wrong,association
+0,waiter,reservation,,A waiter has reservation,A waiter can be assigned to many reservations during the evening'.,FALSE,TRUE,FALSE,wrong,association

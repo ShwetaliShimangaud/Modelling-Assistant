@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,stock,supermarket,,Each stock is made up of supermarkets,They use physical inventory where every product purchased is recorded by using the form of stock.,FALSE,FALSE,FALSE,wrong,composition

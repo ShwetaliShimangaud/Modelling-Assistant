@@ -1,0 +1,59 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+guest,guest info,guestInfo,1,A guest has a guest info,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+guest,guest info,guestInfo,1,A guest has a guest info,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+guest,guest info,guestInfo,1,A guest has a guest info,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+guest,guest info,guestInfo,1,A guest has a guest info,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+guest,guest info,guestInfo,1,A guest has a guest info,The hotel contains 30 rooms in which guests can stay.,False,False,False
+guest,guest info,guestInfo,1,A guest has a guest info,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,True
+guest,guest info,guestInfo,1,A guest has a guest info,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+guest info,guest,guest,1,A guest info has a guest,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+guest info,guest,guest,1,A guest info has a guest,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+guest info,guest,guest,1,A guest info has a guest,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+guest info,guest,guest,1,A guest info has a guest,"The system must keep track of the guest's account, and print his or her bill.",False,False,True
+guest info,guest,guest,1,A guest info has a guest,The hotel contains 30 rooms in which guests can stay.,False,False,False
+guest info,guest,guest,1,A guest info has a guest,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+guest info,guest,guest,1,A guest info has a guest,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+hotel,guest,hasAsGuests,0..*,A hotel haves as guests guests ,The hotel contains 30 rooms in which guests can stay.,False,False,True
+hotel,guest,hasAsGuests,0..*,A hotel haves as guests guests ,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+hotel,guest,hasAsGuests,0..*,A hotel haves as guests guests ,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+hotel,guest,hasAsGuests,0..*,A hotel haves as guests guests ,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+guest,hotel,isIn,1,A guest is ina hotel,The hotel contains 30 rooms in which guests can stay.,False,True,False
+guest,hotel,isIn,1,A guest is ina hotel,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+guest,hotel,isIn,1,A guest is ina hotel,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+guest,hotel,isIn,1,A guest is ina hotel,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,True,False
+bed,hotel room,myHotelRoom,1,A bed has a hotel room,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+bed,hotel room,myHotelRoom,1,A bed has a hotel room,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,True,False
+bed,hotel room,myHotelRoom,1,A bed has a hotel room,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+hotel room,bed,beds,0..*,A hotel room can have beds ,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,True,False
+guest,hotel room,isIn,0..*,A guest is inhotel rooms ,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,True,False
+guest,hotel room,isIn,0..*,A guest is inhotel rooms ,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,True,False
+hotel,hotel room,contains,30..30,A hotel can have contains which are hotel rooms,The hotel contains 30 rooms in which guests can stay.,False,False,True
+hotel room,hotel,isIn,1,A hotel room is ina hotel,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+hotel room,hotel,isIn,1,A hotel room is ina hotel,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+reservation,hotel,myHotel,1,A reservation has a hotel,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+reservation,hotel,myHotel,1,A reservation has a hotel,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+reservation,hotel,myHotel,1,A reservation has a hotel,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+hotel,reservation,reservations,0..*,A hotel can have reservations ,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,True
+hotel,reservation,reservations,0..*,A hotel can have reservations ,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,True
+hotel,reservation,reservations,0..*,A hotel can have reservations ,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,True,False
+reservation,guest,forGuest,1,A reservation has a for guest,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+reservation,guest,forGuest,1,A reservation has a for guest,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+guest,reservation,reservations,0..30,A guest can have reservations ,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,True
+hotel room,quality level,has,1,A hotel room has quality level,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,True
+quality level,hotel room,classifies,1,A quality level classifies a hotel room,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",True,False,False
+paid amount,quality level,level,1,A paid amount has a quality level,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+paid amount,quality level,level,1,A paid amount has a quality level,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+paid amount,guest,guest,1,A paid amount has a guest,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+paid amount,guest,guest,1,A paid amount has a guest,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+paid amount,guest,guest,1,A paid amount has a guest,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+paid amount,guest,guest,1,A paid amount has a guest,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+paid amount,guest,guest,1,A paid amount has a guest,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+paid amount,guest,guest,1,A paid amount has a guest,The hotel contains 30 rooms in which guests can stay.,False,False,False
+paid amount,guest,guest,1,A paid amount has a guest,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+guest,paid amount,paid,0..*,A guest can have paid amounts ,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,True
+guest,paid amount,paid,0..*,A guest can have paid amounts ,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+guest,paid amount,paid,0..*,A guest can have paid amounts ,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+guest,paid amount,paid,0..*,A guest can have paid amounts ,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+guest,paid amount,paid,0..*,A guest can have paid amounts ,"The system must keep track of the guest's account, and print his or her bill.",False,False,True
+guest,paid amount,paid,0..*,A guest can have paid amounts ,The hotel contains 30 rooms in which guests can stay.,False,False,False
+guest,paid amount,paid,0..*,A guest can have paid amounts ,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False

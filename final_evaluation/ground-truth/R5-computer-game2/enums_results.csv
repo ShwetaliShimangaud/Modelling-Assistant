@@ -1,0 +1,7 @@
+,source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,movement kind,backward,Backward is a movement kind,'Move backwards' actions let the robot move backward to dodge the incoming bombs that might fall right in front of it.,FALSE,FALSE,TRUE,correct
+1,movement kind,duck,Duck is a movement kind,'Move backwards' actions let the robot move backward to dodge the incoming bombs that might fall right in front of it.,FALSE,FALSE,TRUE,correct
+2,movement kind,forward,Forward is a movement kind,The robot will be running in the forward direction.,FALSE,FALSE,TRUE,correct
+3,movement kind,jump,Jump is a movement kind,'Move backwards' actions let the robot move backward to dodge the incoming bombs that might fall right in front of it.,FALSE,FALSE,TRUE,correct
+4,phase,one,One is a phase,"After running for a certain distance or given time, the level will be cleared, and the robot will move on to the second phase to chase robots away or press the self-destruct button, which destroys the enemy base at the end of each level.",FALSE,FALSE,FALSE,correct
+5,phase,two,Two is a phase,"After running for a certain distance or given time, the level will be cleared, and the robot will move on to the second phase to chase robots away or press the self-destruct button, which destroys the enemy base at the end of each level.",FALSE,FALSE,FALSE,correct

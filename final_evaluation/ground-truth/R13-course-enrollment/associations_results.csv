@@ -1,0 +1,10 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,bill,student,,A bill has student,"At the end of the semester, the student can access the system to view an electronic report card.",FALSE,FALSE,FALSE,correct,association
+0,student,bill,,A student can have bills ,"At the end of the semester, the student can access the system to view an electronic report card.",FALSE,FALSE,TRUE,correct,association
+0,student,electronic report card,,A student has electronic report card,"At the end of the semester, the student can access the system to view an electronic report card.",FALSE,FALSE,TRUE,correct,association
+0,student,course,selected,A student has a a selected which is a course,The new online registration system will allow students to select four-course offerings for the coming semester.,FALSE,FALSE,TRUE,correct,association
+0,course,student,,A course can have students ,A course offering fewer than three students will be canceled.,FALSE,FALSE,TRUE,correct,association
+0,student,course,choices,A student has  a choice which is a course,"In addition, each student will indicate two choices in case a course offering becomes filled or canceled.",FALSE,FALSE,TRUE,correct,association
+0,grade,course,course,A grade has a course,The new online registration system will allow students to select four-course offerings for the coming semester.,FALSE,FALSE,FALSE,correct,association
+0,professor,course,teach,A professor can have teaches which are courses,The new online registration system will allow students to select four-course offerings for the coming semester.,FALSE,FALSE,TRUE,correct,association
+0,course,professor,,A course has professor,The new online registration system will allow students to select four-course offerings for the coming semester.,FALSE,FALSE,TRUE,correct,association

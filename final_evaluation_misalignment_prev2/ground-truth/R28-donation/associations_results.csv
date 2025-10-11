@@ -1,0 +1,5 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+banking system,organization,,A banking system can have organizations ,The organization list should be retrieved from the internal banking systems.,False,False,True,correct,association
+banking system,user,,A banking system can have users ,The organization list should be retrieved from the internal banking systems.,False,False,True,correct,association
+donation,organization,,A donation has organization,The organization list should be retrieved from the internal banking systems.,False,False,True,correct,association
+user,account,,A user has account,Customer Users can transfer their money to the charity organizations via web or mobile banking system.,False,True,False,wrong,association

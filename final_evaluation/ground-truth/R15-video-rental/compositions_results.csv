@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,inventory,tape,,Each inventory is made up of tapes,"Bar code Ids for each tape are entered, and video information from inventory is displayed.",FALSE,FALSE,FALSE,correct,composition

@@ -1,0 +1,7 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+student,course,selected,A student has a a selected which is a course,The new online registration system will allow students to select four-course offerings for the coming semester.,False,False,True,correct,association
+course,student,,A course can have students ,A course offering fewer than three students will be canceled.,False,False,True,correct,association
+student,course,choices,A student has  a choice which is a course,"In addition, each student will indicate two choices in case a course offering becomes filled or canceled.",False,False,True,correct,association
+course,professor,,A course has professor,The new online registration system will allow students to select four-course offerings for the coming semester.,False,False,True,correct,association
+student,electronic report card,,A student has electronic report card,"At the end of the semester, the student can access the system to view an electronic report card.",False,False,False,inconclusive,association
+professor,course,teach,A professor has a a teach which is a course,"In addition, each student will indicate two choices in case a course offering becomes filled or canceled.",False,True,False,wrong,association

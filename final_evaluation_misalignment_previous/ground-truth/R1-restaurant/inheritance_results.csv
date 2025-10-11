@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,item,waiter,,waiter is a type of item,The waiter in the service section serves the customer.,FALSE,TRUE,FALSE,wrong,inheritance
+0,waiter,employee,,employee is a type of waiter,The restaurant has more than one employee.,FALSE,FALSE,FALSE,wrong,inheritance

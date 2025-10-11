@@ -1,0 +1,43 @@
+class_name,attributes,actual_sentence,generated_sentence,answer
+lease,arrival day,The main office sends overdue notices due to late arrivals.,a lease has an arrival day,inconclusive
+lease,departure day,"Store assistant searches for available cars, submit renting a car, and produces rental reports.",a lease has a departure day,inconclusive
+course,cancelled course,The new online registration system will allow students to select four-course offerings for the coming semester.,a course has a cancelled course,inconclusive
+grade,grade,"Since student grades are sensitive information, the system must employ extra security measures to prevent unauthorized access.",a grade has a grade,inconclusive
+user,name,"If there are any of the 30 orderable tickets left, he is prompted to enter his name, his e-mail address, and the desired number of cards.",an user has a name,inconclusive
+user,wants to be reminded,"If there are any of the 30 orderable tickets left, he is prompted to enter his name, his e-mail address, and the desired number of cards.",an user has a wants to be reminded,inconclusive
+rental,delay,Customers can borrow if there is no delay with the return of other tapes.,a rental has a delay,inconclusive
+rental,delay,Customers can borrow if there is no delay with the return of other tapes.,a rental has a delay,inconclusive
+city,details,This information may also include details of the cities nearby.,a city has  details,inconclusive
+savings account,balance,"Customers can have only one account per currency, except EUR.",a savings account has a balance,inconclusive
+initial public offering,money paid,The amount of money that has been paid,an initial public offering has a money paid,inconclusive
+initial public offering,num shares,Number of shares that have been purchased.,an initial public offering has a num shares,inconclusive
+user,blocked account,"If the user has unpaid credit card payments, a blocked account, or is marked as a 'fraud user,' the user should not be able to perform an IPO application.",an user has a blocked account,inconclusive
+user,customer type,"If the user has unpaid credit card payments, a blocked account, or is marked as a 'fraud user,' the user should not be able to perform an IPO application.",an user has a customer type,inconclusive
+user,failed attempts,"If the user has more than five failed attempts, the bank should restrict the user from the application process.",an user has a failed attempts,inconclusive
+user,fraud user,"Email content should include below information:User's name, surname, email address, telephone number.",an user has a fraud user,inconclusive
+user,unpaid credit,"If the user has unpaid credit card payments, a blocked account, or is marked as a 'fraud user,' the user should not be able to perform an IPO application.",an user has an unpaid credit,inconclusive
+user,email,Customer Users should be able to choose if they want to get information via e-mail or SMS.,an user has an email,inconclusive
+user,phone number,"If the user has not any e-mail address registered to the banking system, the e-mail option should see as 'disabled', and by default, the SMS option is selected.",an user has a phone number,inconclusive
+blocking,reason text,"If the user selects 'other' as the reason, the system should ask for further explanation in a free-text area.",a blocking has a reason text,inconclusive
+biometric,accepted terms,"Also, the user should accept the terms and conditions for using this feature.",a biometric has an accepted terms,inconclusive
+item,barcode,A bar code uniquely identifies a loan item.,an item has a barcode,inconclusive
+loan,end date,"It helps the librarian maintain the database of new books, the books that members borrow, and their due dates.",a loan has an end date,inconclusive
+transaction,money,"Secondly, the user should make the desired amount of money transactions to the wallet.",a transaction has a money,inconclusive
+individual,seating individual,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,an individual has a seating individual,inconclusive
+individual,smocking individual,There are two categories of reservations at Romano's: individual and banquet.,an individual has a smocking individual,inconclusive
+quantity,amount,Additional information about the relationship between food items is the quantity of the child's food item used.,a quantity has an amount,inconclusive
+reservation,name reservation,Additional information captured for banquet reservations includes the group name and payment method.,a reservation has a name reservation,inconclusive
+table,number,Romano's has a fixed number of tables.,a table has a number,inconclusive
+worker,name,Additional information captured for banquet reservations includes the group name and payment method.,a worker has a name,inconclusive
+rental agreement,number,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",a rental agreement has a number,inconclusive
+truck,working radio,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",a truck has a working radio,inconclusive
+vehicle,license plate number,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",a vehicle has a license plate number,inconclusive
+vehicle,vehicle type code,"Yes, we do have a vehicle type code.",a vehicle has a vehicle type code,inconclusive
+clue,information,"If a player can disprove the hypothesis, that information is communicated only to the inquiring player.",a clue has an information,inconclusive
+hypothesis,refuted hypothesis,The murder hypothesis is communicated to all players.,a hypothesis has a refuted hypothesis,inconclusive
+legal move,speed,This element is primarily dictated by luck since the wheel's spin determines the speed at which a player reaches a destination.,a legal move has a speed,inconclusive
+planet,murder site,The objective of player movement throughout the universe is to investigate specific planets to determine if that was the murder site.,a planet has a murder site,inconclusive
+player,loser,The murder hypothesis is communicated to all players.,a player has a loser,inconclusive
+room,ad,"A course has the course's name, the course's code, the start time, the end time, the days of the courses, the room, and the instructors.",a room has an ad,inconclusive
+delivery order,status,"Then the chief of order checks and counts if there is no mistake; when the number of orders written to the proforma invoice is well prepared, they give the order for put out before arriving to the customer.",a delivery order has a status,inconclusive
+running,time,"For calculation, the time taken by the user and the distance traveled by the user will be considered.",a running has a time,inconclusive

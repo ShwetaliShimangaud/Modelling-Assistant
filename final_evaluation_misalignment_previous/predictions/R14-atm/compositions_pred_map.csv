@@ -1,0 +1,4 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+account,bank,,,Each account is made up of banks,Each bank provides its computer to maintain its accounts and process transactions against them.,not clear,not clear,not clear
+account,bank,,,Each account is made up of banks,The system must handle concurrent access to the same account correctly.,not clear,not clear,not clear
+account,bank,,,Each account is made up of banks,Human cashiers enter account and transaction data.,not clear,not clear,not clear

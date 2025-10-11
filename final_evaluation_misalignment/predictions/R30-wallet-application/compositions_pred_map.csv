@@ -1,0 +1,3 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+wallet,transaction,Each wallet is made up of transactions,"Secondly, the user should make the desired amount of money transactions to the wallet.",False,False,False,
+card,user,Each card is made up of users,"When transacting money to the wallet, the system should check the card's status by querying the related banking systems.",False,False,False,wrong

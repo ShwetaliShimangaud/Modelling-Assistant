@@ -1,0 +1,9 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,rental office,vehicle,,A rental office can have vehicles ,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,FALSE,FALSE,TRUE,correct,association
+0,vehicle,rental office,homeOffice,A vehicle has a a home office which is a rental office,Each rental office has an official name like 'Littleton Right-Way.',FALSE,FALSE,FALSE,correct,association
+0,rental agreement,rental office,originatingRentalOffice,A rental agreement has an originating rental office,Each rental agreement is identified by the originating rental office number and a rental agreement number.,FALSE,FALSE,TRUE,correct,association
+0,rental agreement,rental office,dropoffRentalOffice,A rental agreement has a dropoff rental office,Each rental agreement is identified by the originating rental office number and a rental agreement number.,FALSE,FALSE,FALSE,correct,association
+0,vehicle,rental agreement,,A vehicle can have rental agreements ,Our corporate sales group handles all that information separately.,FALSE,FALSE,TRUE,correct,association
+0,rental agreement,vehicle,,A rental agreement has vehicle,Our corporate sales group handles all that information separately.,FALSE,FALSE,TRUE,correct,association
+0,customer,rental agreement,,A customer can have rental agreements ,Our corporate sales group handles all that information separately.,FALSE,FALSE,TRUE,correct,association
+0,rental agreement,customer,,A rental agreement has customer,Our corporate sales group handles all that information separately.,FALSE,FALSE,TRUE,correct,association

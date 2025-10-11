@@ -1,0 +1,4 @@
+,class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,blocking,reason,a blocking has a reason,"If the user selects 'other' as the reason, the system should ask for further explanation in a free-text area.",FALSE,FALSE,TRUE,correct
+1,blocking,reason text,a blocking has a reason text,"If the user selects 'other' as the reason, the system should ask for further explanation in a free-text area.",FALSE,FALSE,FALSE,correct
+2,card,status,a card has a status,The system should check the card status when the user blocks the desired card.,FALSE,FALSE,TRUE,correct

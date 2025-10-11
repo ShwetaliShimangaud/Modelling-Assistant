@@ -1,0 +1,3 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+carpenter,hammer,,,,,False,False,False,inconclusive,Each carpenter is made up of hammers,Any carpenter can work on up to one timbered house at the same time.,composition
+timbered house,carpenter,,,,,False,False,False,inconclusive,Each timbered house is made up of carpenters,Any carpenter can work on up to one timbered house at the same time.,composition

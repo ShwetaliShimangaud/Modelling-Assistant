@@ -1,0 +1,9 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,department,production,,production is a type of department,"The company has production, control, and delivery departments.",FALSE,FALSE,TRUE,correct,inheritance
+0,department,control,,control is a type of department,"The company has production, control, and delivery departments.",FALSE,FALSE,TRUE,correct,inheritance
+0,department,delivery,,delivery is a type of department,"The company has production, control, and delivery departments.",FALSE,FALSE,TRUE,correct,inheritance
+0,employee,worker,,worker is a type of employee,"These employees are included in the categories of workers, salespeople, and managers.",FALSE,FALSE,TRUE,correct,inheritance
+0,employee,sale person,,sale person is a type of employee,"These employees are included in the categories of workers, salespeople, and managers.",FALSE,FALSE,TRUE,correct,inheritance
+0,employee,manager,,manager is a type of employee,"These employees are included in the categories of workers, salespeople, and managers.",FALSE,FALSE,TRUE,correct,inheritance
+0,worker,shift worker,,shift worker is a type of worker,Workers are separated as shift workers and non-shift workers.,FALSE,FALSE,TRUE,correct,inheritance
+0,worker,off shift worker,,off shift worker is a type of worker,Workers are separated as shift workers and non-shift workers.,FALSE,FALSE,FALSE,correct,inheritance

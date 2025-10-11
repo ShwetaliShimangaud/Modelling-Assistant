@@ -1,0 +1,7 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+payment kind,cash,Cash is a payment kind,Payroll and Accounting Service: Used to manage employee payroll and monitor the restaurant's cash flow.,False,False,True,correct,,
+payment kind,credit card,Credit card is a payment kind,This allows you to accept various payment options like credit or debit cards and mobile payments.,False,False,True,correct,,
+payment kind,debit card,Debit card is a payment kind,This allows you to accept various payment options like credit or debit cards and mobile payments.,False,False,True,correct,,
+section kind,cash,Cash is a section kind,"These sections are kitchen, service, and cash.",False,False,True,correct,,
+section kind,kitchen,Kitchen is a section kind,"Personnel can be cooks, waiters, and cashiers.",False,False,True,correct,,
+section kind,service,Service is a section kind,The waiter in the service section serves the customer.,False,False,True,correct,,

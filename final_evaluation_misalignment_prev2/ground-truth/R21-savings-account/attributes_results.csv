@@ -1,0 +1,8 @@
+class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+customer,email,a customer has an email,"On the e-mail, content should contain the user's name, surname, created account number, amount of the transaction, and currency of the account.",FALSE,FALSE,TRUE,correct,,
+customer,name,a customer has a name,"On the e-mail, content should contain the user's name, surname, created account number, amount of the transaction, and currency of the account.",FALSE,FALSE,TRUE,correct,,
+customer,surname,a customer has a surname,"On the e-mail, content should contain the user's name, surname, created account number, amount of the transaction, and currency of the account.",FALSE,FALSE,TRUE,correct,,
+customer,type,a customer has a type,Customer Customer types can be either retail or corporate.,FALSE,FALSE,TRUE,correct,,
+savings account,account number,a savings account has an account number,"On the e-mail, content should contain the user's name, surname, created account number, amount of the transaction, and currency of the account.",FALSE,FALSE,TRUE,correct,,
+savings account,balance,a savings account has a balance,"Customers can have only one account per currency, except EUR.",FALSE,FALSE,FALSE,correct,,
+savings account,currency,a savings account has a currency,"Customers can have only one account per currency, except EUR.",FALSE,FALSE,TRUE,correct,,

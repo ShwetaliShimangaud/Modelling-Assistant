@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,user,account,,A user can have accounts ,"If the status card is available, the user can continue the process.",False,False,True,correct,association
+0,user,card,,A user can have cards ,"After the user finishes the process, the user should be able to view the balance of the prepaid card.",False,False,True,correct,association

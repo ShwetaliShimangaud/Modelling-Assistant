@@ -2,13 +2,16 @@ attribute_prompts = [
 "Do these statements contradict each other? \n Statement1:{statement1} \n Statement2:{statement2}",
 "Are these statements mutually exclusive? \n Statement1:{statement1} \n Statement2:{statement2}",
 "Do these statements clash or conflict with each other? \n Statement1:{statement1} \n Statement2:{statement2}",
-"Are these statements at odds with each other? \n Statement1:{statement1} \n Statement2:{statement2}",
 "Do these statements negate each other? \n Statement1:{statement1} \n Statement2:{statement2}",
 "Are these statements inconsistent? \n Statement1:{statement1} \n Statement2:{statement2}",
-"Do these statements oppose each other? \n Statement1:{statement1} \n Statement2:{statement2}",
 "Are these statements in disagreement? \n Statement1:{statement1} \n Statement2:{statement2}",
 "Are these statements incompatible? \n Statement1:{statement1} \n Statement2:{statement2}",
+]
+
+excluded_prompts = [
+"Are these statements at odds with each other? \n Statement1:{statement1} \n Statement2:{statement2}",
 "Do these statements present conflicting viewpoints? \n Statement1:{statement1} \n Statement2:{statement2}"
+"Do these statements oppose each other? \n Statement1:{statement1} \n Statement2:{statement2}"
 ]
 
 association_prompts = [

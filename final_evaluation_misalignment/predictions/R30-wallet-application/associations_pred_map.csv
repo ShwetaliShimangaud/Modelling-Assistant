@@ -1,0 +1,2 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind,multiplicity,generated_description,actual_description
+user,wallet,,A user has wallet,"When the wallet feature is enabled, the user should be able to view the wallet balance and use it in the payment processes.",False,False,False,inconclusive,association,,,

@@ -1,0 +1,4 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,vehicle,truck,,truck is a type of vehicle,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,False,True,correct,inheritance
+0,customer,individual,,individual is a type of customer,"Most of our rental agreements are for individual customers, but a rental agreement can either be for an individual or a company.",False,False,True,correct,inheritance
+0,customer,company,,company is a type of customer,"Most of our rental agreements are for individual customers, but a rental agreement can either be for an individual or a company.",False,False,True,correct,inheritance

@@ -203,6 +203,26 @@ def format_result(result):
     return result
 
 
+def get_columns(model_element):
+    if model_element == 'attribute':
+        return ['class_name', 'attributes']
+    elif model_element == 'enum':
+        return ['source', 'target']
+    elif model_element == 'association':
+        return ['source', 'target', 'role']
+
+
+def format_df(actual, pred, model_element):
+    columns = get_columns(model_element)
+    df1_sorted = actual.sort_values(by=columns).reset_index(drop=True)
+    df2_sorted = pred.sort_values(by=columns).reset_index(drop=True)
+
+    # Inner merge to filter df2
+    filtered_df2 = df2_sorted.merge(df1_sorted[columns], on=columns, how='inner')
+
+    return df1_sorted, filtered_df2
+
+
 def calculate_metrics(domain_name, results_dir):
     ground_truth_dir = f'{results_dir}/ground-truth/{domain_name}/'
     predictions_dir = f'{results_dir}/predictions/{domain_name}/'
@@ -218,15 +238,15 @@ def calculate_metrics(domain_name, results_dir):
     else:
         combined_results_csv = pd.read_csv(f"{combined_results_csv}")
 
-    # attributes, enums = aggregate_attribute_results(predictions_dir)
-    # associations, aggregations, compositions, inheritance = aggregate_relationship_results(predictions_dir)
+    attributes, enums = aggregate_attribute_results(predictions_dir)
+    associations, aggregations, compositions, inheritance = aggregate_relationship_results(predictions_dir)
 
-    attributes = pd.read_csv(f"{predictions_dir}/attributes_pred_map.csv")
-    associations = pd.read_csv(f"{predictions_dir}/associations_pred_map.csv")
-    aggregations = pd.read_csv(f"{predictions_dir}/aggregations_pred_map.csv")
-    compositions = pd.read_csv(f"{predictions_dir}/compositions_pred_map.csv")
-    inheritance = pd.read_csv(f"{predictions_dir}/inheritance_pred_map.csv")
-    enums = pd.read_csv(f"{predictions_dir}/enums_pred_map.csv")
+    # attributes = pd.read_csv(f"{predictions_dir}/attributes_pred_map.csv")
+    # associations = pd.read_csv(f"{predictions_dir}/associations_pred_map.csv")
+    # aggregations = pd.read_csv(f"{predictions_dir}/aggregations_pred_map.csv")
+    # compositions = pd.read_csv(f"{predictions_dir}/compositions_pred_map.csv")
+    # inheritance = pd.read_csv(f"{predictions_dir}/inheritance_pred_map.csv")
+    # enums = pd.read_csv(f"{predictions_dir}/enums_pred_map.csv")
     #
     # attributes = format_result(attributes)
     # associations = format_result(associations)
@@ -244,7 +264,6 @@ def calculate_metrics(domain_name, results_dir):
                  'extra_and_incorrect', 'extra_and_noMatch', 'extra_and_inconclusive'])
 
     if os.path.isdir(ground_truth_dir):
-
         ground_truth_attributes = pd.read_csv(f"{ground_truth_dir}/attributes_results.csv")
         ground_truth_associations = pd.read_csv(f"{ground_truth_dir}/associations_results.csv")
         ground_truth_aggregations = pd.read_csv(f"{ground_truth_dir}/aggregations_results.csv")
@@ -255,10 +274,12 @@ def calculate_metrics(domain_name, results_dir):
         ground_truth = [ground_truth_attributes, ground_truth_associations, ground_truth_aggregations,
                         ground_truth_compositions, ground_truth_inheritance, ground_truth_enums]
         for model_element, actual, pred in zip(model_elements, ground_truth, predictions):
-            stats = find_stats(list(actual['answer']), list(pred['answer']))
-            stats['domain'] = domain_name
-            stats['model_element'] = model_element
-            detailed_results = pd.concat([detailed_results, pd.DataFrame([stats])])
+            if len(actual) != 0:
+                actual, pred = format_df(actual, pred, model_element)
+                stats = find_stats(list(actual['answer']), list(pred['answer']))
+                stats['domain'] = domain_name
+                stats['model_element'] = model_element
+                detailed_results = pd.concat([detailed_results, pd.DataFrame([stats])])
 
         results = find_metrics_values(detailed_results)
         last_row = results.iloc[-1]
@@ -270,4 +291,4 @@ def calculate_metrics(domain_name, results_dir):
         combined_results_csv.to_csv(f"{results_dir}/results.csv", index=False)
 
 
-# calculate_metrics("R5-computer-game2", "../final_evaluation_misalignment")
+calculate_metrics("G12-6.domain_model", "../evaluation_hotel_reservation2")

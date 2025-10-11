@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,level,alien,,alien is a type of level,"When earth receives a threat that a nearby colony of aliens is about to launch an attack, it sends a small spy robot to check onto the closest enemy base out of many to check their weapon advances and preparations.",FALSE,TRUE,FALSE,wrong,inheritance
+0,alien,enemy,,enemy is a type of alien,"When earth receives a threat that a nearby colony of aliens is about to launch an attack, it sends a small spy robot to check onto the closest enemy base out of many to check their weapon advances and preparations.",FALSE,TRUE,FALSE,wrong,inheritance

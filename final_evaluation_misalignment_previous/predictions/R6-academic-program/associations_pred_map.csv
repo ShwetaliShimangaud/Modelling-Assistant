@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+student,course,enrolls,1,A student has  an enroll which is a course,"Students enroll in the courses, drop the courses, receive transcripts, request documents, and conduct surveys.",not clear,True,False

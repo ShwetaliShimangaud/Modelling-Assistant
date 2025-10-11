@@ -1,0 +1,3 @@
+source,target,role,answer,kind
+guest,room,occupies,correct,association
+room,guest,occupiedBy,wrong,association

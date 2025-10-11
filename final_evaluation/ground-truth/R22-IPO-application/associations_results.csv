@@ -1,0 +1,4 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,user,initial public offering,apply,A user can have applies which are initial public offerings,Customer  Only 'retail' types of customers can apply for IPO.,FALSE,FALSE,FALSE,correct,association
+0,company,initial public offering,,A company can have initial public offerings ,Customer  Only 'retail' types of customers can apply for IPO.,FALSE,FALSE,TRUE,correct,association
+0,initial public offering,company,,A initial public offering has company,Customer  Only 'retail' types of customers can apply for IPO.,FALSE,FALSE,FALSE,correct,association

@@ -1,0 +1,10 @@
+class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+car,daily price,a car has a daily price,"Store assistants should store the information for each car in the gallery, such as plate, model, daily price,  When customers want to rent a car, the system must show available car records in the gallery and be sorted according to their prices.",FALSE,FALSE,TRUE,correct,,
+car,model,a car has a model,"Store assistants should store the information for each car in the gallery, such as plate, model, daily price,  When customers want to rent a car, the system must show available car records in the gallery and be sorted according to their prices.",FALSE,FALSE,TRUE,correct,,
+car,plate,a car has a plate,"The store assistant records the customer's information, such as name, surname, address, plate of the rented car, and leasing terms.",FALSE,FALSE,TRUE,correct,,
+customer,address,a customer has an address,"The store assistant records the customer's information, such as name, surname, address, plate of the rented car, and leasing terms.",FALSE,FALSE,TRUE,correct,,
+customer,name,a customer has a name,"The store assistant records the customer's information, such as name, surname, address, plate of the rented car, and leasing terms.",FALSE,FALSE,TRUE,correct,,
+customer,surname,a customer has a surname,"The store assistant records the customer's information, such as name, surname, address, plate of the rented car, and leasing terms.",FALSE,FALSE,TRUE,correct,,
+lease,arrival day,a lease has an arrival day,The main office sends overdue notices due to late arrivals.,FALSE,FALSE,FALSE,correct,,
+lease,departure day,a lease has a departure day,"Store assistant searches for available cars, submit renting a car, and produces rental reports.",FALSE,FALSE,FALSE,correct,,
+lease,terms,a lease has  terms,"The store assistant records the customer's information, such as name, surname, address, plate of the rented car, and leasing terms.",FALSE,FALSE,TRUE,correct,,

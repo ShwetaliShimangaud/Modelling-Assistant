@@ -1,0 +1,5 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+card type,credit,Credit is a card type,"Card types are debit, credit, virtual and supplementary.",False,False,True,correct,,
+card type,debit,Debit is a card type,"Card types are debit, credit, virtual and supplementary.",False,False,True,correct,,
+card type,supplementary,Supplementary is a card type,"If the user enters the wrong card number for the third time, the system should display a pop-up saying that the user entered the wrong card number for the third time and will be logged out.",False,False,False,inconclusive,,
+card type,virtual,Virtual is a card type,The system should not accept any other type of input.,False,False,True,correct,,

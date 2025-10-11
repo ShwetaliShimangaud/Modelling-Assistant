@@ -1,0 +1,2 @@
+,source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,account type,savings,Savings is an account type,"If selected account type is a savings account, system should display a pop-up stating that user is continuing with a savings account.",False,False,True,correct

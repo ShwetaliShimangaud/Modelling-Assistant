@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,user,card,,A user can have cards ,"When setting a PIN, the user should enter their card number and CVV information.",False,False,True,correct,association

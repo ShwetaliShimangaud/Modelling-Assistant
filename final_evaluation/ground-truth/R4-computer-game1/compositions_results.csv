@@ -1,0 +1,3 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+board,cell,,Each board is made up of cells,"The game is an intergalactic murder mystery, which emulates a board game scenario in which players spin a wheel to determine a randomly selected number of moves by which they travel through space to various planets.",FALSE,FALSE,FALSE,correct,composition
+planet,entry point,,Each planet is made up of one to three planets,Each planet has between one and three predefined atmospheric entry points.,FALSE,FALSE,FALSE,correct,composition

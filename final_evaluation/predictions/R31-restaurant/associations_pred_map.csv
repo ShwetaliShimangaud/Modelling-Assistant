@@ -1,0 +1,93 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+reservation,item ordered,,*,A reservation can have item ordereds ,Additional information maintained by Romano's about food items includes a description of the food item and a purchase flag.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Chicken lasagna uses three oz.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"When the reservation party arrives at Romano's, the reservation is assigned to one waiter.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"The menu item 'fish soup' is comprised of the food items fish soup, crackers, and melon balls.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"In other words, each reservation can be associated with many menu items, and a menu item can be associated with many reservations.",True,False,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"Each person working for Romano's must be classified as a manager, head waiter, waiter, bartender, chef, cook, bus person, or dishwasher.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,A waiter can be assigned to many reservations during the evening'.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"For example, the food item chicken lasagna comprises chicken, mozzarella cheese, ricotta cheese, sheet pasta, tomatoes, and red sauce.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Romano's has a fixed number of tables.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"Unless you are a celebrity or a good friend of Romano, you will need a reservation.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Additional information captured for banquet reservations includes the group name and payment method.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Each food item is classified by one unit of measure.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"Additional information maintained by Romano's for each person includes the person's name, date of birth, and driver's license number.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Additional information about the relationship between food items is the quantity of the child's food item used.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"Romanos classify each menu item as 'apetizer,' 'main', 'dessert,' or 'beverage.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Each table is identified by a unique table number.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,A menu item can utilize many food items.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,A purchase flag indicates that the food item is purchased from a vendor rather than Prepared in-house.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,The relationship between food items is identified by a combination of a parent food item number and the food item number used as an ingredient (child) of the parent food item.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Romano tends to overbook tables.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"'Each table is classified as a 2-person, 4-person, or 6-person table.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Romano's is the finest Italian restaurant in the city.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,There are two categories of reservations at Romano's: individual and banquet.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"Tables are further described by unique free-form descriptions such as 'located by the North window,' 'located in front of the fountain,' and 'by the kitchen door.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Seating at Romano's is limited.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,The Chefs are responsible for managing the cooks and dishwashers.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,A unique food item number identifies each food item.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Each reservation is assigned a unique reservation number.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,There are many exciting and exotic items.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,'The price of each menu item can vary based on the time of day.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Some of the menu items change prices for happy hour.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"When a reservation is made, Romano associates a specific table number(s) to the reservation.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Several restaurant managers report to Romano.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,The management structure at Romano's is hierarchical.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,The managers are responsible for managing the head waiter and the chefs and ensuring guests have a pleasant dining experience.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"The head waiter is responsible for managing the waiters, bartenders, and bus personnel.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Many menu items can utilize a food item.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,A unique menu item number identifies each menu item.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"For example, some menu items have different lunch and dinner prices.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"Each food item can be comprised of many other items, and each can be used as an ingredient of other food items.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,A table can be utilized many times over the evening by many reservations.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"A reservation is made for a specific time, date, and number of people.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"For example, olive oil is measured in tablespoons (tsp.), mozzarella cheese is measured in ounces (oz).",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"In addition to menu items, Romano's maintains a list of the food items utilized by the restaurant, such as chicken, mushrooms, bread sticks, red sauce, cream sauce,  Food items are utilized in the preparation of menu items.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"For example, chicken lasagna and cheese pizza use mozzarella cheese as an ingredient (child).",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,The menu at Romano's is exquisite.,False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"Red sauce comprises the food items tomato sauce, olive oil and garlic, and white wine vinegar.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"Therefore, there can be overlapping table reservations.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"For example, the menu item 'chicken lasagna dinner' is comprised of the food items 'chicken lasagna, Italian bread, and broccoli spears.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"Mozzarella cheese can be used as an ingredient in chicken lasagna, endive salad, and cheese pizza.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,"To calculate the check at the end of the dinner, the waiter maintains a list, by reservation number, of the menu items ordered and the time that the menu item was ordered.",False,not clear,True
+reservation,item ordered,,*,A reservation can have item ordereds ,"of mozzarella cheese, and cheese pizza uses 9 oz of mozzarella cheese.",False,not clear,False
+reservation,item ordered,,*,A reservation can have item ordereds ,The reservation also captures the name and phone number of the person making the reservation.,False,not clear,False
+item ordered,reservation,,1,A item ordered has reservation,"In other words, each reservation can be associated with many menu items, and a menu item can be associated with many reservations.",False,not clear,True
+reservation,waiter,,1,A reservation has waiter,"When the reservation party arrives at Romano's, the reservation is assigned to one waiter.",False,not clear,True
+waiter,reservation,,*,A waiter can have reservations ,A waiter can be assigned to many reservations during the evening'.,False,not clear,True
+item ordered,menu item,item,1,A item ordered has a menu item,"To calculate the check at the end of the dinner, the waiter maintains a list, by reservation number, of the menu items ordered and the time that the menu item was ordered.",False,not clear,False
+item ordered,menu item,item,1,A item ordered has a menu item,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,not clear,False
+item ordered,menu item,item,1,A item ordered has a menu item,"Each food item can be comprised of many other items, and each can be used as an ingredient of other food items.",False,not clear,False
+item ordered,menu item,item,1,A item ordered has a menu item,"In addition to menu items, Romano's maintains a list of the food items utilized by the restaurant, such as chicken, mushrooms, bread sticks, red sauce, cream sauce,  Food items are utilized in the preparation of menu items.",False,not clear,False
+menu item,item ordered,,*,A menu item can have item ordereds ,"Each food item can be comprised of many other items, and each can be used as an ingredient of other food items.",False,not clear,False
+menu item,item ordered,,*,A menu item can have item ordereds ,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,not clear,False
+menu item,food item,utilizes,*,A menu item utilizes food items ,Many menu items can utilize a food item.,False,not clear,True
+menu item,food item,utilizes,*,A menu item utilizes food items ,"For example, the menu item 'chicken lasagna dinner' is comprised of the food items 'chicken lasagna, Italian bread, and broccoli spears.",False,not clear,True
+menu item,food item,utilizes,*,A menu item utilizes food items ,"In addition to menu items, Romano's maintains a list of the food items utilized by the restaurant, such as chicken, mushrooms, bread sticks, red sauce, cream sauce,  Food items are utilized in the preparation of menu items.",False,not clear,True
+menu item,food item,utilizes,*,A menu item utilizes food items ,"The menu item 'fish soup' is comprised of the food items fish soup, crackers, and melon balls.",False,not clear,True
+menu item,food item,utilizes,*,A menu item utilizes food items ,A menu item can utilize many food items.,False,not clear,True
+food item,menu item,isUtilized,*,A food item is utilized menu items ,Many menu items can utilize a food item.,False,not clear,False
+food item,menu item,isUtilized,*,A food item is utilized menu items ,"For example, the menu item 'chicken lasagna dinner' is comprised of the food items 'chicken lasagna, Italian bread, and broccoli spears.",False,not clear,False
+food item,menu item,isUtilized,*,A food item is utilized menu items ,"In addition to menu items, Romano's maintains a list of the food items utilized by the restaurant, such as chicken, mushrooms, bread sticks, red sauce, cream sauce,  Food items are utilized in the preparation of menu items.",False,not clear,True
+food item,menu item,isUtilized,*,A food item is utilized menu items ,"The menu item 'fish soup' is comprised of the food items fish soup, crackers, and melon balls.",False,not clear,False
+food item,menu item,isUtilized,*,A food item is utilized menu items ,A menu item can utilize many food items.,False,not clear,False
+food item,quantity,comprises,*,A food item can have comprises which are quantities,Additional information about the relationship between food items is the quantity of the child's food item used.,False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,Additional information maintained by Romano's about food items includes a description of the food item and a purchase flag.,False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,"The menu item 'fish soup' is comprised of the food items fish soup, crackers, and melon balls.",False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,Many menu items can utilize a food item.,False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,"For example, the food item chicken lasagna comprises chicken, mozzarella cheese, ricotta cheese, sheet pasta, tomatoes, and red sauce.",False,not clear,True
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,"Each food item can be comprised of many other items, and each can be used as an ingredient of other food items.",False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,Each food item is classified by one unit of measure.,False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,Additional information about the relationship between food items is the quantity of the child's food item used.,False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,"In addition to menu items, Romano's maintains a list of the food items utilized by the restaurant, such as chicken, mushrooms, bread sticks, red sauce, cream sauce,  Food items are utilized in the preparation of menu items.",False,not clear,True
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,"For example, chicken lasagna and cheese pizza use mozzarella cheese as an ingredient (child).",False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,A menu item can utilize many food items.,False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,A purchase flag indicates that the food item is purchased from a vendor rather than Prepared in-house.,False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,"Red sauce comprises the food items tomato sauce, olive oil and garlic, and white wine vinegar.",False,not clear,True
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,The relationship between food items is identified by a combination of a parent food item number and the food item number used as an ingredient (child) of the parent food item.,False,not clear,False
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,"For example, the menu item 'chicken lasagna dinner' is comprised of the food items 'chicken lasagna, Italian bread, and broccoli spears.",False,not clear,True
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,"Mozzarella cheese can be used as an ingredient in chicken lasagna, endive salad, and cheese pizza.",False,not clear,True
+quantity,food item,ingredient,1,A quantity has an an ingredient which is a food item,A unique food item number identifies each food item.,False,not clear,False

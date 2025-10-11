@@ -1,0 +1,19 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+id card,customer,,1..*,A id card can have customers ,The video inventory file is updated.,False,False,not clear
+id card,customer,,1..*,A id card can have customers ,Each customer gets an id card from ABC for identification purposes.,not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,"The customer signs the rental form, takes the tapes, and leaves.",not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,"Money is collected, and the amount is entered into the system.",not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,The customer s account number is entered to retrieve customer data and create an order.,not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,The video bar code ID is entered into the system to return a tape.,not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,The maximum number of tapes a customer can have outstanding on the rental is 20.,not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,Any outstanding video rentals are displayed with the amount due on each tape and the total amount due.,not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,Customers select at least one video for rental.,not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,"Bar code Ids for each tape are entered, and video information from inventory is displayed.",not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,"If past-due amounts are owed, they can be paid at this time; or the clerk can select an option that updates the rental with the return date and calculates past-due fees.",not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,"When all tape Ids are entered, the system computes the total bill.",not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,Any past-due amount must be paid before new tapes can be rented.,not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,"The rental transaction is displayed, and the tape is marked with the return date.",not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,Change is calculated and displayed.,not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,"The rental transaction is created, printed, and stored.",not clear,False,not clear
+id card,customer,,1..*,A id card can have customers ,This id card has a bar code that can be read with the bar code reader.,not clear,False,not clear
+customer,id card,,1..*,A customer can have i d cards ,Each customer gets an id card from ABC for identification purposes.,not clear,True,False

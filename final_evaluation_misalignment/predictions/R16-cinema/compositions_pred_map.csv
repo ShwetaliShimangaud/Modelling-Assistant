@@ -1,0 +1,2 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+ticket,user,Each ticket is made up of users,"If there are any of the 30 orderable tickets left, he is prompted to enter his name, his e-mail address, and the desired number of cards.",False,False,False,inconclusive

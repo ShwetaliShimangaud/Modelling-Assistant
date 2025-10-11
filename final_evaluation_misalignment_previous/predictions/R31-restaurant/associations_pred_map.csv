@@ -1,0 +1,60 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+reservation,item ordered,,1,A reservation has item ordered,"Therefore, there can be overlapping table reservations.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,A waiter can be assigned to many reservations during the evening'.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,Seating at Romano's is limited.,not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,The management structure at Romano's is hierarchical.,False,False,False
+reservation,item ordered,,1,A reservation has item ordered,A table can be utilized many times over the evening by many reservations.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"For example, chicken lasagna and cheese pizza use mozzarella cheese as an ingredient (child).",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,There are many exciting and exotic items.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,The menu at Romano's is exquisite.,False,False,False
+reservation,item ordered,,1,A reservation has item ordered,Some of the menu items change prices for happy hour.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"Red sauce comprises the food items tomato sauce, olive oil and garlic, and white wine vinegar.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"In other words, each reservation can be associated with many menu items, and a menu item can be associated with many reservations.",not clear,True,False
+reservation,item ordered,,1,A reservation has item ordered,'The price of each menu item can vary based on the time of day.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"To calculate the check at the end of the dinner, the waiter maintains a list, by reservation number, of the menu items ordered and the time that the menu item was ordered.",not clear,True,False
+reservation,item ordered,,1,A reservation has item ordered,A purchase flag indicates that the food item is purchased from a vendor rather than Prepared in-house.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"When a reservation is made, Romano associates a specific table number(s) to the reservation.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"Each person working for Romano's must be classified as a manager, head waiter, waiter, bartender, chef, cook, bus person, or dishwasher.",False,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,Chicken lasagna uses three oz.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,Additional information about the relationship between food items is the quantity of the child's food item used.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,Several restaurant managers report to Romano.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"For example, the food item chicken lasagna comprises chicken, mozzarella cheese, ricotta cheese, sheet pasta, tomatoes, and red sauce.",not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,There are two categories of reservations at Romano's: individual and banquet.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"A reservation is made for a specific time, date, and number of people.",not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,Each table is identified by a unique table number.,False,False,False
+reservation,item ordered,,1,A reservation has item ordered,The managers are responsible for managing the head waiter and the chefs and ensuring guests have a pleasant dining experience.,not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,"The head waiter is responsible for managing the waiters, bartenders, and bus personnel.",False,False,False
+reservation,item ordered,,1,A reservation has item ordered,A menu item can utilize many food items.,not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,"The menu item 'fish soup' is comprised of the food items fish soup, crackers, and melon balls.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"For example, the menu item 'chicken lasagna dinner' is comprised of the food items 'chicken lasagna, Italian bread, and broccoli spears.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,Additional information captured for banquet reservations includes the group name and payment method.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,Additional information maintained by Romano's about food items includes a description of the food item and a purchase flag.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"Tables are further described by unique free-form descriptions such as 'located by the North window,' 'located in front of the fountain,' and 'by the kitchen door.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,The Chefs are responsible for managing the cooks and dishwashers.,False,False,False
+reservation,item ordered,,1,A reservation has item ordered,"Additional information maintained by Romano's for each person includes the person's name, date of birth, and driver's license number.",not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,A unique menu item number identifies each menu item.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"In addition to menu items, Romano's maintains a list of the food items utilized by the restaurant, such as chicken, mushrooms, bread sticks, red sauce, cream sauce,  Food items are utilized in the preparation of menu items.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,A unique food item number identifies each food item.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"Mozzarella cheese can be used as an ingredient in chicken lasagna, endive salad, and cheese pizza.",False,True,False
+reservation,item ordered,,1,A reservation has item ordered,"'Each table is classified as a 2-person, 4-person, or 6-person table.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"Romanos classify each menu item as 'apetizer,' 'main', 'dessert,' or 'beverage.",not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,Many menu items can utilize a food item.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,Romano tends to overbook tables.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"For example, some menu items have different lunch and dinner prices.",not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,"of mozzarella cheese, and cheese pizza uses 9 oz of mozzarella cheese.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,Each reservation is assigned a unique reservation number.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,"Unless you are a celebrity or a good friend of Romano, you will need a reservation.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,The reservation also captures the name and phone number of the person making the reservation.,not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,"Each food item can be comprised of many other items, and each can be used as an ingredient of other food items.",not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,The relationship between food items is identified by a combination of a parent food item number and the food item number used as an ingredient (child) of the parent food item.,not clear,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,Romano's is the finest Italian restaurant in the city.,False,False,False
+reservation,item ordered,,1,A reservation has item ordered,"For example, olive oil is measured in tablespoons (tsp.), mozzarella cheese is measured in ounces (oz).",False,False,not clear
+reservation,item ordered,,1,A reservation has item ordered,Romano's has a fixed number of tables.,not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,Each food item is classified by one unit of measure.,not clear,False,False
+reservation,item ordered,,1,A reservation has item ordered,"When the reservation party arrives at Romano's, the reservation is assigned to one waiter.",not clear,False,not clear
+item ordered,reservation,,1..*,A item ordered can have reservations ,"In other words, each reservation can be associated with many menu items, and a menu item can be associated with many reservations.",not clear,False,not clear
+reservation,waiter,,1..*,A reservation can have waiters ,"When the reservation party arrives at Romano's, the reservation is assigned to one waiter.",not clear,True,False
+waiter,reservation,,1,A waiter has reservation,A waiter can be assigned to many reservations during the evening'.,not clear,True,False

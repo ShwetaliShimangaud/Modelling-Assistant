@@ -1,0 +1,7 @@
+class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+course,cancelled course,a course has a cancelled course,The new online registration system will allow students to select four-course offerings for the coming semester.,False,False,False,inconclusive,,
+course,department,a course has a department,"Information about each course, such as professor, department, and prerequisites, will be included to help students make informed decisions.",False,False,True,correct,,
+course,max students,a course has  max students,The new online registration system will allow students to select four-course offerings for the coming semester.,False,False,True,correct,,
+course,min students,a course has  min students,The new online registration system will allow students to select four-course offerings for the coming semester.,False,False,True,correct,,
+course,prerequisites course,a course has  prerequisites course,"Information about each course, such as professor, department, and prerequisites, will be included to help students make informed decisions.",False,False,True,correct,,
+grade,grade,a grade has a grade,"Since student grades are sensitive information, the system must employ extra security measures to prevent unauthorized access.",False,False,False,inconclusive,,

@@ -1,0 +1,33 @@
+model,domain,alignments,alignments_predicted_correct,alignments_identified_and_correct,overall_precision,overall_recall,F1
+R1,Restaurant Management,1,1,1,1,1,1
+R2,Employee Management,0,0,0,,,
+R3,Library ,6,2,2,1,0.333333333,0.5
+R4,Galaxy Sleuth Game,0,0,0,,,
+R5,Spy-Robot Game,6,4,4,1,0.666666667,0.8
+R6,Academic Program ,0,0,0,,,
+R7,Supermarket ,5,2,2,1,0.4,0.571428571
+R8,Hotel Reservation ,3,3,3,1,1,1
+R9,Be Well App ,0,0,0,,,
+R10,File Manager ,0,0,0,,,
+R11,Football Team ,1,1,1,1,1,1
+R12,Rented Car Gallery,0,0,0,,,
+R13,Course Enrollment ,0,0,0,,,
+R14,ATM,0,0,0,,,
+R15,Video Rental ,0,0,0,,,
+R16,Cinema ,0,0,0,,,
+R17,Timbered House ,0,0,0,,,
+R18,Musical Store ,2,1,1,1,0.5,0.666666667
+R19,Airport ,0,0,0,,,
+R20,Monitoring Pressure ,0,0,0,,,
+R21,Savings Account ,6,6,6,1,1,1
+R22,IPO Application ,2,1,1,1,0.5,0.666666667
+R23,PIN,4,3,3,1,0.75,0.857142857
+R24,Communication Prefs,2,1,1,1,0.5,0.666666667
+R25,Apple Pay ,7,6,6,1,0.857142857,0.923076923
+R26,Block Card ,8,8,8,1,1,1
+R27,Biometric Login ,0,0,0,,,
+R28,Donation ,1,1,1,1,1,1
+R29,Prepaid Card,4,2,2,1,0.5,0.666666667
+R30,Wallet App,2,1,1,1,0.5,0.666666667
+Average,All,,,,1,0.719196429,0.811561355
+Std.,All,,,,0,0.248351237,0.174536598

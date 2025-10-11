@@ -1,8 +1,8 @@
 class_attributes = {
-    "IdCard" : ['barCode'],
-    "Customer" : ['accountNumber'],
-    "Tape" : ['barCode','returnDate'],
-    "Video" : ['information']
+    "IdCard" : ['barCode:int'],
+    "Customer" : ['accountNumber:int'],
+    "Tape" : ['barCode:int','returnDate:date'],
+    "Video" : ['information:string']
 }
 
 associations = [

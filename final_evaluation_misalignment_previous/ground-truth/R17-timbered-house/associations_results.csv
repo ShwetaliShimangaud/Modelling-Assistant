@@ -1,0 +1,4 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,carpenter,hammer,,A carpenter can have hammers ,Any carpenter can work on up to one timbered house at the same time.,FALSE,TRUE,FALSE,wrong,association
+0,timbered house,mud brick,,A timbered house can have mud bricks ,"A timbered house consists of 5 10 logs, 200 400 mud bricks, and 1000 to 2000 nails.",FALSE,TRUE,FALSE,wrong,association
+0,mud brick,timbered house,,A mud brick can have timbered houses ,Any carpenter can work on up to one timbered house at the same time.,FALSE,TRUE,FALSE,wrong,association

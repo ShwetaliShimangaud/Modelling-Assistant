@@ -1,0 +1,2 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+customer,savings account,Each customer is made up of savings accounts,Users can have more than one account in EUR currency.,False,False,False,inconclusive

@@ -1,0 +1,6 @@
+class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+exercise,repetition number,an exercise has a repetition number,"The application will be able to record exercises, repetitions, and the diet followed.",FALSE,FALSE,TRUE,correct,,
+running,calories burnt,a running has a calories burnt,The application will track the user's running activity and convert them into calories burnt.,FALSE,FALSE,TRUE,correct,,
+running,distance,a running has a distance,"For calculation, the time taken by the user and the distance traveled by the user will be considered.",FALSE,FALSE,TRUE,correct,,
+running,speed,a running has a speed,"Running speed, calories burnt, the track ran, , will be monitored and recorded for the day in the calendar.",FALSE,FALSE,TRUE,correct,,
+running,time,a running has a time,"For calculation, the time taken by the user and the distance traveled by the user will be considered.",FALSE,FALSE,FALSE,correct,,

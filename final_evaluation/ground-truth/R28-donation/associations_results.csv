@@ -1,0 +1,7 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,banking system,organization,,A banking system can have organizations ,The organization list should be retrieved from the internal banking systems.,False,False,True,correct,association
+0,banking system,user,,A banking system can have users ,The organization list should be retrieved from the internal banking systems.,False,False,True,correct,association
+0,donation,organization,,A donation has organization,The organization list should be retrieved from the internal banking systems.,False,False,True,correct,association
+0,user,account,,A user can have accounts ,The organization list should be retrieved from the internal banking systems.,False,False,True,correct,association
+0,account,donation,,A account can have donations ,The organization list should be retrieved from the internal banking systems.,False,False,True,correct,association
+0,donation,account,,A donation has account,The organization list should be retrieved from the internal banking systems.,False,False,True,correct,association

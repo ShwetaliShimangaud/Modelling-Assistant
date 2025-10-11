@@ -1,7 +1,7 @@
 class_attributes = {
-    "Customer": ['address'],
-    "Tape" : ['rentalPrice','status','available'],
-    "Rental" : ['delay']
+    "Customer": ['address:string'],
+    "Tape" : ['rentalPrice:double','status:enumeration','available:boolean'],
+    "Rental" : ['delay:boolean']
 }
 
 associations = [

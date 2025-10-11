@@ -1,0 +1,4 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,employee,department,worksIn,A employee is works in a department,"The company has production, control, and delivery departments.",FALSE,FALSE,TRUE,correct,association
+0,department,manager,controlledBy,A department is controlled by a manager,Each department has to be controlled by a manager.,FALSE,FALSE,TRUE,correct,association
+0,company,employee,has,A company haves employees ,"RequirementA company has three roles: Employee, Salesperson and Manager.",FALSE,FALSE,TRUE,correct,association

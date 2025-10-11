@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,enemy,alien,,alien is a type of enemy,"When earth receives a threat that a nearby colony of aliens is about to launch an attack, it sends a small spy robot to check onto the closest enemy base out of many to check their weapon advances and preparations.",FALSE,FALSE,TRUE,correct,inheritance
+0,enemy,spaceship,,spaceship is a type of enemy,'Jump' actions to dodge the aliens on the ground and the empty spaces made by the bombs dropped by the spaceships.,FALSE,FALSE,FALSE,correct,inheritance

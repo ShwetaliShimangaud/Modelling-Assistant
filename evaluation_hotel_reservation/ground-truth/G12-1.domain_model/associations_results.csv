@@ -1,0 +1,7 @@
+source,target,role,answer,kind
+reservation,guest,madeBy,correct,association
+guest,reservation,make,correct,association
+reservation,room,reserved,correct,association
+room,quality,hasA,correct,association
+quality,room,classifies,correct,association
+room,room,myRoom,wrong,association

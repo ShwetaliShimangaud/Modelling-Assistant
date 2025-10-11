@@ -1,0 +1,5 @@
+source,target,role,answer,kind
+hotel room,quality level,has,correct,association
+guest,reservation,reservations,correct,association
+reservation,guest,forGuest,correct,association
+quality level,hotel room,classifies,wrong,association

@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,student,course,enrolls,A student has  an enroll which is a course,"Students enroll in the courses, drop the courses, receive transcripts, request documents, and conduct surveys.",FALSE,TRUE,FALSE,wrong,association

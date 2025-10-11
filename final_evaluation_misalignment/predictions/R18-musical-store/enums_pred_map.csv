@@ -1,0 +1,3 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+status,available,Available is a status,The store assistant searches for the available tape.,False,False,True,correct,,
+status,other,Other is a status,Customers can borrow if there is no delay with the return of other tapes.,False,False,False,inconclusive,,

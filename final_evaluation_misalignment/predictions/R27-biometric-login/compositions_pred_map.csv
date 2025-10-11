@@ -1,0 +1,2 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+user,login,Each user is made up of logins,"When a user enters the wrong PIN information, the system should display an error message, but the flow should not stop.",False,False,False,wrong

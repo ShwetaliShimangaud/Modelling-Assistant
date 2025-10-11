@@ -1,0 +1,22 @@
+class_name,attributes,generated_description,actual_description,equality,contradiction,inclusion
+room,room number,a room has a room number,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,not clear,True
+room,smoking,a room has a smoking,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,False
+room,smoking,a room has a smoking,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,not clear,True
+room,bed kind,a room has a bed kind,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",not clear,not clear,True
+room,bed number,a room has a bed number,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",not clear,not clear,True
+quality,maxprice,a quality has a maxprice,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",not clear,not clear,not clear
+quality,maxprice,a quality has a maxprice,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",not clear,not clear,not clear
+guest,first name,a guest has a first name,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,False
+guest,last name,a guest has a last name,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,not clear
+guest,address,a guest has an address,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,not clear,not clear
+guest,address,a guest has an address,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,False
+guest,telephone,a guest has a telephone,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,not clear,not clear
+guest,creditcard,a guest has a creditcard,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",not clear,not clear,not clear
+guest account,bill,a guest account has a bill,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,not clear,False
+guest account,bill,a guest account has a bill,"When a guest checks in, the room is allocated to him/her until s/he checks out.",not clear,not clear,False
+guest account,bill,a guest account has a bill,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,not clear,not clear
+guest account,bill,a guest account has a bill,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,False
+guest account,bill,a guest account has a bill,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,not clear,False
+guest account,bill,a guest account has a bill,The hotel contains 30 rooms in which guests can stay.,False,not clear,not clear
+guest account,bill,a guest account has a bill,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,not clear,False
+guest account,bill,a guest account has a bill,"The system must keep track of the guest's account, and print his or her bill.",not clear,not clear,not clear

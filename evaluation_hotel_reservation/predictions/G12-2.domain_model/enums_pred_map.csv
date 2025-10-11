@@ -1,0 +1,4 @@
+source,target,generated_description,actual_description,equality,contradiction,inclusion
+smoking status,smoker,Smoker is a smoking status,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+smoking status,non smoker,Non smoker is a smoking status,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+smoking status,non smoker,Non smoker is a smoking status,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,True,False

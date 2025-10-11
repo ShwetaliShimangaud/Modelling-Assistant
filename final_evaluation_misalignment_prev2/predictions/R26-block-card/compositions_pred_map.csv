@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+card,user,,,,,False,False,False,inconclusive,Each card is made up of users,"If the user does not enter this area field as input, the system should not let the user block their card.",composition

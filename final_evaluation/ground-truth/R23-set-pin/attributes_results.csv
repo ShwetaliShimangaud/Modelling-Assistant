@@ -1,0 +1,5 @@
+,class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,card,cvv,a card has a cvv,Both card number and CVV information should be an integer.,FALSE,FALSE,TRUE,correct
+1,card,number,a card has a number,"When setting a PIN, the user should enter their card number and CVV information.",FALSE,FALSE,TRUE,correct
+2,card,type,a card has a type,The system should not accept any other type of input.,FALSE,FALSE,TRUE,correct
+3,user,has pin,an user has a has pin,"Before using any card, the user should set a 'PIN' using online banking systems.",FALSE,TRUE,TRUE,correct

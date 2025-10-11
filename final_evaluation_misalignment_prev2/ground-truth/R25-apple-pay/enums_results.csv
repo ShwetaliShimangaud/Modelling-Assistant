@@ -1,0 +1,8 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+card type,credit,Credit is a card type,"Card types can be debit, credit, virtual or supplementary.",FALSE,FALSE,TRUE,correct,,
+card type,debit,Debit is a card type,"Card types can be debit, credit, virtual or supplementary.",FALSE,FALSE,TRUE,correct,,
+card type,supplementary,Supplementary is a card type,"If the user chooses the mobile application, the bank will automatically add their card(s) to the wallet for the selected card(s).",FALSE,FALSE,FALSE,correct,,
+card type,virtual,Virtual is a card type,"Card types can be debit, credit, virtual or supplementary.",FALSE,FALSE,TRUE,correct,,
+status,available,Available is a status,Users cannot select a card that has a blocked or restricted status.,FALSE,FALSE,TRUE,correct,,
+status,blocked,Blocked is a status,Users cannot select a card that has a blocked or restricted status.,FALSE,FALSE,TRUE,correct,,
+status,restricted,Restricted is a status,Users cannot select a card that has a blocked or restricted status.,FALSE,FALSE,TRUE,correct,,

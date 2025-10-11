@@ -1,6 +1,7 @@
 import os
 
 import pandas as pd
+import spacy
 
 from sentence_generator.SentenceFromEnums import SentenceFromEnums
 from sentence_generator.sentenceFromAttributes import SentenceFromAttributes
@@ -11,8 +12,7 @@ from sentence_generator.sentenceFromInheritance import SentenceFromInheritance
 from sentence_generator.postProcessor import PostProcessor
 from domain_converter.xmlReader import parse_domain_model
 
-model_path = "D:\\Thesis\\modelling-assistant\\tests\\\domain-models\\"
-
+model_path = "D:\\Thesis\\modelling-assistant\\tests\\\domain-models\\hotel-reservation-models\\"
 
 processed_models_path = "processed_models\\"
 
@@ -84,7 +84,7 @@ class DescriptionGenerator:
 
             # Code to read domain diagram in .cdm format
             class_attributes, associations, compositions, aggregations, inheritance, enums = parse_domain_model(
-                model_path + "cdm-models\\" + self.domain_name + ".cdm")
+                model_path + self.domain_name + ".cdm")
 
             return class_attributes, associations, compositions, aggregations, inheritance, enums
 
@@ -154,5 +154,7 @@ class DescriptionGenerator:
         self.description = final_sentence
         print(final_sentence)
 
-# dec = DescriptionGenerator('factory')
+
+# language_model = spacy.load("en_core_web_trf")
+# dec = DescriptionGenerator('G12-5.domain_model', language_model)
 # print(dec.get_attributes())

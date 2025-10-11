@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,user,wallet,,A user has wallet,"When the wallet feature is enabled, the user should be able to view the wallet balance and use it in the payment processes.",FALSE,FALSE,FALSE,correct,association
+0,user,card,,A user can have cards ,"User can,use either card (debit, credit, ) or,use the 'wallet' feature.",FALSE,FALSE,TRUE,correct,association

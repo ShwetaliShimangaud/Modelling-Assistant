@@ -6,7 +6,7 @@ from openai import OpenAI
 def call_api(prompt, system_prompt="You are a helpful, respectful and honest assistant."):
     client = OpenAI()
     completion = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4",
         temperature=1,
         top_p=1,
         max_completion_tokens=2048,
@@ -16,14 +16,24 @@ def call_api(prompt, system_prompt="You are a helpful, respectful and honest ass
             "type": "text"
         },
         messages=[
-            {"role": "user",
-             "content": [
-                 {
-                     "type": "text",
-                     "text": prompt
-                 }
-             ]
-             }
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": prompt
+                    }
+                ]
+            },
+            {
+                "role": "system",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": system_prompt
+                    }
+                ]
+            },
         ]
     )
 

@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,employee,department,worksIn,A employee is works in departments ,Shift workers can only work in the delivery department.,False,True,False,wrong,association

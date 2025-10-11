@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,grade,electronic report card,,Each grade is made up of electronic report cards,"Since student grades are sensitive information, the system must employ extra security measures to prevent unauthorized access.",FALSE,TRUE,FALSE,wrong,composition

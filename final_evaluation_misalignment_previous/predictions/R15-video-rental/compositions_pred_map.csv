@@ -1,0 +1,9 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+tape,inventory,,,Each tape is made up of inventories,"The customer signs the rental form, takes the tapes, and leaves.",not clear,not clear,not clear
+tape,inventory,,,Each tape is made up of inventories,"When all tape Ids are entered, the system computes the total bill.",not clear,not clear,not clear
+tape,inventory,,,Each tape is made up of inventories,The video bar code ID is entered into the system to return a tape.,not clear,not clear,not clear
+tape,inventory,,,Each tape is made up of inventories,Any past-due amount must be paid before new tapes can be rented.,False,not clear,not clear
+tape,inventory,,,Each tape is made up of inventories,The maximum number of tapes a customer can have outstanding on the rental is 20.,not clear,not clear,not clear
+tape,inventory,,,Each tape is made up of inventories,Any outstanding video rentals are displayed with the amount due on each tape and the total amount due.,not clear,not clear,not clear
+tape,inventory,,,Each tape is made up of inventories,"The rental transaction is displayed, and the tape is marked with the return date.",not clear,not clear,not clear
+tape,inventory,,,Each tape is made up of inventories,"Bar code Ids for each tape are entered, and video information from inventory is displayed.",not clear,not clear,not clear

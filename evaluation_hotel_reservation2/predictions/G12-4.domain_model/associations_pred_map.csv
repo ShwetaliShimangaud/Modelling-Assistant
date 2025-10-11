@@ -1,0 +1,15 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+account,front desk,updateAccount,1,A account has an an update account which is a front desk,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+front desk,account,accountUpdated,0..30,A front desk can have account updateds ,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+guest,front desk,myFrontDesk,1,A guest has a front desk,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+front desk,guest,guests,0..30,A front desk can have guests ,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+account,guest,myGuest,1,A account has a guest,"The system must keep track of the guest's account, and print his or her bill.",False,False,True
+guest,account,account,1,A guest has an account,"The system must keep track of the guest's account, and print his or her bill.",False,False,True
+guest,room,occupies,0..30,A guest can have occupies which are rooms,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+guest,room,occupies,0..30,A guest can have occupies which are rooms,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,True,False
+room,guest,occupiedBy,1,A room is occupied by a guest,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,True,False
+room,guest,occupiedBy,1,A room is occupied by a guest,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+room,guest,occupiedBy,1,A room is occupied by a guest,The hotel contains 30 rooms in which guests can stay.,False,False,False
+room,guest,occupiedBy,1,A room is occupied by a guest,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+room,front desk,statusUpdatedBy,1,A room is status updated by a front desk,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+front desk,room,updateStatus,30..30,A front desk can have update status which are rooms,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False

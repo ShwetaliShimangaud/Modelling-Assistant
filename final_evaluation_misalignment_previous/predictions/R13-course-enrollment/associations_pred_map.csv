@@ -1,0 +1,15 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+student,course,selected,2,A student has a a selected which is a course,Professors must be able to access the online system to indicate which courses they will be teaching.,False,False,not clear
+student,course,selected,2,A student has a a selected which is a course,No course offering will have fewer than three students.,not clear,False,not clear
+student,course,selected,2,A student has a a selected which is a course,Each course offering will have at most ten students.,not clear,False,False
+student,course,selected,2,A student has a a selected which is a course,"In addition, each student will indicate two choices in case a course offering becomes filled or canceled.",not clear,False,not clear
+student,course,selected,2,A student has a a selected which is a course,"At the beginning of each semester, students may request a course catalog containing a list of course offerings.",not clear,False,not clear
+student,course,selected,2,A student has a a selected which is a course,A course offering fewer than three students will be canceled.,not clear,False,not clear
+student,course,selected,2,A student has a a selected which is a course,They will also need to see which students signed up for their course offerings.,not clear,True,False
+student,course,selected,2,A student has a a selected which is a course,"Information about each course, such as professor, department, and prerequisites, will be included to help students make informed decisions.",False,False,not clear
+student,course,selected,2,A student has a a selected which is a course,The new online registration system will allow students to select four-course offerings for the coming semester.,not clear,True,False
+student,course,selected,2,A student has a a selected which is a course,The billing system will credit all students for courses dropped during this period.,not clear,False,not clear
+student,course,selected,2,A student has a a selected which is a course,Students must be able to access the online system during this time to add or drop courses.,not clear,False,not clear
+course,student,,1,A course has student,A course offering fewer than three students will be canceled.,not clear,True,False
+student,course,choices,4,A student has  a choice which is a course,"In addition, each student will indicate two choices in case a course offering becomes filled or canceled.",not clear,False,not clear
+course,student,,1,A course has student,A course offering fewer than three students will be canceled.,not clear,True,False

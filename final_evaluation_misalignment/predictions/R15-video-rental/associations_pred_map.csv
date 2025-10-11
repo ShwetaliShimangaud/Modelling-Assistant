@@ -1,0 +1,7 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+id card,customer,,A id card has customer,"The rental transaction is created, printed, and stored.",False,False,False,inconclusive,association
+customer,order,,A customer can have orders ,"The rental transaction is created, printed, and stored.",False,False,True,correct,association
+order,customer,,A order has customer,"The rental transaction is created, printed, and stored.",False,False,True,correct,association
+order,tape,,A order can have tapes ,Any outstanding video rentals are displayed with the amount due on each tape and the total amount due.,False,False,False,inconclusive,association
+tape,order,outstanding,A tape has an an outstanding which is an order,Any outstanding video rentals are displayed with the amount due on each tape and the total amount due.,False,False,False,inconclusive,association
+customer,id card,,A customer can have i d cards ,Each customer gets an id card from ABC for identification purposes.,False,True,False,wrong,association

@@ -1,0 +1,4 @@
+,source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,vehicle type code,covered trailer,covered trailer is a vehicle type code,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",FALSE,FALSE,TRUE,correct
+1,vehicle type code,open trailer,open trailer is a vehicle type code,The Right-Way Rental Truck Company rents small moving trucks and trailers for local and one-way usage.,FALSE,FALSE,FALSE,correct
+2,vehicle type code,truck,Truck is a vehicle type code,We must implement a system to track our rental agreements and vehicle assignments.,FALSE,FALSE,FALSE,correct

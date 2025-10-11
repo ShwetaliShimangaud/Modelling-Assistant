@@ -1,0 +1,2 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+user,prepaid card,,prepaid card is a type of user,"If the status card is available, the user can continue the process.",FALSE,TRUE,FALSE,wrong,inheritance

@@ -1,3 +1,4 @@
+import json
 import xml.etree.ElementTree as ET
 
 
@@ -193,9 +194,15 @@ def parse_domain_model(xml_file_path):
 
     print(associations)
 
+    # data = [class_attributes, associations, compositions, aggregations, inheritance, enums]
+    #
+    # # Write object to a text file in JSON format
+    # with open('../tests/domain-models/hotel-reservation-models/processed_models/data', 'w') as f:
+    #     json.dump(data, f, indent=4)
+
     return class_attributes, associations, compositions, aggregations, inheritance, enums
 
 
-# xml_file_path = '../tests/domain-models/cdm-models/production-cell-enum.cdm'
-#
+# xml_file_path = '../tests/domain-models/hotel-reservation-models/G12-2.domain_model.cdm'
+# #
 # parse_domain_model(xml_file_path)

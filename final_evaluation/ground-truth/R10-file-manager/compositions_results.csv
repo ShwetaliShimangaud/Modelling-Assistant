@@ -1,0 +1,2 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+file system,document,,Each file system is made up of zero or multiple documents,A file system contains information from multiple documents.,FALSE,FALSE,TRUE,correct,composition

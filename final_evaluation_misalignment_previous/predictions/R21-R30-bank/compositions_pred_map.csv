@@ -1,0 +1,7 @@
+source,target,role,multiplicity,generated_description,actual_description
+transaction,wallet,,,Each transaction is made up of wallets,"After the user successfully sets their PIN code, they should be able to use it immediately on the kiosk or any transaction requiring a pin."
+transaction,wallet,,,Each transaction is made up of wallets,"For performing Apple Pay transactions, first, the user should add their card or cards to the Apple wallet."
+transaction,wallet,,,Each transaction is made up of wallets,"Users should be able to perform ""Apple Pay"" transactions via their cards."
+transaction,wallet,,,Each transaction is made up of wallets,"Secondly, the user should make the desired amount of money transactions to the wallet."
+transaction,wallet,,,Each transaction is made up of wallets,"The screen should display an information message for the user stating that if the user changes the preferences, it will be applied to all the transaction flows and other contact-required processes."
+transaction,wallet,,,Each transaction is made up of wallets,"On the e-mail, content should contain the user's name, surname, created account number, amount of the transaction, and currency of the account."

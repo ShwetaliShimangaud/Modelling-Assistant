@@ -1,0 +1,8 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+timbered house,log,,A timbered house can have logs ,"A timbered house consists of 5 10 logs, 200 400 mud bricks, and 1000 to 2000 nails.",FALSE,FALSE,TRUE,correct,association
+timbered house,mud brick,,A timbered house can have mud bricks ,"A timbered house consists of 5 10 logs, 200 400 mud bricks, and 1000 to 2000 nails.",FALSE,FALSE,TRUE,correct,association
+mud brick,timbered house,,A mud brick has timbered house,Any carpenter can work on up to one timbered house at the same time.,FALSE,FALSE,FALSE,correct,association
+nail,timbered house,,A nail has timbered house,Any carpenter can work on up to one timbered house at the same time.,FALSE,FALSE,TRUE,correct,association
+carpenter,saw,,A carpenter has saw,Any carpenter can work on up to one timbered house at the same time.,FALSE,FALSE,TRUE,correct,association
+log,timbered house,,A log can have timbered houses ,Any carpenter can work on up to one timbered house at the same time.,FALSE,TRUE,FALSE,wrong,association
+timbered house,nail,,A timbered house has nail,"A timbered house consists of 5 10 logs, 200 400 mud bricks, and 1000 to 2000 nails.",FALSE,TRUE,FALSE,wrong,association

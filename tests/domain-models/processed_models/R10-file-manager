@@ -1,7 +1,7 @@
 class_attributes = {
     'FileSystem': [],
-    "Document": ['name', 'creationDate','authorInfo','size'],
-    "Editor": ['name', "fileManagementTask"]
+    "Document": ['name:string', 'creationDate:date','authorInfo:string','size:int'],
+    "Editor": ['name:string', "fileManagementTask:string"]
 }
 
 associations = [

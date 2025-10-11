@@ -1,0 +1,2 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+manager,department,Each manager is made up of department,Each department has to be controlled by a manager.,False,False,False,wrong

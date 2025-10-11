@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,user,apple wallet,wallet,A user has an apple wallet,"For performing Apple Pay transactions, first, the user should add their card or cards to the Apple wallet.",FALSE,FALSE,FALSE,correct,association
+0,apple wallet,card,addedCards,A apple wallet can have added cards ,Users can perform the Apple Pay process only if their card status is 'available.,FALSE,FALSE,TRUE,correct,association

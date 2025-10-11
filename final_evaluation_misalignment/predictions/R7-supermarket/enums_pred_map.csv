@@ -1,0 +1,6 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+order status,completed,Completed is an order status,"Then the chief of order checks and counts if there is no mistake; when the number of orders written to the proforma invoice is well prepared, they give the order for put out before arriving to the customer.",False,False,False,inconclusive,,
+order status,started,Started is an order status,"Then the chief of order checks and counts if there is no mistake; when the number of orders written to the proforma invoice is well prepared, they give the order for put out before arriving to the customer.",False,False,False,inconclusive,,
+type,food,Food is a type,"All products are recorded according to the group of each product, the group of food products, the group of pastry/bakery, and meat products.",False,False,False,inconclusive,,
+type,meat,Meat is a type,"Others to the cold chamber (cheese, meat), checking the product's expiration date.",False,False,True,correct,,
+type,pastry,Pastry is a type,"When finished, they package according to each category of product.",False,False,True,correct,,

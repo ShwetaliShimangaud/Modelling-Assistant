@@ -1,0 +1,4 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,room,standard,,standard is a type of room,"The price of standard rooms:$60 for the summer season, $40 for the spring season, And $25 for the autumn season per night per person.",False,False,True,correct,inheritance
+0,room,deluxe,,deluxe is a type of room,"Rates for the deluxe room:$90 per person per night in the summer,$75 in the spring,And $ 50 in the autumn.",False,False,True,correct,inheritance
+0,room,large deluxe,,large deluxe is a type of room,"If all the rooms are reserved before, the user will be asked to make a choice again.",False,False,True,correct,inheritance

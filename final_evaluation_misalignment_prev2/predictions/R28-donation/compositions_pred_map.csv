@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+donation,account,,,,,False,False,False,inconclusive,Each donation is made up of accounts,Information about the donations should be kept hidden from the mobile or web application storages.,composition

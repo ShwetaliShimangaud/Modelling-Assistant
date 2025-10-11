@@ -1,0 +1,14 @@
+,class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,book,author,a book has an author,"There are two types of loan items, language tapes, and books.",FALSE,FALSE,TRUE,correct
+1,book,title,a book has a title,A book has a title and author(s).,FALSE,FALSE,TRUE,correct
+2,item,available,an item has an available,"There are two types of loan items, language tapes, and books.",FALSE,FALSE,TRUE,correct
+3,item,barcode,an item has a barcode,A bar code uniquely identifies a loan item.,FALSE,FALSE,FALSE,correct
+4,item,status,an item has a status,"There are two types of loan items, language tapes, and books.",FALSE,FALSE,TRUE,correct
+5,language tape,level,a language tape has a level,"A language tape has a title language (, Spanish) and level (, beginner).",FALSE,FALSE,TRUE,correct
+6,language tape,title language,a language tape has a title language,"A language tape has a title language (, Spanish) and level (, beginner).",FALSE,FALSE,TRUE,correct
+7,loan,end date,a loan has an end date,"It helps the librarian maintain the database of new books, the books that members borrow, and their due dates.",FALSE,FALSE,FALSE,correct
+8,member,address,a member has an address,"Along with the membership number, other details on a customer must be kept, such as a name, address, and date of birth.",FALSE,FALSE,TRUE,correct
+9,member,date of birth,a member has a date of birth,"Along with the membership number, other details on a customer must be kept, such as a name, address, and date of birth.",FALSE,FALSE,TRUE,correct
+10,member,member number,a member has a member number,Each member has a membership card that shows a unique member number.,FALSE,FALSE,TRUE,correct
+11,member,name,a member has a name,"Along with the membership number, other details on a customer must be kept, such as a name, address, and date of birth.",FALSE,FALSE,TRUE,correct
+12,reservation,end date,a reservation has an end date,"It helps the librarian maintain the database of new books, the books that members borrow, and their due dates.",FALSE,FALSE,TRUE,correct

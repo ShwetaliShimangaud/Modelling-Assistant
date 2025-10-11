@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,player,robot,controls,A player can have controls which are robots,"After running for a certain distance or given time, the level will be cleared, and the robot will move on to the second phase to chase robots away or press the self-destruct button, which destroys the enemy base at the end of each level.",FALSE,TRUE,FALSE,wrong,association

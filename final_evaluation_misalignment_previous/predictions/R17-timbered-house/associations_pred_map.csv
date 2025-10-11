@@ -1,0 +1,14 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+carpenter,hammer,,1..*,A carpenter can have hammers ,Any carpenter can work on up to one timbered house at the same time.,not clear,False,not clear
+carpenter,hammer,,1..*,A carpenter can have hammers ,"To construct a timbered house, each carpenter uses tools consisting of one hammer and one saw.",not clear,False,True
+carpenter,hammer,,1..*,A carpenter can have hammers ,"Each building material, whether log, brick, or nail, is a component in exactly one timbered house.",not clear,False,not clear
+carpenter,hammer,,1..*,A carpenter can have hammers ,"A timbered house consists of 5 10 logs, 200 400 mud bricks, and 1000 to 2000 nails.",False,False,not clear
+carpenter,hammer,,1..*,A carpenter can have hammers ,"For the construction of a timbered house is at least one carpenter in charge, which has a name and an individual hourly wage.",not clear,False,not clear
+carpenter,hammer,,1..*,A carpenter can have hammers ,Each timbered house has a certain number of rooms and floors.,False,False,False
+timbered house,mud brick,,1000..2000,A timbered house can have mud bricks ,"A timbered house consists of 5 10 logs, 200 400 mud bricks, and 1000 to 2000 nails.",not clear,True,False
+mud brick,timbered house,,1..*,A mud brick can have timbered houses ,Any carpenter can work on up to one timbered house at the same time.,not clear,False,not clear
+mud brick,timbered house,,1..*,A mud brick can have timbered houses ,"To construct a timbered house, each carpenter uses tools consisting of one hammer and one saw.",not clear,False,not clear
+mud brick,timbered house,,1..*,A mud brick can have timbered houses ,"Each building material, whether log, brick, or nail, is a component in exactly one timbered house.",not clear,False,not clear
+mud brick,timbered house,,1..*,A mud brick can have timbered houses ,"A timbered house consists of 5 10 logs, 200 400 mud bricks, and 1000 to 2000 nails.",not clear,True,False
+mud brick,timbered house,,1..*,A mud brick can have timbered houses ,"For the construction of a timbered house is at least one carpenter in charge, which has a name and an individual hourly wage.",not clear,False,not clear
+mud brick,timbered house,,1..*,A mud brick can have timbered houses ,Each timbered house has a certain number of rooms and floors.,not clear,False,not clear

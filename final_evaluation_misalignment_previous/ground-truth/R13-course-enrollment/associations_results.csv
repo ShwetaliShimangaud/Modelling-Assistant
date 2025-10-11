@@ -1,0 +1,4 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,student,course,selected,A student has a a selected which is a course,Professors must be able to access the online system to indicate which courses they will be teaching.,FALSE,TRUE,FALSE,wrong,association
+0,course,student,,A course has student,A course offering fewer than three students will be canceled.,FALSE,TRUE,FALSE,wrong,association
+0,student,course,choices,A student has  a choice which is a course,"In addition, each student will indicate two choices in case a course offering becomes filled or canceled.",FALSE,TRUE,FALSE,wrong,association

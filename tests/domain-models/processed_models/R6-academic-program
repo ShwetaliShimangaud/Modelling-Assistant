@@ -1,7 +1,7 @@
 class_attributes = {
-    'Course': ["name","code","startTime","endTime","quotaLimit"],
-    "Instructor": ['name', 'surname', 'title', 'specialty'],
-    "Room": ['ad', "capacity", "floor", "blockInformation"],
+    'Course': ["name:string","code:int","startTime:time","endTime:time","quotaLimit:int"],
+    "Instructor": ['name:string', 'surname:string', 'title:string', 'specialty:string'],
+    "Room": ['id:string', "capacity:int", "floor:int", "blockInformation:string"],
 
 }
 

@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+course,day,,,,,FALSE,FALSE,FALSE,wrong,Each course is made up of days,"A course has the course's name, the course's code, the start time, the end time, the days of the courses, the room, and the instructors.",composition

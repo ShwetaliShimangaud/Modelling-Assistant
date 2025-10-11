@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+donation,savings account,,,,,False,True,False,wrong,savings account is a type of donation,"If selected account type is a savings account, system should display a pop-up stating that user is continuing with a savings account.",inheritance

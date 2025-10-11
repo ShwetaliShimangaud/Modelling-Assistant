@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,position,cell,,cell is a type of position,The player may change directions multiple times but cannot enter the same cell twice during a single turn.,FALSE,FALSE,FALSE,correct,inheritance
+0,position,planet,,planet is a type of position,"The planets, Linuta and Verlute, have a wormhole connecting each other, as do Earth and Evilon.",FALSE,TRUE,FALSE,correct,inheritance

@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,company,individual,,individual is a type of company,"We only allow a single individual or company for a given rental agreement, and we write a separate rental agreement for each vehicle.",False,True,False,wrong,inheritance
+0,individual,customer,,customer is a type of individual,"Most of our rental agreements are for individual customers, but a rental agreement can either be for an individual or a company.",False,True,False,wrong,inheritance

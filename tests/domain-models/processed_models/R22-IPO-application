@@ -1,7 +1,7 @@
 
 class_attributes = {
-    "User" : ['customerType', 'unpaidCredit', 'blockedAccount', 'fraudUser','name','surname','email','telephoneNumber','failedAttempts'],
-    "Company" : ['name'],
+    "User" : ['customerType:enumeration', 'unpaidCredit:boolean', 'blockedAccount:boolean', 'fraudUser:boolean','name:string','surname:string','email:string','telephoneNumber:int','failedAttempts:int'],
+    "Company" : ['name:string'],
     "InitialPublicOffering" : ['documentation','rejected','numShares','moneyPaid']
 }
 

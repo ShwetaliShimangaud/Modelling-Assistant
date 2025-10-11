@@ -1,7 +1,11 @@
 import re
 
 import pandas as pd
+import spacy
 from word2number import w2n
+
+from extractor.conceptsExtractor import ConceptsExtractor
+from preprocessor import coreferenceResolution as coref
 
 
 class RelationshipsExtractor:
@@ -1106,3 +1110,39 @@ class RelationshipsExtractor:
         self.df_class_associations = self.df_class_associations.drop_duplicates(
             subset=["source", "source_multi", "target_multi", "target"], keep="last"
         )
+
+
+# language_model = spacy.load("en_core_web_trf")
+# concepts_extractor = ConceptsExtractor()
+# relationships_extractor = RelationshipsExtractor()
+# actual_description = """
+# We have a garage that offers two types of services for cars: repairs and
+# maintenance. For each car that comes to the garage, the first thing to do is to register
+# its plate number. For each service provided, we record the date and the type of service.
+# When it comes to repairs, we also note which car part was fixed – whether it is the engine,
+# transmission, lights, or braking system. For maintenance services, we need to store the
+# date until which the service is valid. Note that each service happens in a specific garage,
+# and every garage has its own address.
+# """
+# actual_description = actual_description.replace("e.g.", "")
+# actual_description = actual_description.replace("i.e.", "")
+# actual_description = actual_description.replace("etc.", "")
+#
+# original_description, sentences = coref.get_preprocessed_text(actual_description)
+#
+# for sdx, sent in enumerate(sentences):
+#     sdx = "S" + str(sdx)
+#     preprocessed_sent = sent.replace(".", "")
+#     concepts_extractor.extract_candidate_concepts(
+#         language_model(preprocessed_sent), sdx
+#     )
+#     relationships_extractor.extract_candidate_relationships(
+#         concepts_extractor.df_chunks,
+#         concepts_extractor.df_concepts,
+#         language_model,
+#         language_model(preprocessed_sent),
+#         sdx,
+#     )
+#
+# print(concepts_extractor.df_concepts)
+# print(relationships_extractor.df_class_associations)

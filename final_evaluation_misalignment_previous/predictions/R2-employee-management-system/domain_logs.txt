@@ -1,0 +1,6 @@
+Execution Time Log
+Sentence Generation took 6.274580 seconds
+Concept and Relationship extraction took 158.362764 seconds
+Semantic matching took 9.152351 seconds
+LLM  took 605.717877 seconds
+Result calculation took 159.160365 seconds

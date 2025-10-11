@@ -1,0 +1,7 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+currency,eur,EUR is a currency,"Customers can have only one account per currency, except EUR.",False,False,True,correct,,
+currency,gbp,GBP is a currency,"After that, the user has the option of 3 other currencies: USD, GBP, and TRY.",False,False,True,correct,,
+currency,try,TRY is a currency,"After that, the user has the option of 3 other currencies: USD, GBP, and TRY.",False,False,True,correct,,
+currency,usd,USD is a currency,"After that, the user has the option of 3 other currencies: USD, GBP, and TRY.",False,False,True,correct,,
+customer type,corporate,Corporate is a customer type,Customer Customer types can be either retail or corporate.,False,False,True,correct,,
+customer type,retail,Retail is a customer type,Customer Customer types can be either retail or corporate.,False,False,True,correct,,

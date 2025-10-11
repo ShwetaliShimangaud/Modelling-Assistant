@@ -1,0 +1,6 @@
+class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+biometric,accepted terms,a biometric has an accepted terms,"Also, the user should accept the terms and conditions for using this feature.",False,False,False,inconclusive,,
+biometric,enabled biometric,a biometric has an enabled biometric,For the enablement process: The 'Biometric Enable' process should be available under the settings menu.,False,False,True,correct,,
+biometric,pin,a biometric has a pin,"During the enablement process, the user should set a 'PIN.'",False,False,True,correct,,
+login activity,date,a login activity has a date,"On biometric logins, the system should store the biometric login counts, dates, and user information on the database.",False,False,True,correct,,
+login activity,user info,a login activity has an user info,"When a user enters the wrong PIN information, the system should display an error message, but the flow should not stop.",False,False,True,correct,,

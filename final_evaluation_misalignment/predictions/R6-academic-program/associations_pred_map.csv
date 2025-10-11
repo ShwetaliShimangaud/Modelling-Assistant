@@ -1,0 +1,5 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+instructor,course,teaches,A instructor can have teaches which are courses,"In addition, instructors can increase and decrease the course quota limit and change weekly course hours and course days.",False,False,False,inconclusive,association
+course,instructor,isTaughtBy,A course is taught by instructors ,"A course has the course's name, the course's code, the start time, the end time, the days of the courses, the room, and the instructors.",False,False,True,correct,association
+room,course,courses,A room can have courses ,"A course has the course's name, the course's code, the start time, the end time, the days of the courses, the room, and the instructors.",False,False,True,correct,association
+student,course,enrolls,A student has  an enroll which is a course,"Students enroll in the courses, drop the courses, receive transcripts, request documents, and conduct surveys.",False,True,False,wrong,association

@@ -8,8 +8,8 @@ class_attributes = {
     'Diet': [],
     'Event': [],
     'Activity': [],
-    'Exercise': ['repetitionNumber'],
-    "Running": ['speed', 'caloriesBurnt','distance','time']
+    'Exercise': ['repetitionNumber:int'],
+    "Running": ['speed:double', 'caloriesBurnt:int','distance:int','time:time']
 }
 
 associations = [

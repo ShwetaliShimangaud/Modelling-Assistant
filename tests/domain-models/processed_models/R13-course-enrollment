@@ -1,6 +1,6 @@
 class_attributes = {
-    "Grade": ['grade'],
-    "Course": ['department', "prerequisites", "minStudents", 'maxStudents','cancelled']
+    "Grade": ['grade:int'],
+    "Course": ['department:string', "prerequisites:string", "minStudents:int", 'maxStudents:int','cancelled:boolean']
 }
 
 associations = [

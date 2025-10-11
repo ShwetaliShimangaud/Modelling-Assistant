@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+user,apple wallet,,,,,False,False,False,inconclusive,Each user is made up of apple wallets,"For performing Apple Pay transactions, first, the user should add their card or cards to the Apple wallet.",composition

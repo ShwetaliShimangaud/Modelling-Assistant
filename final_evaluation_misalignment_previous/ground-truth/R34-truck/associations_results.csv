@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,rental office,vehicle,,A rental office has vehicle,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,False,True,False,wrong,association
+0,vehicle,rental office,homeOffice,A vehicle can have home offices which are rental offices,Each rental office has an official name like 'Littleton Right-Way.',False,True,False,wrong,association

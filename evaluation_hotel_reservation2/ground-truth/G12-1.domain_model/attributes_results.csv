@@ -1,0 +1,12 @@
+class_name,attributes,answer
+guest,first name,correct
+guest,last name,correct
+guest,telephone,correct
+guest,credit card,correct
+guest,address guest,correct
+quality,max price,correct
+room,bed kind,correct
+room,bed number,correct
+room,room number,correct
+room,smoking,correct
+reservation,status,correct

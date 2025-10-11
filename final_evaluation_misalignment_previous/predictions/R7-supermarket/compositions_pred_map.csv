@@ -1,0 +1,4 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+stock,supermarket,,,Each stock is made up of supermarkets,They use physical inventory where every product purchased is recorded by using the form of stock.,not clear,not clear,not clear
+stock,supermarket,,,Each stock is made up of supermarkets,"After recording all products on stock and shelf and cold chamber, it is necessary to record on the cashier's machine where recordable depending on the group.",not clear,not clear,not clear
+stock,supermarket,,,Each stock is made up of supermarkets,"After purchasing a new product or getting the outcome from a supplier, those products are recorded in stock.",False,not clear,False

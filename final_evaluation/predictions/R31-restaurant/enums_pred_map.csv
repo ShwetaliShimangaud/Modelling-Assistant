@@ -1,0 +1,58 @@
+source,target,generated_description,actual_description,equality,contradiction,inclusion
+seating preference,inside,inside is a seating preference,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,not clear,True
+seating preference,patio,patio is a seating preference,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,not clear,True
+smocking preference,smocking,smocking is a smocking preference,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,not clear,True
+smocking preference,non smoking,non smoking is a smocking preference,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,not clear,True
+item type,appetizer,Appetizer is an item type,There are many exciting and exotic items.,False,not clear,False
+item type,appetizer,Appetizer is an item type,'The price of each menu item can vary based on the time of day.,False,not clear,False
+item type,appetizer,Appetizer is an item type,Some of the menu items change prices for happy hour.,False,not clear,False
+item type,appetizer,Appetizer is an item type,Additional information maintained by Romano's about food items includes a description of the food item and a purchase flag.,False,not clear,False
+item type,appetizer,Appetizer is an item type,"The menu item 'fish soup' is comprised of the food items fish soup, crackers, and melon balls.",False,not clear,False
+item type,appetizer,Appetizer is an item type,"In other words, each reservation can be associated with many menu items, and a menu item can be associated with many reservations.",False,not clear,False
+item type,appetizer,Appetizer is an item type,Many menu items can utilize a food item.,False,not clear,False
+item type,appetizer,Appetizer is an item type,"For example, the food item chicken lasagna comprises chicken, mozzarella cheese, ricotta cheese, sheet pasta, tomatoes, and red sauce.",False,not clear,False
+item type,appetizer,Appetizer is an item type,A unique menu item number identifies each menu item.,False,not clear,False
+item type,appetizer,Appetizer is an item type,"For example, some menu items have different lunch and dinner prices.",False,not clear,False
+item type,appetizer,Appetizer is an item type,"Each food item can be comprised of many other items, and each can be used as an ingredient of other food items.",False,not clear,False
+item type,appetizer,Appetizer is an item type,Each food item is classified by one unit of measure.,False,not clear,False
+item type,appetizer,Appetizer is an item type,Additional information about the relationship between food items is the quantity of the child's food item used.,False,not clear,False
+item type,appetizer,Appetizer is an item type,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,not clear,False
+item type,appetizer,Appetizer is an item type,"In addition to menu items, Romano's maintains a list of the food items utilized by the restaurant, such as chicken, mushrooms, bread sticks, red sauce, cream sauce,  Food items are utilized in the preparation of menu items.",False,not clear,False
+item type,appetizer,Appetizer is an item type,"Romanos classify each menu item as 'apetizer,' 'main', 'dessert,' or 'beverage.",False,not clear,True
+item type,appetizer,Appetizer is an item type,A menu item can utilize many food items.,False,not clear,False
+item type,appetizer,Appetizer is an item type,A purchase flag indicates that the food item is purchased from a vendor rather than Prepared in-house.,False,not clear,False
+item type,appetizer,Appetizer is an item type,The relationship between food items is identified by a combination of a parent food item number and the food item number used as an ingredient (child) of the parent food item.,False,not clear,False
+item type,appetizer,Appetizer is an item type,"Red sauce comprises the food items tomato sauce, olive oil and garlic, and white wine vinegar.",False,not clear,False
+item type,appetizer,Appetizer is an item type,"For example, the menu item 'chicken lasagna dinner' is comprised of the food items 'chicken lasagna, Italian bread, and broccoli spears.",False,not clear,False
+item type,appetizer,Appetizer is an item type,"To calculate the check at the end of the dinner, the waiter maintains a list, by reservation number, of the menu items ordered and the time that the menu item was ordered.",False,not clear,False
+item type,appetizer,Appetizer is an item type,A unique food item number identifies each food item.,False,not clear,False
+item type,main,Main is an item type,There are many exciting and exotic items.,False,not clear,False
+item type,main,Main is an item type,'The price of each menu item can vary based on the time of day.,False,not clear,False
+item type,main,Main is an item type,Some of the menu items change prices for happy hour.,False,not clear,False
+item type,main,Main is an item type,Additional information maintained by Romano's about food items includes a description of the food item and a purchase flag.,False,not clear,False
+item type,main,Main is an item type,"The menu item 'fish soup' is comprised of the food items fish soup, crackers, and melon balls.",False,not clear,False
+item type,main,Main is an item type,"In other words, each reservation can be associated with many menu items, and a menu item can be associated with many reservations.",False,not clear,False
+item type,main,Main is an item type,Many menu items can utilize a food item.,False,not clear,False
+item type,main,Main is an item type,"For example, the food item chicken lasagna comprises chicken, mozzarella cheese, ricotta cheese, sheet pasta, tomatoes, and red sauce.",False,not clear,False
+item type,main,Main is an item type,A unique menu item number identifies each menu item.,False,not clear,False
+item type,main,Main is an item type,"For example, some menu items have different lunch and dinner prices.",False,not clear,False
+item type,main,Main is an item type,"Each food item can be comprised of many other items, and each can be used as an ingredient of other food items.",False,not clear,False
+item type,main,Main is an item type,Each food item is classified by one unit of measure.,False,not clear,False
+item type,main,Main is an item type,Additional information about the relationship between food items is the quantity of the child's food item used.,False,not clear,False
+item type,main,Main is an item type,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,not clear,False
+item type,main,Main is an item type,"In addition to menu items, Romano's maintains a list of the food items utilized by the restaurant, such as chicken, mushrooms, bread sticks, red sauce, cream sauce,  Food items are utilized in the preparation of menu items.",False,not clear,False
+item type,main,Main is an item type,"Romanos classify each menu item as 'apetizer,' 'main', 'dessert,' or 'beverage.",False,not clear,True
+item type,main,Main is an item type,A menu item can utilize many food items.,False,not clear,False
+item type,main,Main is an item type,A purchase flag indicates that the food item is purchased from a vendor rather than Prepared in-house.,False,not clear,False
+item type,main,Main is an item type,The relationship between food items is identified by a combination of a parent food item number and the food item number used as an ingredient (child) of the parent food item.,False,not clear,False
+item type,main,Main is an item type,"Red sauce comprises the food items tomato sauce, olive oil and garlic, and white wine vinegar.",False,not clear,False
+item type,main,Main is an item type,"For example, the menu item 'chicken lasagna dinner' is comprised of the food items 'chicken lasagna, Italian bread, and broccoli spears.",False,not clear,False
+item type,main,Main is an item type,"To calculate the check at the end of the dinner, the waiter maintains a list, by reservation number, of the menu items ordered and the time that the menu item was ordered.",False,not clear,False
+item type,main,Main is an item type,A unique food item number identifies each food item.,False,not clear,False
+item type,dessert,Dessert is an item type,"Romanos classify each menu item as 'apetizer,' 'main', 'dessert,' or 'beverage.",False,not clear,True
+item type,beverage,Beverage is an item type,"Romanos classify each menu item as 'apetizer,' 'main', 'dessert,' or 'beverage.",False,not clear,True
+unit of measure,ounce,Ounce is an unit of measure,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,not clear,True
+unit of measure,sheet,Sheet is an unit of measure,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,not clear,True
+unit of measure,pound,Pound is an unit of measure,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,not clear,True
+unit of measure,gram,Gram is an unit of measure,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,not clear,True
+unit of measure,dozen,Dozen is an unit of measure,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,not clear,True

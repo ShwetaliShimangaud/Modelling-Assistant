@@ -1,0 +1,4 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,hotel,standard,,A hotel has standard,"If the user wishes to make another reservation transaction, the loop must start, and all transactions must be repeated.",FALSE,FALSE,FALSE,wrong,association
+0,hotel,deluxe,,A hotel has deluxe,"If the user wishes to make another reservation transaction, the loop must start, and all transactions must be repeated.",FALSE,TRUE,TRUE,wrong,association
+0,hotel,large deluxe,,A hotel has large deluxe,"If the user wishes to make another reservation transaction, the loop must start, and all transactions must be repeated.",FALSE,TRUE,FALSE,wrong,association

@@ -1,0 +1,2 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+course,day,Each course is made up of days,"A course has the course's name, the course's code, the start time, the end time, the days of the courses, the room, and the instructors.",False,False,False,wrong

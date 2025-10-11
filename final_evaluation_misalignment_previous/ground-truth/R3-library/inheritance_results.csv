@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,book,language tape,,language tape is a type of book,"When a book or language tape is returned to the library, the member who made the reservation will be notified.",False,True,False,wrong,inheritance
+0,loan,book,,book is a type of member,"There are two types of loan items, language tapes, and books.",False,True,True,wrong,inheritance

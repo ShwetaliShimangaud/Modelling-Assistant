@@ -1,6 +1,6 @@
 
 class_attributes = {
-    "System" : ['threshold', 'manualBlock']
+    "System" : ['threshold:double', 'manualBlock:boolean']
 }
 
 associations = [{

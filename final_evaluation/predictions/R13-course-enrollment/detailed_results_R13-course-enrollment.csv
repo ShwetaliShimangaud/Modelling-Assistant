@@ -1,0 +1,7 @@
+domain,model_element,correct_and_correct,correct_and_incorrect,correct_and_noMatch,correct_and_inconclusive,incorrect_and_correct,incorrect_and_incorrect,incorrect_and_noMatch,incorrect_and_inconclusive,extra_and_correct,extra_and_incorrect,extra_and_noMatch,extra_and_inconclusive
+R13-course-enrollment,attribute,4,0,0,2,0,0,0,0,0,0,0,0
+R13-course-enrollment,association,7,0,0,2,0,0,0,0,0,0,0,0
+R13-course-enrollment,aggregation,0,0,0,0,0,0,0,0,0,0,0,0
+R13-course-enrollment,composition,1,0,0,1,0,0,0,0,0,0,0,0
+R13-course-enrollment,inheritance,0,0,0,0,0,0,0,0,0,0,0,0
+R13-course-enrollment,enum,0,0,0,0,0,0,0,0,0,0,0,0

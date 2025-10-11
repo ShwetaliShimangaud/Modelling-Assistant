@@ -1,0 +1,4 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,player,robot,controls,A player has  a control which is a robot,'Move backwards' actions let the robot move backward to dodge the incoming bombs that might fall right in front of it.,False,False,True,correct,association
+0,level,enemy base,endsWith,A level ends with an enemy base,"When earth receives a threat that a nearby colony of aliens is about to launch an attack, it sends a small spy robot to check onto the closest enemy base out of many to check their weapon advances and preparations.",False,False,True,correct,association
+0,spaceship,bomb,drops,A spaceship can have drops which are bombs,'Jump' actions to dodge the aliens on the ground and the empty spaces made by the bombs dropped by the spaceships.,False,False,True,correct,association

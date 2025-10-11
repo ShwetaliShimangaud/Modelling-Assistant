@@ -1,0 +1,9 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+rental office,vehicle,,1,A rental office has vehicle,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,not clear,True,False
+vehicle,rental office,homeOffice,1..*,A vehicle can have home offices which are rental offices,Each rental office has an official name like 'Littleton Right-Way.',not clear,False,not clear
+vehicle,rental office,homeOffice,1..*,A vehicle can have home offices which are rental offices,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",not clear,False,not clear
+vehicle,rental office,homeOffice,1..*,A vehicle can have home offices which are rental offices,We have 347 rental offices across the western United States.,not clear,False,not clear
+vehicle,rental office,homeOffice,1..*,A vehicle can have home offices which are rental offices,The central office oversees vehicle distribution and directs transfers of vehicles from one rental office to another.,not clear,False,not clear
+vehicle,rental office,homeOffice,1..*,A vehicle can have home offices which are rental offices,"Each office is a home office for some vehicles, and each vehicle is based on a single home office.",not clear,True,False
+vehicle,rental office,homeOffice,1..*,A vehicle can have home offices which are rental offices,Each rental agreement is identified by the originating rental office number and a rental agreement number.,not clear,False,not clear
+vehicle,rental office,homeOffice,1..*,A vehicle can have home offices which are rental offices,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,not clear,False,not clear

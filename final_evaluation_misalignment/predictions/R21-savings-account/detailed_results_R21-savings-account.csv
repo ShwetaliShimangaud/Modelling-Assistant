@@ -1,0 +1,7 @@
+domain,model_element,correct_and_correct,correct_and_incorrect,correct_and_noMatch,correct_and_inconclusive,incorrect_and_correct,incorrect_and_incorrect,incorrect_and_noMatch,incorrect_and_inconclusive,extra_and_correct,extra_and_incorrect,extra_and_noMatch,extra_and_inconclusive
+R21-savings-account,attribute,6,0,0,1,0,0,0,0,0,0,0,0
+R21-savings-account,association,0,0,0,0,0,0,0,0,0,0,0,0
+R21-savings-account,aggregation,0,0,0,0,0,0,0,0,0,0,0,0
+R21-savings-account,composition,0,0,0,0,0,0,0,1,0,0,0,0
+R21-savings-account,inheritance,0,0,0,0,0,0,0,0,0,0,0,0
+R21-savings-account,enum,6,0,0,0,0,0,0,0,0,0,0,0

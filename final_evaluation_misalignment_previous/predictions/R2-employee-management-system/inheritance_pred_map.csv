@@ -1,0 +1,19 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+manager,shift worker,,,shift worker is a type of manager,"These employees are included in the categories of workers, salespeople, and managers.",not clear,False,not clear
+manager,shift worker,,,shift worker is a type of manager,Shift workers can only work in the delivery department.,not clear,False,not clear
+manager,shift worker,,,shift worker is a type of manager,"In addition to the above basic information, the manager object also has position information.",False,False,not clear
+manager,shift worker,,,shift worker is a type of manager,"Employee Management System Purpose Complete the design of the Employee class and Manager class, and write a test class to initialize some employee and manager information and output the information of employees and managers who have reached retirement age.",not clear,False,not clear
+manager,shift worker,,,shift worker is a type of manager,Shift workers receive premiums for working on holidays.,False,False,not clear
+manager,shift worker,,,shift worker is a type of manager,"RequirementA company has three roles: Employee, Salesperson and Manager.",not clear,False,not clear
+manager,shift worker,,,shift worker is a type of manager,Each department has to be controlled by a manager.,not clear,False,False
+manager,shift worker,,,shift worker is a type of manager,"In a hierarchy, the manager has subordinates; employees report to them.",not clear,False,not clear
+manager,shift worker,,,shift worker is a type of manager,The managers only get a fixed salary.,not clear,False,not clear
+manager,shift worker,,,shift worker is a type of manager,Off-shift workers have weekend and official holiday permits.,not clear,False,not clear
+manager,shift worker,,,shift worker is a type of manager,The manager is a special employee.,not clear,False,False
+manager,shift worker,,,shift worker is a type of manager,Workers are separated as shift workers and non-shift workers.,False,False,not clear
+shift worker,worker,,,worker is a type of shift worker,Shift workers can only work in the delivery department.,not clear,False,not clear
+shift worker,worker,,,worker is a type of shift worker,Workers are separated as shift workers and non-shift workers.,not clear,True,False
+shift worker,worker,,,worker is a type of shift worker,Off-shift workers have weekend and official holiday permits.,not clear,False,not clear
+shift worker,worker,,,worker is a type of shift worker,Shift workers receive premiums for working on holidays.,not clear,False,not clear
+department,off shift worker,,,off shift worker is a type of department,Shift workers can only work in the delivery department.,not clear,False,not clear
+production,department,,,department is a type of production,"The company has production, control, and delivery departments.",False,False,False

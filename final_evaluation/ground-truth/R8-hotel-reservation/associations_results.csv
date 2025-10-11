@@ -1,0 +1,7 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,room,reservation,,A room can have reservations ,"If all the rooms are reserved before, the user will be asked to make a choice again.",FALSE,FALSE,TRUE,correct,association
+0,reservation,room,,A reservation can have rooms ,"If all the rooms are reserved before, the user will be asked to make a choice again.",FALSE,FALSE,TRUE,correct,association
+0,user,reservation,,A user can have reservations ,"If the user wishes to make another reservation transaction, the loop must start, and all transactions must be repeated.",FALSE,FALSE,FALSE,correct,association
+0,hotel,standard,,A hotel has standard,"If all the rooms are reserved before, the user will be asked to make a choice again.",FALSE,FALSE,TRUE,correct,association
+0,hotel,deluxe,,A hotel can have deluxes ,"If all the rooms are reserved before, the user will be asked to make a choice again.",FALSE,FALSE,TRUE,correct,association
+0,hotel,large deluxe,,A hotel has large deluxe,"If all the rooms are reserved before, the user will be asked to make a choice again.",FALSE,FALSE,TRUE,correct,association

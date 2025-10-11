@@ -1,0 +1,2 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+document,editor,uses,A document has  an use which is an editor,Each document uses an editor suitable for creation.,FALSE,FALSE,TRUE,correct,association

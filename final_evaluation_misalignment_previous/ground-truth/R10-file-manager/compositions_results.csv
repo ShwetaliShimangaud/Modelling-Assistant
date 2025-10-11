@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,document,file system,,Each document is made up of file systems,"The document can be added and removed from the file, and all the documents can be listed.",False,False,False,wrong,composition

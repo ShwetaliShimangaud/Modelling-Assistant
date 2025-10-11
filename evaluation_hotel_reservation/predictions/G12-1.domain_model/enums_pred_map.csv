@@ -1,0 +1,10 @@
+source,target,generated_description,actual_description,equality,contradiction,inclusion
+reservation status,active,Active is a reservation status,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,not clear
+reservation status,cancelled,Cancelled is a reservation status,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+smoking status,smoking,Smoking is a smoking status,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+smoking status,smoking,Smoking is a smoking status,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,True,False
+smoking status,non smoking,Non smoking is a smoking status,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,True,False
+bed type,king,King is a bed type,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,not clear
+bed type,queen,Queen is a bed type,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+bed type,double,Double is a bed type,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",not clear,False,not clear
+bed type,full,Full is a bed type,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",not clear,False,not clear

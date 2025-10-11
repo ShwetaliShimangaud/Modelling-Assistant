@@ -1,0 +1,2 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+app,running,,running is a type of app,The app will take the device's GPS location and track the user's running activity.,False,True,False,wrong,inheritance

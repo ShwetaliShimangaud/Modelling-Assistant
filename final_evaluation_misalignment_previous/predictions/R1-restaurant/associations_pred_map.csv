@@ -1,0 +1,25 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+restaurant,table,tables,0..1,A restaurant can have tables ,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",not clear,False,not clear
+table,restaurant,myRestaurant,1..*,A table can have restaurants ,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",not clear,False,not clear
+order,waiter,serverBy,0..1,A order is server by waiters ,The waiter in the service section serves the customer.,not clear,False,not clear
+order,waiter,serverBy,0..1,A order is server by waiters ,"Personnel can be cooks, waiters, and cashiers.",not clear,False,False
+order,waiter,serverBy,0..1,A order is server by waiters ,The waiter in the service section serves the customer.,not clear,False,not clear
+order,waiter,serverBy,0..1,A order is server by waiters ,The cashier prepares the check according to the order details in the system.,False,False,False
+order,waiter,serverBy,0..1,A order is server by waiters ,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",False,False,not clear
+order,waiter,serverBy,0..1,A order is server by waiters ,The system shows the order details and table number when the cook prepares the order.,not clear,False,not clear
+order,waiter,serverBy,0..1,A order is server by waiters ,Requirements Restaurant management systems can include the following:Point-of-sale System: Used to input orders and record payments.,not clear,False,not clear
+order,waiter,serverBy,0..1,A order is server by waiters ,"When the waiter serves, the system shows the waiter's name and table number.",not clear,False,not clear
+order,waiter,serverBy,0..1,A order is server by waiters ,The cook stays in the kitchen and prepares the orders.,not clear,False,not clear
+waiter,order,servedOrders,0..1,A waiter can have served orders ,The waiter in the service section serves the customer.,not clear,False,not clear
+waiter,order,servedOrders,0..1,A waiter can have served orders ,"Personnel can be cooks, waiters, and cashiers.",not clear,False,not clear
+waiter,order,servedOrders,0..1,A waiter can have served orders ,The waiter in the service section serves the customer.,not clear,False,not clear
+waiter,order,servedOrders,0..1,A waiter can have served orders ,The cashier prepares the check according to the order details in the system.,not clear,False,not clear
+waiter,order,servedOrders,0..1,A waiter can have served orders ,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",not clear,True,False
+waiter,order,servedOrders,0..1,A waiter can have served orders ,The system shows the order details and table number when the cook prepares the order.,not clear,False,not clear
+waiter,order,servedOrders,0..1,A waiter can have served orders ,Requirements Restaurant management systems can include the following:Point-of-sale System: Used to input orders and record payments.,not clear,False,not clear
+waiter,order,servedOrders,0..1,A waiter can have served orders ,"When the waiter serves, the system shows the waiter's name and table number.",not clear,False,not clear
+waiter,order,servedOrders,0..1,A waiter can have served orders ,The cook stays in the kitchen and prepares the orders.,not clear,False,not clear
+order,cook,preparedBy,0..1,A order is prepared by cooks ,The system shows the order details and table number when the cook prepares the order.,not clear,False,not clear
+order,cook,preparedBy,0..1,A order is prepared by cooks ,The cook stays in the kitchen and prepares the orders.,not clear,False,not clear
+cook,order,preparedOrders,0..1,A cook can have prepared orders ,The system shows the order details and table number when the cook prepares the order.,not clear,False,not clear
+cook,order,preparedOrders,0..1,A cook can have prepared orders ,The cook stays in the kitchen and prepares the orders.,not clear,True,False

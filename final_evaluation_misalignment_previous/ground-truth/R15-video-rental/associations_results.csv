@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,id card,customer,,A id card can have customers ,The video inventory file is updated.,False,False,False,inconclusive,association
+0,customer,id card,,A customer can have i d cards ,Each customer gets an id card from ABC for identification purposes.,False,True,False,wrong,association

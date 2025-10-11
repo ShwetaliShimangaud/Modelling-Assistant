@@ -1,0 +1,5 @@
+class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+carpenter,hourly wage,a carpenter has a hourly wage,"For the construction of a timbered house is at least one carpenter in charge, which has a name and an individual hourly wage.",False,False,True,correct,,
+carpenter,name,a carpenter has a name,"For the construction of a timbered house is at least one carpenter in charge, which has a name and an individual hourly wage.",False,False,True,correct,,
+timbered house,num floors,a timbered house has a num floors,Each timbered house has a certain number of rooms and floors.,False,False,True,correct,,
+timbered house,num rooms,a timbered house has a num rooms,Each timbered house has a certain number of rooms and floors.,False,False,True,correct,,

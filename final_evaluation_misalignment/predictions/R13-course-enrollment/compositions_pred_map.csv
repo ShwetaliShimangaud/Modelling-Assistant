@@ -1,0 +1,5 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+electronic report card,grade,Each electronic report card is made up of grades,"At the end of the semester, the student can access the system to view an electronic report card.",False,False,False,
+course catalog,course,Each course catalog is made up of courses,"At the beginning of each semester, students may request a course catalog containing a list of course offerings.",False,False,True,
+student,bill,Each student is made up of bills,"In addition, each student will indicate two choices in case a course offering becomes filled or canceled.",False,False,False,wrong
+grade,course,Each grade is made up of courses,"Since student grades are sensitive information, the system must employ extra security measures to prevent unauthorized access.",False,False,False,inconclusive

@@ -1,0 +1,5 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+show,ticket,tickets,A show can have tickets ,The user selects the movie show for which he would like to book tickets.,FALSE,FALSE,TRUE,correct,association
+ticket,show,show,A ticket has a show,The user selects the movie show for which he would like to book tickets.,FALSE,FALSE,FALSE,correct,association
+show,movie,of,A show is of a movie,The user selects the movie show for which he would like to book tickets.,FALSE,FALSE,TRUE,correct,association
+movie,show,shows,A movie has a show,He can also specify whether he wants to be reminded of the movie show by e-mail.,FALSE,TRUE,FALSE,wrong,association

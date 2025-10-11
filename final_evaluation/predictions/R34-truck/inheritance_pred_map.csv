@@ -1,0 +1,4 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+vehicle,truck,,,truck is a type of vehicle,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,not clear,True
+customer,individual,,,individual is a type of customer,"Most of our rental agreements are for individual customers, but a rental agreement can either be for an individual or a company.",False,not clear,True
+customer,company,,,company is a type of customer,"Most of our rental agreements are for individual customers, but a rental agreement can either be for an individual or a company.",False,not clear,True

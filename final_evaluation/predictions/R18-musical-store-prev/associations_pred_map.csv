@@ -1,0 +1,54 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+musical store,customer,,*,A musical store can have customers ,Store administration produces rental reports.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,The store assistant searches for the available tape.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,The store assistant takes care of tape requests.,FALSE,not clear,TRUE
+musical store,customer,,*,A musical store can have customers ,Customers can borrow if there is no delay with the return of other tapes.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,The store assistant checks the status of the tape to be returned by the customer.,FALSE,not clear,TRUE
+musical store,customer,,*,A musical store can have customers ,The store assistant asks the customer for his address.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,The store assistant updates the rental list.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,The store assistant records rentals by updating the rental list.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,The store assistant checks the availability of the requested tape.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,Store management submits the price changes.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,The musical store sends overdue notices to customers.,FALSE,not clear,TRUE
+musical store,customer,,*,A musical store can have customers ,The store assistant searches for the rental price of available tape.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,The customer requested a videotape.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,The musical store receives tape requests from customers.,FALSE,not clear,TRUE
+musical store,customer,,*,A musical store can have customers ,The musical store receives new tapes from the Main office.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,Store management submits new tapes.,FALSE,not clear,FALSE
+musical store,customer,,*,A musical store can have customers ,The main office sends overdue notices for tapes.,FALSE,not clear,FALSE
+musical store,tape,,*,A musical store can have tapes ,The musical store receives new tapes from the Main office.,FALSE,not clear,TRUE
+customer,tape,requests,*,A customer can have requests which are tapes,The customer requested a videotape.,FALSE,not clear,TRUE
+customer,rental,,*,A customer can have rentals ,Store administration produces rental reports.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,The store assistant searches for the available tape.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,The store assistant takes care of tape requests.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,Customers can borrow if there is no delay with the return of other tapes.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,The store assistant checks the status of the tape to be returned by the customer.,FALSE,not clear,TRUE
+customer,rental,,*,A customer can have rentals ,The store assistant asks the customer for his address.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,The store assistant updates the rental list.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,The store assistant records rentals by updating the rental list.,FALSE,not clear,TRUE
+customer,rental,,*,A customer can have rentals ,The store assistant checks the availability of the requested tape.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,Store management submits the price changes.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,The musical store sends overdue notices to customers.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,The store assistant searches for the rental price of available tape.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,The customer requested a videotape.,FALSE,not clear,TRUE
+customer,rental,,*,A customer can have rentals ,The musical store receives tape requests from customers.,FALSE,not clear,TRUE
+customer,rental,,*,A customer can have rentals ,The musical store receives new tapes from the Main office.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,Store management submits new tapes.,FALSE,not clear,FALSE
+customer,rental,,*,A customer can have rentals ,The main office sends overdue notices for tapes.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,Store administration produces rental reports.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,The store assistant searches for the available tape.,FALSE,not clear,TRUE
+tape,rental,,*,A tape can have rentals ,The store assistant takes care of tape requests.,FALSE,not clear,TRUE
+tape,rental,,*,A tape can have rentals ,Customers can borrow if there is no delay with the return of other tapes.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,The store assistant checks the status of the tape to be returned by the customer.,FALSE,not clear,TRUE
+tape,rental,,*,A tape can have rentals ,The store assistant asks the customer for his address.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,The store assistant updates the rental list.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,The store assistant records rentals by updating the rental list.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,The store assistant checks the availability of the requested tape.,FALSE,not clear,TRUE
+tape,rental,,*,A tape can have rentals ,Store management submits the price changes.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,The musical store sends overdue notices to customers.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,The store assistant searches for the rental price of available tape.,FALSE,not clear,TRUE
+tape,rental,,*,A tape can have rentals ,The customer requested a videotape.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,The musical store receives tape requests from customers.,FALSE,not clear,TRUE
+tape,rental,,*,A tape can have rentals ,The musical store receives new tapes from the Main office.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,Store management submits new tapes.,FALSE,not clear,FALSE
+tape,rental,,*,A tape can have rentals ,The main office sends overdue notices for tapes.,FALSE,not clear,TRUE

@@ -1,0 +1,4 @@
+,class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,user,communication preference,an user has a communication preference,When a user enters the banking system user should see a menu that allows the user to select communication preferences.,FALSE,FALSE,TRUE,correct
+1,user,email,an user has an email,Customer Users should be able to choose if they want to get information via e-mail or SMS.,FALSE,FALSE,FALSE,correct
+2,user,phone number,an user has a phone number,"If the user has not any e-mail address registered to the banking system, the e-mail option should see as 'disabled', and by default, the SMS option is selected.",FALSE,FALSE,FALSE,correct

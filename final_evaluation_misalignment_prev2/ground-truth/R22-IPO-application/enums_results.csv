@@ -1,0 +1,3 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+customer,other,Other is a customer,Any other formats are restricted.,FALSE,FALSE,FALSE,correct,,
+customer,retail,Retail is a customer,Retail customers should be eligible for applying IPO.,FALSE,FALSE,FALSE,correct,,

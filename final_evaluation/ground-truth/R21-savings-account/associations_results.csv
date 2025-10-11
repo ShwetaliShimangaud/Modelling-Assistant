@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,customer,savings account,,A customer can have savings accounts ,The user should invest at least 2000 EUR or an equivalent amount when opening a savings account.,FALSE,FALSE,FALSE,correct,association

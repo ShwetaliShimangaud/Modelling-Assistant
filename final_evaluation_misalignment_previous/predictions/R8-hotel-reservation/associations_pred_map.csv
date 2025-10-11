@@ -1,0 +1,61 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+hotel,standard,,6,A hotel has standard,"If the user wishes to make another reservation transaction, the loop must start, and all transactions must be repeated.",not clear,False,not clear
+hotel,standard,,6,A hotel has standard,"While calculating the price for Large Deluxe rooms, the number of people is not considered.",not clear,False,not clear
+hotel,standard,,6,A hotel has standard,"The price of standard rooms:$60 for the summer season, $40 for the spring season, And $25 for the autumn season per night per person.",not clear,False,not clear
+hotel,standard,,6,A hotel has standard,The price is calculated according to the number of people entering the room.,not clear,False,not clear
+hotel,standard,,6,A hotel has standard,"When payment using a wire transfer is selected, if the number of guests exceeds three persons, 50% of 1 guest's fee and 75% of 1 guest's fee will be deducted from the calculated amount.",not clear,False,not clear
+hotel,standard,,6,A hotel has standard,"She must enter 'P' for pre-payment, 'H' for payment with a wire transfer, and 'S' for a standard reservation.",not clear,False,not clear
+hotel,standard,,6,A hotel has standard,There are three types of rooms in the hotel.,not clear,False,not clear
+hotel,standard,,6,A hotel has standard,"If all the rooms are reserved before, the user will be asked to make a choice again.",False,False,not clear
+hotel,standard,,6,A hotel has standard,A 15% discount will be applied on the price calculated when pre-paid reservation is selected.,not clear,False,not clear
+hotel,standard,,6,A hotel has standard,"In standard reservations, customers make payments at the end of the accommodation.",not clear,False,not clear
+hotel,standard,,6,A hotel has standard,The room takes up to 4 people.,not clear,False,not clear
+hotel,standard,,6,A hotel has standard,The user must be registered for the first time to the system.,not clear,False,not clear
+hotel,standard,,6,A hotel has standard,The room takes up to 4 people.,not clear,False,not clear
+hotel,standard,,6,A hotel has standard,"It is $ 400 daily in the summer, $ 300 in the spring, and $ 250 in the autumn.",not clear,False,not clear
+hotel,standard,,6,A hotel has standard,The types of remaining rooms are Deluxe.,not clear,False,not clear
+hotel,standard,,6,A hotel has standard,The total price of the reservation depends on the time of year and the type of room.,not clear,False,not clear
+hotel,standard,,6,A hotel has standard,"There are 100 odd numbered rooms which types are standard, and six even numbered rooms which are large-deluxe.",not clear,False,not clear
+hotel,standard,,6,A hotel has standard,The price is calculated according to the number of people entering the room.,not clear,False,not clear
+hotel,standard,,6,A hotel has standard,There can be a maximum of 7 people in this room.,not clear,False,not clear
+hotel,standard,,6,A hotel has standard,"Rates for the deluxe room:$90 per person per night in the summer,$75 in the spring,And $ 50 in the autumn.",not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,"If the user wishes to make another reservation transaction, the loop must start, and all transactions must be repeated.",False,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,"While calculating the price for Large Deluxe rooms, the number of people is not considered.",not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,"The price of standard rooms:$60 for the summer season, $40 for the spring season, And $25 for the autumn season per night per person.",not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,The price is calculated according to the number of people entering the room.,not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,"When payment using a wire transfer is selected, if the number of guests exceeds three persons, 50% of 1 guest's fee and 75% of 1 guest's fee will be deducted from the calculated amount.",not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,"She must enter 'P' for pre-payment, 'H' for payment with a wire transfer, and 'S' for a standard reservation.",False,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,There are three types of rooms in the hotel.,not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,"If all the rooms are reserved before, the user will be asked to make a choice again.",False,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,A 15% discount will be applied on the price calculated when pre-paid reservation is selected.,False,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,"In standard reservations, customers make payments at the end of the accommodation.",not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,The room takes up to 4 people.,not clear,False,False
+hotel,deluxe,,1,A hotel has deluxe,The user must be registered for the first time to the system.,False,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,The room takes up to 4 people.,not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,"It is $ 400 daily in the summer, $ 300 in the spring, and $ 250 in the autumn.",not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,The types of remaining rooms are Deluxe.,not clear,True,False
+hotel,deluxe,,1,A hotel has deluxe,The total price of the reservation depends on the time of year and the type of room.,False,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,"There are 100 odd numbered rooms which types are standard, and six even numbered rooms which are large-deluxe.",not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,The price is calculated according to the number of people entering the room.,not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,There can be a maximum of 7 people in this room.,not clear,False,not clear
+hotel,deluxe,,1,A hotel has deluxe,"Rates for the deluxe room:$90 per person per night in the summer,$75 in the spring,And $ 50 in the autumn.",not clear,False,True
+hotel,large deluxe,,100,A hotel has large deluxe,"If the user wishes to make another reservation transaction, the loop must start, and all transactions must be repeated.",False,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,"While calculating the price for Large Deluxe rooms, the number of people is not considered.",not clear,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,"The price of standard rooms:$60 for the summer season, $40 for the spring season, And $25 for the autumn season per night per person.",not clear,False,False
+hotel,large deluxe,,100,A hotel has large deluxe,The price is calculated according to the number of people entering the room.,not clear,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,"When payment using a wire transfer is selected, if the number of guests exceeds three persons, 50% of 1 guest's fee and 75% of 1 guest's fee will be deducted from the calculated amount.",False,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,"She must enter 'P' for pre-payment, 'H' for payment with a wire transfer, and 'S' for a standard reservation.",False,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,There are three types of rooms in the hotel.,not clear,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,"If all the rooms are reserved before, the user will be asked to make a choice again.",not clear,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,A 15% discount will be applied on the price calculated when pre-paid reservation is selected.,False,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,"In standard reservations, customers make payments at the end of the accommodation.",not clear,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,The room takes up to 4 people.,not clear,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,The user must be registered for the first time to the system.,False,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,The room takes up to 4 people.,False,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,"It is $ 400 daily in the summer, $ 300 in the spring, and $ 250 in the autumn.",not clear,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,The types of remaining rooms are Deluxe.,not clear,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,The total price of the reservation depends on the time of year and the type of room.,False,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,"There are 100 odd numbered rooms which types are standard, and six even numbered rooms which are large-deluxe.",not clear,True,False
+hotel,large deluxe,,100,A hotel has large deluxe,The price is calculated according to the number of people entering the room.,not clear,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,There can be a maximum of 7 people in this room.,not clear,False,not clear
+hotel,large deluxe,,100,A hotel has large deluxe,"Rates for the deluxe room:$90 per person per night in the summer,$75 in the spring,And $ 50 in the autumn.",not clear,False,False

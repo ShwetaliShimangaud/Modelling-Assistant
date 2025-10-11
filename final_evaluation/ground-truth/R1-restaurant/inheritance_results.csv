@@ -1,0 +1,4 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+employee,waiter,,waiter is a type of employee,The restaurant has more than one employee.,FALSE,FALSE,TRUE,correct,inheritance
+employee,cook,,cook is a type of employee,The system shows the order details and table number when the cook prepares the order.,FALSE,FALSE,TRUE,correct,inheritance
+employee,cashier,,cashier is a type of employee,The restaurant has more than one employee.,FALSE,FALSE,TRUE,correct,inheritance

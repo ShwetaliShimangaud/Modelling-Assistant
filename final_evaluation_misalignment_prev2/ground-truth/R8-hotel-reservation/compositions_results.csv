@@ -1,0 +1,3 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+standard,hotel,,,,,FALSE,FALSE,FALSE,wrong,Each standard is made up of hotel,"She must enter 'P' for pre-payment, 'H' for payment with a wire transfer, and 'S' for a standard reservation.",composition
+room,reservation,,,,,FALSE,FALSE,FALSE,wrong,Each room is made up of reservations,The types of remaining rooms are Deluxe.,composition

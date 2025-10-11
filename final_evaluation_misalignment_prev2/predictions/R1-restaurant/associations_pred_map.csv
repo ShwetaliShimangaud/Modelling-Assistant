@@ -1,0 +1,18 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+restaurant,person,employees,A restaurant can have employees which are people,The restaurant has more than one employee.,False,False,True,correct,association
+order,cook,preparedBy,A order is prepared by cooks ,The system shows the order details and table number when the cook prepares the order.,False,False,True,correct,association
+cook,order,preparedOrders,A cook can have prepared orders ,The system shows the order details and table number when the cook prepares the order.,False,False,True,correct,association
+order,table,forTable,A order has a for table,The system shows the order details and table number when the cook prepares the order.,False,False,False,inconclusive,association
+table,order,orders,A table can have orders ,The system shows the order details and table number when the cook prepares the order.,False,False,True,correct,association
+cashier,order,handledOrders,A cashier can have handled orders ,The cashier prepares the check according to the order details in the system.,False,False,True,correct,association
+restaurant,section,sections,A restaurant can have sections ,The restaurant has more than one section.,False,False,True,correct,association
+section,restaurant,myRestaurant,A section has a restaurant,The restaurant has more than one section.,False,False,False,inconclusive,association
+section,employee,myEmployee,A section can have employees ,"Each employee has a name, age, and gender information.",False,False,True,correct,association
+employee,section,worksIn,A employee is works in a section,"Each employee has a name, age, and gender information.",False,False,False,inconclusive,association
+item,restaurant,myRestaurant,A item has a restaurant,"Restaurant Inventory Management: Used to monitor current stock, the cost of the items, and more.",False,False,False,inconclusive,association
+order,item,orderedItems,A order can have ordered items ,The cashier prepares the check according to the order details in the system.,False,False,False,inconclusive,association
+item,order,myOrder,A item has an order,The cashier prepares the check according to the order details in the system.,False,False,True,correct,association
+order,transaction,transactions,A order can have transactions ,The cashier prepares the check according to the order details in the system.,False,False,False,inconclusive,association
+transaction,order,myOrder,A transaction has an order,The cashier prepares the check according to the order details in the system.,False,False,True,correct,association
+restaurant,employee,employees,A restaurant has an employee,The restaurant has more than one employee.,False,True,False,wrong,association
+restaurant,item,stock,A restaurant has a a stock which is an item,"Restaurant Inventory Management: Used to monitor current stock, the cost of the items, and more.",False,False,False,inconclusive,association

@@ -1,0 +1,6 @@
+class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+reservation,payment type,a reservation has a payment type,"In standard reservations, customers make payments at the end of the accommodation.",False,False,True,correct,,
+reservation,price,a reservation has a price,A 15% discount will be applied on the price calculated when pre-paid reservation is selected.,False,False,True,correct,,
+room,max people,a room has a max people,The price is calculated according to the number of people entering the room.,False,False,True,correct,,
+room,number,a room has a number,The price is calculated according to the number of people entering the room.,False,False,True,correct,,
+room,price,a room has a price,The price is calculated according to the number of people entering the room.,False,False,True,correct,,

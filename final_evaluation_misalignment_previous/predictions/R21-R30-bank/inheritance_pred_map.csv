@@ -1,0 +1,4 @@
+source,target,role,multiplicity,generated_description,actual_description
+initial public offering,username password,,,username password is a type of initial public offering,"Firstly, customers can log in with a username and password."
+initial public offering,username password,,,username password is a type of initial public offering,(Initial Public Offering).
+username password,login options,,,login options is a type of username password,"After the process, the banking system should store this preference in the database."

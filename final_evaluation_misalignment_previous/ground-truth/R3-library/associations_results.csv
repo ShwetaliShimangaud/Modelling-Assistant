@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,member,reservation,reservations,A member has a reservation,Reservations will be canceled upon borrowing by the member or upon the member's request.,False,False,False,inconclusive,association
+0,reservation,member,madeBy,A reservation is made by members ,Reservations will be canceled upon borrowing by the member or upon the member's request.,False,True,False,wrong,association

@@ -1,0 +1,13 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+entry point,cell,adjacentTo,A entry point is adjacent to cells ,A player visits a planet by making legal moves on the board until a cell adjacent to an atmosphere entry point is reached.,FALSE,FALSE,TRUE,correct,association
+legal move,cell,from,A legal move is from a cell,It costs the player a single move to enter the atmosphere from the adjacent cell.,FALSE,FALSE,TRUE,correct,association
+legal move,cell,to,A legal move has a a to which is a cell,It costs the player a single move to enter the atmosphere from the adjacent cell.,FALSE,FALSE,TRUE,correct,association
+player,legal move,,A player can have legal moves ,The murder hypothesis is communicated to all players.,FALSE,FALSE,TRUE,correct,association
+player,clue,gathered,A player can have gathereds which are clues,The game's objective is to gather clues while traveling about the universe.,FALSE,FALSE,TRUE,correct,association
+clue,player,,A clue has player,The game's objective is to gather clues while traveling about the universe.,FALSE,FALSE,TRUE,correct,association
+player,hypothesis,,A player can have hypothesis ,"If a player can disprove the hypothesis, that information is communicated only to the inquiring player.",FALSE,FALSE,TRUE,correct,association
+player,question,asks,A player can have asks which are questions,"The game's strategy is embodied in selecting questions to ask other players, selecting planet destinations, and efficiently deducing the correct murder scenario.",FALSE,FALSE,TRUE,correct,association
+question,player,askedBy,A question is asked by a player,"The questions form a hypothesis for the murder circumstance and perpetrator, which the remaining players are invited to disprove with their evidence.",FALSE,FALSE,TRUE,correct,association
+player,planet,travelsTo,A player travels to planets ,A player whose token resides on one of four planets having wormhole connections to other planets may choose not to spin the spinner and take the wormhole directly to the other planet.,FALSE,FALSE,TRUE,correct,association
+planet,planet,hasAWarmholeTo,A planet haves warmhole to planets ,"A player wins the game by announcing their murder hypothesis, consisting of a planet, a perpetrator, and a murder weapon at any time during their turn, and having the server determine that the hypothesis is correct.",FALSE,FALSE,TRUE,correct,association
+hypothesis,planet,planet,A hypothesis has a planet,"A player wins the game by announcing their murder hypothesis, consisting of a planet, a perpetrator, and a murder weapon at any time during their turn, and having the server determine that the hypothesis is correct.",FALSE,FALSE,TRUE,correct,association

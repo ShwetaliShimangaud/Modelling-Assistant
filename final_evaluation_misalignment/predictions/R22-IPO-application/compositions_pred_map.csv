@@ -1,0 +1,2 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+initial public offering,company,Each initial public offering is made up of companies,Applied company named.,False,False,False,inconclusive

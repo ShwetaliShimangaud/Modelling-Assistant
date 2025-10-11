@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,tape,inventory,,Each tape is made up of inventories,"The customer signs the rental form, takes the tapes, and leaves.",FALSE,FALSE,FALSE,wrong,composition

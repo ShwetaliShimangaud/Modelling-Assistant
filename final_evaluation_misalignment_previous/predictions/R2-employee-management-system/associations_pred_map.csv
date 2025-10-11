@@ -1,0 +1,5 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+employee,department,worksIn,1..*,A employee is works in departments ,Shift workers can only work in the delivery department.,not clear,True,False
+employee,department,worksIn,1..*,A employee is works in departments ,"The company has production, control, and delivery departments.",not clear,False,not clear
+employee,department,worksIn,1..*,A employee is works in departments ,"Each employee object contains information about the department, name, date of birth, and social insurance number.",not clear,True,False
+employee,department,worksIn,1..*,A employee is works in departments ,Each department has to be controlled by a manager.,not clear,False,not clear

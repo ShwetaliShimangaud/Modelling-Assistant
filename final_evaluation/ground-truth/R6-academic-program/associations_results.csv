@@ -1,0 +1,6 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,student,course,enrolls,A student can have enrolls which are courses,"Students enroll in the courses, drop the courses, receive transcripts, request documents, and conduct surveys.",FALSE,FALSE,TRUE,correct,association
+0,course,day,days,A course can have days ,"A course has the course's name, the course's code, the start time, the end time, the days of the courses, the room, and the instructors.",FALSE,FALSE,TRUE,correct,association
+0,instructor,course,teaches,A instructor can have teaches which are courses,"In addition, instructors can increase and decrease the course quota limit and change weekly course hours and course days.",FALSE,FALSE,FALSE,correct,association
+0,course,instructor,isTaughtBy,A course is taught by instructors ,"A course has the course's name, the course's code, the start time, the end time, the days of the courses, the room, and the instructors.",FALSE,FALSE,TRUE,correct,association
+0,room,course,courses,A room can have courses ,"A course has the course's name, the course's code, the start time, the end time, the days of the courses, the room, and the instructors.",FALSE,FALSE,TRUE,correct,association

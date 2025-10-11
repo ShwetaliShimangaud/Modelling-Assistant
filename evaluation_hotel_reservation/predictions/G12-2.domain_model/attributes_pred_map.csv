@@ -1,0 +1,54 @@
+class_name,attributes,generated_description,actual_description,equality,contradiction,inclusion
+client,name,a client has a name,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,not clear,False
+client,name,a client has a name,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,not clear,False
+client,name,a client has a name,"The system must keep track of the guest's account, and print his or her bill.",False,not clear,not clear
+client,name,a client has a name,You have been asked to create a system to manage the front-desk activities of a hotel.,False,not clear,not clear
+client,name,a client has a name,The hotel contains 30 rooms in which guests can stay.,False,False,False
+client,name,a client has a name,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,not clear,False
+client,name,a client has a name,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,not clear,False
+client,name,a client has a name,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,False
+client,name,a client has a name,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,not clear,not clear
+client,name,a client has a name,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+client,name,a client has a name,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,not clear,False
+client,name,a client has a name,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,not clear,False
+client,address,a client has an address,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,False
+client,address,a client has an address,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,not clear,not clear
+client,phonenumber,a client has a phonenumber,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,not clear,False
+client,phonenumber,a client has a phonenumber,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,not clear,not clear
+client,creditcardnumber,a client has a creditcardnumber,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,not clear,False
+client,creditcardnumber,a client has a creditcardnumber,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,not clear,not clear
+room,s,a room has  s,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,not clear
+room,numbeds,a room has  numbeds,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,not clear
+room,numbeds,a room has  numbeds,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",not clear,not clear,not clear
+room,t,a room has a t,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,not clear
+room,t,a room has a t,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,not clear,not clear
+room,t,a room has a t,The hotel contains 30 rooms in which guests can stay.,False,not clear,not clear
+room,t,a room has a t,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,not clear,not clear
+room,t,a room has a t,"When a guest checks in, the room is allocated to him/her until s/he checks out.",not clear,not clear,not clear
+room,t,a room has a t,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",not clear,not clear,not clear
+room,t,a room has a t,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,not clear,not clear
+room,roomnumber room,a room has a roomnumber room,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,False
+room,roomnumber room,a room has a roomnumber room,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,not clear,not clear
+room,roomnumber room,a room has a roomnumber room,The hotel contains 30 rooms in which guests can stay.,False,not clear,False
+room,roomnumber room,a room has a roomnumber room,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,not clear,True
+room,roomnumber room,a room has a roomnumber room,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,not clear,False
+room,roomnumber room,a room has a roomnumber room,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,not clear,not clear
+room,roomnumber room,a room has a roomnumber room,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,not clear,not clear
+quality,max rate,a quality has a max rate,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",not clear,not clear,True
+hotel,availability,a hotel has an availability,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,not clear,not clear
+hotel,availability,a hotel has an availability,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,not clear,not clear
+hotel,availability,a hotel has an availability,"The system must keep track of the guest's account, and print his or her bill.",False,not clear,False
+hotel,availability,a hotel has an availability,You have been asked to create a system to manage the front-desk activities of a hotel.,False,not clear,False
+hotel,availability,a hotel has an availability,The hotel contains 30 rooms in which guests can stay.,False,not clear,not clear
+hotel,availability,a hotel has an availability,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,not clear,not clear
+hotel,availability,a hotel has an availability,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,not clear,not clear
+hotel,availability,a hotel has an availability,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,not clear,not clear,not clear
+hotel,availability,a hotel has an availability,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,not clear,False
+hotel,availability,a hotel has an availability,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,not clear,not clear
+hotel,availability,a hotel has an availability,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,not clear,False
+hotel,availability,a hotel has an availability,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",not clear,not clear,False
+reservation,name of client,a reservation has a name of client,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,not clear,not clear
+reservation,name of client,a reservation has a name of client,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,not clear,False
+reservation,name of client,a reservation has a name of client,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,not clear,not clear
+reservation,name of client,a reservation has a name of client,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,not clear,not clear
+reservation,reserved dates,a reservation has a reserved dates,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,not clear,not clear,not clear

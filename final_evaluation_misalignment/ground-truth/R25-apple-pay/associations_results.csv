@@ -1,0 +1,2 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+apple wallet,card,addedCards,A apple wallet has an added card,Users can perform the Apple Pay process only if their card status is 'available.,FALSE,TRUE,FALSE,wrong,association

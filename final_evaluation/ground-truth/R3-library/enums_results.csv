@@ -1,0 +1,7 @@
+,source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,level,advanced,advanced is a level,"A language tape has a title language (, Spanish) and level (, beginner).",FALSE,FALSE,FALSE,correct
+1,level,beginner,Beginner is a level,"A language tape has a title language (, Spanish) and level (, beginner).",FALSE,FALSE,TRUE,correct
+2,level,intermediate,Intermediate is a level,"A language tape has a title language (, Spanish) and level (, beginner).",FALSE,FALSE,FALSE,correct
+3,status,borrowed,Borrowed is a status,There is a library officer who will manage the membership processes.,FALSE,FALSE,FALSE,correct
+4,status,renewed,Renewed is a status,"It helps the librarian maintain the database of new books, the books that members borrow, and their due dates.",FALSE,FALSE,FALSE,correct
+5,status,reserved,Reserved is a status,There is a library officer who will manage the membership processes.,FALSE,FALSE,TRUE,correct

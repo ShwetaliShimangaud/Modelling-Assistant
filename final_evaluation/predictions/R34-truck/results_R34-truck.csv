@@ -1,0 +1,8 @@
+model_element,alignments_identified_and_correct,alignments_predicted_correct,misalignments_identified_and_correct,misalignments_predicted_correct,alignments,misalignments,precision_alignment,precision_misalignment,overall_precision,recall_alignment,recall_misalignment,overall_recall
+attribute,23,23,0,0,27,0,1.0,1,1.0,0.8518518518518519,1,0.8518518518518519
+association,6,6,0,0,8,0,1.0,1,1.0,0.75,1,0.75
+aggregation,0,0,0,0,0,0,1.0,1,1.0,1.0,1,1.0
+composition,0,0,0,0,0,0,1.0,1,1.0,1.0,1,1.0
+inheritance,3,3,0,0,3,0,1.0,1,1.0,1.0,1,1.0
+enum,1,1,0,0,3,0,1.0,1,1.0,0.3333333333333333,1,0.3333333333333333
+all,33,33,0,0,41,0,1.0,1,1.0,0.8048780487804879,1,0.8048780487804879

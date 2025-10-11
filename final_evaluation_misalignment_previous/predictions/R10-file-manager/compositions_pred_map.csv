@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+document,file system,,,Each document is made up of file systems,"The document can be added and removed from the file, and all the documents can be listed.",not clear,not clear,not clear

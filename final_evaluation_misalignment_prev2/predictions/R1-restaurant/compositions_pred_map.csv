@@ -1,0 +1,3 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+order,waiter,,,,,False,False,False,inconclusive,Each order is made up of waiters,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",composition
+table,restaurant,,,,,False,False,False,inconclusive,Each table is made up of restaurants,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",composition

@@ -1,0 +1,9 @@
+class_name,attributes,answer
+guest info,name,correct
+guest info,phone,correct
+guest info,address,correct
+quality level,max rate,correct
+guest info,creditcard,correct
+hotel room,room number,correct
+hotel room,smoking status,correct
+bed,type,correct

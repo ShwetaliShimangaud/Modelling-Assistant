@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,app,video,,A app has video,The application can suggest videos and diets and schedule them on the calendar.,FALSE,TRUE,FALSE,wrong,association
+0,day,diet,,A day can have diets ,The app will have a calendar layout where the user can click on a specific day to find all the events and diets scheduled for the day.,FALSE,FALSE,TRUE,wrong,association

@@ -1,0 +1,33 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+individual,bus person,,,bus person is a type of individual,"The head waiter is responsible for managing the waiters, bartenders, and bus personnel.",not clear,not clear,not clear
+individual,bus person,,,bus person is a type of individual,"Each person working for Romano's must be classified as a manager, head waiter, waiter, bartender, chef, cook, bus person, or dishwasher.",not clear,not clear,TRUE
+individual,bus person,,,bus person is a type of individual,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,not clear,not clear,not clear
+bus person,worker,,,worker is a type of bus person,"The head waiter is responsible for managing the waiters, bartenders, and bus personnel.",not clear,not clear,not clear
+bus person,worker,,,worker is a type of bus person,"Each person working for Romano's must be classified as a manager, head waiter, waiter, bartender, chef, cook, bus person, or dishwasher.",not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,A unique menu item number identifies each menu item.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,"In addition to menu items, Romano's maintains a list of the food items utilized by the restaurant, such as chicken, mushrooms, bread sticks, red sauce, cream sauce,  Food items are utilized in the preparation of menu items.",not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,"Romanos classify each menu item as 'apetizer,' 'main', 'dessert,' or 'beverage.",not clear,not clear,FALSE
+item ordered,banquet,,,banquet is a type of item ordered,Many menu items can utilize a food item.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,There are many exciting and exotic items.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,Some of the menu items change prices for happy hour.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,"For example, some menu items have different lunch and dinner prices.",not clear,not clear,FALSE
+item ordered,banquet,,,banquet is a type of item ordered,"In other words, each reservation can be associated with many menu items, and a menu item can be associated with many reservations.",not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,"Red sauce comprises the food items tomato sauce, olive oil and garlic, and white wine vinegar.",not clear,not clear,FALSE
+item ordered,banquet,,,banquet is a type of item ordered,'The price of each menu item can vary based on the time of day.,not clear,not clear,FALSE
+item ordered,banquet,,,banquet is a type of item ordered,"To calculate the check at the end of the dinner, the waiter maintains a list, by reservation number, of the menu items ordered and the time that the menu item was ordered.",not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,A purchase flag indicates that the food item is purchased from a vendor rather than Prepared in-house.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",not clear,TRUE,not clear
+item ordered,banquet,,,banquet is a type of item ordered,"Each food item can be comprised of many other items, and each can be used as an ingredient of other food items.",not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,Additional information about the relationship between food items is the quantity of the child's food item used.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,The relationship between food items is identified by a combination of a parent food item number and the food item number used as an ingredient (child) of the parent food item.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,"For example, the food item chicken lasagna comprises chicken, mozzarella cheese, ricotta cheese, sheet pasta, tomatoes, and red sauce.",not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,There are two categories of reservations at Romano's: individual and banquet.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,"The menu item 'fish soup' is comprised of the food items fish soup, crackers, and melon balls.",not clear,not clear,FALSE
+item ordered,banquet,,,banquet is a type of item ordered,A menu item can utilize many food items.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,"For example, the menu item 'chicken lasagna dinner' is comprised of the food items 'chicken lasagna, Italian bread, and broccoli spears.",not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,Additional information captured for banquet reservations includes the group name and payment method.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,Additional information maintained by Romano's about food items includes a description of the food item and a purchase flag.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,Each food item is classified by one unit of measure.,not clear,not clear,not clear
+item ordered,banquet,,,banquet is a type of item ordered,A unique food item number identifies each food item.,FALSE,not clear,not clear
+banquet,reservation,,,reservation is a type of banquet,There are two categories of reservations at Romano's: individual and banquet.,not clear,TRUE,not clear
+banquet,reservation,,,reservation is a type of banquet,Additional information captured for banquet reservations includes the group name and payment method.,not clear,not clear,not clear

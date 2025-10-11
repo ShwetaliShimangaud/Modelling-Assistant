@@ -47,7 +47,7 @@ class Assistant:
         self.warnings = []
         self.language_model = spacy.load("en_core_web_trf")
         self.results_dir = results_dir
-        self.description_reader = DescriptionReader(domain_name)
+        self.description_reader = DescriptionReader("hotel-reservation")
 
         # TODO Redundant part
         self.domain_name = domain_name
@@ -151,12 +151,12 @@ class Assistant:
                  self.inheritance_map, self.enum_map], self.domain_name, self.results_dir)
             errors = workflow.run()
 
-        with timer("Result calculation", self.log_file_path):
-            calculate_metrics(self.domain_name, self.results_dir)
+        # with timer("Result calculation", self.log_file_path):
+        #     calculate_metrics(self.domain_name, self.results_dir)
 
         print(errors)
         print("Done")
 
 
-assistant = Assistant("R4-computer-game1", "../final_evaluation_misalignment")
+assistant = Assistant("G12-6.domain_model", "../evaluation_hotel_reservation2")
 assistant.run()

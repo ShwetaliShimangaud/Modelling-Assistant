@@ -1,0 +1,25 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+room,quality,hasA,1,A room has quality,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,True,False
+quality,room,atA,30,A quality has an an at a which is a room,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,True,False
+room,room,isAdjacentTo,0..1,A room is adjacent torooms ,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+reservation,guest,madeBy,1,A reservation is made by a guest,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,True
+reservation,guest,madeBy,1,A reservation is made by a guest,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+guest,reservation,make,0..*,A guest can have makes which are reservations,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,True
+guest,guest account,hasA,1,A guest has guest account,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+guest,guest account,hasA,1,A guest has guest account,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+guest,guest account,hasA,1,A guest has guest account,The hotel contains 30 rooms in which guests can stay.,False,False,False
+guest,guest account,hasA,1,A guest has guest account,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+guest,guest account,hasA,1,A guest has guest account,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+guest,guest account,hasA,1,A guest has guest account,"The system must keep track of the guest's account, and print his or her bill.",False,False,True
+guest,guest account,hasA,1,A guest has guest account,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+guest account,guest,isAccountOf,1,A guest account is account ofa guest,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+guest account,guest,isAccountOf,1,A guest account is account ofa guest,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+guest account,guest,isAccountOf,1,A guest account is account ofa guest,The hotel contains 30 rooms in which guests can stay.,False,False,False
+guest account,guest,isAccountOf,1,A guest account is account ofa guest,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+guest account,guest,isAccountOf,1,A guest account is account ofa guest,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+guest account,guest,isAccountOf,1,A guest account is account ofa guest,"The system must keep track of the guest's account, and print his or her bill.",False,False,True
+guest account,guest,isAccountOf,1,A guest account is account ofa guest,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+room,reservation,isReservedBy,0..1,A room is reserved by reservations ,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,True,False
+room,reservation,isReservedBy,0..1,A room is reserved by reservations ,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,True,False
+reservation,room,reserved,30,A reservation has a a reserved which is a room,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,True,False
+reservation,room,reserved,30,A reservation has a a reserved which is a room,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False

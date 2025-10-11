@@ -1,0 +1,2 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+user,initial public offering,apply,A user has an an apply which is an initial public offering,Applied company named.,FALSE,TRUE,FALSE,wrong,association

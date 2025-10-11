@@ -1,0 +1,6 @@
+source,target,role,answer,kind
+reservation,client,isReservedBy,correct,association
+room,quality,description,correct,association
+client,reservation,owns,correct,association
+quality,room,hasQuality,wrong,association
+reservation,room,room,wrong,association

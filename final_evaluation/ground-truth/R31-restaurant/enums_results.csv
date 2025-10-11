@@ -1,0 +1,14 @@
+,source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,item type,appetizer,Appetizer is an item type,There are many exciting and exotic items.,False,False,True,correct
+1,item type,beverage,Beverage is an item type,"Romanos classify each menu item as 'apetizer,' 'main', 'dessert,' or 'beverage.",False,False,True,correct
+2,item type,dessert,Dessert is an item type,"Romanos classify each menu item as 'apetizer,' 'main', 'dessert,' or 'beverage.",False,False,True,correct
+3,item type,main,Main is an item type,There are many exciting and exotic items.,False,False,True,correct
+4,seating preference,inside,inside is a seating preference,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,False,True,correct
+5,seating preference,patio,patio is a seating preference,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,False,True,correct
+6,smocking preference,non smoking,non smoking is a smocking preference,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,False,True,correct
+7,smocking preference,smocking,smocking is a smocking preference,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,False,True,correct
+8,unit of measure,dozen,Dozen is an unit of measure,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,False,True,correct
+9,unit of measure,gram,Gram is an unit of measure,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,False,True,correct
+10,unit of measure,ounce,Ounce is an unit of measure,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,False,True,correct
+11,unit of measure,pound,Pound is an unit of measure,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,False,True,correct
+12,unit of measure,sheet,Sheet is an unit of measure,"The complete domain of unit of measure is each ounce, sheet, pound, gram, and dozen.",False,False,True,correct

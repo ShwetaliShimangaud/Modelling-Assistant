@@ -1,0 +1,7 @@
+domain,model_element,correct_and_correct,correct_and_incorrect,correct_and_noMatch,correct_and_inconclusive,incorrect_and_correct,incorrect_and_incorrect,incorrect_and_noMatch,incorrect_and_inconclusive,extra_and_correct,extra_and_incorrect,extra_and_noMatch,extra_and_inconclusive
+R18-musical-store,attribute,0,0,0,0,0,0,0,0,0,0,0,0
+R18-musical-store,association,0,0,0,0,1,0,0,0,0,0,0,0
+R18-musical-store,aggregation,0,0,0,0,0,0,0,0,0,0,0,0
+R18-musical-store,composition,0,0,0,0,0,0,0,0,0,0,0,0
+R18-musical-store,inheritance,0,0,0,0,0,0,0,0,0,0,0,0
+R18-musical-store,enum,0,0,0,0,0,0,0,0,0,0,0,0

@@ -1,0 +1,4 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+user,reservation,,A user can have reservations ,"If the user wishes to make another reservation transaction, the loop must start, and all transactions must be repeated.",False,False,False,inconclusive,association
+hotel,deluxe,,A hotel has deluxe,A 15% discount will be applied on the price calculated when pre-paid reservation is selected.,False,True,True,wrong,association
+hotel,large deluxe,,A hotel has 10 large deluxes,A 15% discount will be applied on the price calculated when pre-paid reservation is selected.,False,True,False,inconclusive,association

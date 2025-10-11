@@ -1,0 +1,5 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+customer,lease,rentals,A customer can have rentals which are lease,"The store assistant records the customer's information, such as name, surname, address, plate of the rented car, and leasing terms.",False,False,True,correct,association
+lease,customer,rentingCustomer,A lease has a renting customer,"The store assistant records the customer's information, such as name, surname, address, plate of the rented car, and leasing terms.",False,False,True,correct,association
+car,lease,currentRental,A car can have current rentals which are lease,"Store assistant searches for available cars, submit renting a car, and produces rental reports.",False,False,False,inconclusive,association
+lease,car,rentedCar,A lease has a rented car,"Store assistant searches for available cars, submit renting a car, and produces rental reports.",False,False,False,inconclusive,association

@@ -1,0 +1,12 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,player,cell,currentPosition,A player has a a current position which is a cell,"Also, a player may not move into a cell occupied by another player's token.",FALSE,FALSE,FALSE,correct,association
+0,planet,cell,entryPoints,A planet can have entry points which are cells,Each planet has between one and three predefined atmospheric entry points.,FALSE,FALSE,TRUE,correct,association
+0,planet,planet,myPlanet,A planet has a planet,The wormholes connect certain planets.,FALSE,TRUE,FALSE,correct,association
+0,murder,murder weapon,murderWeapon,A murder has a murder weapon,"A player wins the game by announcing their murder hypothesis, consisting of a planet, a perpetrator, and a murder weapon at any time during their turn, and having the server determine that the hypothesis is correct.",FALSE,FALSE,FALSE,correct,association
+0,murder weapon,murder,myMurder,A murder weapon has a murder,"A player wins the game by announcing their murder hypothesis, consisting of a planet, a perpetrator, and a murder weapon at any time during their turn, and having the server determine that the hypothesis is correct.",FALSE,FALSE,FALSE,correct,association
+0,murder,player,perpetrator,A murder has a a perpetrator which is a player,The murder hypothesis is communicated to all players.,FALSE,TRUE,FALSE,correct,association
+0,player,murder,myMurder,A player has a murder,"When the correct hypothesis is announced, all players are informed of the circumstances of the murder.",FALSE,FALSE,FALSE,correct,association
+0,murder,planet,location,A murder has a a location which is a planet,The objective of player movement throughout the universe is to investigate specific planets to determine if that was the murder site.,FALSE,TRUE,TRUE,correct,association
+0,planet,murder,myMurder,A planet has a murder,The objective of player movement throughout the universe is to investigate specific planets to determine if that was the murder site.,FALSE,TRUE,FALSE,correct,association
+0,board,cell,cells,A board can have cells ,A player visits a planet by making legal moves on the board until a cell adjacent to an atmosphere entry point is reached.,FALSE,FALSE,TRUE,correct,association
+0,cell,board,myBoard,A cell has a board,A player visits a planet by making legal moves on the board until a cell adjacent to an atmosphere entry point is reached.,FALSE,FALSE,FALSE,correct,association

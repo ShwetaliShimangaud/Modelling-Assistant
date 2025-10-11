@@ -62,6 +62,12 @@ class WorkflowStart:
                 self.check_results[(check, element)] = pd.DataFrame(columns=prompts)
             self.checkers[check] = self.get_checker(check)
 
+        # for check in self.checks:
+        #     for element in self.elements:
+        #         check_res = pd.read_excel(f"{self.results_dir}/{self.domain}/{element}_{check}_check.xlsx")
+        #         self.check_results[(check, element)] = check_res
+        #     self.checkers[check] = self.get_checker(check)
+
     def get_checker(self, check):
         if check == 'equality':
             return self.equality_checker
@@ -133,21 +139,21 @@ class WorkflowStart:
 
         return errors
 
-
-domain_name, results_dir = "R4-computer-game1", "../final_evaluation"
-attributes_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/attributes_pred_map.csv")
-associations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/associations_pred_map.csv")
-aggregations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/aggregations_pred_map.csv")
-compositions_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/compositions_pred_map.csv")
-inheritance_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/inheritance_pred_map.csv")
-enum_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/enums_pred_map.csv")
-
-start_time = time.perf_counter()
-workflow = WorkflowStart(
-    [attributes_map, associations_map, aggregations_map, compositions_map,
-     inheritance_map, enum_map], domain_name, results_dir)
-errors = workflow.run()
-end_time = time.perf_counter()
-elapsed_time = end_time - start_time
-print(f"LLM took {elapsed_time:.6f} seconds")
-log_entry = f"LLM took {elapsed_time:.6f} seconds\n"
+#
+# domain_name, results_dir = "G12-5.domain_model", "../evaluation_hotel_reservation2"
+# attributes_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/attributes_pred_map.csv")
+# associations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/associations_pred_map.csv")
+# aggregations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/aggregations_pred_map.csv")
+# compositions_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/compositions_pred_map.csv")
+# inheritance_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/inheritance_pred_map.csv")
+# enum_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/enums_pred_map.csv")
+#
+# start_time = time.perf_counter()
+# workflow = WorkflowStart(
+#     [attributes_map, associations_map, aggregations_map, compositions_map,
+#      inheritance_map, enum_map], domain_name, results_dir)
+# errors = workflow.run()
+# end_time = time.perf_counter()
+# elapsed_time = end_time - start_time
+# print(f"LLM took {elapsed_time:.6f} seconds")
+# log_entry = f"LLM took {elapsed_time:.6f} seconds\n"

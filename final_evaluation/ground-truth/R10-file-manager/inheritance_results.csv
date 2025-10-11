@@ -1,0 +1,4 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+editor,text editor,,text editor is a type of editor,"The system has three editors that allow you to manage documents: Text Editor, Image Editor, and Video Editor.",FALSE,FALSE,TRUE,correct,inheritance
+editor,image editor,,image editor is a type of editor,"The system has three editors that allow you to manage documents: Text Editor, Image Editor, and Video Editor.",FALSE,FALSE,TRUE,correct,inheritance
+editor,video editor,,video editor is a type of editor,"The system has three editors that allow you to manage documents: Text Editor, Image Editor, and Video Editor.",FALSE,FALSE,TRUE,correct,inheritance

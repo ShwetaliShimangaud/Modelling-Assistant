@@ -1,0 +1,9 @@
+class_name,attributes,answer
+client,address,correct
+client,creditcardnumber,correct
+client,name,correct
+client,phonenumber,correct
+quality,max rate,correct
+room,numbeds,correct
+room,roomnumber room,correct
+

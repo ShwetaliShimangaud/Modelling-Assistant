@@ -1,0 +1,4 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+position,defense,defense is a position,"Positions are forward, midfield, and defense.",False,False,True,correct,,
+position,forward,forward is a position,"Positions are forward, midfield, and defense.",False,False,True,correct,,
+position,midfield,midfield is a position,"Positions are forward, midfield, and defense.",False,False,True,correct,,

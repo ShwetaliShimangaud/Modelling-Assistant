@@ -1,0 +1,4 @@
+class_name,attributes,generated_description,actual_description,equality,contradiction,inclusion
+item,barcode,an item has a barcode,A bar code uniquely identifies a loan item.,False,False,False
+loan,end date,a loan has an end date,"It helps the librarian maintain the database of new books, the books that members borrow, and their due dates.",False,False,False
+loan,end date,a loan has an end date,"Along with the membership number, other details on a customer must be kept, such as a name, address, and date of birth.",False,False,False

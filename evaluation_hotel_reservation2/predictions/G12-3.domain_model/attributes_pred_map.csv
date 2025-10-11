@@ -1,0 +1,75 @@
+class_name,attributes,generated_description,actual_description,equality,contradiction,inclusion
+physical room,room type,a physical room has a room type,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+physical room,num of bed,a physical room has a num of bed,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,True
+physical room,room number,a physical room has a room number,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,True
+physical room,smoke allowed,a physical room has a smoke allowed,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+room,reserved room,a room has a reserved room,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+date,day,a date has a day,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+date,day,a date has a day,The hotel contains 30 rooms in which guests can stay.,False,False,False
+date,day,a date has a day,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+date,day,a date has a day,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+date,day,a date has a day,You have been asked to create a system to manage the front-desk activities of a hotel.,False,False,False
+date,day,a date has a day,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+date,day,a date has a day,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+date,day,a date has a day,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+date,day,a date has a day,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+date,day,a date has a day,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+date,day,a date has a day,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+date,day,a date has a day,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+date,month,a date has a month,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+date,month,a date has a month,The hotel contains 30 rooms in which guests can stay.,False,False,False
+date,month,a date has a month,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+date,month,a date has a month,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+date,month,a date has a month,You have been asked to create a system to manage the front-desk activities of a hotel.,False,False,False
+date,month,a date has a month,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+date,month,a date has a month,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+date,month,a date has a month,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+date,month,a date has a month,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+date,month,a date has a month,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+date,month,a date has a month,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+date,month,a date has a month,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+date,year,a date has a year,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+date,year,a date has a year,The hotel contains 30 rooms in which guests can stay.,False,False,False
+date,year,a date has a year,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+date,year,a date has a year,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+date,year,a date has a year,You have been asked to create a system to manage the front-desk activities of a hotel.,False,False,False
+date,year,a date has a year,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+date,year,a date has a year,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+date,year,a date has a year,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+date,year,a date has a year,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+date,year,a date has a year,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+date,year,a date has a year,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+date,year,a date has a year,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+hotel,name,a hotel has a name,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+hotel,name,a hotel has a name,The hotel contains 30 rooms in which guests can stay.,False,False,False
+hotel,name,a hotel has a name,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+hotel,name,a hotel has a name,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+hotel,name,a hotel has a name,You have been asked to create a system to manage the front-desk activities of a hotel.,False,False,True
+hotel,name,a hotel has a name,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+hotel,name,a hotel has a name,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+hotel,name,a hotel has a name,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+hotel,name,a hotel has a name,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+hotel,name,a hotel has a name,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+hotel,name,a hotel has a name,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+hotel,name,a hotel has a name,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+record,total bill,a record has a total bill,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+record,total bill,a record has a total bill,The hotel contains 30 rooms in which guests can stay.,False,False,False
+record,total bill,a record has a total bill,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+record,total bill,a record has a total bill,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+record,total bill,a record has a total bill,You have been asked to create a system to manage the front-desk activities of a hotel.,False,False,False
+record,total bill,a record has a total bill,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+record,total bill,a record has a total bill,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+record,total bill,a record has a total bill,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+record,total bill,a record has a total bill,"The system must keep track of the guest's account, and print his or her bill.",False,False,True
+record,total bill,a record has a total bill,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+record,total bill,a record has a total bill,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+record,total bill,a record has a total bill,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+person,name,a person has a name,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+person,address,a person has an address,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+person,tel number,a person has a tel number,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+person,tel number,a person has a tel number,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,True
+person,creditcard,a person has a creditcard,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+person,people status,a person has a people status,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+reservation,type of room,a reservation has a type of room,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+quality level,max daily rate,a quality level has a max daily rate,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,True
+quality level,description,a quality level has a description,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False

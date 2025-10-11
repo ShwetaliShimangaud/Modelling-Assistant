@@ -1,7 +1,7 @@
 class_attributes = {
-    'Car': ["plate", 'model', 'dailyPrice'],
-    "Customer": ['name', 'surname','address'],
-    "Lease" : ['terms','departureDay','arrivalDay']
+    'Car': ["plate:string", 'model:string', 'dailyPrice:int'],
+    "Customer": ['name:string', 'surname:string','address:string'],
+    "Lease" : ['terms:string','departureDay:date','arrivalDay:date']
 }
 
 associations = [

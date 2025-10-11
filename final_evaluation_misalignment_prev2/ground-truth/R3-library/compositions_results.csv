@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+member,loan,,,,,FALSE,FALSE,FALSE,wrong,Each member is made up of loan,Each member has a membership card that shows a unique member number.,composition

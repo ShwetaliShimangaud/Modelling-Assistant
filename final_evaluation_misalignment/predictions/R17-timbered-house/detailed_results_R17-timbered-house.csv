@@ -1,0 +1,7 @@
+domain,model_element,correct_and_correct,correct_and_incorrect,correct_and_noMatch,correct_and_inconclusive,incorrect_and_correct,incorrect_and_incorrect,incorrect_and_noMatch,incorrect_and_inconclusive,extra_and_correct,extra_and_incorrect,extra_and_noMatch,extra_and_inconclusive
+R17-timbered-house,attribute,4,0,0,0,0,0,0,0,0,0,0,0
+R17-timbered-house,association,4,0,0,1,0,2,0,0,0,0,0,0
+R17-timbered-house,aggregation,0,0,0,0,0,0,0,0,0,0,0,0
+R17-timbered-house,composition,0,0,0,0,0,2,0,0,0,0,0,0
+R17-timbered-house,inheritance,0,0,0,0,0,0,0,0,0,0,0,0
+R17-timbered-house,enum,0,0,0,0,0,0,0,0,0,0,0,0

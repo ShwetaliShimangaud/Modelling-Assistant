@@ -1,0 +1,6 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+item,reservation,reservations,A item can have reservations ,"When a book or language tape is returned to the library, the member who made the reservation will be notified.",FALSE,FALSE,TRUE,correct,association
+reservation,member,madeBy,A reservation is made by a member,Reservations will be canceled upon borrowing by the member or upon the member's request.,FALSE,FALSE,FALSE,correct,association
+loan,item,item,A loan has an item,"There are two types of loan items, language tapes, and books.",FALSE,FALSE,TRUE,correct,association
+item,loan,loans,A item can have loans ,"An item can be borrowed, reserved, or renewed to extend a current loan.",FALSE,FALSE,TRUE,correct,association
+member,reservation,reservations,A member has a reservation,Reservations will be canceled upon borrowing by the member or upon the member's request.,FALSE,FALSE,FALSE,wrong,association

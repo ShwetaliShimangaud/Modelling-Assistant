@@ -1,0 +1,5 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+individual,bus person,,bus person is a type of individual,"The head waiter is responsible for managing the waiters, bartenders, and bus personnel.",FALSE,FALSE,TRUE,wrong,inheritance
+bus person,worker,,worker is a type of bus person,"The head waiter is responsible for managing the waiters, bartenders, and bus personnel.",FALSE,FALSE,FALSE,wrong,inheritance
+item ordered,banquet,,banquet is a type of item ordered,A unique menu item number identifies each menu item.,FALSE,FALSE,FALSE,wrong,inheritance
+banquet,reservation,,reservation is a type of banquet,There are two categories of reservations at Romano's: individual and banquet.,FALSE,FALSE,FALSE,wrong,inheritance

@@ -1,0 +1,3 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+room,reservation,,,reservation is a type of room,The total price of the reservation depends on the time of year and the type of room.,False,True,False
+deluxe,room,,,room is a type of deluxe,"Rates for the deluxe room:$90 per person per night in the summer,$75 in the spring,And $ 50 in the autumn.",False,False,not clear

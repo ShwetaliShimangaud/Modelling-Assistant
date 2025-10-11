@@ -1,0 +1,5 @@
+class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+account,balance,an account has a balance,The system should only allow users to enter their balance as they have.,False,False,True,correct,,
+card,status,a card has a status,"After the user is validated and has at least one prepaid card, the system should check the card status.",False,False,True,correct,,
+card,type,a card has a type,Customer  Users can have a card type 'prepaid.',False,False,True,correct,,
+prepaid card,balance,a prepaid card has a balance,The system should only allow users to enter their balance as they have.,False,False,True,correct,,

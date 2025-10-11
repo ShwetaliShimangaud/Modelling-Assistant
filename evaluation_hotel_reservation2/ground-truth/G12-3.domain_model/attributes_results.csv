@@ -1,0 +1,9 @@
+class_name,attributes,generated_description,actual_description,equality,contradiction,inclusion,answer
+physical room,num of bed,a physical room has a num of bed,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,True,correct
+physical room,room number,a physical room has a room number,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,True,correct
+physical room,smoke allowed,a physical room has a smoke allowed,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,True,correct
+person,name,a person has a name,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,True,correct
+person,address,a person has an address,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,True,correct
+person,tel number,a person has a tel number,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,True,correct
+person,creditcard,a person has a creditcard,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,True,correct
+quality level,max daily rate,a quality level has a max daily rate,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,True,correct

@@ -1,0 +1,10 @@
+source,target,role,answer,kind
+room,quality,hasA,correct,association
+quality,room,atA,correct,association
+room,room,isAdjacentTo,wrong,association
+guest,reservation,make,correct,association
+reservation,guest,madeBy,correct,association
+reservation,room,reserved,correct,association
+room,reservation,isReservedBy,wrong,association
+
+

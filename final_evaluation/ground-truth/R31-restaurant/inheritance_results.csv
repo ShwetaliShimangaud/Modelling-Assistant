@@ -1,0 +1,11 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,reservation,individual,,individual is a type of reservation,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,FALSE,FALSE,FALSE,correct,inheritance
+0,reservation,banquet,,banquet is a type of reservation,Additional information captured for banquet reservations includes the group name and payment method.,FALSE,FALSE,TRUE,correct,inheritance
+0,worker,manager,,manager is a type of worker,The managers are responsible for managing the head waiter and the chefs and ensuring guests have a pleasant dining experience.,FALSE,FALSE,TRUE,correct,inheritance
+0,worker,head waiter,,head waiter is a type of worker,The managers are responsible for managing the head waiter and the chefs and ensuring guests have a pleasant dining experience.,FALSE,FALSE,TRUE,correct,inheritance
+0,worker,chef,,chef is a type of worker,The managers are responsible for managing the head waiter and the chefs and ensuring guests have a pleasant dining experience.,FALSE,FALSE,TRUE,correct,inheritance
+0,worker,waiter,,waiter is a type of worker,A waiter can be assigned to many reservations during the evening'.,FALSE,FALSE,TRUE,correct,inheritance
+0,worker,bartender,,bartender is a type of worker,"Each person working for Romano's must be classified as a manager, head waiter, waiter, bartender, chef, cook, bus person, or dishwasher.",FALSE,FALSE,TRUE,correct,inheritance
+0,worker,bus person,,bus person is a type of worker,"Each person working for Romano's must be classified as a manager, head waiter, waiter, bartender, chef, cook, bus person, or dishwasher.",FALSE,FALSE,TRUE,correct,inheritance
+0,worker,cook,,cook is a type of worker,The Chefs are responsible for managing the cooks and dishwashers.,FALSE,FALSE,TRUE,correct,inheritance
+0,worker,dishwasher,,dishwasher is a type of worker,The Chefs are responsible for managing the cooks and dishwashers.,FALSE,FALSE,TRUE,correct,inheritance

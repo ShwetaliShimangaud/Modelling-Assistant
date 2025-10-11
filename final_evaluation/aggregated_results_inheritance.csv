@@ -1,0 +1,33 @@
+model,domain,alignments,alignments_predicted_correct,alignments_identified_and_correct,overall_precision,overall_recall,F1
+R1,Restaurant ,3,3,3,1,1,1
+R2,Employee Management System ,8,7,7,1,0.875,0.933333333
+R3,Library ,2,2,2,1,1,1
+R4,Computer Game1 ,0,0,0,,,
+R5,Computer Game2 ,2,1,1,1,0.5,0.666666667
+R6,Academic Program ,0,0,0,,,
+R7,Supermarket ,0,0,0,,,
+R8,Hotel Reservation ,3,3,3,1,1,1
+R9,Be Well App ,1,1,1,1,1,1
+R10,File Manager ,3,3,3,1,1,1
+R11,Football Team ,0,0,0,,,
+R12,Car Gallery Management ,0,0,0,,,
+R13,Course Enrollment ,0,0,0,,,
+R14,Atm ,0,0,0,,,
+R15,Video Rental ,0,0,0,,,
+R16,Cinema ,0,0,0,,,
+R17,Timbered House ,0,0,0,,,
+R18,Musical Store ,0,0,0,,,
+R19,Airport ,0,0,0,,,
+R20,Monitoring Pressure ,0,0,0,,,
+R21,Savings Account ,0,0,0,,,
+R22,Ipo Application ,0,0,0,,,
+R23,Set Pin ,0,0,0,,,
+R24,Set Communication Preference ,0,0,0,,,
+R25,Apple Pay ,0,0,0,,,
+R26,Block Card ,0,0,0,,,
+R27,Biometric Login ,2,2,2,1,1,1
+R28,Donation ,0,0,0,,,
+R29,Prepaid Card Loading ,1,0,0,1,0,0
+R30,Wallet Application ,0,0,0,,,
+,,,,,1,0.819444444,0.844444444
+,,,,,0,0.328671099,0.31583712

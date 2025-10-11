@@ -1,0 +1,11 @@
+class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+clue,information,a clue has an information,"If a player can disprove the hypothesis, that information is communicated only to the inquiring player.",False,False,False,inconclusive,,
+hypothesis,murder weapon,a hypothesis has a murder weapon,The murder hypothesis is communicated to all players.,False,False,True,correct,,
+hypothesis,perpetrator,a hypothesis has a perpetrator,The murder hypothesis is communicated to all players.,False,False,True,correct,,
+hypothesis,refuted hypothesis,a hypothesis has a refuted hypothesis,The murder hypothesis is communicated to all players.,False,False,False,inconclusive,,
+legal move,number moves,a legal move has  number moves,"A player wins the game by announcing their murder hypothesis, consisting of a planet, a perpetrator, and a murder weapon at any time during their turn, and having the server determine that the hypothesis is correct.",False,False,True,correct,,
+legal move,speed,a legal move has a speed,This element is primarily dictated by luck since the wheel's spin determines the speed at which a player reaches a destination.,False,False,False,inconclusive,,
+planet,murder site,a planet has a murder site,The objective of player movement throughout the universe is to investigate specific planets to determine if that was the murder site.,False,False,False,inconclusive,,
+player,loser,a player has a loser,The murder hypothesis is communicated to all players.,False,False,False,inconclusive,,
+player,winner,a player has a winner,The murder hypothesis is communicated to all players.,False,False,True,correct,,
+question,information,a question has an information,"As the players travel through the universe, they are permitted to ask questions about what information their fellow players possess.",False,False,True,correct,,

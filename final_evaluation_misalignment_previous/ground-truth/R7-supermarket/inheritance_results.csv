@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,extra customer,customer,,customer is a type of extra customer,"Cheques: where customers present checks to the cashier for extra-person, not every customer, for example, MINISANTE, CNLS, Rwanda Revenue Authority, and Top Tower Hotel",FALSE,FALSE,FALSE,wrong,inheritance

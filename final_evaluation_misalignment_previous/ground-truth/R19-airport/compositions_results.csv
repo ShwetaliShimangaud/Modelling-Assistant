@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,seat,plane,,Each seat is made up of plane,A plane is assigned to a flight containing a set of numbered seats.,FALSE,TRUE,FALSE,inconclusive,composition

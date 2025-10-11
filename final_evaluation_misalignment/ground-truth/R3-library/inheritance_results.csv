@@ -1,0 +1,3 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+item,language tape,,language tape is a type of item,"There are two types of loan items, language tapes, and books.",FALSE,FALSE,TRUE,correct,inheritance
+member,book,,book is a type of member,"When a book or language tape is returned to the library, the member who made the reservation will be notified.",FALSE,TRUE,FALSE,wrong,inheritance

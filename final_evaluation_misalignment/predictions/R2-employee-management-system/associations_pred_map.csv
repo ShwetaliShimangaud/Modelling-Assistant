@@ -1,0 +1,3 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+company,employee,has,A company haves an employee,A company has more than one employee.,False,True,False,wrong,association
+employee,department,worksIn,A employee is works in departments ,"Each employee object contains information about the department, name, date of birth, and social insurance number.",False,True,True,wrong,association

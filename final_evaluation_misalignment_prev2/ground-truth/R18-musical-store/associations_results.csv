@@ -1,0 +1,5 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+musical store,customer,,A musical store can have customers ,Store administration produces rental reports.,False,False,True,correct,association
+customer,rental,,A customer can have rentals ,Store administration produces rental reports.,False,False,True,correct,association
+tape,rental,,A tape can have rentals ,Store administration produces rental reports.,False,False,True,correct,association
+musical store,tape,,A musical store has tape,The musical store receives new tapes from the Main office.,False,True,False,wrong,association

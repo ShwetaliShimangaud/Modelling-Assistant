@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,customer,tape,requests,A customer has  a request which is a tape,The customer requested a videotape.,FALSE,TRUE,FALSE,wrong,association

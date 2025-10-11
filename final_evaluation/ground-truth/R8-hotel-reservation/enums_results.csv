@@ -1,0 +1,4 @@
+,source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,payment type,h,H is a payment type,"In standard reservations, customers make payments at the end of the accommodation.",False,False,True,correct
+1,payment type,p,P is a payment type,"In standard reservations, customers make payments at the end of the accommodation.",False,False,True,correct
+2,payment type,s,S is a payment type,"In standard reservations, customers make payments at the end of the accommodation.",False,False,True,correct

@@ -1,7 +1,7 @@
 class_attributes = {
-    'Robot': ["movement"],
-    "Level": ['distanceToBeReached', 'timeToBeReached','currentPhase'],
-    "Enemy" : ['spawnRate']
+    'Robot': ["movement:enumeration"],
+    "Level": ['distanceToBeReached:int', 'timeToBeReached:time','currentPhase:enumeration'],
+    "Enemy" : ['spawnRate:double']
 }
 
 associations = [

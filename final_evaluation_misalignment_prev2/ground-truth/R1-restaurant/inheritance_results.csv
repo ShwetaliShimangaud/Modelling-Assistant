@@ -1,0 +1,4 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+employee,cook,,cook is a type of employee,Payroll and Accounting Service: Used to manage employee payroll and monitor the restaurant's cash flow.,FALSE,FALSE,TRUE,correct,inheritance
+employee,cashier,,cashier is a type of employee,Payroll and Accounting Service: Used to manage employee payroll and monitor the restaurant's cash flow.,FALSE,FALSE,TRUE,correct,inheritance
+order,waiter,,waiter is a type of order,The waiter in the service section serves the customer.,FALSE,TRUE,FALSE,wrong,inheritance

@@ -1,0 +1,2 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+customer,tape,Each customer is made up of tapes,The customer requested a videotape.,False,False,False,inconclusive

@@ -1,6 +1,8 @@
 from typing import List
 
 import nltk
+import spacy
+
 import sentence_generator.util as util
 import pandas as pd
 from sentence_generator.abstractSentenceGenerator import AbstractSentenceGenerator
@@ -186,5 +188,10 @@ library_attributes = {
     "MemberCategory": ["name", "maxNumberBooks"]
 }
 
-# sfa = SentenceFromAttributes(library_attributes)
+campaign_attributes = {
+    "Campaign": ['completed']
+}
+
+# language_model = spacy.load("en_core_web_trf")
+# sfa = SentenceFromAttributes(campaign_attributes, language_model)
 # print(sfa.attributes_description)

@@ -1,6 +1,6 @@
 class_attributes = {
-    'Room': ["number", 'price', 'maxPeople'],
-    "Reservation": ['price', 'paymentType']
+    'Room': ["number:int", 'price:double', 'maxPeople:int'],
+    "Reservation": ['price:double', 'paymentType:enumeration']
 }
 
 associations = [

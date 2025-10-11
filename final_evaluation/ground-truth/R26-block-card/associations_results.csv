@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,user,card,,A user can have cards ,Users should be able to block any card using online banking systems.,False,False,True,correct,association
+0,card,blocking,,A card can have blockings ,"After the user completes the card-blocking process, the system should immediately block the related card, and no one should be able to use that card in ATMs, shopping, online shopping,  If a blocked card is used for anything, the system should inform the banking staff and cardholder.",False,False,True,correct,association

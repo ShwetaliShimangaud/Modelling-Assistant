@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,human operator,system,operates,A human operator operates a system,The system monitors the pressure and sends the safety injection signal when the pressure falls below a threshold.,False,False,True,correct,association

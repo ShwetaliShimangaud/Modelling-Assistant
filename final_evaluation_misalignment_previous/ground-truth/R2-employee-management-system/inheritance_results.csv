@@ -1,0 +1,5 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,manager,shift worker,,shift worker is a type of manager,"These employees are included in the categories of workers, salespeople, and managers.",FALSE,FALSE,FALSE,wrong,inheritance
+0,shift worker,worker,,worker is a type of shift worker,Shift workers can only work in the delivery department.,FALSE,TRUE,FALSE,wrong,inheritance
+0,department,off shift worker,,off shift worker is a type of department,Shift workers can only work in the delivery department.,FALSE,FALSE,FALSE,wrong,inheritance
+0,production,department,,department is a type of production,"The company has production, control, and delivery departments.",FALSE,FALSE,FALSE,wrong,inheritance

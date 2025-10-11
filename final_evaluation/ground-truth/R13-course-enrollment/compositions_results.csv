@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,electronic report card,grade,,Each electronic report card is made up of grades,"At the end of the semester, the student can access the system to view an electronic report card.",FALSE,FALSE,FALSE,correct,composition
+0,course catalog,course,,Each course catalog is made up of courses,"At the beginning of each semester, students may request a course catalog containing a list of course offerings.",FALSE,FALSE,TRUE,correct,composition

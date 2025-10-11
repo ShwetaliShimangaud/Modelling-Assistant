@@ -1,0 +1,14 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+item,waiter,,,waiter is a type of item,The waiter in the service section serves the customer.,not clear,False,False
+item,waiter,,,waiter is a type of item,"Restaurant Inventory Management: Used to monitor current stock, the cost of the items, and more.",not clear,True,False
+item,waiter,,,waiter is a type of item,"Personnel can be cooks, waiters, and cashiers.",not clear,True,False
+item,waiter,,,waiter is a type of item,The waiter in the service section serves the customer.,False,True,False
+item,waiter,,,waiter is a type of item,"When the waiter serves, the system shows the waiter's name and table number.",not clear,True,False
+waiter,employee,,,employee is a type of waiter,The restaurant has more than one employee.,False,False,False
+waiter,employee,,,employee is a type of waiter,The waiter in the service section serves the customer.,not clear,False,False
+waiter,employee,,,employee is a type of waiter,"Personnel can be cooks, waiters, and cashiers.",False,False,not clear
+waiter,employee,,,employee is a type of waiter,The waiter in the service section serves the customer.,not clear,False,False
+waiter,employee,,,employee is a type of waiter,Payroll and Accounting Service: Used to manage employee payroll and monitor the restaurant's cash flow.,not clear,False,False
+waiter,employee,,,employee is a type of waiter,"Each employee has a name, age, and gender information.",not clear,False,not clear
+waiter,employee,,,employee is a type of waiter,"Employee Scheduling: Check employee attendance, shifts, and time off.",False,False,not clear
+waiter,employee,,,employee is a type of waiter,"When the waiter serves, the system shows the waiter's name and table number.",not clear,False,not clear

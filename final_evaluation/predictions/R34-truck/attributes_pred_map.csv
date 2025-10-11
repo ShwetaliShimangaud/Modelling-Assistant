@@ -1,0 +1,61 @@
+class_name,attributes,generated_description,actual_description,equality,contradiction,inclusion
+rental office,name,a rental office has a name,Each rental office has an official name like 'Littleton Right-Way.',False,False,True
+rental office,name,a rental office has a name,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,False
+rental office,name,a rental office has a name,We assign each company an identifying company number and track the company's name and address.,False,False,False
+rental office,number,a rental office has a number,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,False
+rental office,number,a rental office has a number,We assign each company an identifying company number and track the company's name and address.,False,False,False
+rental office,number,a rental office has a number,Each office also has a unique three-digit office number.,False,False,True
+rental office,address,a rental office has an address,We also keep each office's address.,False,False,True
+rental office,address,a rental office has an address,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,False
+rental office,address,a rental office has an address,We assign each company an identifying company number and track the company's name and address.,False,False,False
+vehicle,id,a vehicle has an id,"Yes, we do have a vehicle type code.",False,False,False
+vehicle,id,a vehicle has an id,"Each office is a home office for some vehicles, and each vehicle is based on a single home office.",False,False,False
+vehicle,id,a vehicle has an id,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,False,False,False
+vehicle,id,a vehicle has an id,We must implement a system to track our rental agreements and vehicle assignments.,False,False,False
+vehicle,id,a vehicle has an id,The central office oversees vehicle distribution and directs transfers of vehicles from one rental office to another.,False,False,False
+vehicle,id,a vehicle has an id,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,False,False
+vehicle,id,a vehicle has an id,"Each vehicle has a vehicle id, registration state, and license plate registration number.",False,False,True
+vehicle,id,a vehicle has an id,We don't take reservations or speculate when the customer will return rented vehicles.,False,False,False
+vehicle,id,a vehicle has an id,"For all our vehicles, we need to track their registration's last maintenance date and expiration date.",False,False,False
+vehicle,id,a vehicle has an id,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,False
+vehicle,id,a vehicle has an id,"We only allow a single individual or company for a given rental agreement, and we write a separate rental agreement for each vehicle.",False,False,False
+vehicle,id,a vehicle has an id,"Yes, we do have customers rent two or more vehicles at the same time.",False,False,False
+vehicle,id,a vehicle has an id,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",False,False,False
+vehicle,id,a vehicle has an id,"If a customer damaged a vehicle, abandoned it, or didn't fully pay the bill, we tag the customer as a poor risk and won't rent to that customer again.",False,False,False
+vehicle,id,a vehicle has an id,"No, we don't need to automate the financial side of our business, just our rental agreement tracking and vehicle assignment functions.",False,False,False
+vehicle,registration status,a vehicle has a registration status,"For all our vehicles, we need to track their registration's last maintenance date and expiration date.",False,False,True
+vehicle,license plate number,a vehicle has a license plate number,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,False
+vehicle,vehicle type code,a vehicle has a vehicle type code,"Yes, we do have a vehicle type code.",False,False,False
+vehicle,registration last maintenance date,a vehicle has a registration last maintenance date,"For all our vehicles, we need to track their registration's last maintenance date and expiration date.",False,False,True
+vehicle,expiration date,a vehicle has an expiration date,"For all our vehicles, we need to track their registration's last maintenance date and expiration date.",False,False,True
+vehicle,expiration date,a vehicle has an expiration date,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,False
+truck,odometer reading,a truck has an odometer reading,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",False,False,True
+truck,gas tank capacity,a truck has a gas tank capacity,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",False,False,True
+truck,mileage,a truck has a mileage,We log the current mileage just before we rent a truck and then again when it is returned.,False,False,True
+truck,working radio,a truck has a working radio,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",False,False,False
+rental agreement,number,a rental agreement has a number,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,False
+rental agreement,number,a rental agreement has a number,We assign each company an identifying company number and track the company's name and address.,False,False,False
+rental agreement,number,a rental agreement has a number,Each office also has a unique three-digit office number.,False,False,False
+rental agreement,rental date,a rental agreement has a rental date,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",False,False,True
+rental agreement,rental date,a rental agreement has a rental date,"For all our vehicles, we need to track their registration's last maintenance date and expiration date.",False,False,False
+rental agreement,rental date,a rental agreement has a rental date,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,False
+rental agreement,deposit paid,a rental agreement has a deposit paid,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",False,False,True
+rental agreement,anticipated duration,a rental agreement has a anticipated duration,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",False,False,True
+rental agreement,quoted daily rate,a rental agreement has a quoted daily rate,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",False,False,True
+rental agreement,quoted rate per mileage,a rental agreement has a quoted rate per mileage,"We also need to track the rental date, the anticipated duration of the rental, the originating rental office, the drop-off rental office, the amount of the deposit paid, the quoted daily rental rate, and the quoted rate per mile.",False,False,True
+customer,name,a customer has a name,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,True
+customer,address,a customer has an address,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,True
+customer,poor risk,a customer has a poor risk,"For long moves, customers prefer a radio.",False,False,False
+customer,poor risk,a customer has a poor risk,Each rental office rents their vehicles in stock to customers ready to take possession of the vehicle.,False,False,False
+customer,poor risk,a customer has a poor risk,"Most of our rental agreements are for individual customers, but a rental agreement can either be for an individual or a company.",False,False,False
+customer,poor risk,a customer has a poor risk,We don't take reservations or speculate when the customer will return rented vehicles.,False,False,False
+customer,poor risk,a customer has a poor risk,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,False
+customer,poor risk,a customer has a poor risk,We like to keep track of all our customers.,False,False,False
+customer,poor risk,a customer has a poor risk,"Yes, we do have customers rent two or more vehicles at the same time.",False,False,False
+customer,poor risk,a customer has a poor risk,"If a customer damaged a vehicle, abandoned it, or didn't fully pay the bill, we tag the customer as a poor risk and won't rent to that customer again.",False,False,True
+company,id number,a company has an id number,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,False
+company,id number,a company has an id number,We assign each company an identifying company number and track the company's name and address.,False,False,True
+individual,home phone,an individual has a home phone,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,True
+individual,drivers license state,an individual has a drivers license state,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,True
+individual,drivers license number,an individual has a drivers license number,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,True
+individual,drivers license expiration date,an individual has a drivers license expiration date,"We record the customer's name, home phone, address, driver's license state, number, and expiration date for each customer.",False,False,True

@@ -1,0 +1,11 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,timbered house,log,,A timbered house can have logs ,"A timbered house consists of 5 10 logs, 200 400 mud bricks, and 1000 to 2000 nails.",FALSE,FALSE,TRUE,correct,association
+0,log,timbered house,,A log has timbered house,Any carpenter can work on up to one timbered house at the same time.,FALSE,FALSE,FALSE,correct,association
+0,timbered house,mud brick,,A timbered house can have mud bricks ,"A timbered house consists of 5 10 logs, 200 400 mud bricks, and 1000 to 2000 nails.",FALSE,FALSE,TRUE,correct,association
+0,mud brick,timbered house,,A mud brick has timbered house,Any carpenter can work on up to one timbered house at the same time.,FALSE,FALSE,FALSE,correct,association
+0,timbered house,nail,,A timbered house can have nails ,"A timbered house consists of 5 10 logs, 200 400 mud bricks, and 1000 to 2000 nails.",FALSE,FALSE,TRUE,correct,association
+0,nail,timbered house,,A nail has timbered house,Any carpenter can work on up to one timbered house at the same time.,FALSE,FALSE,TRUE,correct,association
+0,timbered house,carpenter,,A timbered house can have carpenters ,Any carpenter can work on up to one timbered house at the same time.,FALSE,FALSE,TRUE,correct,association
+0,carpenter,timbered house,,A carpenter has timbered house,Any carpenter can work on up to one timbered house at the same time.,FALSE,FALSE,FALSE,correct,association
+0,carpenter,hammer,,A carpenter has hammer,Any carpenter can work on up to one timbered house at the same time.,FALSE,FALSE,TRUE,correct,association
+0,carpenter,saw,,A carpenter has saw,Any carpenter can work on up to one timbered house at the same time.,FALSE,FALSE,TRUE,correct,association

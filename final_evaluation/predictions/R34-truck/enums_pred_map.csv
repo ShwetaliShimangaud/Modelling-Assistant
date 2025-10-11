@@ -1,0 +1,30 @@
+source,target,generated_description,actual_description,equality,contradiction,inclusion
+vehicle type code,truck,Truck is a vehicle type code,We must implement a system to track our rental agreements and vehicle assignments.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,The Right-Way Rental Truck Company rents small moving trucks and trailers for local and one-way usage.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,We log the current mileage just before we rent a truck and then again when it is returned.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"No, we don't need to worry about any additional information about the company.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,We do rent a small percentage of our trucks to companies.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,We must implement a system to track our rental agreements and vehicle assignments.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,The Right-Way Rental Truck Company rents small moving trucks and trailers for local and one-way usage.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,We log the current mileage just before we rent a truck and then again when it is returned.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"No, we don't need to worry about any additional information about the company.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,We do rent a small percentage of our trucks to companies.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,We must implement a system to track our rental agreements and vehicle assignments.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,The Right-Way Rental Truck Company rents small moving trucks and trailers for local and one-way usage.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,We log the current mileage just before we rent a truck and then again when it is returned.,False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"For our trucks, we need to know the current odometer reading, the gas tank capacity, and whether or not it has a working radio.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"No, we don't need to worry about any additional information about the company.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",False,not clear,False
+vehicle type code,truck,Truck is a vehicle type code,We do rent a small percentage of our trucks to companies.,False,not clear,False
+vehicle type code,covered trailer,covered trailer is a vehicle type code,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",False,not clear,True
+vehicle type code,open trailer,open trailer is a vehicle type code,The Right-Way Rental Truck Company rents small moving trucks and trailers for local and one-way usage.,False,not clear,False
+vehicle type code,open trailer,open trailer is a vehicle type code,"We have five different types of vehicles:  36 trucks, 24 trucks, 10 trucks, 8 covered trailers, and 6' open trailers.",False,not clear,False
+vehicle type code,open trailer,open trailer is a vehicle type code,"Our rental stock includes 5780 vehicles, including various trucks and trailers.",False,not clear,False
+vehicle type code,open trailer,open trailer is a vehicle type code,"Of course, for the trailers, there isn't a mileage charge.",False,not clear,False

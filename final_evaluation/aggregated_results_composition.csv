@@ -1,0 +1,33 @@
+model,domain,alignments,alignments_predicted_correct,alignments_identified_and_correct,overall_precision,overall_recall,F1
+R1,Restaurant Management,0,0,0,,,
+R2,Employee Management,0,0,0,,,
+R3,Library ,0,0,0,,,
+R4,Galaxy Sleuth Game,2,0,0,1,0,0
+R5,Spy-Robot Game,0,0,0,,,
+R6,Academic Program ,0,0,0,,,
+R7,Supermarket ,3,2,2,1,0.666666667,0.8
+R8,Hotel Reservation ,0,0,0,,,
+R9,Be Well App ,4,1,1,1,0.25,0.4
+R10,File Manager ,1,1,1,1,1,1
+R11,Football Team ,0,0,0,,,
+R12,Rented Car Gallery,0,0,0,,,
+R13,Course Enrollment ,2,1,1,1,0.5,0.666666667
+R14,ATM,3,1,1,1,0.333333333,0.5
+R15,Video Rental ,1,0,0,1,0,0
+R16,Cinema ,0,0,0,,,
+R17,Timbered House ,0,0,0,,,
+R18,Musical Store ,0,0,0,,,
+R19,Airport ,1,1,1,1,1,1
+R20,Monitoring Pressure ,0,0,0,,,
+R21,Savings Account ,0,0,0,,,
+R22,IPO Application ,0,0,0,,,
+R23,PIN,0,0,0,,,
+R24,Communication Prefs,0,0,0,,,
+R25,Apple Pay ,0,0,0,,,
+R26,Block Card ,0,0,0,,,
+R27,Biometric Login ,0,0,0,,,
+R28,Donation ,0,0,0,,,
+R29,Prepaid Card,0,0,0,,,
+R30,Wallet App,1,0,0,1,0,0
+Average,All,,,,1,0.416666667,0.485185185
+Std.,All,,,,0,0.3808697,0.390982021

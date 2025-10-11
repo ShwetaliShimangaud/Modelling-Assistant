@@ -62,7 +62,7 @@ def get_role_and_cardinality(role, cardinality, associated_class, language_model
     # Case 1: Role name is not provided
     # e.g. City and Neighborhood in smart city
     # TODO : Discuss how to handle such cases where role is not provided
-    if len(role) == 0:
+    if len(role) == 0 or role == 'hasA' or role == 'has':
         if util.is_singular(cardinality):
             return "has " + util.format_class_name(associated_class)
         else:
@@ -166,7 +166,7 @@ def get_role_and_cardinality(role, cardinality, associated_class, language_model
             phrase = "has "
             phrase += util.format_concept(associated_class, language_model)
         else:
-            # TODO : Handle the case where cardinality is 'many' and associated class  has  role name but it is not
+            # TODO : Handle the case where cardinality is 'many' and associated class has role name but it is not
             #  plural
             temp_class = ""
             ass_class = " ".join([item.lower() for item in util.split_camel_case(associated_class)])

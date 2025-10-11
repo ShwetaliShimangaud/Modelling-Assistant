@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion,answer,generated_sentence,actual_sentence,kind
+supermarket,extra customer,,,,,False,False,False,inconclusive,extra customer is a type of supermarket,"Before purchasing products from different continents, the supermarket puts on store according to or following on type of each product.",inheritance

@@ -1,0 +1,2 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,calender,user,,Each calender is made up of users,"For a low-data device case, thumbnails from the video at regular intervals can be mapped instead of the videos.",FALSE,FALSE,FALSE,wrong,composition

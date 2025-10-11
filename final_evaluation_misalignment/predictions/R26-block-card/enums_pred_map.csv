@@ -1,0 +1,9 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+blocking reason,missing,Missing is a blocking reason,"If the user selects 'other' as the reason, the system should ask for further explanation in a free-text area.",False,False,True,correct,,
+blocking reason,others,Others is a blocking reason,"If the user selects 'other' as the reason, the system should ask for further explanation in a free-text area.",False,False,True,correct,,
+blocking reason,stolen,Stolen is a blocking reason,"If the user selects 'other' as the reason, the system should ask for further explanation in a free-text area.",False,False,True,correct,,
+card status,available,Available is a card status,The system should check the card status when the user blocks the desired card.,False,False,True,correct,,
+card type,credit,Credit is a card type,"Customer  Users can have four types of cards: debit, credit, virtual and supplementary.",False,False,True,correct,,
+card type,debit,Debit is a card type,"Customer  Users can have four types of cards: debit, credit, virtual and supplementary.",False,False,True,correct,,
+card type,supplementary,Supplementary is a card type,"Customer  Users can have four types of cards: debit, credit, virtual and supplementary.",False,False,True,correct,,
+card type,virtual,Virtual is a card type,"Customer  Users can have four types of cards: debit, credit, virtual and supplementary.",False,False,True,correct,,

@@ -1,0 +1,3 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+user,ticket,orderedTickets,1,A user has an ordered ticket,Then he clicks on the movie show for which he would like to order tickets.,not clear,True,False
+ticket,user,orderedBy,0..*,A ticket is ordered by users ,"If there are any of the 30 orderable tickets left, he is prompted to enter his name, his e-mail address, and the desired number of cards.",not clear,False,not clear

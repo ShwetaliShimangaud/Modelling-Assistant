@@ -1,0 +1,7 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+app,user,,Each app is made up of users,The Bewell app is mainly for those who plan to lose or gain weight and require a planned medium.,False,False,False,inconclusive,composition
+user,calender,,Each user is made up of calenders,"The videos will be mapped based on user inputs, like what part of the body the user is focussed on.",False,False,False,inconclusive,composition
+user,input,,Each user is made up of inputs,"The videos will be mapped based on user inputs, like what part of the body the user is focussed on.",False,False,False,inconclusive,composition
+calender,day,,Each calender is made up of days,The Bewell app is mainly for those who plan to lose or gain weight and require a planned medium.,False,False,True,correct,composition
+video,app,,Each video is made up of apps,A database of the videos (can be from youtube) is created.,False,False,False,inconclusive,composition
+repetition,day,,Each repetition is made up of days,"The application will be able to record exercises, repetitions, and the diet followed.",False,False,False,inconclusive,composition

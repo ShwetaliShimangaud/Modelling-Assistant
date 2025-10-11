@@ -1,6 +1,6 @@
 class_attributes = {
-    "TimberedHouse" : ['numRooms', 'numFloors'],
-    "Carpenter" : ['name','hourlyWage']
+    "TimberedHouse" : ['numRooms:int', 'numFloors:int'],
+    "Carpenter" : ['name:string','hourlyWage:double']
 }
 
 associations = [{

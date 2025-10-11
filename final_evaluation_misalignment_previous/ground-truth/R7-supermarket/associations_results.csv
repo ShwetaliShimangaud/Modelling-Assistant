@@ -1,0 +1,5 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,product,stock,ProductStock,A product can have product stocks ,"After purchasing a new product or getting the outcome from a supplier, those products are recorded in stock.",FALSE,FALSE,FALSE,wrong,association
+0,stock,product,contains,A stock has  a contain which is a product,They use physical inventory where every product purchased is recorded by using the form of stock.,FALSE,TRUE,FALSE,wrong,association
+0,customer,invoice,,A customer has invoice,"Then the chief of order checks and counts if there is no mistake; when the number of orders written to the proforma invoice is well prepared, they give the order for put out before arriving to the customer.",FALSE,TRUE,FALSE,wrong,association
+0,invoice,customer,,A invoice can have customers ,"Then the chief of order checks and counts if there is no mistake; when the number of orders written to the proforma invoice is well prepared, they give the order for put out before arriving to the customer.",FALSE,TRUE,FALSE,wrong,association

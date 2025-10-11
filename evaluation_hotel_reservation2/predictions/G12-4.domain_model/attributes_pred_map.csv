@@ -1,0 +1,71 @@
+class_name,attributes,generated_description,actual_description,equality,contradiction,inclusion
+guest,basic info,a guest has a basic info,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,True
+guest,basic info,a guest has a basic info,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+room,quality level,a room has a quality level,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,True
+room,num beds,a room has  num beds,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+room,num beds,a room has  num beds,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,True
+room,type bed,a room has a type bed,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,True
+room,room num,a room has a room num,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+room,room num,a room has a room num,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+room,room num,a room has a room num,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+room,room num,a room has a room num,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+room,room num,a room has a room num,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+room,room num,a room has a room num,The hotel contains 30 rooms in which guests can stay.,False,False,True
+room,room num,a room has a room num,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,True
+room,smoking status,a room has a smoking status,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+room,smoking status,a room has a smoking status,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,True
+room,daily rate,a room has a daily rate,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+room,availability on date,a room has an availability on date,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+room,availability on date,a room has an availability on date,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+room,availability on date,a room has an availability on date,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+room,availability on date,a room has an availability on date,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+room,availability on date,a room has an availability on date,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+room,availability on date,a room has an availability on date,The hotel contains 30 rooms in which guests can stay.,False,False,False
+room,availability on date,a room has an availability on date,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+account,room,an account has a room,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+account,room,an account has a room,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+account,room,an account has a room,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+account,room,an account has a room,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+account,room,an account has a room,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+account,room,an account has a room,The hotel contains 30 rooms in which guests can stay.,False,False,False
+account,room,an account has a room,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+account,bill,an account has a bill,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+account,bill,an account has a bill,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+account,bill,an account has a bill,"The system must keep track of the guest's account, and print his or her bill.",False,False,True
+account,bill,an account has a bill,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+account,bill,an account has a bill,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+account,bill,an account has a bill,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+account,bill,an account has a bill,You have been asked to create a system to manage the front-desk activities of a hotel.,False,False,False
+account,bill,an account has a bill,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+account,bill,an account has a bill,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+account,bill,an account has a bill,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+account,bill,an account has a bill,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+account,bill,an account has a bill,The hotel contains 30 rooms in which guests can stay.,False,False,False
+account,bill paid,an account has a bill paid,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+account,bill paid,an account has a bill paid,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+account,bill paid,an account has a bill paid,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+account,bill paid,an account has a bill paid,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+account,bill paid,an account has a bill paid,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+account,bill paid,an account has a bill paid,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+account,bill paid,an account has a bill paid,You have been asked to create a system to manage the front-desk activities of a hotel.,False,False,False
+account,bill paid,an account has a bill paid,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+account,bill paid,an account has a bill paid,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+account,bill paid,an account has a bill paid,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+account,bill paid,an account has a bill paid,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+account,bill paid,an account has a bill paid,The hotel contains 30 rooms in which guests can stay.,False,False,False
+account,checked out,an account has a checked out,"Some hotel rooms adjoin others, , there are internal doors between them, so a guest can stay either in an individual room or a suite (multiple rooms).",False,False,False
+account,checked out,an account has a checked out,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False
+account,checked out,an account has a checked out,"The system must keep track of the guest's account, and print his or her bill.",False,False,False
+account,checked out,an account has a checked out,"When a guest checks in, the room is allocated to him/her until s/he checks out.",False,False,False
+account,checked out,an account has a checked out,"Each quality level has a maximum daily rate, although the rate that a guest pays may be less.",False,False,False
+account,checked out,an account has a checked out,"Each room also has a certain number and type of beds, a room number, and a smoking/non-smoking status.",False,False,False
+account,checked out,an account has a checked out,You have been asked to create a system to manage the front-desk activities of a hotel.,False,False,False
+account,checked out,an account has a checked out,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+account,checked out,an account has a checked out,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+account,checked out,an account has a checked out,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+account,checked out,an account has a checked out,"Each hotel room is assigned a quality level (, a larger room or a room with a view would be better than a smaller room without a view).",False,False,False
+account,checked out,an account has a checked out,The hotel contains 30 rooms in which guests can stay.,False,False,False
+account,cancelled reservation,an account has a cancelled reservation,The system will be used to enter reservations as well as to check people in and out of the hotel.,False,False,False
+account,cancelled reservation,an account has a cancelled reservation,"When a hotel guest wishes to make a reservation, the hotel clerk asks him or her what nights he or she wants to stay and the type of room he or she wants.",False,False,False
+account,cancelled reservation,an account has a cancelled reservation,The system must verify whether room(s) are available on those nights before allowing a reservation to be made.,False,False,False
+account,cancelled reservation,an account has a cancelled reservation,"The hotel needs to record basic information about each guest, , his/her name, address, telephone number, credit card,  A reservation can be cancelled at any time.",False,False,False

@@ -1,0 +1,2 @@
+,source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,payment kind,debit card,Debit card is a payment kind,This allows you to accept various payment options like credit or debit cards and mobile payments.,False,False,True,correct

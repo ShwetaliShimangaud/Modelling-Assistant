@@ -1,0 +1,3 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+order,waiter,Each order is made up of waiters,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",False,False,False,wrong
+table,restaurant,Each table is made up of restaurants,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",False,False,False,wrong

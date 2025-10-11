@@ -1,0 +1,2 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+card,blocking,,A card has 7 blockings,"If the user does not enter this area field as input, the system should not let the user block their card.",False,True,False,wrong,association

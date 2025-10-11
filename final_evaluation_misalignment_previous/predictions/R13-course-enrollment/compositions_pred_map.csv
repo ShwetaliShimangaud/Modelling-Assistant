@@ -1,0 +1,2 @@
+source,target,role,multiplicity,generated_description,actual_description,equality,contradiction,inclusion
+grade,electronic report card,,,Each grade is made up of electronic report cards,"Since student grades are sensitive information, the system must employ extra security measures to prevent unauthorized access.",not clear,not clear,not clear

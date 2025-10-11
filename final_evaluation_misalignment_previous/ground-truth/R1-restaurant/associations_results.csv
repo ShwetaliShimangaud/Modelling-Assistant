@@ -1,0 +1,7 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,restaurant,table,tables,A restaurant can have tables ,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",FALSE,FALSE,FALSE,inconclusive,association
+0,table,restaurant,myRestaurant,A table can have restaurants ,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",FALSE,TRUE,FALSE,inconclusive,association
+0,order,waiter,serverBy,A order is server by waiters ,The waiter in the service section serves the customer.,FALSE,TRUE,FALSE,inconclusive,association
+0,waiter,order,servedOrders,A waiter can have served orders ,The waiter in the service section serves the customer.,FALSE,TRUE,FALSE,wrong,association
+0,order,cook,preparedBy,A order is prepared by cooks ,The system shows the order details and table number when the cook prepares the order.,FALSE,TRUE,FALSE,inconclusive,association
+0,cook,order,preparedOrders,A cook can have prepared orders ,The system shows the order details and table number when the cook prepares the order.,FALSE,TRUE,FALSE,wrong,association

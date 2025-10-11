@@ -1,0 +1,65 @@
+class_name,attributes,generated_description,actual_description,equality,contradiction,inclusion
+reservation,time,a reservation has a time,"A reservation is made for a specific time, date, and number of people.",False,False,True
+reservation,date,a reservation has a date,"A reservation is made for a specific time, date, and number of people.",False,False,True
+reservation,number of people,a reservation has a number of people,"A reservation is made for a specific time, date, and number of people.",False,False,True
+reservation,phone number,a reservation has a phone number,The reservation also captures the name and phone number of the person making the reservation.,False,False,True
+reservation,number,a reservation has a number,Each reservation is assigned a unique reservation number.,False,False,True
+reservation,number,a reservation has a number,"A reservation is made for a specific time, date, and number of people.",False,False,False
+reservation,number,a reservation has a number,"When a reservation is made, Romano associates a specific table number(s) to the reservation.",False,False,True
+reservation,number,a reservation has a number,The reservation also captures the name and phone number of the person making the reservation.,False,False,False
+reservation,name reservation,a reservation has a name reservation,Additional information captured for banquet reservations includes the group name and payment method.,False,False,False
+reservation,name reservation,a reservation has a name reservation,The reservation also captures the name and phone number of the person making the reservation.,False,False,False
+banquet,group name,a banquet has a group name,Additional information captured for banquet reservations includes the group name and payment method.,False,False,True
+banquet,payment method,a banquet has a payment method,Additional information captured for banquet reservations includes the group name and payment method.,False,False,True
+individual,seating individual,an individual has a seating individual,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,False,False
+individual,smocking individual,an individual has a smocking individual,There are two categories of reservations at Romano's: individual and banquet.,False,False,False
+individual,smocking individual,an individual has a smocking individual,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,False,False,False
+table,number,a table has a number,Romano's has a fixed number of tables.,False,False,False
+table,description,a table has a description,"Tables are further described by unique free-form descriptions such as 'located by the North window,' 'located in front of the fountain,' and 'by the kitchen door.",False,False,True
+table,description,a table has a description,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,False,False
+table,description,a table has a description,Additional information maintained by Romano's about food items includes a description of the food item and a purchase flag.,False,False,False
+table,capacity,a table has a capacity,Romano's has a fixed number of tables.,False,False,False
+table,capacity,a table has a capacity,Romano tends to overbook tables.,False,False,True
+item ordered,time,an item ordered has a time,'The price of each menu item can vary based on the time of day.,False,False,False
+item ordered,time,an item ordered has a time,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,False,True
+item ordered,time,an item ordered has a time,"To calculate the check at the end of the dinner, the waiter maintains a list, by reservation number, of the menu items ordered and the time that the menu item was ordered.",False,False,True
+menu item,description,a menu item has a description,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,False,True
+menu item,description,a menu item has a description,Additional information maintained by Romano's about food items includes a description of the food item and a purchase flag.,False,False,True
+menu item,prep time,a menu item has a prep time,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,False,True
+menu item,classification,a menu item has a classification,There are many exciting and exotic items.,False,False,False
+menu item,classification,a menu item has a classification,'The price of each menu item can vary based on the time of day.,False,False,False
+menu item,classification,a menu item has a classification,Some of the menu items change prices for happy hour.,False,False,False
+menu item,classification,a menu item has a classification,Additional information maintained by Romano's about food items includes a description of the food item and a purchase flag.,False,False,False
+menu item,classification,a menu item has a classification,"The menu item 'fish soup' is comprised of the food items fish soup, crackers, and melon balls.",False,False,False
+menu item,classification,a menu item has a classification,"In other words, each reservation can be associated with many menu items, and a menu item can be associated with many reservations.",False,False,False
+menu item,classification,a menu item has a classification,Many menu items can utilize a food item.,False,False,False
+menu item,classification,a menu item has a classification,"For example, the food item chicken lasagna comprises chicken, mozzarella cheese, ricotta cheese, sheet pasta, tomatoes, and red sauce.",False,False,False
+menu item,classification,a menu item has a classification,A unique menu item number identifies each menu item.,False,False,False
+menu item,classification,a menu item has a classification,"For example, some menu items have different lunch and dinner prices.",False,False,False
+menu item,classification,a menu item has a classification,"Each food item can be comprised of many other items, and each can be used as an ingredient of other food items.",False,False,False
+menu item,classification,a menu item has a classification,Each food item is classified by one unit of measure.,False,False,False
+menu item,classification,a menu item has a classification,Additional information about the relationship between food items is the quantity of the child's food item used.,False,False,False
+menu item,classification,a menu item has a classification,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,False,False
+menu item,classification,a menu item has a classification,"In addition to menu items, Romano's maintains a list of the food items utilized by the restaurant, such as chicken, mushrooms, bread sticks, red sauce, cream sauce,  Food items are utilized in the preparation of menu items.",False,False,False
+menu item,classification,a menu item has a classification,"Romanos classify each menu item as 'apetizer,' 'main', 'dessert,' or 'beverage.",False,False,True
+menu item,classification,a menu item has a classification,A menu item can utilize many food items.,False,False,False
+menu item,classification,a menu item has a classification,A purchase flag indicates that the food item is purchased from a vendor rather than Prepared in-house.,False,False,False
+menu item,classification,a menu item has a classification,The relationship between food items is identified by a combination of a parent food item number and the food item number used as an ingredient (child) of the parent food item.,False,False,False
+menu item,classification,a menu item has a classification,The menu at Romano's is exquisite.,False,False,False
+menu item,classification,a menu item has a classification,"Red sauce comprises the food items tomato sauce, olive oil and garlic, and white wine vinegar.",False,False,False
+menu item,classification,a menu item has a classification,"For example, the menu item 'chicken lasagna dinner' is comprised of the food items 'chicken lasagna, Italian bread, and broccoli spears.",False,False,False
+menu item,classification,a menu item has a classification,"To calculate the check at the end of the dinner, the waiter maintains a list, by reservation number, of the menu items ordered and the time that the menu item was ordered.",False,False,False
+menu item,classification,a menu item has a classification,A unique food item number identifies each food item.,False,False,False
+food item,number,a food item has a number,A unique menu item number identifies each menu item.,False,False,True
+food item,number,a food item has a number,"To calculate the check at the end of the dinner, the waiter maintains a list, by reservation number, of the menu items ordered and the time that the menu item was ordered.",False,False,False
+food item,number,a food item has a number,The relationship between food items is identified by a combination of a parent food item number and the food item number used as an ingredient (child) of the parent food item.,False,False,True
+food item,number,a food item has a number,A unique food item number identifies each food item.,False,False,True
+food item,description,a food item has a description,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",False,False,True
+food item,description,a food item has a description,Additional information maintained by Romano's about food items includes a description of the food item and a purchase flag.,False,False,True
+food item,purchase flag,a food item has a purchase flag,A purchase flag indicates that the food item is purchased from a vendor rather than Prepared in-house.,False,False,True
+food item,unit,a food item has an unit,Each food item is classified by one unit of measure.,False,False,True
+quantity,amount,a quantity has an amount,Additional information about the relationship between food items is the quantity of the child's food item used.,False,False,False
+worker,name,a worker has a name,Additional information captured for banquet reservations includes the group name and payment method.,False,False,False
+worker,name,a worker has a name,The reservation also captures the name and phone number of the person making the reservation.,False,False,False
+worker,date of birth,a worker has a date of birth,"Additional information maintained by Romano's for each person includes the person's name, date of birth, and driver's license number.",False,False,True
+worker,driver license number,a worker has a driver license number,"Additional information maintained by Romano's for each person includes the person's name, date of birth, and driver's license number.",False,False,True

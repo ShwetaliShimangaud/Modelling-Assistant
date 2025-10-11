@@ -1,0 +1,7 @@
+source,target,role,answer,kind
+physical room,quality level,contains,correct,association
+reservation,person,person,correct,association
+physical room,physical room,adjoinedTo,wrong,association
+record,reservation,accordingTo,wrong,association
+physical room,reservation,reservations,wrong,association
+quality level,physical room,classifies,wrong,association

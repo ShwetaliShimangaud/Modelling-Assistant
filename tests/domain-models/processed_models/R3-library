@@ -1,10 +1,10 @@
 class_attributes = {
-    'Item': ["barcode", 'status', 'available'],
-    "LanguageTape": ['titleLanguage', 'level'],
-    "Book" : ['title','author'],
-    "Loan" : ['endDate'],
-    "Reservation" : ['endDate'],
-    "Member" : ['memberNumber','name','address','dateOfBirth']
+    'Item': ["barcode:int", 'status:enumeration', 'available:boolean'],
+    "LanguageTape": ['titleLanguage:string', 'level:enumeration'],
+    "Book" : ['title:string','author:string'],
+    "Loan" : ['endDate:date'],
+    "Reservation" : ['endDate:date'],
+    "Member" : ['memberNumber:int','name:string','address:string','dateOfBirth:date']
 }
 
 associations = [

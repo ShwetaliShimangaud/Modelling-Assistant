@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,football team,football player,has,A football team haves football players ,Turgutlu football team has more than one football player.,False,False,True,correct,association
+0,football player,football team,playsFor,A football player plays for a football team,A football player can be sold to another football team.,False,False,True,correct,association

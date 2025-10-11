@@ -1,0 +1,10 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+department,production,,production is a type of department,"The company has production, control, and delivery departments.",False,False,True,correct,inheritance
+department,control,,control is a type of department,"The company has production, control, and delivery departments.",False,False,True,correct,inheritance
+department,delivery,,delivery is a type of department,"The company has production, control, and delivery departments.",False,False,True,correct,inheritance
+employee,worker,,worker is a type of employee,"These employees are included in the categories of workers, salespeople, and managers.",False,False,True,correct,inheritance
+employee,sale person,,sale person is a type of employee,"These employees are included in the categories of workers, salespeople, and managers.",False,False,True,correct,inheritance
+employee,manager,,manager is a type of employee,"These employees are included in the categories of workers, salespeople, and managers.",False,False,True,correct,inheritance
+worker,shift worker,,shift worker is a type of worker,Workers are separated as shift workers and non-shift workers.,False,False,True,correct,inheritance
+worker,off shift worker,,off shift worker is a type of worker,Workers are separated as shift workers and non-shift workers.,False,False,False,inconclusive,inheritance
+company,manager,,manager is a type of company,"RequirementA company has three roles: Employee, Salesperson and Manager.",False,True,False,wrong,inheritance

@@ -1,0 +1,5 @@
+class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,generated_description,actual_description
+delivery order,status,a delivery order has a status,"Then the chief of order checks and counts if there is no mistake; when the number of orders written to the proforma invoice is well prepared, they give the order for put out before arriving to the customer.",FALSE,FALSE,FALSE,correct,,
+product,expiration date,a product has an expiration date,"After choosing and selecting products, one can take a basket for storing goods; before going, check the price, expiration date, and ingredients, then go to the cashier.",FALSE,FALSE,TRUE,correct,,
+product,price,a product has a price,"After choosing and selecting products, one can take a basket for storing goods; before going, check the price, expiration date, and ingredients, then go to the cashier.",FALSE,FALSE,TRUE,correct,,
+product,product type,a product has a product type,"Before purchasing products from different continents, the supermarket puts on store according to or following on type of each product.",FALSE,FALSE,TRUE,correct,,

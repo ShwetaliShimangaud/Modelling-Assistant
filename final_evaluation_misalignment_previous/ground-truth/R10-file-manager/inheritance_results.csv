@@ -1,0 +1,3 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,file system,image editor,,image editor is a type of file system,"The system has three editors that allow you to manage documents: Text Editor, Image Editor, and Video Editor.",FALSE,TRUE,FALSE,wrong,inheritance
+0,image editor,editor,,editor is a type of image editor,"The system has three editors that allow you to manage documents: Text Editor, Image Editor, and Video Editor.",FALSE,TRUE,FALSE,wrong,inheritance

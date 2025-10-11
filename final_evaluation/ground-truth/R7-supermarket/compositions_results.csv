@@ -1,0 +1,4 @@
+,source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+0,supermarket,cold chamber,,Each supermarket is made up of cold chambers,"Before purchasing products from different continents, the supermarket puts on store according to or following on type of each product.",FALSE,FALSE,FALSE,correct,composition
+0,supermarket,shelf,,Each supermarket is made up of shelves,"Before purchasing products from different continents, the supermarket puts on store according to or following on type of each product.",FALSE,FALSE,TRUE,correct,composition
+0,supermarket,stock,,Each supermarket is made up of stocks,"Before purchasing products from different continents, the supermarket puts on store according to or following on type of each product.",FALSE,FALSE,TRUE,correct,composition

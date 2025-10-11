@@ -1,0 +1,26 @@
+,class_name,attributes,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+0,banquet,group name,a banquet has a group name,Additional information captured for banquet reservations includes the group name and payment method.,FALSE,FALSE,TRUE,correct
+1,banquet,payment method,a banquet has a payment method,Additional information captured for banquet reservations includes the group name and payment method.,FALSE,FALSE,TRUE,correct
+2,food item,description,a food item has a description,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",FALSE,FALSE,TRUE,correct
+3,food item,number,a food item has a number,A unique menu item number identifies each menu item.,FALSE,FALSE,TRUE,correct
+4,food item,purchase flag,a food item has a purchase flag,A purchase flag indicates that the food item is purchased from a vendor rather than Prepared in-house.,FALSE,FALSE,TRUE,correct
+5,food item,unit,a food item has an unit,Each food item is classified by one unit of measure.,FALSE,FALSE,TRUE,correct
+6,individual,seating individual,an individual has a seating individual,Additional reservation information captured when an individual makes a reservation includes seating preference (inside or patio) and smoking preference (smoking or nonsmoking).,FALSE,FALSE,FALSE,correct
+7,individual,smocking individual,an individual has a smocking individual,There are two categories of reservations at Romano's: individual and banquet.,FALSE,FALSE,FALSE,correct
+8,item ordered,time,an item ordered has a time,'The price of each menu item can vary based on the time of day.,FALSE,FALSE,TRUE,correct
+9,menu item,classification,a menu item has a classification,There are many exciting and exotic items.,FALSE,FALSE,TRUE,correct
+10,menu item,description,a menu item has a description,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",FALSE,FALSE,TRUE,correct
+11,menu item,prep time,a menu item has a prep time,"A menu item includes an item description of (, 'chicken marsala,' 'fish soup,' 'endive salad,' '1988 Merlot wine', ) and item prep time.",FALSE,FALSE,TRUE,correct
+12,quantity,amount,a quantity has an amount,Additional information about the relationship between food items is the quantity of the child's food item used.,FALSE,FALSE,FALSE,correct
+13,reservation,date,a reservation has a date,"A reservation is made for a specific time, date, and number of people.",FALSE,FALSE,TRUE,correct
+14,reservation,name reservation,a reservation has a name reservation,Additional information captured for banquet reservations includes the group name and payment method.,FALSE,FALSE,FALSE,correct
+15,reservation,number,a reservation has a number,Each reservation is assigned a unique reservation number.,FALSE,FALSE,TRUE,correct
+16,reservation,number of people,a reservation has a number of people,"A reservation is made for a specific time, date, and number of people.",FALSE,FALSE,TRUE,correct
+17,reservation,phone number,a reservation has a phone number,The reservation also captures the name and phone number of the person making the reservation.,FALSE,FALSE,TRUE,correct
+18,reservation,time,a reservation has a time,"A reservation is made for a specific time, date, and number of people.",FALSE,FALSE,TRUE,correct
+19,table,capacity,a table has a capacity,Romano's has a fixed number of tables.,FALSE,FALSE,TRUE,correct
+20,table,description,a table has a description,"Tables are further described by unique free-form descriptions such as 'located by the North window,' 'located in front of the fountain,' and 'by the kitchen door.",FALSE,FALSE,TRUE,correct
+21,table,number,a table has a number,Romano's has a fixed number of tables.,FALSE,FALSE,FALSE,correct
+22,worker,date of birth,a worker has a date of birth,"Additional information maintained by Romano's for each person includes the person's name, date of birth, and driver's license number.",FALSE,FALSE,TRUE,correct
+23,worker,driver license number,a worker has a driver license number,"Additional information maintained by Romano's for each person includes the person's name, date of birth, and driver's license number.",FALSE,FALSE,TRUE,correct
+24,worker,name,a worker has a name,Additional information captured for banquet reservations includes the group name and payment method.,FALSE,FALSE,FALSE,correct

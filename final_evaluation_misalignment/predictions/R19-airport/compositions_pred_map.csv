@@ -1,0 +1,5 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+plane,seat,Each plane is made up of seat,A plane is assigned to a flight containing a set of numbered seats.,False,False,True,
+plane,flight,Each plane is made up of flights,A plane is assigned to a flight containing a set of numbered seats.,False,False,False,wrong
+customer,reservation,Each customer is made up of reservations,Customers make reservations for specific seats on specific flights and have tickets.,False,False,False,wrong
+flight,reservation,Each flight is made up of reservations,The customer and the system need to check flight connections' feasibility and schedule.,False,False,False,wrong

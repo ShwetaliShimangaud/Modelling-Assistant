@@ -14,7 +14,8 @@ class SentenceFromAggregation(AbstractSentenceGenerator):
         self.language_model = model
         # TODO : Keep only one format either sentences list or 'relationships'  dataframe
         self.sentences = []
-        self.aggregation_result = pd.DataFrame(columns=['parent_class', 'child_class', 'role', 'source_role', 'sentence'])
+        self.aggregation_result = pd.DataFrame(columns=['parent_class', 'child_class', 'role', 'source_role',
+                                                        'multiplicity', 'sentence'])
         self.aggregation_phrase = "has"
         self.generate_sentences()
 
@@ -51,6 +52,7 @@ class SentenceFromAggregation(AbstractSentenceGenerator):
                                                                          util.split_concept(child_class),
                                                                          role,
                                                                          None,
+                                                                         cardinality,
                                                                          part_of_sentence]
 
         # TODO see if we really need a sentence to describe other end of this aggregation i.e.

@@ -1,0 +1,2 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+biometric,login activity,,A biometric can have login activities ,"If validation fails, the process should immediately stop, and an error message should be displayed.",False,False,True,correct,association

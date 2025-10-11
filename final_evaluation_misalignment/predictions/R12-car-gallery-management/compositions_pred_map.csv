@@ -1,0 +1,2 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+customer,car,Each customer is made up of cars,"Store assistants should store the information for each car in the gallery, such as plate, model, daily price,  When customers want to rent a car, the system must show available car records in the gallery and be sorted according to their prices.",False,False,False,wrong

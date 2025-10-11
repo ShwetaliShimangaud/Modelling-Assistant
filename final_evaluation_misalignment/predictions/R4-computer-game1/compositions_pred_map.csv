@@ -1,0 +1,5 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+board,cell,Each board is made up of cells,"The game is an intergalactic murder mystery, which emulates a board game scenario in which players spin a wheel to determine a randomly selected number of moves by which they travel through space to various planets.",False,False,False,
+planet,entry point,Each planet is made up of one to three planets,Each planet has between one and three predefined atmospheric entry points.,False,False,False,
+player,legal move,Each player is made up of legal move,A player whose token resides on one of four planets having wormhole connections to other planets may choose not to spin the spinner and take the wormhole directly to the other planet.,False,False,False,wrong
+legal move,cell,Each legal move is made up of cells,It costs the player a single move to enter the atmosphere from the adjacent cell.,False,False,False,inconclusive

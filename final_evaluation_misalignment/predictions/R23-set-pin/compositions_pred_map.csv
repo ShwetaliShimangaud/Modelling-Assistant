@@ -1,0 +1,2 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+user,card,Each user is made up of cards,"When setting a PIN, the user should enter their card number and CVV information.",False,False,False,inconclusive

@@ -1,0 +1,21 @@
+source,target,role,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer,kind
+restaurant,person,employees,A restaurant can have employees which are people,The restaurant has more than one employee.,FALSE,FALSE,FALSE,correct,association
+restaurant,table,tables,A restaurant can have tables ,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",FALSE,FALSE,FALSE,correct,association
+table,restaurant,myRestaurant,A table has a restaurant,"A restaurant management system may also run on your tablet, so waiting staff can take orders and alert the kitchen and counter even before leaving the table.",FALSE,FALSE,FALSE,correct,association
+order,waiter,serverBy,A order is server by waiters ,The system shows the order details and table number when the cook prepares the order.,FALSE,FALSE,FALSE,correct,association
+waiter,order,servedOrders,A waiter can have served orders ,The system shows the order details and table number when the cook prepares the order.,FALSE,FALSE,FALSE,correct,association
+order,cook,preparedBy,A order is prepared by cooks ,The system shows the order details and table number when the cook prepares the order.,FALSE,FALSE,FALSE,correct,association
+cook,order,preparedOrders,A cook can have prepared orders ,The system shows the order details and table number when the cook prepares the order.,FALSE,FALSE,TRUE,correct,association
+order,table,forTable,A order has a for table,The system shows the order details and table number when the cook prepares the order.,FALSE,FALSE,FALSE,correct,association
+table,order,orders,A table can have orders ,The system shows the order details and table number when the cook prepares the order.,FALSE,FALSE,FALSE,correct,association
+cashier,order,handledOrders,A cashier can have handled orders ,The cashier prepares the check according to the order details in the system.,FALSE,FALSE,FALSE,correct,association
+restaurant,section,sections,A restaurant can have sections ,The restaurant has more than one section.,FALSE,FALSE,FALSE,correct,association
+section,restaurant,myRestaurant,A section has a restaurant,The restaurant has more than one section.,FALSE,FALSE,FALSE,correct,association
+section,employee,myEmployee,A section can have employees ,The restaurant has more than one section.,FALSE,FALSE,FALSE,correct,association
+employee,section,worksIn,A employee is works in a section,The restaurant has more than one employee.,FALSE,FALSE,FALSE,correct,association
+restaurant,item,stock,A restaurant can have stocks which are items,"Restaurant Inventory Management: Used to monitor current stock, the cost of the items, and more.",FALSE,FALSE,TRUE,correct,association
+item,restaurant,myRestaurant,A item has a restaurant,"Restaurant Inventory Management: Used to monitor current stock, the cost of the items, and more.",FALSE,FALSE,FALSE,correct,association
+order,item,orderedItems,A order can have ordered items ,The system shows the order details and table number when the cook prepares the order.,FALSE,FALSE,FALSE,correct,association
+item,order,myOrder,A item has an order,The system shows the order details and table number when the cook prepares the order.,FALSE,FALSE,FALSE,correct,association
+order,transaction,transactions,A order can have transactions ,The system shows the order details and table number when the cook prepares the order.,FALSE,FALSE,FALSE,correct,association
+transaction,order,myOrder,A transaction has an order,"The system captures all transactions, including charges, payments, voids, promo deals, and expenses.",FALSE,FALSE,FALSE,correct,association

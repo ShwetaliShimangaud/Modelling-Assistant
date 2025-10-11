@@ -1,0 +1,6 @@
+source,target,generated_sentence,actual_sentence,equality,contradiction,inclusion,answer
+supermarket,cold chamber,Each supermarket is made up of cold chambers,"Before purchasing products from different continents, the supermarket puts on store according to or following on type of each product.",False,False,False,
+supermarket,shelf,Each supermarket is made up of shelves,"Before purchasing products from different continents, the supermarket puts on store according to or following on type of each product.",False,False,True,
+supermarket,stock,Each supermarket is made up of stocks,"Before purchasing products from different continents, the supermarket puts on store according to or following on type of each product.",False,False,True,
+invoice,product,Each invoice is made up of product,"After selecting the product and calculating the total money, the payment to the customer is made in the following ways:Cash: where the customer presents cash to the cashier or where the cashier receives money, and the customer gets an invoice.",False,False,False,inconclusive
+customer,delivery order,Each customer is made up of delivery order,"Then the chief of order checks and counts if there is no mistake; when the number of orders written to the proforma invoice is well prepared, they give the order for put out before arriving to the customer.",False,False,False,inconclusive
