@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import spacy
 
+from common.util import timer
 from sentence_generator.SentenceFromEnums import SentenceFromEnums
 from sentence_generator.sentenceFromAttributes import SentenceFromAttributes
 from sentence_generator.sentenceFromAssociations import SentenceFromAssociations
@@ -12,9 +13,11 @@ from sentence_generator.sentenceFromInheritance import SentenceFromInheritance
 from sentence_generator.postProcessor import PostProcessor
 from domain_converter.xmlReader import parse_domain_model
 
-model_path = "D:\\Thesis\\modelling-assistant\\tests\\\domain-models\\hotel-reservation-models\\"
+
+model_path = "D:\\Thesis\\modelling-assistant\\tests\\domain-models\\"
 
 processed_models_path = "processed_models\\"
+results_dir = "D:\\Thesis\\modelling-assistant\\final_evaluation\\"
 
 
 class DescriptionGenerator:
@@ -22,14 +25,8 @@ class DescriptionGenerator:
         self.domain_name = domain_name
         self.language_model = language_model
 
+        self.log_file_path = f"{results_dir}//predictions//{domain_name}//domain_logs2.txt"
         attributes, associations, compositions, aggregations, inheritance, enums = self.read_model()
-        self.generator_from_attributes = SentenceFromAttributes(attributes, language_model)
-        self.generator_from_associations = SentenceFromAssociations(associations, language_model)
-        self.generator_from_compositions = SentenceFromCompositions(compositions)
-        self.generator_from_aggregations = SentenceFromAggregation(aggregations, language_model)
-        self.generator_from_inheritance = SentenceFromInheritance(inheritance)
-        self.generator_from_enums = SentenceFromEnums(enums, language_model)
-        self.post_processor = PostProcessor()
 
         # TODO : Keep only one format either description string or 'attributes' and 'relationships' dataframes
         self.description = ''
@@ -41,7 +38,16 @@ class DescriptionGenerator:
             columns=['source', 'target', 'role', 'source_role', 'multiplicity', 'sentence'])
         self.inheritance = pd.DataFrame(columns=['source', 'target', 'role', 'source_role', 'sentence'])
         self.enums = pd.DataFrame(columns=['enum', 'enum_member', 'sentence'])
-        self.generate_description()
+
+        with timer("Sentence Generation", self.log_file_path):
+            self.generator_from_attributes = SentenceFromAttributes(attributes, language_model)
+            self.generator_from_associations = SentenceFromAssociations(associations, language_model)
+            self.generator_from_compositions = SentenceFromCompositions(compositions)
+            self.generator_from_aggregations = SentenceFromAggregation(aggregations, language_model)
+            self.generator_from_inheritance = SentenceFromInheritance(inheritance)
+            self.generator_from_enums = SentenceFromEnums(enums, language_model)
+            self.post_processor = PostProcessor()
+            self.generate_description()
 
     def get_description(self):
         return self.description
@@ -76,7 +82,8 @@ class DescriptionGenerator:
 
             exec(content, local_vars)
 
-            return (local_vars.get('class_attributes', {}), local_vars.get('associations', []),
+            with timer("Model slicing", self.log_file_path):
+                return (local_vars.get('class_attributes', {}), local_vars.get('associations', []),
                     local_vars.get('compositions', []), local_vars.get('aggregations', []),
                     local_vars.get('inheritance', []), local_vars.get('enums', {}))
         else:
@@ -84,7 +91,7 @@ class DescriptionGenerator:
 
             # Code to read domain diagram in .cdm format
             class_attributes, associations, compositions, aggregations, inheritance, enums = parse_domain_model(
-                model_path + self.domain_name + ".cdm")
+                model_path + "cdm-models\\" + self.domain_name + ".cdm", self.domain_name)
 
             return class_attributes, associations, compositions, aggregations, inheritance, enums
 

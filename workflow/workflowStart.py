@@ -97,6 +97,9 @@ class WorkflowStart:
         for index in range(len(self.individual_maps)):
             pred_map = self.individual_maps[index]
 
+            if index > 0:
+                print("completed map : ", self.elements[index - 1])
+
             # For each model element
             for i, row in pred_map.iterrows():
                 actual_description = row['actual_description']
@@ -110,7 +113,9 @@ class WorkflowStart:
                     checker = self.checkers[check]
                     check_res = self.check_results[(check, self.elements[index])]
 
-                    if check not in pred_map.columns or pred_map.at[i, check] is None or pd.isna(pred_map.at[i, check]):
+                    if True:
+                    # if check not in pred_map.columns or pred_map.at[i, check] is None or pd.isna(pred_map.at[i,
+                    # check]):
                         results, res = checker.run(actual_description, generated_description, source, target,
                                                    self.elements[index], multiplicity)
                         pred_map.at[i, check] = res
@@ -131,29 +136,33 @@ class WorkflowStart:
                                 self.add_dummy_values(check_index, pred_map, i)
                                 break
 
-            pred_map.to_csv(f"{self.results_dir}/{self.domain}/{self.elements[index]}_pred_map.csv", index=False)
+            pred_map.to_csv(f"{self.results_dir}/{self.domain}/{self.elements[index]}_pred_map2.csv", index=False)
         for check in self.checks:
             for element in self.elements:
                 check_res = self.check_results[(check, element)]
-                check_res.to_excel(f"{self.results_dir}/{self.domain}/{element}_{check}_check.xlsx", index=False)
+                check_res.to_excel(f"{self.results_dir}/{self.domain}/{element}_{check}_check2.xlsx", index=False)
 
         return errors
 
-#
-# domain_name, results_dir = "G12-5.domain_model", "../evaluation_hotel_reservation2"
-# attributes_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/attributes_pred_map.csv")
-# associations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/associations_pred_map.csv")
-# aggregations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/aggregations_pred_map.csv")
-# compositions_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/compositions_pred_map.csv")
-# inheritance_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/inheritance_pred_map.csv")
-# enum_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/enums_pred_map.csv")
-#
-# start_time = time.perf_counter()
-# workflow = WorkflowStart(
-#     [attributes_map, associations_map, aggregations_map, compositions_map,
-#      inheritance_map, enum_map], domain_name, results_dir)
-# errors = workflow.run()
-# end_time = time.perf_counter()
-# elapsed_time = end_time - start_time
-# print(f"LLM took {elapsed_time:.6f} seconds")
-# log_entry = f"LLM took {elapsed_time:.6f} seconds\n"
+
+domain_name, results_dir = "R9-be-well-app", "../final_evaluation"
+attributes_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/attributes_pred_map.csv")
+associations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/associations_pred_map.csv")
+aggregations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/aggregations_pred_map.csv")
+compositions_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/compositions_pred_map.csv")
+inheritance_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/inheritance_pred_map.csv")
+enum_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/enums_pred_map.csv")
+
+
+try:
+    start_time = time.perf_counter()
+    workflow = WorkflowStart(
+        [attributes_map, associations_map, aggregations_map, compositions_map,
+         inheritance_map, enum_map], domain_name, results_dir)
+    errors = workflow.run()
+    end_time = time.perf_counter()
+    elapsed_time = end_time - start_time
+    print(f"LLM took {elapsed_time:.6f} seconds")
+    log_entry = f"LLM took {elapsed_time:.6f} seconds\n"
+except Exception:
+    print("got exception")

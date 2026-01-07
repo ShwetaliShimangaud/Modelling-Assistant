@@ -12,6 +12,7 @@ patterns = {
     "Semantic Matching": r"Semantic matching took ([\d.]+) seconds",
     "LLM": r"LLM  took ([\d.]+) seconds",
     "Result Calculation": r"Result calculation took ([\d.]+) seconds",
+    "Model slicing": r"Model slicing took ([\d.]+) seconds",
 }
 
 # Store extracted data
@@ -21,7 +22,7 @@ data = []
 if os.path.exists(base_dir):
     for subdir in os.listdir(base_dir):
         subdir_path = os.path.join(base_dir, subdir)
-        log_file_path = os.path.join(subdir_path, "domain_logs.txt")
+        log_file_path = os.path.join(subdir_path, "domain_logs2.txt")
 
         if os.path.isdir(subdir_path) and os.path.exists(log_file_path):
             # Read log file
@@ -40,7 +41,7 @@ if os.path.exists(base_dir):
 df = pd.DataFrame(data)
 
 # Save to Excel
-output_file = os.path.join(base_dir, "execution_times.xlsx")
+output_file = os.path.join(base_dir, "updated_execution_times.xlsx")
 df.to_excel(output_file, index=False)
 
 print(f"Excel file saved: {output_file}")

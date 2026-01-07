@@ -38,7 +38,7 @@ def test_attributes_types():
     predictor = ConceptsPrediction()
 
     for domain in domains:
-        class_attributes = parse_domain_model(f"{domain_models_path}/{domain}.cdm")[0]
+        class_attributes = parse_domain_model(f"{domain_models_path}/{domain}.cdm", self.domain_name)[0]
 
         for class_name, attributes in class_attributes.items():
             for attribute in attributes:

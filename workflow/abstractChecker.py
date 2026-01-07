@@ -5,6 +5,7 @@ import pandas as pd
 from sentence_generator import util
 from workflow import apiCaller
 from sentence_generator.util import is_singular
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
 def format_value(multiplicity):
@@ -96,24 +97,36 @@ class AbstractChecker(ABC):
 
         prompts = self.get_prompts(model_element)
 
-        for prompt in prompts:
-            combined_prompt = format_string(prompt, source, target, generated_sentence, actual_sentence, multiplicity)
-            res = apiCaller.call_api(combined_prompt)
-            results.append(res)
+        def worker(prompt):
+            combined_prompt = format_string(
+                prompt, source, target, generated_sentence, actual_sentence, multiplicity
+            )
+            response = apiCaller.call_api(combined_prompt)
+            return combined_prompt, response
 
-            print("Prompt:", prompt)
-            print("Actual sentence:", actual_sentence)
-            print("Generated sentence:", generated_sentence)
-            print("Result:", res)
-            print()
+        # ⚠️ Keep this conservative to avoid rate limits
+        max_workers = len(prompts)
 
-            res = self.process_response(res, model_element)
-            if res.startswith("Yes") or res.startswith("yes"):
-                yes_count = yes_count + 1
-            elif res.startswith("No") or res.startswith("no"):
-                no_count = no_count + 1
-            else:
-                unclear_count = unclear_count + 1
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = [executor.submit(worker, prompt) for prompt in prompts]
+
+            for future in as_completed(futures):
+                prompt, res = future.result()
+                results.append(res)
+
+                # print("Prompt:", prompt)
+                # # print("Actual sentence:", actual_sentence)
+                # # print("Generated sentence:", generated_sentence)
+                # print("Result:", res)
+                # # print()
+
+                res = self.process_response(res, model_element)
+                if res.startswith("Yes") or res.startswith("yes"):
+                    yes_count = yes_count + 1
+                elif res.startswith("No") or res.startswith("no"):
+                    no_count = no_count + 1
+                else:
+                    unclear_count = unclear_count + 1
 
         if yes_count > no_count and yes_count > unclear_count:
             final_answer = True

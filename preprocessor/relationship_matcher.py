@@ -15,9 +15,9 @@ class RelationshipMatcher:
 
     def create_relationships_map(self, attributes_description, relationship_description, relationships,
                                  sentences,
-                                 concepts, language_model):
+                                 concepts, language_model, noun_chunks):
         data = pd.DataFrame(
-            columns=['source', 'target', 'role', 'multiplicity', 'generated_description', 'actual_description'])
+            columns=['source', 'target', 'role', 'multiplicity', 'generated_description', 'actual_description', 'matching_strategy'])
 
         all_sentence_ids = set()
         for sdx in range(len(sentences)):
@@ -28,8 +28,8 @@ class RelationshipMatcher:
             target = row['target'].lower()
             role = row['role']
             multiplicity = row.get('multiplicity', '')
-            actual_sentence_ids = util.find_matching_description(source, target, row['source_role'], role,
-                                                                 relationships, concepts, sentences, language_model)
+            actual_sentence_ids, matching_strategy = util.find_matching_description(source, target, row['source_role'], role,
+                                                                 relationships, concepts, sentences, language_model, noun_chunks)
             # for i, relationship in relationships.iterrows():
             #     # TODO add check for role
             #     rel_source = relationship['source'].lower()
@@ -96,12 +96,13 @@ class RelationshipMatcher:
 
             if len(actual_sentence_ids) == 0:
                 actual_sentence_ids = all_sentence_ids
+                matching_strategy = "all_sentences"
 
             actual_sentences = [sentences[int(idx.replace("S", ""))] for idx in actual_sentence_ids]
             for sentence in actual_sentences:
-                data.loc[len(data)] = [source, target, role, multiplicity, row['sentence'], sentence]
+                data.loc[len(data)] = [source, target, role, multiplicity, row['sentence'], sentence, matching_strategy]
 
             if len(actual_sentences) == 0:
-                data.loc[len(data)] = [source, target, role, multiplicity, row['sentence'], ""]
+                data.loc[len(data)] = [source, target, role, multiplicity, row['sentence'], "", ""]
 
         return data

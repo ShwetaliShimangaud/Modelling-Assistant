@@ -61,8 +61,10 @@ def find_combinations_of_noun(noun):
 
 
 def find_matching_description(source, target, source_role, target_role, associations, concepts, sentences,
-                              language_model, is_inheritance=True):
+                              language_model, noun_chunks, is_inheritance=True):
     extracted_sentence_ids = set()
+
+    matching_strategy = "all_sentences"
 
     if is_inheritance:
         parent_class_parts = util.split_camel_case(source)
@@ -89,7 +91,10 @@ def find_matching_description(source, target, source_role, target_role, associat
               pd.notna(source_role) and rel_source in source_role):
             extracted_sentence_ids.add(relationship['sdx'])
 
-    if len(extracted_sentence_ids) == 0:
+    if len(extracted_sentence_ids) != 0:
+        matching_strategy = "extracted_tuple"
+    else:
+        matching_strategy = "semantic_rule1"
         source_presence_set = set()
         target_presence_set = set()
 
@@ -99,22 +104,20 @@ def find_matching_description(source, target, source_role, target_role, associat
         #  source_parts_dict = find_combinations_of_noun(source)
         #  target_parts_dict = find_combinations_of_noun(target)
 
-        for i, sent in enumerate(sentences):
-            sent_doc = language_model(sent)
-            for chunks in sent_doc.noun_chunks:
-                if source in chunks.lemma_ or is_role_included(source_role, chunks.lemma_, language_model):
-                    source_presence_set.add("S" + str(i))
+        for i, chunks in noun_chunks:
+            if source in chunks.lemma_ or is_role_included(source_role, chunks.lemma_, language_model):
+                source_presence_set.add("S" + str(i))
 
-                if target in chunks.lemma_ or is_role_included(target_role, chunks.lemma_, language_model):
-                    target_presence_set.add("S" + str(i))
+            if target in chunks.lemma_ or is_role_included(target_role, chunks.lemma_, language_model):
+                target_presence_set.add("S" + str(i))
 
-                # for key in source_parts_dict.keys():
-                #     if key in chunks.lemma_:
-                #         source_parts_dict[key].add("S" + str(i))
-                #
-                # for key in target_parts_dict.keys():
-                #     if key in chunks.lemma_:
-                #         target_parts_dict[key].add("S" + str(i))
+            # for key in source_parts_dict.keys():
+            #     if key in chunks.lemma_:
+            #         source_parts_dict[key].add("S" + str(i))
+            #
+            # for key in target_parts_dict.keys():
+            #     if key in chunks.lemma_:
+            #         target_parts_dict[key].add("S" + str(i))
 
         # if len(source_presence_set) == 0 and len(source_parts_dict) > 1:
         #     source_presence_set = find_intersection_or_most_common(source_parts_dict)
@@ -123,6 +126,7 @@ def find_matching_description(source, target, source_role, target_role, associat
         #     target_presence_set = find_intersection_or_most_common(target_parts_dict)
 
         if len(source_presence_set) == 0:
+            matching_strategy = "semantic_rule2"
             res = language_model(source)
             nouns_in_source = {}
             for token in res:
@@ -158,6 +162,7 @@ def find_matching_description(source, target, source_role, target_role, associat
             #         source_presence_set.add(token['s_id'])
 
         if len(target_presence_set) == 0:
+            matching_strategy = "semantic_rule2"
             res = language_model(target)
             nouns_in_target = {}
             for token in res:
@@ -199,4 +204,4 @@ def find_matching_description(source, target, source_role, target_role, associat
             answer_set = source_presence_set | target_presence_set
         extracted_sentence_ids.update(answer_set)
 
-    return extracted_sentence_ids
+    return extracted_sentence_ids, matching_strategy

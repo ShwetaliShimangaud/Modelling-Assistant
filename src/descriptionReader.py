@@ -1,6 +1,6 @@
 import re
 
-description_file_path = "D:\\Thesis\\modelling-assistant\\tests\\train-set\\textual-description\\"
+description_file_path = "D:\\Thesis\\modelling-assistant\\tests\\actual-description\\"
 
 
 def clean_text(text):

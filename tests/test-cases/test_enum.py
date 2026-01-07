@@ -32,7 +32,7 @@ def read_model(domain_name):
 
         # Code to read domain diagram in .cdm format
         class_attributes, associations, compositions, aggregations, inheritance, enums = parse_domain_model(
-            model_path + "cdm-models\\" + domain_name + ".cdm")
+            model_path + "cdm-models\\" + domain_name + ".cdm", self.domain_name)
 
         return enums
 

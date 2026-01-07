@@ -5,7 +5,7 @@ import pandas as pd
 
 class AttributeMatcher:
     def create_attributes_map(self, attributes_description, concepts, actual_description):
-        data = pd.DataFrame(columns=['class_name', 'attributes', 'generated_description', 'actual_description'])
+        data = pd.DataFrame(columns=['class_name', 'attributes', 'generated_description', 'actual_description', 'matching_strategy'])
         all_sentence_ids = set()
         for sdx in range(len(actual_description)):
             all_sentence_ids.add("S" + str(sdx))
@@ -47,6 +47,7 @@ class AttributeMatcher:
                 if not attribute_presence_set:
                     attribute_presence_set = set(list(set().union(*lists)))
 
+            matching_strategy = "extracted_tuple"
             answer_set = attribute_presence_set & class_name_presence_set
             if len(answer_set) == 0:
                 if len(attribute_presence_set) != 0:
@@ -55,20 +56,21 @@ class AttributeMatcher:
                     answer_set = class_name_presence_set
                 else:
                     answer_set = all_sentence_ids
+                    matching_strategy = "all_sentences"
 
             actual_sentence_ids.update(answer_set)
             actual_sentences = [actual_description[int(idx.replace("S", ""))] for idx in actual_sentence_ids]
             for sentence in actual_sentences:
-                data.loc[len(data)] = [class_name, attribute_name, generated_sentence, sentence]
+                data.loc[len(data)] = [class_name, attribute_name, generated_sentence, sentence, matching_strategy]
 
             if len(actual_sentences) == 0:
-                data.loc[len(data)] = [class_name, attribute_name, generated_sentence, ""]
+                data.loc[len(data)] = [class_name, attribute_name, generated_sentence, "", ""]
 
         # print("Time for create attribute map ", (end-start)/60)
         return data
 
     def create_enum_map(self, enum_df, concepts, relationships, actual_description):
-        data = pd.DataFrame(columns=['source', 'target', 'generated_description', 'actual_description'])
+        data = pd.DataFrame(columns=['source', 'target', 'generated_description', 'actual_description', 'matching_strategy'])
         all_sentence_ids = set()
 
         for sdx in range(len(actual_description)):
@@ -122,6 +124,7 @@ class AttributeMatcher:
                 if not enum_presence_set:
                     enum_presence_set = set(list(set().union(*lists)))
 
+            matching_strategy = "extracted_tuple"
             answer_set = enum_member_presence_set & enum_presence_set
             if len(answer_set) == 0:
                 if len(enum_member_presence_set) != 0:
@@ -130,14 +133,15 @@ class AttributeMatcher:
                     answer_set = enum_presence_set
                 else:
                     answer_set = all_sentence_ids
+                    matching_strategy = "all_sentences"
 
             actual_sentence_ids.update(answer_set)
             actual_sentences = [actual_description[int(idx.replace("S", ""))] for idx in actual_sentence_ids]
             for sentence in actual_sentences:
-                data.loc[len(data)] = [enum, enum_member, generated_sentence, sentence]
+                data.loc[len(data)] = [enum, enum_member, generated_sentence, sentence, matching_strategy]
 
             if len(actual_sentences) == 0:
-                data.loc[len(data)] = [enum, enum_member, generated_sentence, ""]
+                data.loc[len(data)] = [enum, enum_member, generated_sentence, "", ""]
 
         # print("Time for create attribute map ", (end-start)/60)
         return data

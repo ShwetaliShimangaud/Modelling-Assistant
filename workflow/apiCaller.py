@@ -1,12 +1,14 @@
 import random
+import time
 
 from openai import OpenAI
 
+client = OpenAI()
+
 
 def call_api(prompt, system_prompt="You are a helpful, respectful and honest assistant."):
-    client = OpenAI()
     completion = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o",
         temperature=1,
         top_p=1,
         max_completion_tokens=2048,
