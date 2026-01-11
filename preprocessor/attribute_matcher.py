@@ -5,7 +5,9 @@ import pandas as pd
 
 class AttributeMatcher:
     def create_attributes_map(self, attributes_description, concepts, actual_description):
-        data = pd.DataFrame(columns=['class_name', 'attributes', 'generated_description', 'actual_description', 'matching_strategy'])
+        data = pd.DataFrame(
+            columns=['class_name', 'attributes', 'generated_description', 'actual_description', 'matching_strategy'])
+        data_dict = []
         all_sentence_ids = set()
         for sdx in range(len(actual_description)):
             all_sentence_ids.add("S" + str(sdx))
@@ -60,6 +62,13 @@ class AttributeMatcher:
 
             actual_sentence_ids.update(answer_set)
             actual_sentences = [actual_description[int(idx.replace("S", ""))] for idx in actual_sentence_ids]
+            data_dict.append({
+                'class_name': class_name,
+                'attributes': attribute_name,
+                'generated_description': generated_sentence,
+                'actual_description': actual_sentences,
+                'matching_strategy': matching_strategy
+            })
             for sentence in actual_sentences:
                 data.loc[len(data)] = [class_name, attribute_name, generated_sentence, sentence, matching_strategy]
 
@@ -67,11 +76,13 @@ class AttributeMatcher:
                 data.loc[len(data)] = [class_name, attribute_name, generated_sentence, "", ""]
 
         # print("Time for create attribute map ", (end-start)/60)
-        return data
+        return data, data_dict
 
     def create_enum_map(self, enum_df, concepts, relationships, actual_description):
-        data = pd.DataFrame(columns=['source', 'target', 'generated_description', 'actual_description', 'matching_strategy'])
+        data = pd.DataFrame(
+            columns=['source', 'target', 'generated_description', 'actual_description', 'matching_strategy'])
         all_sentence_ids = set()
+        data_dict = []
 
         for sdx in range(len(actual_description)):
             all_sentence_ids.add("S" + str(sdx))
@@ -140,8 +151,16 @@ class AttributeMatcher:
             for sentence in actual_sentences:
                 data.loc[len(data)] = [enum, enum_member, generated_sentence, sentence, matching_strategy]
 
+            data_dict.append({
+                'source': enum,
+                'target': enum_member,
+                'generated_description': generated_sentence,
+                'actual_description': actual_sentences,
+                'matching_strategy': matching_strategy
+            })
+
             if len(actual_sentences) == 0:
                 data.loc[len(data)] = [enum, enum_member, generated_sentence, "", ""]
 
         # print("Time for create attribute map ", (end-start)/60)
-        return data
+        return data, data_dict

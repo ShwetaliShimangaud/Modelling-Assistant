@@ -88,6 +88,53 @@ class AbstractChecker(ABC):
     def process_response(self, response, model_element):
         pass
 
+    def get_threshold_to_achieve_plurality(self, num):
+        if num == 1:
+            return 1
+        elif num == 5:
+            return 3
+        elif num == 7:
+            return 4
+        else:
+            raise ValueError("Invalid value provided for number of prompts")
+
+    def synchronous_run(self, actual_sentence, generated_sentence, source, target, model_element, multiplicity):
+        yes_count = 0
+        no_count = 0
+        unclear_count = 0
+
+        results = []
+
+        prompts = self.get_prompts(model_element)
+
+        threshold_for_result = self.get_threshold_to_achieve_plurality(len(prompts))
+
+        for prompt in prompts:
+            combined_prompt = format_string(
+                prompt, source, target, generated_sentence, actual_sentence, multiplicity
+            )
+            response = apiCaller.call_api(combined_prompt)
+            results.append(response)
+
+            res = self.process_response(response, model_element)
+            if res.startswith("Yes") or res.startswith("yes"):
+                yes_count = yes_count + 1
+            elif res.startswith("No") or res.startswith("no"):
+                no_count = no_count + 1
+            else:
+                unclear_count = unclear_count + 1
+
+            if yes_count > threshold_for_result:
+                return results, True
+
+            elif no_count > threshold_for_result:
+                return results, False
+
+            elif unclear_count > threshold_for_result:
+                return results, 'not clear'
+
+        return results, 'not clear'
+
     def run(self, actual_sentence, generated_sentence, source, target, model_element, multiplicity):
         yes_count = 0
         no_count = 0

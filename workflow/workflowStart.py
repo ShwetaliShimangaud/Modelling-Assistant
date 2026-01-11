@@ -8,6 +8,8 @@ from workflow.contradictionChecker import ContradictionChecker
 from workflow.containmentChecker import ContainmentChecker
 import time
 
+from workflow.workflowUtil import synchronous_execution_all_matching_sentences, synchronous_execution_until_matched
+
 
 def get_prompts(file_name, model_element):
     dirname = util.get_project_directory()
@@ -41,7 +43,7 @@ def get_prompts(file_name, model_element):
 
 
 class WorkflowStart:
-    def __init__(self, individual_maps, domain, results_dir):
+    def __init__(self, individual_maps, domain, results_dir, run_in_parallel):
         self.individual_maps = individual_maps
         self.results_dir = f"{results_dir}/predictions"
         self.equality_checker = EqualityChecker()
@@ -52,6 +54,8 @@ class WorkflowStart:
         self.checks = ['equality', 'contradiction', 'inclusion']
         self.checkers = {}
         self.check_results = {}
+
+        self.run_in_parallel = run_in_parallel
 
         self.elements = ['attributes', 'associations', 'aggregations', 'compositions', 'inheritance', 'enums']
 
@@ -76,11 +80,6 @@ class WorkflowStart:
         else:
             return self.containment_checker
 
-    def add_dummy_values(self, check_index, pred_map, i):
-        for index in range(check_index + 1, len(self.checks)):
-            check = self.checks[index]
-            pred_map.at[i, check] = False
-
     def run(self):
         # Take actual and generated sentence Run all the checkers one by one. if result of any checker is true then
         # accordingly add it in warnings or errors array, Run next checker only if result of previous checker is false
@@ -93,50 +92,14 @@ class WorkflowStart:
         if not os.path.exists(rf"{self.results_dir}//{self.domain}"):
             os.makedirs(f"{self.results_dir}//{self.domain}")
 
-        # For each category of model element
-        for index in range(len(self.individual_maps)):
-            pred_map = self.individual_maps[index]
+        # synchronous execution, run for all matching sentences
+        # pred_map, errors = synchronous_execution_all_matching_sentences(self.individual_maps, self.checkers,
+        #                                                                 self.check_results)
 
-            if index > 0:
-                print("completed map : ", self.elements[index - 1])
+        # synchronous execution, run until result is achieved
+        llm_results = synchronous_execution_until_matched(self.individual_maps, self.checkers, self.check_results)
 
-            # For each model element
-            for i, row in pred_map.iterrows():
-                actual_description = row['actual_description']
-                generated_description = row['generated_description']
-                source = row.get('source', '')
-                target = row.get('target', '')
-                multiplicity = row.get('multiplicity', '')
-
-                # each check
-                for check_index, check in enumerate(self.checks):
-                    checker = self.checkers[check]
-                    check_res = self.check_results[(check, self.elements[index])]
-
-                    if True:
-                    # if check not in pred_map.columns or pred_map.at[i, check] is None or pd.isna(pred_map.at[i,
-                    # check]):
-                        results, res = checker.run(actual_description, generated_description, source, target,
-                                                   self.elements[index], multiplicity)
-                        pred_map.at[i, check] = res
-                        result = [actual_description, generated_description]
-                        result.extend(results)
-                        check_res.loc[len(check_res)] = result
-
-                        if isinstance(res, bool):
-                            if res:
-                                if check == 'contradiction':
-                                    errors.append({
-                                        'actual_description': actual_description,
-                                        'generated_description': generated_description
-                                    })
-
-                                    # This function add False value for remaining checks, this is done to avoid code
-                                    # break in next steps
-                                self.add_dummy_values(check_index, pred_map, i)
-                                break
-
-            pred_map.to_csv(f"{self.results_dir}/{self.domain}/{self.elements[index]}_pred_map2.csv", index=False)
+        # pred_map.to_csv(f"{self.results_dir}/{self.domain}/{self.elements[index]}_pred_map2.csv", index=False)
         for check in self.checks:
             for element in self.elements:
                 check_res = self.check_results[(check, element)]
@@ -144,25 +107,24 @@ class WorkflowStart:
 
         return errors
 
-
-domain_name, results_dir = "R9-be-well-app", "../final_evaluation"
-attributes_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/attributes_pred_map.csv")
-associations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/associations_pred_map.csv")
-aggregations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/aggregations_pred_map.csv")
-compositions_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/compositions_pred_map.csv")
-inheritance_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/inheritance_pred_map.csv")
-enum_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/enums_pred_map.csv")
-
-
-try:
-    start_time = time.perf_counter()
-    workflow = WorkflowStart(
-        [attributes_map, associations_map, aggregations_map, compositions_map,
-         inheritance_map, enum_map], domain_name, results_dir)
-    errors = workflow.run()
-    end_time = time.perf_counter()
-    elapsed_time = end_time - start_time
-    print(f"LLM took {elapsed_time:.6f} seconds")
-    log_entry = f"LLM took {elapsed_time:.6f} seconds\n"
-except Exception:
-    print("got exception")
+# domain_name, results_dir = "R9-be-well-app", "../final_evaluation"
+# attributes_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/attributes_pred_map.csv")
+# associations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/associations_pred_map.csv")
+# aggregations_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/aggregations_pred_map.csv")
+# compositions_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/compositions_pred_map.csv")
+# inheritance_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/inheritance_pred_map.csv")
+# enum_map = pd.read_csv(f"{results_dir}/predictions/{domain_name}/enums_pred_map.csv")
+#
+#
+# try:
+#     start_time = time.perf_counter()
+#     workflow = WorkflowStart(
+#         [attributes_map, associations_map, aggregations_map, compositions_map,
+#          inheritance_map, enum_map], domain_name, results_dir)
+#     errors = workflow.run()
+#     end_time = time.perf_counter()
+#     elapsed_time = end_time - start_time
+#     print(f"LLM took {elapsed_time:.6f} seconds")
+#     log_entry = f"LLM took {elapsed_time:.6f} seconds\n"
+# except Exception:
+#     print("got exception")

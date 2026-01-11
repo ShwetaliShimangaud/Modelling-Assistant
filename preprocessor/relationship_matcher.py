@@ -17,8 +17,9 @@ class RelationshipMatcher:
                                  sentences,
                                  concepts, language_model, noun_chunks):
         data = pd.DataFrame(
-            columns=['source', 'target', 'role', 'multiplicity', 'generated_description', 'actual_description', 'matching_strategy'])
-
+            columns=['source', 'target', 'role', 'multiplicity', 'generated_description', 'actual_description',
+                     'matching_strategy'])
+        data_dict = []
         all_sentence_ids = set()
         for sdx in range(len(sentences)):
             all_sentence_ids.add("S" + str(sdx))
@@ -28,8 +29,10 @@ class RelationshipMatcher:
             target = row['target'].lower()
             role = row['role']
             multiplicity = row.get('multiplicity', '')
-            actual_sentence_ids, matching_strategy = util.find_matching_description(source, target, row['source_role'], role,
-                                                                 relationships, concepts, sentences, language_model, noun_chunks)
+            actual_sentence_ids, matching_strategy = util.find_matching_description(source, target, row['source_role'],
+                                                                                    role,
+                                                                                    relationships, concepts, sentences,
+                                                                                    language_model, noun_chunks)
             # for i, relationship in relationships.iterrows():
             #     # TODO add check for role
             #     rel_source = relationship['source'].lower()
@@ -102,7 +105,17 @@ class RelationshipMatcher:
             for sentence in actual_sentences:
                 data.loc[len(data)] = [source, target, role, multiplicity, row['sentence'], sentence, matching_strategy]
 
+            data_dict.append({
+
+                'source': source,
+                'target': target,
+                'role': role,
+                'multiplicity': multiplicity,
+                'generated_description': row['sentence'],
+                'actual_description': actual_sentences,
+                'matching_strategy': matching_strategy
+            })
             if len(actual_sentences) == 0:
                 data.loc[len(data)] = [source, target, role, multiplicity, row['sentence'], "", ""]
 
-        return data
+        return data, data_dict

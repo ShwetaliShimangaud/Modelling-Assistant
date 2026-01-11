@@ -102,40 +102,40 @@ class Assistant:
             f"{self.results_dir}/predictions/{self.domain_name}/extracted_relationships.xlsx", index=False)
 
         with timer("Semantic matching", self.log_file_path):
-            self.attributes_map = self.attribute_matcher.create_attributes_map(
+            self.attributes_map, attributes_dict = self.attribute_matcher.create_attributes_map(
                 self.description_generator.get_attributes(),
                 self.concepts_extractor.df_concepts,
                 original_description)
 
-            self.associations_map = self.relationships_matcher.create_relationships_map(
+            self.associations_map, associations_dict = self.relationships_matcher.create_relationships_map(
                 self.description_generator.get_attributes(),
                 self.description_generator.get_associations(),
                 self.relationships_extractor.df_class_associations,
                 original_description, self.concepts_extractor.df_concepts,
                 self.language_model, noun_chunks)
 
-            self.aggregations_map = self.relationships_matcher.create_relationships_map(
+            self.aggregations_map, aggregations_dict = self.relationships_matcher.create_relationships_map(
                 self.description_generator.get_attributes(),
                 self.description_generator.get_aggregations(),
                 self.relationships_extractor.df_class_associations,
                 original_description, self.concepts_extractor.df_concepts,
                 self.language_model, noun_chunks)
 
-            self.compositions_map = self.relationships_matcher.create_relationships_map(
+            self.compositions_map, compositions_dict = self.relationships_matcher.create_relationships_map(
                 self.description_generator.get_attributes(),
                 self.description_generator.get_compositions(),
                 self.relationships_extractor.df_class_associations,
                 original_description, self.concepts_extractor.df_concepts,
                 self.language_model, noun_chunks)
 
-            self.inheritance_map = self.relationships_matcher.create_relationships_map(
+            self.inheritance_map, inheritance_dict = self.relationships_matcher.create_relationships_map(
                 self.description_generator.get_attributes(),
                 self.description_generator.get_inheritance(),
                 self.relationships_extractor.df_class_associations,
                 original_description, self.concepts_extractor.df_concepts,
                 self.language_model, noun_chunks)
 
-            self.enum_map = self.attribute_matcher.create_enum_map(
+            self.enum_map, enum_dict = self.attribute_matcher.create_enum_map(
                 self.description_generator.get_enums(),
                 self.concepts_extractor.df_concepts,
                 self.relationships_extractor.df_class_associations,
@@ -161,7 +161,7 @@ class Assistant:
         with timer("LLM ", self.log_file_path):
             workflow = WorkflowStart(
                 [self.attributes_map, self.associations_map, self.aggregations_map, self.compositions_map,
-                 self.inheritance_map, self.enum_map], self.domain_name, self.results_dir)
+                 self.inheritance_map, self.enum_map], self.domain_name, self.results_dir, self.runInParallel)
             errors = workflow.run()
 
         with timer("Result calculation", self.log_file_path):
