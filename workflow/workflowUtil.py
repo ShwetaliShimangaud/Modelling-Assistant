@@ -1,6 +1,8 @@
+import asyncio
 import time
 
 import pandas as pd
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 checks = ['equality', 'contradiction', 'inclusion']
 elements = ['attributes', 'associations', 'aggregations', 'compositions', 'inheritance', 'enums']
@@ -33,7 +35,7 @@ def synchronous_execution_until_matched(individual_maps, checkers, check_results
 
             startTime = time.time()
 
-            pred_map.at[i,'time'] = startTime
+            pred_map.at[i, 'time'] = startTime
 
             for actual_sentence in actual_sentences:
                 pred_row = [source, target, role, multiplicity, generated_description, actual_sentence]
@@ -84,54 +86,124 @@ def synchronous_execution_until_matched(individual_maps, checkers, check_results
 # Each map contains information like model element, generated sentence and all matching sentences
 # @param checkers: EqualityChecker, ContradictionChecker and ContainmentChecker instances
 # @param check_results: dataframe to store results of each query made to LLM, based on element type and check
+def asynchronous_execution(
+        individual_maps,
+        checkers,
+        check_results
+):
+    return asyncio.run(
+        _fully_async_execution(
+            individual_maps,
+            checkers,
+            check_results
+        )
+    )
 
-def asynchronous_execution(individual_maps, checkers, check_results):
+
+async def _fully_async_execution(
+        individual_maps,
+        checkers,
+        check_results
+):
     llm_results = []
-    for index in range(len(individual_maps)):
-        pred_map = individual_maps[index]
+
+    task_meta = {}
+
+    row_task_total = {}
+    row_task_done = {}
+    row_start_time = {}
+
+    for index, pred_map in enumerate(individual_maps):
         results_map = pd.DataFrame(columns=pred_map.columns)
+        llm_results.append(results_map)
+
         for i, row in pred_map.iterrows():
-            actual_sentences = row['actual_description']  # list of all matching sentences
-            generated_description = row['generated_description']
+            actual_sentences = row['actual_description']
+            generated = row['generated_description']
             source = row.get('source', row['class_name'])
             target = row.get('target', row['attributes'])
             multiplicity = row.get('multiplicity', '')
             role = row.get('role', '')
 
-            for actual_sentence in actual_sentences:
-                pred_row = [source, target, role, multiplicity, generated_description, actual_sentence]
-                isTrue = False
+            key = (index, i)
 
-                for check_index, check in enumerate(checks):
+            # ✅ row-level timing
+            row_start_time[key] = time.time()
+            row_task_done[key] = 0
+            row_task_total[key] = len(actual_sentences) * len(checks)
+
+            for actual in actual_sentences:
+                for check in checks:
                     checker = checkers[check]
-                    check_res = check_results[(check, elements[index])]
 
-                    results, res = checker.synchronous_run(actual_sentence, generated_description, source, target,
-                                                           elements[index], multiplicity)
-                    pred_row.append(res)
-                    result = [actual_sentence, generated_description]
-                    result.extend(results)
-                    check_res.loc[len(check_res)] = result
+                    task = asyncio.create_task(
+                        checker.async_run_checker(
+                            actual,
+                            generated,
+                            source,
+                            target,
+                            elements[index],
+                            multiplicity
+                        )
+                    )
 
-                    # check if result is true, if it is true,
-                    # 1. Do not check next test e.g. if equality test is true do not check for contradiction
-                    # or inclusion
-                    # 2. Also, do not check for rest of the matching sentences
-                    if isinstance(res, bool):
-                        if res:
-                            isTrue = True
-                            # This function add False value for remaining checks, this is done to avoid code
-                            # break in next steps
-                            add_dummy_values(check_index, pred_row)
-                            pred_map.at[i, check] = True
-                            break
+                    task_meta[task] = (
+                        key,
+                        results_map,
+                        pred_map,
+                        i,
+                        actual,
+                        generated,
+                        source,
+                        target,
+                        role,
+                        multiplicity,
+                        check
+                    )
 
-                results_map.loc[len(results_map)] = pred_row
-                if isTrue:
-                    break
+    for task in asyncio.as_completed(task_meta.keys()):
+        responses, final = await task
 
+        (
+            key,
+            results_map,
+            pred_map,
+            i,
+            actual,
+            generated,
+            source,
+            target,
+            role,
+            multiplicity,
+            check
+        ) = task_meta[task]
 
-        llm_results.append(results_map)
+        # Store results
+        results_map.loc[len(results_map)] = [
+            source,
+            target,
+            role,
+            multiplicity,
+            generated,
+            actual,
+            final
+        ]
+
+        check_res = check_results[(check, elements[key[0]])]
+        check_res.loc[len(check_res)] = [
+            actual,
+            generated,
+            *responses
+        ]
+
+        pred_map.at[i, check] = final
+
+        # ✅ update row-level completion count
+        row_task_done[key] += 1
+
+        # ✅ record end time ONLY when all tasks for this row are done
+        if row_task_done[key] == row_task_total[key]:
+            pred_map.at[i, 'time'] = time.time() - row_start_time[key]
 
     return llm_results
 

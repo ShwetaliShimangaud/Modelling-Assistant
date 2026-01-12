@@ -1,11 +1,17 @@
+import asyncio
+import random
+import time
 from abc import ABC, abstractmethod
 
 import pandas as pd
+from openai import RateLimitError
 
 from sentence_generator import util
 from workflow import apiCaller
 from sentence_generator.util import is_singular
 from concurrent.futures import ThreadPoolExecutor, as_completed
+
+from workflow.apiCaller import call_llm_async
 
 
 def format_value(multiplicity):
@@ -134,6 +140,86 @@ class AbstractChecker(ABC):
                 return results, 'not clear'
 
         return results, 'not clear'
+
+    async def call_llm_with_retry(self, prompt, max_retries=5):
+        for attempt in range(max_retries):
+            try:
+                return await call_llm_async(prompt)
+
+            except RateLimitError:
+                backoff = (2 ** attempt) + random.uniform(0, 1)
+                await asyncio.sleep(backoff)
+
+        raise RuntimeError("Max retries exceeded")
+
+    async def run_single_prompt_async(
+            self,
+            prompt,
+            actual_sentence,
+            generated_sentence,
+            source,
+            target,
+            multiplicity,
+            model_element
+    ):
+        formatted_prompt = format_string(
+            prompt,
+            source,
+            target,
+            generated_sentence,
+            actual_sentence,
+            multiplicity
+        )
+
+        response = await self.call_llm_with_retry(
+            formatted_prompt
+        )
+
+        processed = self.process_response(response, model_element)
+        return response, processed
+
+    async def async_run_checker(
+            self,
+            actual_sentence,
+            generated_sentence,
+            source,
+            target,
+            model_element,
+            multiplicity
+    ):
+        prompts = self.get_prompts(model_element)
+
+        tasks = [
+            self.run_single_prompt_async(
+                prompt,
+                actual_sentence,
+                generated_sentence,
+                source,
+                target,
+                multiplicity,
+                model_element
+            )
+            for prompt in prompts
+        ]
+
+        results = await asyncio.gather(*tasks)
+
+        responses = [r for r, _ in results]
+        processed = [p for _, p in results]
+
+        yes_count = sum(p.lower().startswith("yes") for p in processed)
+        no_count = sum(p.lower().startswith("no") for p in processed)
+
+        threshold = self.get_threshold_to_achieve_plurality(len(prompts))
+
+        if yes_count > threshold:
+            final = True
+        elif no_count > threshold:
+            final = False
+        else:
+            final = "not clear"
+
+        return responses, final
 
     def run(self, actual_sentence, generated_sentence, source, target, model_element, multiplicity):
         yes_count = 0
